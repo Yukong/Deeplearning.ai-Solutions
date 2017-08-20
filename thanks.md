@@ -23,3 +23,4 @@
 ## 提供帮助人员
 
 - [@wetstreet](https://github.com/wetstreet) fixed some grammatical and translation errors #1
+- [@lzwhard](https://github.com/lzwhard) 2.14向量化逻辑回归梯度下降 #2
