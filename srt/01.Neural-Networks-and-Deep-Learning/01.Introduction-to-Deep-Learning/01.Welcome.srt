@@ -3,12 +3,10 @@
 Hello and welcome
 大家好 欢迎各位
 
-
 2
 00:00:02,825 --> 00:00:03,924
 As you probably know
 你们也许知道了
-
 
 3
 00:00:04,060 --> 00:00:07,379
@@ -732,6 +730,4 @@ we'll talk about deep learning
 aplly to supervised learning
 我们将谈到深度学习在监督学习的使用
 
-144
-00:05:31,544 --> 00:05:31,544
 
