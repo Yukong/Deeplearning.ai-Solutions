@@ -1,288 +1,288 @@
 1
 00:00:00,210 --> 00:00:03,240
 In the previous video, I mentioned that broadcasting
-ÔÚÖ®Ç°µÄÊÓÆµÖĞ ÎÒÌáµ½ÁË¹ã²¥(broadcasting)
+åœ¨ä¹‹å‰çš„è§†é¢‘ä¸­ æˆ‘æåˆ°äº†å¹¿æ’­(broadcasting)
 
 2
 00:00:03,240 --> 00:00:07,040
 is another technique that you can use
 to make your Python code run faster.
-ÕâÊÇÁíÍâÒ»ÖÖÊ¹ÄãµÄpython´úÂëÔËĞĞµÃ¸ü¿ìµÄ¼¼Êõ
+è¿™æ˜¯å¦å¤–ä¸€ç§ä½¿ä½ çš„pythonä»£ç è¿è¡Œå¾—æ›´å¿«çš„æŠ€æœ¯
 
 3
 00:00:07,040 --> 00:00:11,860
 In this video, let's delve into how
 broadcasting in Python actually works.
-ÏÖÔÚÎÒÃÇ½«ÉîÈëÁË½âËüµÄbroadcasting¾ßÌåÊÇÈçºÎ¹¤×÷µÄ
+ç°åœ¨æˆ‘ä»¬å°†æ·±å…¥äº†è§£å®ƒçš„broadcastingå…·ä½“æ˜¯å¦‚ä½•å·¥ä½œçš„
 
 4
 00:00:11,860 --> 00:00:14,240
 Let's suppose today broadcasting with an example.
-ÈÃÎÒÃÇÓÃÒ»¸öÀı×ÓÒı³ö½ñÌìÒª½²µÄbroadcasting
+è®©æˆ‘ä»¬ç”¨ä¸€ä¸ªä¾‹å­å¼•å‡ºä»Šå¤©è¦è®²çš„broadcasting
 
 5
 00:00:14,240 --> 00:00:18,730
 In this matrix, I've shown the number
 of calories from carbohydrates,
-Õâ¸ö¾ØÕóÖĞÕ¹Ê¾ÁË4ÖÖ²»Í¬Ê³Îï ÒÔ¼°Ã¿100gÊ³ÎïÖĞµÄ
+è¿™ä¸ªçŸ©é˜µä¸­å±•ç¤ºäº†4ç§ä¸åŒé£Ÿç‰© ä»¥åŠæ¯100gé£Ÿç‰©ä¸­çš„
 
 6
 00:00:18,730 --> 00:00:22,320
 proteins, and fats in 100 grams of four different foods.
-Ì¼Ë®»¯ºÏÎï µ°°×ÖÊºÍÖ¬·¾ÖĞº¬ÓĞµÄ¿¨Â·Àï
+ç¢³æ°´åŒ–åˆç‰© è›‹ç™½è´¨å’Œè„‚è‚ªä¸­å«æœ‰çš„å¡è·¯é‡Œ
 
 7
 00:00:22,320 --> 00:00:25,380
 So for example, a 100 grams of apples turns out,
-ÀıÈç Ã»100gÆ»¹û
+ä¾‹å¦‚ æ¯100gè‹¹æœ
 
 8
 00:00:25,380 --> 00:00:29,690
 has 56 calories from carbs, and
 much less from proteins and fats.
-ÓĞ56¿¨Â·ÀïÀ´×ÔÌ¼Ë®»¯ºÏÎï
-µ°°×ÖÊºÍÖ¬·¾ÖĞ½öº¬ÓĞºÜÉÙ¿¨Â·Àï
+æœ‰56å¡è·¯é‡Œæ¥è‡ªç¢³æ°´åŒ–åˆç‰©
+è›‹ç™½è´¨å’Œè„‚è‚ªä¸­ä»…å«æœ‰å¾ˆå°‘å¡è·¯é‡Œ
 
 9
 00:00:29,690 --> 00:00:35,110
 Whereas, in contrast, a 100 grams of
 beef has 104 calories from protein and
-Ïà·´£¬100gÅ£ÈâµÄµ°°×ÖÊÖĞº¬ÓĞ104¿¨Â·Àï
+ç›¸åï¼Œ100gç‰›è‚‰çš„è›‹ç™½è´¨ä¸­å«æœ‰104å¡è·¯é‡Œ
 
 10
 00:00:35,110 --> 00:00:37,620
 135 calories from fat.
-Ö¬·¾ÖĞº¬ÓĞ135¿¨Â·Àï
+è„‚è‚ªä¸­å«æœ‰135å¡è·¯é‡Œ
 
 11
 00:00:37,620 --> 00:00:43,330
 Now, let's say your goal is to
 calculate the percentage of calories
-ÄãµÄÈÎÎñÊÇ·Ö±ğ¼ÆËãÕâËÄÖÖÊ³ÎïµÄ
+ä½ çš„ä»»åŠ¡æ˜¯åˆ†åˆ«è®¡ç®—è¿™å››ç§é£Ÿç‰©çš„
 
 12
 00:00:43,330 --> 00:00:48,440
 from carbs, proteins and fats for each of the four foods.
-Ì¼Ë®»¯ºÏÎï¡¢µ°°×ÖÊºÍÖ¬·¾²úÉúµÄ¿¨Â·ÀïµÄ°Ù·Ö±È
+ç¢³æ°´åŒ–åˆç‰©ã€è›‹ç™½è´¨å’Œè„‚è‚ªäº§ç”Ÿçš„å¡è·¯é‡Œçš„ç™¾åˆ†æ¯”
 
 13
 00:00:48,440 --> 00:00:52,338
 So, for example, if you look at this column and
-ÎÒÃÇÒÔÕâÒ»ÁĞÎªÀı
+æˆ‘ä»¬ä»¥è¿™ä¸€åˆ—ä¸ºä¾‹
 
 14
 00:00:52,338 --> 00:00:57,697
 add up the numbers in that column
 you get that 100 grams of apple
-°Ñ¸ÃÁĞËùÓĞÊı×Ö¼ÓÆğÀ´ Äã»á·¢ÏÖÃ¿100gÆ»¹û
+æŠŠè¯¥åˆ—æ‰€æœ‰æ•°å­—åŠ èµ·æ¥ ä½ ä¼šå‘ç°æ¯100gè‹¹æœ
 
 15
 00:00:57,697 --> 00:01:02,580
 has 56 plus 1.2 plus 1.8 so that's 59 calories.
-56+1.2+1.8 ÓĞ59¿¨Â·Àï
+56+1.2+1.8 æœ‰59å¡è·¯é‡Œ
 
 16
 00:01:02,580 --> 00:01:06,806
 And so as a percentage the percentage of
-ÏÂÀ´Ëã°Ù·Ö±È
+ä¸‹æ¥ç®—ç™¾åˆ†æ¯”
 
 17
 00:01:06,806 --> 00:01:11,800
 calories from carbohydrates in an apple would
-Æ»¹ûµÄÌ¼Ë®»¯ºÏÎïËù²úÉúµÄ¿¨Â·Àï
+è‹¹æœçš„ç¢³æ°´åŒ–åˆç‰©æ‰€äº§ç”Ÿçš„å¡è·¯é‡Œ
 
 18
 00:01:11,800 --> 00:01:16,932
 be 56 over 59, that's about 94.9%.
-Õ¼56/59 ´óÔ¼ÊÇ94.9%
+å 56/59 å¤§çº¦æ˜¯94.9%
 
 19
 00:01:16,932 --> 00:01:22,399
 So most of the calories in an apple
 come from carbs, whereas in contrast,
-Òò´ËÆ»¹ûµÄ¿¨Â·ÀïÖ÷ÒªÀ´×ÔÌ¼Ë®»¯ºÏÎï
+å› æ­¤è‹¹æœçš„å¡è·¯é‡Œä¸»è¦æ¥è‡ªç¢³æ°´åŒ–åˆç‰©
 
 20
 00:01:22,399 --> 00:01:27,630
 most of the calories of beef come
 from protein and fat and so on.
-Ïà·´ Å£ÈâµÄ¿¨Â·ÀïÖ÷ÒªÀ´×Ôµ°°×ÖÊºÍÖ¬·¾
+ç›¸å ç‰›è‚‰çš„å¡è·¯é‡Œä¸»è¦æ¥è‡ªè›‹ç™½è´¨å’Œè„‚è‚ª
 
 21
 00:01:27,630 --> 00:01:33,630
 So the calculation you want is really
 to sum up each of the four columns
-ÄãĞèÒª×öµÄÔËËã¾ÍÊÇ°ÑÕâ¸ö¾ØÕóµÄ4ÁĞÊı×Ö·Ö±ğ¼ÓÆğÀ´
+ä½ éœ€è¦åšçš„è¿ç®—å°±æ˜¯æŠŠè¿™ä¸ªçŸ©é˜µçš„4åˆ—æ•°å­—åˆ†åˆ«åŠ èµ·æ¥
 
 22
 00:01:33,630 --> 00:01:38,740
 of this matrix to get the total number
 of calories in 100 grams of apples,
-µÃµ½100gÆ»¹û
+å¾—åˆ°100gè‹¹æœ
 
 23
 00:01:38,740 --> 00:01:40,920
 beef, eggs, and potatoes.
-Å£Èâ¡¢¼¦µ°¡¢ÍÁ¶¹×Ü¹²º¬ÓĞµÄ¿¨Â·Àï
+ç‰›è‚‰ã€é¸¡è›‹ã€åœŸè±†æ€»å…±å«æœ‰çš„å¡è·¯é‡Œ
 
 24
 00:01:40,920 --> 00:01:45,090
 And then to divide throughout the matrix,
-È»ºó¶ÔÕû¸ö¾ØÕó×ö³ı·¨ÔËËã
+ç„¶åå¯¹æ•´ä¸ªçŸ©é˜µåšé™¤æ³•è¿ç®—
 
 25
 00:01:47,230 --> 00:01:51,230
 so as to get the percentage of
 calories from carbs, proteins and
-µÃµ½ËÄÖÖÊ³ÎïµÄÌ¼Ë®»¯ºÏÎï µ°°×ÖÊ Ö¬·¾
+å¾—åˆ°å››ç§é£Ÿç‰©çš„ç¢³æ°´åŒ–åˆç‰© è›‹ç™½è´¨ è„‚è‚ª
 
 26
 00:01:51,230 --> 00:01:54,870
 fats for each of the four foods.
-·Ö±ğ²úÉú¿¨Â·ÀïµÄ°Ù·Ö±È
+åˆ†åˆ«äº§ç”Ÿå¡è·¯é‡Œçš„ç™¾åˆ†æ¯”
 
 27
 00:01:54,870 --> 00:02:01,370
 So the question is, can you do
 this without an explicit for-loop?
-ÎÊÌâÊÇ Äã¿ÉÒÔ²»ÓÃforÑ­»·Íê³ÉÃ´
+é—®é¢˜æ˜¯ ä½ å¯ä»¥ä¸ç”¨forå¾ªç¯å®Œæˆä¹ˆ
 
 28
 00:02:01,370 --> 00:02:03,290
 Let's take a look at
 how you could do that.
-ÎÒÃÇ¿´Ò»ÏÂÄã¿ÉÒÔÔõÃ´ÊµÏÖ
+æˆ‘ä»¬çœ‹ä¸€ä¸‹ä½ å¯ä»¥æ€ä¹ˆå®ç°
 
 29
 00:02:04,450 --> 00:02:08,602
 What I'm going to do is
 show you how you can set,
-ÎÒ½ÓÏÂÀ´ÏòÄãÕ¹Ê¾ÈçºÎ½â¾ö¸ÃÎÊÌâ
+æˆ‘æ¥ä¸‹æ¥å‘ä½ å±•ç¤ºå¦‚ä½•è§£å†³è¯¥é—®é¢˜
 
 30
 00:02:08,602 --> 00:02:12,990
 say this matrix equal to
 three by four matrix A.
-ÈÃÕâ¸ö¾ØÕóµÈÓÚÒ»¸ö3*4µÄ¾ØÕóA
+è®©è¿™ä¸ªçŸ©é˜µç­‰äºä¸€ä¸ª3*4çš„çŸ©é˜µA
 
 31
 00:02:12,990 --> 00:02:18,300
 And then with one line of Python code
 we're going to sum down the columns.
-½ÓÏÂÀ´ÎÒÃÇÓÃÒ»ĞĞPython´úÂë°Ñ¾ØÕó°´ÁĞ¼ÓÆğÀ´
+æ¥ä¸‹æ¥æˆ‘ä»¬ç”¨ä¸€è¡ŒPythonä»£ç æŠŠçŸ©é˜µæŒ‰åˆ—åŠ èµ·æ¥
 
 32
 00:02:18,300 --> 00:02:22,078
 So we're going to get four numbers
 corresponding to the total number
-ÎÒÃÇ½«µÃµ½4¸öÊı×Ö ±íÊ¾ÕâËÄÖÖÊ³Îï
+æˆ‘ä»¬å°†å¾—åˆ°4ä¸ªæ•°å­— è¡¨ç¤ºè¿™å››ç§é£Ÿç‰©
 
 33
 00:02:22,078 --> 00:02:25,046
 of calories in these four
 different types of foods,
-Ëùº¬¿¨Â·Àï×ÜÊı
+æ‰€å«å¡è·¯é‡Œæ€»æ•°
 
 34
 00:02:25,046 --> 00:02:28,095
 100 grams of these four
 different types of foods.
-100g ËÄÖÖ²»Í¬µÄÊ³Îï
+100g å››ç§ä¸åŒçš„é£Ÿç‰©
 
 35
 00:02:28,095 --> 00:02:32,113
 And I'm going to use a second line
 of Python code to divide each of
-ÎÒ½ÓÏÂÀ´»áÓÃµÚ¶şĞĞPython´úÂë½«ËÄÁĞ·Ö±ğ³ıÒÔ
+æˆ‘æ¥ä¸‹æ¥ä¼šç”¨ç¬¬äºŒè¡ŒPythonä»£ç å°†å››åˆ—åˆ†åˆ«é™¤ä»¥
 
 36
 00:02:32,113 --> 00:02:35,390
 the four columns by
 their corresponding sum.
-ËûÃÇ¶ÔÓ¦µÄ×ÜºÍ
+ä»–ä»¬å¯¹åº”çš„æ€»å’Œ
 
 37
 00:02:35,390 --> 00:02:37,250
 If that verbal description
 wasn't very clearly,
-Èç¹û¿ÚÍ·±íÊö»¹²»¹»Çå³şµÄ»°
+å¦‚æœå£å¤´è¡¨è¿°è¿˜ä¸å¤Ÿæ¸…æ¥šçš„è¯
 
 38
 00:02:37,250 --> 00:02:40,670
 hopefully it will be clearer in a second
 when we look in the Python code.
-Ï£ÍûÎÒÃÇ¿ÉÒÔÍ¨¹ıPython´úÂë±íÊöÇå³ş
+å¸Œæœ›æˆ‘ä»¬å¯ä»¥é€šè¿‡Pythonä»£ç è¡¨è¿°æ¸…æ¥š
 
 39
 00:02:40,670 --> 00:02:42,460
 So here we are in the Jupyter notebook.
-ÎÒÃÇ´ò¿ªJupyter notebook
+æˆ‘ä»¬æ‰“å¼€Jupyter notebook
 
 40
 00:02:42,460 --> 00:02:46,150
 I've already written this first
 piece of code to prepopulate
-ÎÒÒÑ¾­Ğ´ºÃÁËµÚÒ»¶Î´úÂë
+æˆ‘å·²ç»å†™å¥½äº†ç¬¬ä¸€æ®µä»£ç 
 
 41
 00:02:46,150 --> 00:02:49,860
 the matrix A with the numbers we had
 just now, so we'll hit shift enter and
-½«ÎÒÃÇÖ®Ç°¸ø³öµÄÊıÖµ´æÈë¾ØÕóA ÎÒÃÇ°´ÏÂshift enter
+å°†æˆ‘ä»¬ä¹‹å‰ç»™å‡ºçš„æ•°å€¼å­˜å…¥çŸ©é˜µA æˆ‘ä»¬æŒ‰ä¸‹shift enter
 
 42
 00:02:49,860 --> 00:02:51,220
 just run that, so there's the matrix A.
-ÔËĞĞ´úÂë ¾ÍÓĞÁË¾ØÕóA
+è¿è¡Œä»£ç  å°±æœ‰äº†çŸ©é˜µA
 
 43
 00:02:51,220 --> 00:02:55,080
 And now here are the two
 lines of Python code.
-½ÓÏÂÀ´ÊÇÁ½ĞĞPython´úÂë
+æ¥ä¸‹æ¥æ˜¯ä¸¤è¡ŒPythonä»£ç 
 
 44
 00:02:55,080 --> 00:02:59,983
 First, we're going to compute
 cal = A.sum(axis=0).
-Ê×ÏÈ ÎÒÃÇ¼ÆËãcal = A.sum(axis=0)
+é¦–å…ˆ æˆ‘ä»¬è®¡ç®—cal = A.sum(axis=0)
 
 45
 00:02:59,983 --> 00:03:02,280
 And axis equals 0 means to sum vertically.
-axis=0±íÊ¾×İÏòÇóºÍ
+axis=0è¡¨ç¤ºçºµå‘æ±‚å’Œ
 
 46
 00:03:02,280 --> 00:03:05,280
 We'll say more about that in a little bit.
-ÎÒÃÇÉÔºó»á¸üÏ¸ÖÂµÄÌÖÂÛ
+æˆ‘ä»¬ç¨åä¼šæ›´ç»†è‡´çš„è®¨è®º
 
 47
 00:03:05,280 --> 00:03:06,076
 And then print cal.
-È»ºó´òÓ¡cal
+ç„¶åæ‰“å°cal
 
 48
 00:03:06,076 --> 00:03:07,825
 So we've sum vertically.
-ÎÒÃÇÒÑ¾­×İÏòµÄ°ÑËûÃÇ¼ÓÆğÀ´ÁË
+æˆ‘ä»¬å·²ç»çºµå‘çš„æŠŠä»–ä»¬åŠ èµ·æ¥äº†
 
 49
 00:03:07,825 --> 00:03:13,735
 Now 59 is the total number of
 calories in the apple, 239 was
-59ÊÇÆ»¹û×Ü¹²º¬ÓĞµÄ¿¨Â·Àï
+59æ˜¯è‹¹æœæ€»å…±å«æœ‰çš„å¡è·¯é‡Œ
 
 50
 00:03:13,735 --> 00:03:19,575
 the total number of calories in the beef
 and the eggs and potato and so on.
-239ÊÇÅ£Èâ×Ü¹²º¬ÓĞµÄ¿¨Â·Àï ºóÃæÊÇ¼¦µ° ÍÁ¶¹
+239æ˜¯ç‰›è‚‰æ€»å…±å«æœ‰çš„å¡è·¯é‡Œ åé¢æ˜¯é¸¡è›‹ åœŸè±†
 
 51
 00:03:19,575 --> 00:03:25,151
 And then with a compute
-½ÓÏÂÀ´¼ÆËã
+æ¥ä¸‹æ¥è®¡ç®—
 
 52
 00:03:25,151 --> 00:03:30,733
@@ -292,610 +292,610 @@ percentage = A/cal.reshape(1,4).
 00:03:30,733 --> 00:03:33,927
 Actually we want percentages,
 so multiply by 100 here.
-ÎÒÃÇÏëÒªµÄÊÇ°Ù·Ö±È£¬Òò´ËÕâÀï³Ë100
+æˆ‘ä»¬æƒ³è¦çš„æ˜¯ç™¾åˆ†æ¯”ï¼Œå› æ­¤è¿™é‡Œä¹˜100
 
 54
 00:03:35,913 --> 00:03:38,860
 And then let's print percentage.
-È»ºóÎÒÃÇ´òÓ¡percentage
+ç„¶åæˆ‘ä»¬æ‰“å°percentage
 
 55
 00:03:40,800 --> 00:03:41,950
 Let's run that.
-ÔËĞĞ
+è¿è¡Œ
 
 56
 00:03:41,950 --> 00:03:46,870
 And so that command we've taken the matrix A and
-ÎÒÃÇÓÃÕâÌõÖ¸Áî°Ñ¾ØÕóA³ıÒÔ
+æˆ‘ä»¬ç”¨è¿™æ¡æŒ‡ä»¤æŠŠçŸ©é˜µAé™¤ä»¥
 
 57
 00:03:46,870 --> 00:03:50,820
 divided it by this one by four matrix.
-Õâ¸ö1*4µÄ¾ØÕó
+è¿™ä¸ª1*4çš„çŸ©é˜µ
 
 58
 00:03:50,820 --> 00:03:52,672
 And this gives us
 the matrix of percentages.
-ÎÒÃÇµÃµ½ÁËÕâ¸ö°Ù·Ö±È¾ØÕó
+æˆ‘ä»¬å¾—åˆ°äº†è¿™ä¸ªç™¾åˆ†æ¯”çŸ©é˜µ
 
 59
 00:03:52,672 --> 00:03:57,327
 So as we worked out kind of by
 hand just now in the apple there
-¾ÍÏñÎÒÖ®Ç°ÊÖËãµÄÆ»¹ûÄÇÑù
+å°±åƒæˆ‘ä¹‹å‰æ‰‹ç®—çš„è‹¹æœé‚£æ ·
 
 60
 00:03:57,327 --> 00:04:02,480
 was a first column 94.9% of
 the calories are from carbs.
-94.9%µÄ¿¨Â·Àï¶¼À´×ÔÌ¼Ë®»¯ºÏÎï
+94.9%çš„å¡è·¯é‡Œéƒ½æ¥è‡ªç¢³æ°´åŒ–åˆç‰©
 
 61
 00:04:02,480 --> 00:04:04,000
 Let's go back to the slides.
-ÎÒÃÇ»Øµ½»ÃµÆÆ¬
+æˆ‘ä»¬å›åˆ°å¹»ç¯ç‰‡
 
 62
 00:04:04,000 --> 00:04:06,310
 So just to repeat the two
 lines of code we had,
-ÖØ¸´Ò»ÏÂÎÒÃÇĞ´µÄÁ½ĞĞ´úÂë
+é‡å¤ä¸€ä¸‹æˆ‘ä»¬å†™çš„ä¸¤è¡Œä»£ç 
 
 63
 00:04:06,310 --> 00:04:09,940
 this is what have written
 out in the Jupyter notebook.
-ÕâÊÇÎÒÃÇÔÚJupyter notebookÖĞĞ´µÄ
+è¿™æ˜¯æˆ‘ä»¬åœ¨Jupyter notebookä¸­å†™çš„
 
 64
 00:04:09,940 --> 00:04:13,306
 To add a bit of detail this parameter,
-ÌÖÂÛÒ»ÏÂ¹ØÓÚÕâ¸ö²ÎÊıµÄÒ»Ğ©Ï¸½Ú
+è®¨è®ºä¸€ä¸‹å…³äºè¿™ä¸ªå‚æ•°çš„ä¸€äº›ç»†èŠ‚
 
 65
 00:04:13,306 --> 00:04:18,540
 (axis = 0), means that you
 want Python to sum vertically.
-(axis=0)±íÊ¾ÄãÏ£ÍûPython×İÏòÇóºÍ
+(axis=0)è¡¨ç¤ºä½ å¸Œæœ›Pythonçºµå‘æ±‚å’Œ
 
 66
 00:04:18,540 --> 00:04:21,567
 So if this is axis 0 this
 means to sum vertically,
-axis 0ÒâÎ¶×Å×İÏòÏà¼Ó
+axis 0æ„å‘³ç€çºµå‘ç›¸åŠ 
 
 67
 00:04:21,567 --> 00:04:24,029
 whereas the horizontal axis is axis 1.
-Ïà·´ ºáÏòÊÇaxis 1
+ç›¸å æ¨ªå‘æ˜¯axis 1
 
 68
 00:04:24,029 --> 00:04:28,050
 So be able to write axis 1 or sum
 horizontally instead of sum vertically.
-ËùÒÔ ¿ÉÒÔĞ´axis 1ºáÏòÇóºÍ
+æ‰€ä»¥ å¯ä»¥å†™axis 1æ¨ªå‘æ±‚å’Œ
 
 69
 00:04:28,050 --> 00:04:30,670
 And then this command here,
-ÕâÊÇ´úÂë
+è¿™æ˜¯ä»£ç 
 
 70
 00:04:30,670 --> 00:04:35,210
 this is an example of Python
 broadcasting where you take a matrix A.
-ÕâÊÇÒ»¸öPython broadcastingµÄÀı×Ó ÄãÓĞÒ»¸ö¾ØÕóA
+è¿™æ˜¯ä¸€ä¸ªPython broadcastingçš„ä¾‹å­ ä½ æœ‰ä¸€ä¸ªçŸ©é˜µA
 
 71
 00:04:35,210 --> 00:04:43,330
 So this is a three by four matrix and
 you divide it by a one by four matrix.
-¾ØÕóAÊÇÒ»¸ö3*4µÄ¾ØÕó ÄãÓÃËü³ıÒÔÒ»¸ö1*4µÄ¾ØÕó
+çŸ©é˜µAæ˜¯ä¸€ä¸ª3*4çš„çŸ©é˜µ ä½ ç”¨å®ƒé™¤ä»¥ä¸€ä¸ª1*4çš„çŸ©é˜µ
 
 72
 00:04:43,330 --> 00:04:47,370
 And technically, after this first
 line of codes cal, the variable cal,
-ÑÏ¸ñÀ´Ëµ ÔÚµÚÒ»ĞĞ´úÂëÖ®ºó ±äÁ¿cal
+ä¸¥æ ¼æ¥è¯´ åœ¨ç¬¬ä¸€è¡Œä»£ç ä¹‹å å˜é‡cal
 
 73
 00:04:47,370 --> 00:04:49,590
 is already a one by four matrix.
-ÒÑ¾­ÊÇÒ»¸ö1*4µÄ¾ØÕóÁË
+å·²ç»æ˜¯ä¸€ä¸ª1*4çš„çŸ©é˜µäº†
 
 74
 00:04:49,590 --> 00:04:52,616
 So technically you don't need
 to call reshape here again, so
-ËùÒÔÑÏ¸ñÀ´Ëµ Äã²»ĞèÒªÔÚÕâÀïÔÙ´Îµ÷ÓÃreshape
+æ‰€ä»¥ä¸¥æ ¼æ¥è¯´ ä½ ä¸éœ€è¦åœ¨è¿™é‡Œå†æ¬¡è°ƒç”¨reshape
 
 75
 00:04:52,616 --> 00:04:54,722
 that's actually a little bit redundant.
-ÕâÊÂÊµÉÏÓĞÒ»µãÈßÓà
+è¿™äº‹å®ä¸Šæœ‰ä¸€ç‚¹å†—ä½™
 
 76
 00:04:54,722 --> 00:04:59,140
 But when I'm writing Python codes if
 I'm not entirely sure what matrix,
-µ«ÊÇÈç¹ûÎÒÔÚĞ´Python´úÂëµÄÊ±ºò²¢²»ÍêÈ«È·¶¨¾ØÕóµÄÎ¬¶È
+ä½†æ˜¯å¦‚æœæˆ‘åœ¨å†™Pythonä»£ç çš„æ—¶å€™å¹¶ä¸å®Œå…¨ç¡®å®šçŸ©é˜µçš„ç»´åº¦
 
 77
 00:04:59,140 --> 00:05:04,056
 what what the dimensions of a matrix I often
 would just call a reshape command just to
-ÎÒÍ¨³£»áµ÷ÓÃreshapeÖ¸Áî
+æˆ‘é€šå¸¸ä¼šè°ƒç”¨reshapeæŒ‡ä»¤
 
 78
 00:05:04,056 --> 00:05:07,833
 make sure that it's the right
 column vector or the row vector or
-È·±£ÕâÊÇÒ»¸öºÏÊÊµÄÁĞÏòÁ¿»òÕßĞĞÏòÁ¿
+ç¡®ä¿è¿™æ˜¯ä¸€ä¸ªåˆé€‚çš„åˆ—å‘é‡æˆ–è€…è¡Œå‘é‡
 
 79
 00:05:07,833 --> 00:05:09,500
 whatever you want it to be.
-»òÕßÄãÏëÒªµÄÎ¬¶È
+æˆ–è€…ä½ æƒ³è¦çš„ç»´åº¦
 
 80
 00:05:09,500 --> 00:05:11,840
 The reshape command is a constant time.
-reshapeÖ¸Áî½öĞè³£Á¿Ê±¼ä
+reshapeæŒ‡ä»¤ä»…éœ€å¸¸é‡æ—¶é—´
 
 81
 00:05:11,840 --> 00:05:15,150
 It's a order one operation
 that's very cheap to call.
-µ÷ÓÃËû²¢²»»á¿ªÏú²¢²»´ó
+è°ƒç”¨ä»–å¹¶ä¸ä¼šå¼€é”€å¹¶ä¸å¤§
 
 82
 00:05:15,150 --> 00:05:18,404
 So don't be shy about using the reshape
 command to make sure that your matrices
-ËùÒÔµ÷ÓÃreshape²»ÓÃÎªÄÑ È·±£ÄãµÄ¾ØÕó
+æ‰€ä»¥è°ƒç”¨reshapeä¸ç”¨ä¸ºéš¾ ç¡®ä¿ä½ çš„çŸ©é˜µ
 
 83
 00:05:18,404 --> 00:05:20,830
 are the size you need it to be.
-ÊÇÄãĞèÒªµÄ³ß´ç
+æ˜¯ä½ éœ€è¦çš„å°ºå¯¸
 
 84
 00:05:21,920 --> 00:05:27,272
 Now, let's explain in greater detail how
 this type of operation works, right?
-ÏÂÀ´ ÎÒÃÇ½âÊÍÕâÒ»²Ù×÷¸ü¶àµÄÏ¸½Ú
+ä¸‹æ¥ æˆ‘ä»¬è§£é‡Šè¿™ä¸€æ“ä½œæ›´å¤šçš„ç»†èŠ‚
 
 85
 00:05:27,272 --> 00:05:33,780
 We had a three by four matrix and
 we divided it by a one by four matrix.
-ÎÒÃÇÓĞÒ»¸ö3*4µÄ¾ØÕó ÎÒÃÇÓÃËü³ıÒÔ1*4µÄ¾ØÕó
+æˆ‘ä»¬æœ‰ä¸€ä¸ª3*4çš„çŸ©é˜µ æˆ‘ä»¬ç”¨å®ƒé™¤ä»¥1*4çš„çŸ©é˜µ
 
 86
 00:05:33,780 --> 00:05:37,840
 So, how can you divide a three by
 four matrix by a one by four matrix?
-ÎÒÃÇÈçºÎÈÃÒ»¸ö3*4µÄ¾ØÕó³ıÒÔ1*4µÄ¾ØÕóÄØ£¿
+æˆ‘ä»¬å¦‚ä½•è®©ä¸€ä¸ª3*4çš„çŸ©é˜µé™¤ä»¥1*4çš„çŸ©é˜µå‘¢ï¼Ÿ
 
 87
 00:05:37,840 --> 00:05:38,860
 Or by one by four vector?
-»òÕßËµ1*4µÄÏòÁ¿
+æˆ–è€…è¯´1*4çš„å‘é‡
 
 88
 00:05:40,130 --> 00:05:43,160
 Let's go through a few more
 examples of broadcasting.
-ÈÃÎÒÃÇ¼ÌĞø¿´¼¸¸öbroadcastingµÄÀı×Ó
+è®©æˆ‘ä»¬ç»§ç»­çœ‹å‡ ä¸ªbroadcastingçš„ä¾‹å­
 
 89
 00:05:43,160 --> 00:05:47,920
 If you take a 4 by 1 vector and
 add it to a number, what
-Èç¹ûÄãÓĞÒ»¸ö4*1µÄÏòÁ¿ ¸øËû¼ÓÒ»¸öÊı
+å¦‚æœä½ æœ‰ä¸€ä¸ª4*1çš„å‘é‡ ç»™ä»–åŠ ä¸€ä¸ªæ•°
 
 90
 00:05:47,920 --> 00:05:53,011
 Python will do is take this number and auto-expand
-Python»á×Ô¶¯µÄ½«Õâ¸öÊı
+Pythonä¼šè‡ªåŠ¨çš„å°†è¿™ä¸ªæ•°
 
 91
 00:05:53,011 --> 00:05:58,180
 it into a four by one vector as well, as follows.
-À©Õ¹³ÉÎªÒ»¸ö4*1µÄÏòÁ¿ ÀıÈç
+æ‰©å±•æˆä¸ºä¸€ä¸ª4*1çš„å‘é‡ ä¾‹å¦‚
 
 92
 00:05:58,180 --> 00:06:00,257
 And so the vector [1, 2, 3, 4]
-ÏòÁ¿[1, 2, 3, 4]
+å‘é‡[1, 2, 3, 4]
 
 93
 00:06:00,257 --> 00:06:04,450
 plus the number 100 ends up
 with that vector on the right.
-¼ÓÉÏÊı×Ö100 µÃµ½ÓÒ±ßÄÇ¸öÏòÁ¿
+åŠ ä¸Šæ•°å­—100 å¾—åˆ°å³è¾¹é‚£ä¸ªå‘é‡
 
 94
 00:06:04,450 --> 00:06:09,280
 You're adding a 100 to every element,
 and in fact we use this form of
-Äã¸øÃ¿¸öÊı×Ö¶¼¼ÓÁË100 ÊÂÊµÉÏÎÒÃÇÔÚÖ®Ç°µÄÊÓÆµÖĞ
+ä½ ç»™æ¯ä¸ªæ•°å­—éƒ½åŠ äº†100 äº‹å®ä¸Šæˆ‘ä»¬åœ¨ä¹‹å‰çš„è§†é¢‘ä¸­
 
 95
 00:06:09,280 --> 00:06:14,365
 broadcasting where that constant was
 the parameter b in an earlier video.
-Ê¹ÓÃÁËÕâÖÖĞÎÊ½µÄbroadcasting ÄÇ¸öÊÓÆµµÄ³£ÊıÊÇb
+ä½¿ç”¨äº†è¿™ç§å½¢å¼çš„broadcasting é‚£ä¸ªè§†é¢‘çš„å¸¸æ•°æ˜¯b
 
 96
 00:06:14,365 --> 00:06:19,414
 And this type of broadcasting works with
 both column vectors and row vectors,
-ÕâÖÖÀàĞÍµÄbroadcastingÍ¬ÑùÊÊÓÃÓëĞĞÏòÁ¿ºÍÁĞÏòÁ¿
+è¿™ç§ç±»å‹çš„broadcastingåŒæ ·é€‚ç”¨ä¸è¡Œå‘é‡å’Œåˆ—å‘é‡
 
 97
 00:06:19,414 --> 00:06:24,157
 and in fact we use a similar form of
 broadcasting earlier with the constant
-ÊÂÊµÉÏ ÔÚÖ®Ç°logistic»Ø¹éµÄÊÓÆµÖĞÎÒÃÇÊ¹ÓÃÁËÀàËÆĞÎÊ½µÄ
+äº‹å®ä¸Š åœ¨ä¹‹å‰logisticå›å½’çš„è§†é¢‘ä¸­æˆ‘ä»¬ä½¿ç”¨äº†ç±»ä¼¼å½¢å¼çš„
 
 98
 00:06:24,157 --> 00:06:29,330
 we've added to a vector being
 the parameter b in logistic regression.
-broadcasting ÎÒÃÇÔÚ¼Ó·¨ÖĞÊ¹ÓÃÁËÏòÁ¿»¯µÄ²ÎÊıb
+broadcasting æˆ‘ä»¬åœ¨åŠ æ³•ä¸­ä½¿ç”¨äº†å‘é‡åŒ–çš„å‚æ•°b
 
 99
 00:06:29,330 --> 00:06:31,610
 Here's another example.
-ÏÂÃæÊÇÁíÒ»¸öÀı×Ó
+ä¸‹é¢æ˜¯å¦ä¸€ä¸ªä¾‹å­
 
 100
 00:06:31,610 --> 00:06:35,900
 Let's say you have a two
 by three matrix and
-¼ÙÉèÄãÓĞÒ»¸ö2*3µÄ¾ØÕó
+å‡è®¾ä½ æœ‰ä¸€ä¸ª2*3çš„çŸ©é˜µ
 
 101
 00:06:35,900 --> 00:06:39,420
 you add it to this one by n matrix.
-Äã¸øËü¼ÓÉÏÕâ¸ö1*nµÄ¾ØÕó
+ä½ ç»™å®ƒåŠ ä¸Šè¿™ä¸ª1*nçš„çŸ©é˜µ
 
 102
 00:06:40,950 --> 00:06:45,682
 So the general case would be if you
-¸üÒ»°ãµÄÇé¿öÊÇ Èç¹ûÄãÓĞÒ»¸ö
+æ›´ä¸€èˆ¬çš„æƒ…å†µæ˜¯ å¦‚æœä½ æœ‰ä¸€ä¸ª
 
 103
 00:06:45,682 --> 00:06:50,583
 have some (m,n) matrix here and
-(m*n)µÄ¾ØÕó
+(m*n)çš„çŸ©é˜µ
 
 104
 00:06:50,583 --> 00:06:55,330
 you add it to a (1,n) matrix.
-Äã¸øËü¼ÓÉÏ(1*n)µÄ¾ØÕó
+ä½ ç»™å®ƒåŠ ä¸Š(1*n)çš„çŸ©é˜µ
 
 105
 00:06:55,330 --> 00:06:58,667
 What Python will do is copy the matrix m,
-Python½«»á¿½±´Õâ¸ö¾ØÕóm´Î
+Pythonå°†ä¼šæ‹·è´è¿™ä¸ªçŸ©é˜µmæ¬¡
 
 106
 00:06:58,667 --> 00:07:03,672
 times to turn this into m by n matrix, so instead of this one by
-½«Õâ¸ö¾ØÕó±äÎªm*nµÄ¾ØÕó À´¿´Õâ¸ö1*3µÄ¾ØÕó
+å°†è¿™ä¸ªçŸ©é˜µå˜ä¸ºm*nçš„çŸ©é˜µ æ¥çœ‹è¿™ä¸ª1*3çš„çŸ©é˜µ
 
 107
 00:07:03,672 --> 00:07:09,980
 three matrix it'll copy it twice in
 this example to turn it into this.
-ÔÚÕâ¸öÀı×ÓÖĞ Ëû»á±»¿½±´Á½´Î ±ä³ÉÕâ¸öÑù×Ó
+åœ¨è¿™ä¸ªä¾‹å­ä¸­ ä»–ä¼šè¢«æ‹·è´ä¸¤æ¬¡ å˜æˆè¿™ä¸ªæ ·å­
 
 108
 00:07:09,980 --> 00:07:14,092
 Also, two by three matrix and
 we'll add these so
-ÕâÊÇ2*3µÄ¾ØÕó ÎÒÃÇ°ÑËûÃÇ¼ÓÆğÀ´
+è¿™æ˜¯2*3çš„çŸ©é˜µ æˆ‘ä»¬æŠŠä»–ä»¬åŠ èµ·æ¥
 
 109
 00:07:14,092 --> 00:07:18,270
 you'll end up with the sum on the right, okay?
-Äã½«»áµÃµ½ÓÒ±ßµÄ½á¹û
+ä½ å°†ä¼šå¾—åˆ°å³è¾¹çš„ç»“æœ
 
 110
 00:07:18,270 --> 00:07:21,583
 So you taken, you added 100 to the first column,
-Äã¸øµÚÒ»ÁĞ¼Ó100
+ä½ ç»™ç¬¬ä¸€åˆ—åŠ 100
 
 111
 00:07:21,583 --> 00:07:25,812
 added 200 to second column, added 300 to the third column.
-µÚ¶şÁĞ¼Ó200 µÚÈıÁĞ¼Ó300
+ç¬¬äºŒåˆ—åŠ 200 ç¬¬ä¸‰åˆ—åŠ 300
 
 112
 00:07:25,812 --> 00:07:28,796
 And this is basically what we did on the previous slide,
-Õâ»ù±¾ÉÏ¾ÍÊÇÎÒÃÇÔÚÉÏÒ»ÕÅ»ÃµÆÆ¬×öµÄ²Ù×÷
+è¿™åŸºæœ¬ä¸Šå°±æ˜¯æˆ‘ä»¬åœ¨ä¸Šä¸€å¼ å¹»ç¯ç‰‡åšçš„æ“ä½œ
 
 113
 00:07:28,796 --> 00:07:32,810
 except that we use a division operation
 instead of an addition operation.
-Ö»ÊÇÎÒÃÇÊ¹ÓÃÁË³ı·¨¶ø²»ÊÇ¼Ó·¨
+åªæ˜¯æˆ‘ä»¬ä½¿ç”¨äº†é™¤æ³•è€Œä¸æ˜¯åŠ æ³•
 
 114
 00:07:34,180 --> 00:07:40,402
 So one last example,
 whether you have a (m,n) matrix and
-×îºóÒ»¸öÀı×Ó Èç¹ûÄãÓĞÒ»¸ö(m*n)µÄ¾ØÕó
+æœ€åä¸€ä¸ªä¾‹å­ å¦‚æœä½ æœ‰ä¸€ä¸ª(m*n)çš„çŸ©é˜µ
 
 115
 00:07:40,402 --> 00:07:46,260
 you add this to a (m,1) vector,
 (m,1) matrix.
-ºÍÕâ¸ö(m*1)µÄÏòÁ¿Ïà¼Ó
+å’Œè¿™ä¸ª(m*1)çš„å‘é‡ç›¸åŠ 
 
 116
 00:07:47,310 --> 00:07:50,760
 Then just copy this n times horizontally.
-¾Í½«Õâ¸öºáÏò¿½±´n´Î
+å°±å°†è¿™ä¸ªæ¨ªå‘æ‹·è´næ¬¡
 
 117
 00:07:50,760 --> 00:07:53,510
 So you end up with an (m,n) matrix.
-Äã×îºóµÃµ½Ò»¸ö(m*n)µÄ¾ØÕó
+ä½ æœ€åå¾—åˆ°ä¸€ä¸ª(m*n)çš„çŸ©é˜µ
 
 118
 00:07:53,510 --> 00:07:56,990
 So as you can imagine you copy
 it horizontally three times.
-Äã¿ÉÒÔÏëÏóÄãºáÏò¿½±´ÁËËûÈı´Î
+ä½ å¯ä»¥æƒ³è±¡ä½ æ¨ªå‘æ‹·è´äº†ä»–ä¸‰æ¬¡
 
 119
 00:07:56,990 --> 00:07:58,650
 And you add those.
-È»ºó°ÑÕâÁ½¸ö¾ØÕó¼ÓÆğÀ´
+ç„¶åæŠŠè¿™ä¸¤ä¸ªçŸ©é˜µåŠ èµ·æ¥
 
 120
 00:07:58,650 --> 00:08:01,070
 So when you add them you end up with this.
-Äã°ÑËûÃÇ¼ÓÆğÀ´ »áµÃµ½Õâ¸ö
+ä½ æŠŠä»–ä»¬åŠ èµ·æ¥ ä¼šå¾—åˆ°è¿™ä¸ª
 
 121
 00:08:01,070 --> 00:08:06,890
 So we've added 100 to the first row and
 added 200 to the second row.
-ÎÒÃÇ¸øµÚÒ»ĞĞ¼ÓÁË100 µÚ¶şĞĞ¼ÓÁË200
+æˆ‘ä»¬ç»™ç¬¬ä¸€è¡ŒåŠ äº†100 ç¬¬äºŒè¡ŒåŠ äº†200
 
 122
 00:08:08,270 --> 00:08:12,061
 Here's the more general principle
 of broadcasting in Python.
-¹ØÓÚPythonÖĞbroadcasting¸üÒ»°ãµÄÔ­Àí
+å…³äºPythonä¸­broadcastingæ›´ä¸€èˆ¬çš„åŸç†
 
 123
 00:08:12,061 --> 00:08:17,353
 If you have an (m,n) matrix and you add or
-Èç¹ûÄãÓĞÒ»¸ö(m*n)µÄ¾ØÕó Äã°ÑËûºÍ
+å¦‚æœä½ æœ‰ä¸€ä¸ª(m*n)çš„çŸ©é˜µ ä½ æŠŠä»–å’Œ
 
 124
 00:08:17,353 --> 00:08:24,409
 subtract or multiply or
 divide with a (1,n) matrix,
-Ò»¸ö(1*n)µÄ¾ØÕó×öËÄÔòÔËËã
+ä¸€ä¸ª(1*n)çš„çŸ©é˜µåšå››åˆ™è¿ç®—
 
 125
 00:08:24,409 --> 00:08:31,177
 then this will copy it m
 times into an (m,n) matrix.
-¾Í»á°ÑÕâ¸ö(1*n)µÄ¾ØÕó¿½±´m´Î³ÉÎªÒ»¸ö(m*n)µÄ¾ØÕó
+å°±ä¼šæŠŠè¿™ä¸ª(1*n)çš„çŸ©é˜µæ‹·è´mæ¬¡æˆä¸ºä¸€ä¸ª(m*n)çš„çŸ©é˜µ
 
 126
 00:08:31,177 --> 00:08:33,781
 And then apply the addition,
 subtraction, and
-È»ºóÔÙÔÚÔªËØ²ãÃæÓ¦ÓÃ¼Ó·¨ ¼õ·¨
+ç„¶åå†åœ¨å…ƒç´ å±‚é¢åº”ç”¨åŠ æ³• å‡æ³•
 
 127
 00:08:33,781 --> 00:08:36,140
 multiplication of division elementwise.
-³Ë·¨ ³ı·¨µÈµÈ
+ä¹˜æ³• é™¤æ³•ç­‰ç­‰
 
 128
 00:08:37,250 --> 00:08:42,250
 If conversely, you were to take the (m,n)
 matrix and add, subtract, multiply,
-Ïà·´ ÄãÓĞÒ»¸ö(m*n)µÄ¾ØÕóºÍÒ»¸ö(m*1)µÄ¾ØÕó
+ç›¸å ä½ æœ‰ä¸€ä¸ª(m*n)çš„çŸ©é˜µå’Œä¸€ä¸ª(m*1)çš„çŸ©é˜µ
 
 129
 00:08:42,250 --> 00:08:49,060
 divide by an (m,1) matrix,
 then also this would copy it now n times.
-×öËÄÔòÔËËã (m*1)µÄ¾ØÕó»á±»¿½±´n´Î
+åšå››åˆ™è¿ç®— (m*1)çš„çŸ©é˜µä¼šè¢«æ‹·è´næ¬¡
 
 130
 00:08:49,060 --> 00:08:54,740
 And turn that into an (m,n) matrix and
 then apply the operation elementwise.
-±ä³ÉÒ»¸ö(m*n)µÄ¾ØÕóÔÙÔÚÔªËØ²ã¼¶×öÔËËã
+å˜æˆä¸€ä¸ª(m*n)çš„çŸ©é˜µå†åœ¨å…ƒç´ å±‚çº§åšè¿ç®—
 
 131
 00:08:54,740 --> 00:09:00,327
 Just one of the broadcasting,
 which is if you have an (m,1) matrix,
-Èç¹ûÄãÓĞÒ»¸ö(m*1)µÄ¾ØÕó
+å¦‚æœä½ æœ‰ä¸€ä¸ª(m*1)çš„çŸ©é˜µ
 
 132
 00:09:00,327 --> 00:09:05,175
 so that's really a column vector
 like [1,2,3], and you add,
-±ÈÈçÒ»¸ö¾ßÌåµÄÁĞÏòÁ¿[1,2,3] Äã°ÑËûºÍÒ»¸ö
+æ¯”å¦‚ä¸€ä¸ªå…·ä½“çš„åˆ—å‘é‡[1,2,3] ä½ æŠŠä»–å’Œä¸€ä¸ª
 
 133
 00:09:05,175 --> 00:09:08,482
 subtract, multiply or
 divide by a real number.
-ÊµÊı×öËÄÔòÔËËã
+å®æ•°åšå››åˆ™è¿ç®—
 
 134
 00:09:08,482 --> 00:09:11,080
 So maybe a (1,1) matrix.
-Ò²¿ÉÄÜÊÇ(1*1)µÄ¾ØÕó
+ä¹Ÿå¯èƒ½æ˜¯(1*1)çš„çŸ©é˜µ
 
 135
 00:09:11,080 --> 00:09:16,117
 So such as that plus 100,
 then you end up copying
-ÀıÈç ¼ÓÉÏ100 È»ºóÄã¿½±´
+ä¾‹å¦‚ åŠ ä¸Š100 ç„¶åä½ æ‹·è´
 
 136
 00:09:16,117 --> 00:09:23,512
 this real number n times until you'll
 also get another (n,1) matrix.
-Õâ¸öÊµÊın´ÎµÃµ½Ò»¸ö(n*1)µÄ¾ØÕó
+è¿™ä¸ªå®æ•°næ¬¡å¾—åˆ°ä¸€ä¸ª(n*1)çš„çŸ©é˜µ
 
 137
 00:09:23,512 --> 00:09:29,700
 And then you perform the operation such
 as addition on this example element-wise.
-È»ºóÄãÔÚÔªËØ²ã¼¶×öÔËËã ÀıÈç¼Ó·¨
+ç„¶åä½ åœ¨å…ƒç´ å±‚çº§åšè¿ç®— ä¾‹å¦‚åŠ æ³•
 
 138
 00:09:29,700 --> 00:09:35,823
 And something similar also works for row vectors.
-ÀàËÆµÄ ĞĞÏòÁ¿Ò²ÊÇÒÔÀàËÆµÄ·½Ê½ÔËĞĞ
+ç±»ä¼¼çš„ è¡Œå‘é‡ä¹Ÿæ˜¯ä»¥ç±»ä¼¼çš„æ–¹å¼è¿è¡Œ
 
 139
 00:09:38,281 --> 00:09:43,730
 The fully general version of broadcasting
 can do even a little bit more than this.
-ÍêÕûµÄbroadcasting»¹ÓĞ¸ü¶àĞÎÊ½
+å®Œæ•´çš„broadcastingè¿˜æœ‰æ›´å¤šå½¢å¼
 
 140
 00:09:43,730 --> 00:09:49,080
 If you're interested you can read the documentation for
-Èç¹ıÄã¶Ô´Ë¸Ğµ½ºÜÓĞĞËÈ¤ Äã¿ÉÒÔÔÚ
+å¦‚è¿‡ä½ å¯¹æ­¤æ„Ÿåˆ°å¾ˆæœ‰å…´è¶£ ä½ å¯ä»¥åœ¨
 
 141
 00:09:49,080 --> 00:09:52,240
 NumPy, and look at broadcasting in that documentation.
-NumPyµÄÎÄµµÖĞ¼ÌĞøÑĞ¾¿broadcasting
+NumPyçš„æ–‡æ¡£ä¸­ç»§ç»­ç ”ç©¶broadcasting
 
 142
 00:09:52,240 --> 00:09:56,380
 That gives an even slightly more general definition of broadcasting.
-ÎÄµµ¸øÁËbroadcasting¸üÍ¨ÓÃµÄ¶¨Òå
+æ–‡æ¡£ç»™äº†broadcastingæ›´é€šç”¨çš„å®šä¹‰
 
 143
 00:09:56,380 --> 00:10:00,140
 But the ones on the slide are the main
 forms of broadcasting that you end up
-µ«ÊÇ½²ÒåÉÏµÄÊÇÄãÔÚÊµÏÖ
+ä½†æ˜¯è®²ä¹‰ä¸Šçš„æ˜¯ä½ åœ¨å®ç°
 
 144
 00:10:00,140 --> 00:10:02,560
 needing to use when you
 implement a neural network.
-Éñ¾­ÍøÂçµÄ¹ı³ÌÖĞĞèÒªµÄĞÎÊ½
+ç¥ç»ç½‘ç»œçš„è¿‡ç¨‹ä¸­éœ€è¦çš„å½¢å¼
 
 145
 00:10:03,890 --> 00:10:06,840
 Before we wrap up,
 just one last comment, which is for
-ÎÒÃÇ½áÊøÖ®Ç° ×îºóÒ»µãËµÃ÷
+æˆ‘ä»¬ç»“æŸä¹‹å‰ æœ€åä¸€ç‚¹è¯´æ˜
 
 146
 00:10:06,840 --> 00:10:10,210
 those of you that are used to
 programming in either MATLAB or
-Èç¹ûÄãÊ¹ÓÃ¹ıMATLAB»ò
+å¦‚æœä½ ä½¿ç”¨è¿‡MATLABæˆ–
 
 147
 00:10:10,210 --> 00:10:15,760
 Octave, if you've ever used the MATLAB or
 Octave function bsxfun
-Octave Èç¹ûÄãÊ¹ÓÃ¹ıËûÃÇµÄÒ»¸öº¯Êıbsxfun
+Octave å¦‚æœä½ ä½¿ç”¨è¿‡ä»–ä»¬çš„ä¸€ä¸ªå‡½æ•°bsxfun
 
 148
 00:10:15,760 --> 00:10:20,590
 in neural network programming bsxfun does
 something similar, not quite the same.
-ÔÚÉñ¾­ÍøÂç±à³ÌÖĞ bsxfunµÄĞ§¹ûÓëÕâ¸öºÜÏàËÆµ«²»ÍêÈ«ÏàÍ¬
+åœ¨ç¥ç»ç½‘ç»œç¼–ç¨‹ä¸­ bsxfunçš„æ•ˆæœä¸è¿™ä¸ªå¾ˆç›¸ä¼¼ä½†ä¸å®Œå…¨ç›¸åŒ
 
 149
 00:10:20,590 --> 00:10:25,750
 But it is often used for similar purpose
 as what we use broadcasting in Python for.
-µ«ËüºÍÎÒÃÇÔÚpythonÖĞÊ¹ÓÃ¹ã²¥µÄÄ¿µÄÊÇÀàËÆµÄ
+ä½†å®ƒå’Œæˆ‘ä»¬åœ¨pythonä¸­ä½¿ç”¨å¹¿æ’­çš„ç›®çš„æ˜¯ç±»ä¼¼çš„
 
 150
 00:10:25,750 --> 00:10:28,505
 But this is really only for very advanced MATLAB and
-ÕâÕæµÄÊÇÖ»Õë¶Ô¸ß¼¶µÄMATLABºÍ
+è¿™çœŸçš„æ˜¯åªé’ˆå¯¹é«˜çº§çš„MATLABå’Œ
 
 151
 00:10:28,505 --> 00:10:31,600
 Octave users, if you've not heard of this,
 don't worry about it.
-OctaveÓÃ»§ Èç¹ûÄãÃ»ÓĞÌıËµ¹ı ²»ÓÃµ£ĞÄ
+Octaveç”¨æˆ· å¦‚æœä½ æ²¡æœ‰å¬è¯´è¿‡ ä¸ç”¨æ‹…å¿ƒ
 
 152
 00:10:31,600 --> 00:10:35,524
 You don't need to know it when you're
 coding up neural networks in Python.
-ÄãÔÚÊ¹ÓÃPythonĞ´Éñ¾­ÍøÂçµÄ¹ı³ÌÖĞ²¢²»ĞèÒªÖªµÀËü
+ä½ åœ¨ä½¿ç”¨Pythonå†™ç¥ç»ç½‘ç»œçš„è¿‡ç¨‹ä¸­å¹¶ä¸éœ€è¦çŸ¥é“å®ƒ
 
 153
 00:10:35,524 --> 00:10:38,720
 So, that was broadcasting in Python.
-Õâ¾ÍÊÇPythonµÄbroadcasting
+è¿™å°±æ˜¯Pythonçš„broadcasting
 
 154
 00:10:38,720 --> 00:10:42,360
 I hope that when you do the programming
 homework that broadcasting will allow you
-Ï£ÍûÄã×ö±à³Ì×÷ÒµµÄÊ±ºòbroadcastingÄÜ¹»
+å¸Œæœ›ä½ åšç¼–ç¨‹ä½œä¸šçš„æ—¶å€™broadcastingèƒ½å¤Ÿ
 
 155
 00:10:42,360 --> 00:10:44,580
 to not only make a code run faster,
-Ê¹ÄãµÄ´úÂëÔËĞĞµÄ¸ü¿ì
+ä½¿ä½ çš„ä»£ç è¿è¡Œçš„æ›´å¿«
 
 156
 00:10:44,580 --> 00:10:48,920
 but also help you get what you want
 done with fewer lines of code.
-ÈÃÄãÓÃ¸üÉÙµÄ´úÂëÍê³ÉÄãÏë×öµÄ
+è®©ä½ ç”¨æ›´å°‘çš„ä»£ç å®Œæˆä½ æƒ³åšçš„
 
 157
 00:10:50,360 --> 00:10:53,630
 Before you dive into the programming
 excercise, I want to share with you just
-ÔÚÄãÈ¥×ö±à³Ì×÷ÒµÖ®Ç° ÎÒÏëºÍÄã·ÖÏí
+åœ¨ä½ å»åšç¼–ç¨‹ä½œä¸šä¹‹å‰ æˆ‘æƒ³å’Œä½ åˆ†äº«
 
 158
 00:10:53,630 --> 00:10:56,290
 one more set of ideas,
 which is that there's some tips and
-Ò»Ğ©¼¼ÇÉ ÕâĞ©¼¼ÇÉ
+ä¸€äº›æŠ€å·§ è¿™äº›æŠ€å·§
 
 159
 00:10:56,290 --> 00:11:00,700
 tricks that I've found reduces
 the number of bugs in my Python code and
-¿ÉÒÔ¼õÉÙÎÒµÄPython´úÂëÖĞµÄbug
+å¯ä»¥å‡å°‘æˆ‘çš„Pythonä»£ç ä¸­çš„bug
 
 160
 00:11:00,700 --> 00:11:02,640
 that I hope will help you too.
-ÎÒÏ£ÍûÍ¬Ñù¶ÔÄãÓĞÓÃ
+æˆ‘å¸Œæœ›åŒæ ·å¯¹ä½ æœ‰ç”¨
 
 161
 00:11:02,640 --> 00:11:05,550
 So with that,
 let's talk about that in the next video.
-ÕâĞ©¼¼ÇÉÎÒÃÇÔÚÏÂÒ»¸öÊÓÆµÖĞÌÖÂÛ
+è¿™äº›æŠ€å·§æˆ‘ä»¬åœ¨ä¸‹ä¸€ä¸ªè§†é¢‘ä¸­è®¨è®º
 
