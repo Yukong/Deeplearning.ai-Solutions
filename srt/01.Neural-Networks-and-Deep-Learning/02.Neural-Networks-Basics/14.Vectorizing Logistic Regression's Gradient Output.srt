@@ -1,57 +1,57 @@
 1
 00:00:00.000 --> 00:00:01.440
 In the previous video,
-ÔÚÖ®Ç°µÄÊÓÆµÖĞ
+åœ¨ä¹‹å‰çš„è§†é¢‘ä¸­
 
 2
 00:00:01.440 --> 00:00:05.700
 you saw how you can use vectorization to compute their predictions
-ÄãÖªµÀÁËÈçºÎÏòÁ¿»¯µÄ¼ÆËãÍ¬Ê±¶Ô
+ä½ çŸ¥é“äº†å¦‚ä½•å‘é‡åŒ–çš„è®¡ç®—åŒæ—¶å¯¹
 
 3
 00:00:05.700 --> 00:00:11.485
 the lowercase a's for an entire training set all at the same time.
-Õû¸öÑµÁ·¼¯Ô¤²â½á¹ûa
+æ•´ä¸ªè®­ç»ƒé›†é¢„æµ‹ç»“æœa
 
 4
 00:00:11.485 --> 00:00:15.030
 In this video, you see how you can use vectorization to also
-ÔÚÕâ¸öÊÓÆµÖĞ Äã½«Ñ§»áÈçºÎÏòÁ¿»¯
+åœ¨è¿™ä¸ªè§†é¢‘ä¸­ ä½ å°†å­¦ä¼šå¦‚ä½•å‘é‡åŒ–
 
 5
 00:00:15.030 --> 00:00:19.205
 perform the gradient computations for all m training samples.
-¼ÆËãm¸öÑµÁ·Êı¾İµÄÌİ¶È
+è®¡ç®—mä¸ªè®­ç»ƒæ•°æ®çš„æ¢¯åº¦
 
 6
 00:00:19.205 --> 00:00:21.380
 Again, all those at the same time.
-Ç¿µ÷Ò»ÏÂ ÊÇÍ¬Ê±¼ÆËã
+å¼ºè°ƒä¸€ä¸‹ æ˜¯åŒæ—¶è®¡ç®—
 
 7
 00:00:21.380 --> 00:00:22.890
 And then at the end of this video,
-ÔÚ±¾ÊÓÆµµÄÄ©Î²
+åœ¨æœ¬è§†é¢‘çš„æœ«å°¾
 
 8
 00:00:22.890 --> 00:00:26.175
 we'll put it all together and show how you can derive
-ÎÒÃÇ»á½«Ö®Ç°½²µÄ½áºÏÆğÀ´ ÏòÄãÕ¹Ê¾
+æˆ‘ä»¬ä¼šå°†ä¹‹å‰è®²çš„ç»“åˆèµ·æ¥ å‘ä½ å±•ç¤º
 
 9
 00:00:26.175 --> 00:00:29.730
 a very efficient implementation of logistic regression.
-ÈçºÎµÃµ½Ò»¸ö·Ç³£¸ßĞ§µÄlogistic»Ø¹éµÄÊµÏÖ
+å¦‚ä½•å¾—åˆ°ä¸€ä¸ªéå¸¸é«˜æ•ˆçš„logisticå›å½’çš„å®ç°
 
 10
 00:00:29.730 --> 00:00:32.505
 So, you may remember that for the gradient computation,
-Äã¿ÉÄÜ¼ÇµÃ½²Ìİ¶È¼ÆËãÊ±
+ä½ å¯èƒ½è®°å¾—è®²æ¢¯åº¦è®¡ç®—æ—¶
 
 11
 00:00:32.505 --> 00:00:36.910
 what we did was we computed dz1 for the first example,
-ÎÒÁĞ¾ÙÁË¼¸¸öÀı×Ó
+æˆ‘åˆ—ä¸¾äº†å‡ ä¸ªä¾‹å­
 
 12
 00:00:36.910 --> 00:00:43.870
@@ -61,67 +61,67 @@ dz1 = a1-y1
 13
 00:00:43.870 --> 00:00:52.134
 a2 minus y2 and so on.
-d2=a2-y2 µÈµÈÁĞ¾ÙÏÂÈ¥
+d2=a2-y2 ç­‰ç­‰åˆ—ä¸¾ä¸‹å»
 
 14
 00:00:52.134 --> 00:00:56.425
 And so on for all m training examples.
-¶Ôm¸öÑµÁ·Êı¾İ×öÍ¬ÑùµÄÔËËã
+å¯¹mä¸ªè®­ç»ƒæ•°æ®åšåŒæ ·çš„è¿ç®—
 
 15
 00:00:56.425 --> 00:01:01.218
 So, what we're going to do is define a new variable,
-ÎÒÃÇÏÖÔÚ¿ÉÒÔ¶¨ÒåÒ»¸öĞÂµÄ±äÁ¿
+æˆ‘ä»¬ç°åœ¨å¯ä»¥å®šä¹‰ä¸€ä¸ªæ–°çš„å˜é‡
 
 16
 00:01:01.218 --> 00:01:08.595
 dZ is going to be dz1, dz2, dzm.
-d(´óĞ´)Z = [dz1,dz2,...dzm]
+d(å¤§å†™)Z = [dz1,dz2,...dzm]
 
 17
 00:01:08.595 --> 00:01:13.910
 Again, all the d lowercase z variables stacked horizontally.
-ËùÓĞµÄdz±äÁ¿ºáÏòÅÅÁĞ
+æ‰€æœ‰çš„dzå˜é‡æ¨ªå‘æ’åˆ—
 
 18
 00:01:13.910 --> 00:01:21.200
 So, this would be 1 by m matrix or alternatively a m dimensional row vector.
-dZ½«»áÊÇÒ»¸ö1*mµÄ¾ØÕó »òÕßËµÒ»¸ömÎ¬ĞĞÏòÁ¿
+dZå°†ä¼šæ˜¯ä¸€ä¸ª1*mçš„çŸ©é˜µ æˆ–è€…è¯´ä¸€ä¸ªmç»´è¡Œå‘é‡
 
 19
 00:01:21.200 --> 00:01:23.520
 Now recall that from the previous slide,
-»ØÒäÖ®Ç°µÄ»ÃµÆÆ¬
+å›å¿†ä¹‹å‰çš„å¹»ç¯ç‰‡
 
 20
 00:01:23.520 --> 00:01:28.405
 we'd already figured out how to compute capital A which was this: a1 through
-ÎÒÃÇÒÑ¾­ÃèÊöÁËÈçºÎ¼ÆËãA,¼´[a1,...am]
+æˆ‘ä»¬å·²ç»æè¿°äº†å¦‚ä½•è®¡ç®—A,å³[a1,...am]
 
 21
 00:01:28.405 --> 00:01:36.735
-am and we had to find capital Y as y1 through ym.
-ÎÒÃÇĞèÒªÕÒµ½Ò»¸öY=[y1,...ym]
+am and we had defined capital Y as y1 through ym.
+æˆ‘ä»¬å·²ç»å®šä¹‰äº†å¤§å†™å­—æ¯Y=[y1,...ym]
 
 22
 00:01:36.735 --> 00:01:39.200
 Also you know, stacked horizontally.
-ÏñÖ®Ç°Ò»Ñù y1,...ymºáÏòÅÅÁĞ
+åƒä¹‹å‰ä¸€æ · y1,...ymæ¨ªå‘æ’åˆ—
 
 23
 00:01:39.200 --> 00:01:42.780
 So, based on these definitions,
-»ùÓÚÕâĞ©¶¨Òå
+åŸºäºè¿™äº›å®šä¹‰
 
 24
 00:01:42.780 --> 00:01:46.770
 maybe you can see for yourself that dZ can be computed as
-ÄãÒ²Ğí»á·¢ÏÖÎÒÃÇ¿ÉÒÔÕâÑù¼ÆËãdZ
+ä½ ä¹Ÿè®¸ä¼šå‘ç°æˆ‘ä»¬å¯ä»¥è¿™æ ·è®¡ç®—dZ
 
 25
 00:01:46.770 --> 00:01:52.750
 just A minus Y because it's going to be equal to a1 - y1.
-dz = A-Y ÕâµÈÍ¬ÓÚ
+dz = A-Y è¿™ç­‰åŒäº
 
 26
 00:01:52.750 --> 00:01:55.670
@@ -131,127 +131,127 @@ So, the first element, a2 - y2,
 27
 00:01:55.670 --> 00:01:59.980
 so in the second element and so on.
-ÒÔ´ËÀàÍÆ
+ä»¥æ­¤ç±»æ¨
 
 28
 00:01:59.980 --> 00:02:06.115
 And, so this first element a1 - y1 is exactly the definition of dz1.
-µÚÒ»¸öÔªËØa1-y1¾ÍÊÇdz1
+ç¬¬ä¸€ä¸ªå…ƒç´ a1-y1å°±æ˜¯dz1
 
 29
 00:02:06.115 --> 00:02:11.670
 The second element is exactly the definition of dz2 and so on.
-µÚ¶ş¸öÔªËØ¾ÍÊÇdz2 ...
+ç¬¬äºŒä¸ªå…ƒç´ å°±æ˜¯dz2 ...
 
 30
 00:02:11.670 --> 00:02:13.965
 So, with just one line of code,
-ËùÒÔ½öĞèÒªÒ»ĞĞ´úÂë
+æ‰€ä»¥ä»…éœ€è¦ä¸€è¡Œä»£ç 
 
 31
 00:02:13.965 --> 00:02:20.095
 you can compute all of this at the same time.
-Äã¾Í¿ÉÒÔÍ¬Ê±Íê³ÉÕâËùÓĞµÄ¼ÆËã
+ä½ å°±å¯ä»¥åŒæ—¶å®Œæˆè¿™æ‰€æœ‰çš„è®¡ç®—
 
 32
 00:02:20.095 --> 00:02:24.010
 Now, in the previous implementation,
-ÔÚÖ®Ç°µÄÊµÏÖÖĞ
+åœ¨ä¹‹å‰çš„å®ç°ä¸­
 
 33
 00:02:24.010 --> 00:02:27.695
 we've gotten rid of one for loop already but we still had
-ÎÒÃÇÒÑ¾­È¥µôÁËÒ»¸öforÑ­»· µ«ÊÇ
+æˆ‘ä»¬å·²ç»å»æ‰äº†ä¸€ä¸ªforå¾ªç¯ ä½†æ˜¯
 
 34
 00:02:27.695 --> 00:02:31.600
 this second for loop over training examples.
-ÎÒÃÇÈÔÈ»ÓĞÒ»¸ö±éÀúÑµÁ·¼¯µÄÑ­»·
+æˆ‘ä»¬ä»ç„¶æœ‰ä¸€ä¸ªéå†è®­ç»ƒé›†çš„å¾ªç¯
 
 35
 00:02:31.600 --> 00:02:35.440
 So we initialize dw to zero to a vector of zeroes.
-ÎÒÃÇÊ¹ÓÃdw=0½«dw³õÊ¼»¯Îª0ÏòÁ¿
+æˆ‘ä»¬ä½¿ç”¨dw=0å°†dwåˆå§‹åŒ–ä¸º0å‘é‡
 
 36
 00:02:35.440 --> 00:02:38.905
 But then we still have to loop over training examples where we have
-µ«ÊÇÎÒÃÇ»¹ÓĞÒ»¸ö±éÀúÑµÁ·¼¯µÄÑ­»·
+ä½†æ˜¯æˆ‘ä»¬è¿˜æœ‰ä¸€ä¸ªéå†è®­ç»ƒé›†çš„å¾ªç¯
 
 37
 00:02:38.905 --> 00:02:43.015
 dw plus equals x1 times dz1,
-¶ÔµÚÒ»¸öÑµÁ·Ñù±¾ÓĞdw+=x1*dz1
+å¯¹ç¬¬ä¸€ä¸ªè®­ç»ƒæ ·æœ¬æœ‰dw+=x1*dz1
 
 38
 00:02:43.015 --> 00:02:50.440
 for the first training example dw plus equals x2 dz2 and so on.
-µÚ¶ş¸öÑù±¾dw+=x2*dz2 ...
+ç¬¬äºŒä¸ªæ ·æœ¬dw+=x2*dz2 ...
 
 39
 00:02:50.440 --> 00:02:56.980
 So we do the M times and then dw divide equals by m and similarly for B, right?
-ÎÒÃÇÖØ¸´M´Î È»ºódw/=m BÒ²ÀàËÆ
+æˆ‘ä»¬é‡å¤Mæ¬¡ ç„¶ådw/=m Bä¹Ÿç±»ä¼¼
 
 40
 00:02:56.980 --> 00:03:03.370
 db was initialized as 0 and db plus equals dz1.
-db±»³õÊ¼»¯Îª0ÏòÁ¿ È»ºódb+=dz1
+dbè¢«åˆå§‹åŒ–ä¸º0å‘é‡ ç„¶ådb+=dz1
 
 41
 00:03:03.370 --> 00:03:09.120
 db plus equals dz2 down to you know
-db+=dz2 ÕâÑùÖØ¸´µ½
+db+=dz2 è¿™æ ·é‡å¤åˆ°
 
 42
 00:03:09.120 --> 00:03:16.835
 dz(m) and db divide equals m. So that's what we had in the previous implementation.
-dzm ½Ó×Ådb/=m Õâ¾ÍÊÇÎÒÃÇÔÚÖ®Ç°µÄÊµÏÖÖĞ×öµÄ
+dzm æ¥ç€db/=m è¿™å°±æ˜¯æˆ‘ä»¬åœ¨ä¹‹å‰çš„å®ç°ä¸­åšçš„
 
 43
 00:03:16.835 --> 00:03:18.700
 We'd already got rid of one for loop.
-ÎÒÃÇÒÑ¾­È¥µôÁËÒ»¸öforÑ­»·
+æˆ‘ä»¬å·²ç»å»æ‰äº†ä¸€ä¸ªforå¾ªç¯
 
 44
 00:03:18.700 --> 00:03:25.045
 So, at least now dw is a vector and we went separately updating dw1,
-ÖÁÉÙÏÖÔÚdwÊÇ¸öÏòÁ¿ÁË È»ºóÎÒÃÇ·Ö±ğ
+è‡³å°‘ç°åœ¨dwæ˜¯ä¸ªå‘é‡äº† ç„¶åæˆ‘ä»¬åˆ†åˆ«
 
 45
 00:03:25.045 --> 00:03:26.850
 dw2 and so on.
-¸üĞÂdz1 dw2µÈ
+æ›´æ–°dz1 dw2ç­‰
 
 46
 00:03:26.850 --> 00:03:29.860
 So, we got rid of that already but we still
-ÎÒÃÇÈ¥µôÁËÒ»¸öforÑ­»·µ«ÊÇ»¹
+æˆ‘ä»¬å»æ‰äº†ä¸€ä¸ªforå¾ªç¯ä½†æ˜¯è¿˜
 
 47
 00:03:29.860 --> 00:03:33.630
 had the for loop over the M examples in the training set.
-ÓĞ¸öforÑ­»·±éÀúÑµÁ·¼¯
+æœ‰ä¸ªforå¾ªç¯éå†è®­ç»ƒé›†
 
 48
 00:03:33.630 --> 00:03:36.290
 So, let's take these operations and vectorize them.
-ÈÃÎÒÃÇ¼ÌĞøÏÂÃæµÄ²Ù×÷°ÑËüÃÇÏòÁ¿»¯
+è®©æˆ‘ä»¬ç»§ç»­ä¸‹é¢çš„æ“ä½œæŠŠå®ƒä»¬å‘é‡åŒ–
 
 49
 00:03:36.290 --> 00:03:38.380
 Here's what we can do, for
-ÎÒÃÇ¿ÉÒÔÕâÃ´×ö
+æˆ‘ä»¬å¯ä»¥è¿™ä¹ˆåš
 
 50
 00:03:38.380 --> 00:03:42.745
 the vectorize implementation of db was doing is basically summing up,
-ÏòÁ¿»¯µÄÊµÏÖ dbÖ»ĞèÒª¶Ô
+å‘é‡åŒ–çš„å®ç° dbåªéœ€è¦å¯¹
 
 51
 00:03:42.745 --> 00:03:47.940
 all of these dzs and then dividing by m. So,
-ÕâĞ©dzÇóºÍÈ»ºó³ıÒÔm
+è¿™äº›dzæ±‚å’Œç„¶åé™¤ä»¥m
 
 52
 00:03:47.940 --> 00:03:51.580
@@ -261,17 +261,17 @@ db=1/m
 53
 00:03:51.580 --> 00:03:56.530
 sum from I equals once through m of dzi and
-¶Ôdz1µ½dzmÇóºÍ
+å¯¹dz1åˆ°dzmæ±‚å’Œ
 
 54
 00:03:56.530 --> 00:04:03.055
 well all the dzs are in that row vector and so in Python,
-ËùÓĞµÄdz×é³ÉÁËÒ»¸öĞĞÏòÁ¿ ËùÒÔ
+æ‰€æœ‰çš„dzç»„æˆäº†ä¸€ä¸ªè¡Œå‘é‡ æ‰€ä»¥
 
 55
 00:04:03.055 --> 00:04:04.765
 what you do is implement you know,
-ÔÚPythonÖĞÄã½öĞèÒª
+åœ¨Pythonä¸­ä½ ä»…éœ€è¦
 
 56
 00:04:04.765 --> 00:04:08.155
@@ -286,22 +286,22 @@ sum of the Z.
 58
 00:04:12.210 --> 00:04:15.115
 So, you just take this variable and call the np.
-ÄãÖ»Òª°ÑÕâ¸ö±äÁ¿´«¸ønp.sumº¯Êı
+ä½ åªè¦æŠŠè¿™ä¸ªå˜é‡ä¼ ç»™np.sumå‡½æ•°
 
 59
 00:04:15.115 --> 00:04:19.195
 sum function on it and that would give you db.
-¾Í¿ÉÒÔµÃµ½db
+å°±å¯ä»¥å¾—åˆ°db
 
 60
 00:04:19.195 --> 00:04:22.330
 How about dw or just write
-ÄÇÃ´dwÄØ
+é‚£ä¹ˆdwå‘¢
 
 61
 00:04:22.330 --> 00:04:26.375
 out the correct equations who can verify is the right thing to do.
-ÏÈĞ´³öÕıÈ·µÄ¹«Ê½ Õâ²ÅÄÜÖ¤Ã÷ÎÒÃÇ×öµÄÊÇÕıÈ·µÄ
+å…ˆå†™å‡ºæ­£ç¡®çš„å…¬å¼ è¿™æ‰èƒ½è¯æ˜æˆ‘ä»¬åšçš„æ˜¯æ­£ç¡®çš„
 
 62
 00:04:26.375 --> 00:04:28.164
@@ -311,147 +311,147 @@ dw=1/m
 63
 00:04:28.164 --> 00:04:34.485
 times the matrix X times dZ transpose.
-dw=1/m*X*dZ×ªÖÃ
+dw=1/m*X*dZè½¬ç½®
 
 64
 00:04:34.485 --> 00:04:37.990
 And, so kind of see why that's the case.
-ÈÃÎÒÃÇ¿´¿´ÎªÊ²Ã´ÊÇÕâÑù
+è®©æˆ‘ä»¬çœ‹çœ‹ä¸ºä»€ä¹ˆæ˜¯è¿™æ ·
 
 65
 00:04:37.990 --> 00:04:41.806
 This equal to one over m then the matrix X's,
-ÕâµÈÓÚ1/m³ËÒÔ
+è¿™ç­‰äº1/mä¹˜ä»¥
 
 66
 00:04:41.806 --> 00:04:48.325
 x1 through xm stacked up in columns like that and dZ
-ÁĞÏòÁ¿x1...xm¶Ñ»ıÆğÀ´
+åˆ—å‘é‡x1...xmå †ç§¯èµ·æ¥
 
 67
 00:04:48.325 --> 00:04:56.040
 transpose is going to be dz1 down to dzm like so.
-dZ×ªÖÃÊÇdz1...dzm
+dZè½¬ç½®æ˜¯dz1...dzm
 
 68
 00:04:56.040 --> 00:05:00.900
 And so, if you figure out what this matrix times this vector works out to be,
-Èç¹ûÄãÃ÷°×Õâ¸ö¾ØÕó³ËÒÔÕâ¸öÏòÁ¿»áµÃµ½Ê²Ã´
+å¦‚æœä½ æ˜ç™½è¿™ä¸ªçŸ©é˜µä¹˜ä»¥è¿™ä¸ªå‘é‡ä¼šå¾—åˆ°ä»€ä¹ˆ
 
 69
 00:05:00.900 --> 00:05:05.585
 it is turns out to be one over m times x1
-ÕâµÈÓÚ1/m    
+è¿™ç­‰äº1/m    
 
 70
 00:05:05.585 --> 00:05:12.523
 dz1 plus... plus xm dzm.
-ÕâµÈÓÚ1/m*[x1*dz1+...+xm*dzm]
+è¿™ç­‰äº1/m*[x1*dz1+...+xm*dzm]
 
 71
 00:05:12.523 --> 00:05:21.405
 And so, this is a n*1 vector and this is what you actually end up with,
-ÕâÊÇÒ»¸ön*1µÄÏòÁ¿ Ò²¾ÍÊÇÄã×îÖÕµÃµ½µÄ
+è¿™æ˜¯ä¸€ä¸ªn*1çš„å‘é‡ ä¹Ÿå°±æ˜¯ä½ æœ€ç»ˆå¾—åˆ°çš„
 
 72
 00:05:21.405 --> 00:05:24.725
 with dw because dw was taking these you know,
-ÒòÎªdwÖĞ°üÀ¨ÁËÕâĞ©
+å› ä¸ºdwä¸­åŒ…æ‹¬äº†è¿™äº›
 
 73
 00:05:24.725 --> 00:05:27.710
 xi dzi and adding them up and so that's what exactly
-xi*dzi È»ºó°ÑËûÃÇ¼ÓÆğÀ´
+xi*dzi ç„¶åæŠŠä»–ä»¬åŠ èµ·æ¥
 
 74
 00:05:27.710 --> 00:05:32.300
 this matrix vector multiplication is doing and so again,
-¾ÍÊÇÕâ¸ö¾ØÕóºÍÏòÁ¿Ïà³Ë×öµÄ
+å°±æ˜¯è¿™ä¸ªçŸ©é˜µå’Œå‘é‡ç›¸ä¹˜åšçš„
 
 75
 00:05:32.300 --> 00:05:35.655
 with one line of code you can compute dw.
-Ö»ÒªÒ»ĞĞ´úÂëÄã¾Í¿ÉÒÔ¼ÆËã³ödw
+åªè¦ä¸€è¡Œä»£ç ä½ å°±å¯ä»¥è®¡ç®—å‡ºdw
 
 76
 00:05:35.655 --> 00:05:40.010
 So, the vectorized implementation of the derivative calculations is just this,
-ÏòÁ¿»¯¼ÆËãµ¼ÊıµÄÊµÏÖ¾ÍÏñÏÂÃæÕâÑù
+å‘é‡åŒ–è®¡ç®—å¯¼æ•°çš„å®ç°å°±åƒä¸‹é¢è¿™æ ·
 
 77
 00:05:40.010 --> 00:05:44.540
 you use this line to implement db and use
-ÄãÓÃÕâĞĞ´úÂë¼ÆËãdb
+ä½ ç”¨è¿™è¡Œä»£ç è®¡ç®—db
 
 78
 00:05:44.540 --> 00:05:50.540
 this line to implement dw and notice that without the for loop over the training set,
-ÕâĞĞ´úÂë¼ÆËãdw ×¢ÒâÎÒÃÇÃ»ÓĞÔÚÑµÁ·¼¯ÉÏÊ¹ÓÃforÑ­»·
+è¿™è¡Œä»£ç è®¡ç®—dw æ³¨æ„æˆ‘ä»¬æ²¡æœ‰åœ¨è®­ç»ƒé›†ä¸Šä½¿ç”¨forå¾ªç¯
 
 79
 00:05:50.540 --> 00:05:55.265
 you can now compute the updates you want to your parameters.
-ÏÖÔÚÄã¿ÉÒÔ¼ÆËã²ÎÊıµÄ¸üĞÂ
+ç°åœ¨ä½ å¯ä»¥è®¡ç®—å‚æ•°çš„æ›´æ–°
 
 80
 00:05:55.265 --> 00:06:01.185
 So now, let's put all together into how you would actually implement logistic regression.
-ÏÖÔÚ ÎÒÃÇ»Ø¹ËÖ®Ç°ËùÑ§ ¿´¿´Ó¦¸ÃÈçºÎÊµÏÖÒ»¸ölogistic»Ø¹é
+ç°åœ¨ æˆ‘ä»¬å›é¡¾ä¹‹å‰æ‰€å­¦ çœ‹çœ‹åº”è¯¥å¦‚ä½•å®ç°ä¸€ä¸ªlogisticå›å½’
 
 81
 00:06:01.185 --> 00:06:02.550
 So, this is our original,
-ÕâÊÇÎÒÃÇÖ®Ç°µÄ
+è¿™æ˜¯æˆ‘ä»¬ä¹‹å‰çš„
 
 82
 00:06:02.550 --> 00:06:07.866
 highly inefficient non vectorize implementation.
-Ã»ÓĞÏòÁ¿»¯·Ç³£µÍĞ§
+æ²¡æœ‰å‘é‡åŒ–éå¸¸ä½æ•ˆ
 
 83
 00:06:07.866 --> 00:06:11.775
 So, the first thing we've done in the previous video was get rid of this volume, right?
-Ê×ÏÈÊÇÎÒÃÇÔÚÇ°Ò»¸öÊÓÆµÖĞ×öµÄÈ¥µôÕâÒ»¶Ñ
+é¦–å…ˆæ˜¯æˆ‘ä»¬åœ¨å‰ä¸€ä¸ªè§†é¢‘ä¸­åšçš„å»æ‰è¿™ä¸€å †
 
 84
 00:06:11.775 --> 00:06:14.400
 So, instead of looping over dw1,
-²»ÓÃÑ­»·±éÀú
+ä¸ç”¨å¾ªç¯éå†
 
 85
 00:06:14.400 --> 00:06:15.755
 dw2 and so on,
-dw1 dw2µÈ
+dw1 dw2ç­‰
 
 86
 00:06:15.755 --> 00:06:23.595
 we have replaced this with a vector value dw which is dw+= xi,
-ÎÒÃÇÒÑ¾­ÓÃÒ»¸öÏòÁ¿»¯µÄ´úÂëdw+=xiÌæ»»ÕâĞ© 
+æˆ‘ä»¬å·²ç»ç”¨ä¸€ä¸ªå‘é‡åŒ–çš„ä»£ç dw+=xiæ›¿æ¢è¿™äº› 
 
 87
 00:06:23.595 --> 00:06:28.775
 which is now a vector times dz(i).
-xiÊÇÒ»¸öÏòÁ¿ ¸øËû³ËÒÔdzi
+xiæ˜¯ä¸€ä¸ªå‘é‡ ç»™ä»–ä¹˜ä»¥dzi
 
 88
 00:06:28.775 --> 00:06:32.000
 But now, we will see that we can also get rid of not
-ÏÖÔÚ ÎÒÃÇ²»½öÒªÈ¡ÏûÄÇĞ©Ñ­»·
+ç°åœ¨ æˆ‘ä»¬ä¸ä»…è¦å–æ¶ˆé‚£äº›å¾ªç¯
 
 89
 00:06:32.000 --> 00:06:36.670
 just for loop of those but also get rid of this for loop.
-»¹ÒªÈ¡ÏûµôÕâ¸öforÑ­»·
+è¿˜è¦å–æ¶ˆæ‰è¿™ä¸ªforå¾ªç¯
 
 90
 00:06:36.670 --> 00:06:38.654
 So, here is how you do it.
-Äã¿ÉÒÔÕâÃ´×ö
+ä½ å¯ä»¥è¿™ä¹ˆåš
 
 91
 00:06:38.654 --> 00:06:42.925
 So, using what we have from the previous slides,
-ÓÃÇ°Ãæ»ÃµÆÆ¬ÎÒÃÇµÃµ½µÄ
+ç”¨å‰é¢å¹»ç¯ç‰‡æˆ‘ä»¬å¾—åˆ°çš„
 
 92
 00:06:42.925 --> 00:06:47.085
@@ -461,37 +461,37 @@ Z=wTX + B
 93
 00:06:47.085 --> 00:06:57.625
 and the code you is write capital Z equals np.
-ÄãµÄ´úÂëÓ¦¸ÃÊÇZ=np.dot(w.T,X)+b
+ä½ çš„ä»£ç åº”è¯¥æ˜¯Z=np.dot(w.T,X)+b
 
 94
 00:06:57.625 --> 00:07:07.315
 w transpose X + b and then A equals sigmoid of capital Z.
-È»ºóA = sigmoid(Z)
+ç„¶åA = sigmoid(Z)
 
 95
 00:07:07.315 --> 00:07:12.710
 So, you have now computed all of this and all of this for all the values of I.
-ÄãÒÑ¾­¶ÔËùÓĞiÍê³ÉÁËÕâĞ©ºÍÕâĞ©¼ÆËã
+ä½ å·²ç»å¯¹æ‰€æœ‰iå®Œæˆäº†è¿™äº›å’Œè¿™äº›è®¡ç®—
 
 96
 00:07:12.710 --> 00:07:14.715
 Next on the previous slide,
-Ö®Ç°µÄ»ÃµÆÆ¬
+ä¹‹å‰çš„å¹»ç¯ç‰‡
 
 97
 00:07:14.715 --> 00:07:21.070
 we said you would compute dZ equals A - Y.
-ÎÒÃÇÖªµÀÄã»¹Ó¦¸Ã¼ÆËãdZ=A-Y
+æˆ‘ä»¬çŸ¥é“ä½ è¿˜åº”è¯¥è®¡ç®—dZ=A-Y
 
 98
 00:07:21.070 --> 00:07:24.460
 So, now you computed all of this for all the values of i.
-¾Í¶ÔËùÓĞiÍê³ÉÁËÕâ¸ö¼ÆËã
+å°±å¯¹æ‰€æœ‰iå®Œæˆäº†è¿™ä¸ªè®¡ç®—
 
 99
 00:07:24.460 --> 00:07:32.495
 Then, finally dw equals 1/m x
-×îºó dw=1/m XdZ.T
+æœ€å dw=1/m XdZ.T
 
 100
 00:07:32.495 --> 00:07:39.700
@@ -506,134 +506,134 @@ db=1/m np.sum(dZ)
 102
 00:07:43.328 --> 00:07:49.120
 So, you've just done front propagation and back propagation,
-ÄãÍê³ÉÁËÇ°ÏòºÍºóÏò´«²¥
+ä½ å®Œæˆäº†å‰å‘å’Œåå‘ä¼ æ’­
 
 103
 00:07:49.120 --> 00:07:53.030
 really computing the predictions and computing the derivatives on
-È·ÊµÊµÏÖÁË¶ÔËùÓĞÑµÁ·Ñù±¾½øĞĞÔ¤²âºÍÇóµ¼
+ç¡®å®å®ç°äº†å¯¹æ‰€æœ‰è®­ç»ƒæ ·æœ¬è¿›è¡Œé¢„æµ‹å’Œæ±‚å¯¼
 
 104
 00:07:53.030 --> 00:07:57.340
 all M training examples without using a for loop.
-¶øÇÒÃ»ÓĞÊ¹ÓÃÒ»¸öforÑ­»·
+è€Œä¸”æ²¡æœ‰ä½¿ç”¨ä¸€ä¸ªforå¾ªç¯
 
 105
 00:07:57.340 --> 00:08:00.835
 And so the gradient descent update then would be you know w
-È»ºóÌİ¶ÈÏÂ½µ¸üĞÂ²ÎÊı
+ç„¶åæ¢¯åº¦ä¸‹é™æ›´æ–°å‚æ•°
 
 106
 00:08:00.835 --> 00:08:04.462
 gets updated as w minus the learning rate times
-w=w-¦Á*dw
+w=w-Î±*dw
 
 107
 00:08:04.462 --> 00:08:12.020
 dw which was just computed above and B is update as B minus the learning rate times db.
-b=b-¦Á*db
+b=b-Î±*db
 
 108
 00:08:12.020 --> 00:08:17.341
 Sometimes it's pretty close to notice that it is an assignment,
-ÓĞÊ±ºòÕâºÍ¸³ÖµºÜ½Ó½ü
+æœ‰æ—¶å€™è¿™å’Œèµ‹å€¼å¾ˆæ¥è¿‘
 
 109
 00:08:17.341 --> 00:08:21.675
 but I guess I haven't been totally consistent with that notation.
-²»¹ıÎÒÓ¦¸ÃÃ»ÓĞÍêÈ«Ê¹ÓÃÕâ¸ö·ûºÅ
+ä¸è¿‡æˆ‘åº”è¯¥æ²¡æœ‰å®Œå…¨ä½¿ç”¨è¿™ä¸ªç¬¦å·
 
 110
 00:08:21.675 --> 00:08:25.450
 But with this, you have just implemented
-ÓĞÁËÕâĞ© 
+æœ‰äº†è¿™äº› 
 
 111
 00:08:25.450 --> 00:08:29.635
 a single iteration of gradient descent for logistic regression.
-ÎÒÃÇ¾ÍÍ¨¹ıÒ»´Îµü´úÊµÏÖÒ»´ÎÌİ¶ÈÏÂ½µ
+æˆ‘ä»¬å°±é€šè¿‡ä¸€æ¬¡è¿­ä»£å®ç°ä¸€æ¬¡æ¢¯åº¦ä¸‹é™
 
 112
 00:08:29.635 --> 00:08:32.308
 Now, I know I said that we should get rid of
-ÎÒÃÇÄÜ²»Ê¹ÓÃforÑ­»·Ê±
+æˆ‘ä»¬èƒ½ä¸ä½¿ç”¨forå¾ªç¯æ—¶
 
 113
 00:08:32.308 --> 00:08:35.260
 explicit for loops whenever you can but if you want to
-¾Í²»ÒªÊ¹ÓÃforÑ­»· µ«ÊÇÈç¹ûÄãÏ£Íû
+å°±ä¸è¦ä½¿ç”¨forå¾ªç¯ ä½†æ˜¯å¦‚æœä½ å¸Œæœ›
 
 114
 00:08:35.260 --> 00:08:38.230
 implement multiple iteration as
-¶à´Îµü´ú½øĞĞ
+å¤šæ¬¡è¿­ä»£è¿›è¡Œ
 
 115
 00:08:38.230 --> 00:08:42.880
 a gradient descent then you still need a for loop over the number of iterations.
-Ìİ¶ÈÏÂ½µ ÄÇÃ´ÄãÈÔÈ»ĞèÒªforÑ­»·
+æ¢¯åº¦ä¸‹é™ é‚£ä¹ˆä½ ä»ç„¶éœ€è¦forå¾ªç¯
 
 116
 00:08:42.880 --> 00:08:47.860
 So, if you want to have a thousand deliveration of gradient descent,
-Èç¹ûÄãÒªÇó1000´Îµ¼Êı½øĞĞÌİ¶ÈÏÂ½µ
+å¦‚æœä½ è¦æ±‚1000æ¬¡å¯¼æ•°è¿›è¡Œæ¢¯åº¦ä¸‹é™
 
 117
 00:08:47.860 --> 00:08:53.675
 you might still need a for loop over the iteration number.
-Äã»òĞíÈÔ¾ÉĞèÒªÒ»¸öforÑ­»·
+ä½ æˆ–è®¸ä»æ—§éœ€è¦ä¸€ä¸ªforå¾ªç¯
 
 118
 00:08:53.675 --> 00:08:55.870
 There is an outermost for loop like that then I
-Õâ¸ö×îÍâÃæµÄforÑ­»·
+è¿™ä¸ªæœ€å¤–é¢çš„forå¾ªç¯
 
 119
 00:08:55.870 --> 00:08:59.210
 don't think there is any way to get rid of that for loop.
-ÎÒÈÏÎªÓ¦¸ÃÃ»ÓĞ·½Ê½°ÑËûÈ¥µô
+æˆ‘è®¤ä¸ºåº”è¯¥æ²¡æœ‰æ–¹å¼æŠŠä»–å»æ‰
 
 120
 00:08:59.210 --> 00:09:02.390
 But I do think it's incredibly cool that you can implement
-²»¹ıÎÒ»¹ÊÇ¾õµÃÒ»´Îµü´ú¾Í¿ÉÒÔ½øĞĞÒ»´ÎÌİ¶ÈÏÂ½µ
+ä¸è¿‡æˆ‘è¿˜æ˜¯è§‰å¾—ä¸€æ¬¡è¿­ä»£å°±å¯ä»¥è¿›è¡Œä¸€æ¬¡æ¢¯åº¦ä¸‹é™
 
 121
 00:09:02.390 --> 00:09:07.117
 at least one iteration of gradient descent without needing to use a full loop.
-¶ø²»ĞèÒªÈÎºÎÑ­»· ÕâºÜcool
+è€Œä¸éœ€è¦ä»»ä½•å¾ªç¯ è¿™å¾ˆcool
 
 122
 00:09:07.117 --> 00:09:09.880
 So, that's it you now have a highly vectorize and
-ÄãµÃµ½ÁËÒ»¸ö¸ß¶ÈÏòÁ¿»¯µÄ
+ä½ å¾—åˆ°äº†ä¸€ä¸ªé«˜åº¦å‘é‡åŒ–çš„
 
 123
 00:09:09.880 --> 00:09:14.745
 highly efficient implementation of gradient descent for logistic regression.
-·Ç³£¸ßĞ§µÄlogistic»Ø¹éµÄÌİ¶ÈÏÂ½µËã·¨
+éå¸¸é«˜æ•ˆçš„logisticå›å½’çš„æ¢¯åº¦ä¸‹é™ç®—æ³•
 
 124
 00:09:14.745 --> 00:09:18.850
 There is just one more detail that I want to talk about in the next video,
-ÕâÀïÓĞÒ»Ğ©Ï¸½ÚÎÒÏëÔÚÏÂ¸öÊÓÆµÖĞÌÖÂÛ
+è¿™é‡Œæœ‰ä¸€äº›ç»†èŠ‚æˆ‘æƒ³åœ¨ä¸‹ä¸ªè§†é¢‘ä¸­è®¨è®º
 
 125
 00:09:18.850 --> 00:09:24.155
 which is in our description here I briefly alluded to this technique called broadcasting.
-ÕâÀïÎÒ¼òµ¥ÌáÒ»ÏÂ ÕâÖÖ¼¼Êõ±»³ÆÎªbroadcasting
+è¿™é‡Œæˆ‘ç®€å•æä¸€ä¸‹ è¿™ç§æŠ€æœ¯è¢«ç§°ä¸ºbroadcasting
 
 126
 00:09:24.155 --> 00:09:28.240
 Broadcasting turns out to be a technique that Python and
-BroadcastingÒ²ÊÇÒ»ÖÖÄÜ¹»Ê¹ÄãµÄ
+Broadcastingä¹Ÿæ˜¯ä¸€ç§èƒ½å¤Ÿä½¿ä½ çš„
 
 127
 00:09:28.240 --> 00:09:32.915
 numpy allows you to use to make certain parts of your code also much more efficient.
-PythonºÍNumpy²¿·Ö´úÂë¸ü¸ßĞ§µÄ¼¼Êõ
+Pythonå’ŒNumpyéƒ¨åˆ†ä»£ç æ›´é«˜æ•ˆçš„æŠ€æœ¯
 
 128
 00:09:32.915 --> 00:09:37.090
 So, let's see some more details of broadcasting in the next video.
-ÎÒÃÇÔÚÏÂ¸öÊÓÆµÖĞÑ§Ï°¹ØÓÚbroadcastingµÄ¸ü¶àÏ¸½Ú
+æˆ‘ä»¬åœ¨ä¸‹ä¸ªè§†é¢‘ä¸­å­¦ä¹ å…³äºbroadcastingçš„æ›´å¤šç»†èŠ‚
