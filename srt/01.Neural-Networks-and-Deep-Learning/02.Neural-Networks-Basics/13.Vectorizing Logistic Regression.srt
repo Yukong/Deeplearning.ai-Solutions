@@ -1,0 +1,656 @@
+﻿1
+00:00:00,860 --> 00:00:03,000
+We have talked about how vectorization
+我们已经讨论过向量化
+
+2
+00:00:03,000 --> 00:00:05,760
+lets you speed up your code significantly.
+是如何显著地加速你的代码
+
+3
+00:00:05,760 --> 00:00:08,160
+In this video, we'll talk about how you can vectorize
+在这次视频中，我们将会谈及向量化是如何
+
+4
+00:00:08,160 --> 00:00:10,545
+the implementation of logistic regression,
+实现在逻辑回归的上面的
+
+5
+00:00:10,545 --> 00:00:12,960
+so they can process an entire training set,
+这样就能在处理整个训练集时
+
+6
+00:00:12,960 --> 00:00:15,930
+that is implement a single elevation of
+gradient descent with respect to an entire training set
+来实现梯度下降算法的单方面优化
+
+7
+00:00:15,930 --> 00:00:22,330
+without using even a single explicit for loop.
+而且甚至用不到一个明确的for循环
+
+8
+00:00:22,330 --> 00:00:24,039
+I'm super excited about this technique,
+对于这一项技术 我特别兴奋
+
+9
+00:00:24,039 --> 00:00:26,670
+and when we talk about neural networks later without
+并且当我们后面谈及神经网络时
+
+10
+00:00:26,670 --> 00:00:30,050
+using even a single explicit for loop.
+同样也用不到一个明确的for循环
+
+11
+00:00:30,050 --> 00:00:31,965
+Let's get started. Let's first examine
+那我们开始吧 我们先回顾
+
+12
+00:00:31,965 --> 00:00:35,965
+the forward propagation steps of logistic regression.
+逻辑回归的正向传播步骤
+
+13
+00:00:35,965 --> 00:00:37,860
+So, if you have m training examples,
+所以，若果你有m个训练样本
+
+14
+00:00:37,860 --> 00:00:40,605
+then to make a prediction on the first example,
+那么对第一个样本进行预测
+
+15
+00:00:40,605 --> 00:00:42,105
+you need to compute that,
+你需要这样计算
+
+16
+00:00:42,105 --> 00:00:45,480
+compute z. I'm using this familiar formula,
+计算出z 运用这个熟悉的公式
+
+17
+00:00:45,480 --> 00:00:47,370
+then compute the activations,
+然后计算激活函数
+
+18
+00:00:47,370 --> 00:00:49,485
+you compute y hat in the first example.
+计算在第一个样本的y冒（预测值）
+
+19
+00:00:49,485 --> 00:00:52,705
+Then to make a prediction on the second training example,
+然后继续去对第二个训练样本做一个预测
+
+20
+00:00:52,705 --> 00:00:54,405
+you need to compute that.
+你需要这样计算
+
+21
+00:00:54,405 --> 00:00:57,085
+Then, to make a prediction on the third example,
+然后去对第三个样本做一个预测
+
+22
+00:00:57,085 --> 00:00:59,045
+you need to compute that, and so on.
+你需要这样计算 以此类推
+
+23
+00:00:59,045 --> 00:01:01,020
+And you might need to do this m times,
+你可能需要这样做上m次
+
+24
+00:01:01,020 --> 00:01:03,855
+if you have M training examples.
+如果你有m个样本
+
+25
+00:01:03,855 --> 00:01:06,250
+So, it turns out, that in order to
+可以看出 为了
+
+26
+00:01:06,250 --> 00:01:08,250
+carry out the forward propagation step,
+执行正向传播步骤
+
+27
+00:01:08,250 --> 00:01:13,435
+that is to compute these predictions on our m training examples,
+需要对m个训练样本都计算出预测结果
+
+28
+00:01:13,435 --> 00:01:14,865
+there is a way to do so,
+但有一个办法可以
+
+29
+00:01:14,865 --> 00:01:17,925
+without needing an explicit for loop.
+不需要任何一个明确的for循环
+
+30
+00:01:17,925 --> 00:01:20,450
+Let's see how you can do it.
+让我们看看如何做到
+
+31
+00:01:20,450 --> 00:01:26,455
+First, remember that we defined a matrix capital X to be your training inputs,
+首先，记得我们曾定义过一个矩阵大写X来作为你的训练输入
+
+32
+00:01:26,455 --> 00:01:30,895
+stacked together in different columns like this.
+像这样子在不同的列中堆积在一起
+
+33
+00:01:30,895 --> 00:01:33,810
+So, this is a matrix,
+这就是一个矩阵
+
+34
+00:01:33,810 --> 00:01:38,425
+that is a NX by M matrix.
+这是一个N_x行m列的矩阵
+
+35
+00:01:38,425 --> 00:01:41,885
+So, I'm writing this as a Python numpy shape,
+我现在写的是Python numpy形式
+
+36
+00:01:41,885 --> 00:01:50,350
+this just means that X is a NX by m dimensional matrix.
+这只是意味X是一个N_x乘以m维的矩阵
+
+37
+00:01:50,350 --> 00:01:54,670
+Now, the first thing I want to do is show how you can compute Z1, Z2,
+现在我首先想要做的是告诉你如何计算z1 z2
+
+38
+00:01:54,670 --> 00:01:56,512
+Z3 and so on,
+以及z3 等等
+
+39
+00:01:56,512 --> 00:01:58,665
+all in one step,
+全都在一个步骤中
+
+40
+00:01:58,665 --> 00:02:01,195
+in fact, with one line of code.
+事实上，仅用了一行代码
+
+41
+00:02:01,195 --> 00:02:06,930
+So, I'm going to construct a 1
+所以我要先构建一个 1×m 的矩阵
+
+42
+00:02:06,930 --> 00:02:13,100
+by M matrix that's really a row vector while I'm going to compute Z1,
+实际上就是一个行向量  然后当我计算z1
+
+43
+00:02:13,100 --> 00:02:15,405
+Z2, and so on,
+z2 等等
+
+44
+00:02:15,405 --> 00:02:18,480
+down to ZM, all at the same time.
+一直到zm 都是在同一时间内（完成计算）
+
+45
+00:02:18,480 --> 00:02:22,175
+It turns out that this can be expressed as
+结果发现它可以表达成
+
+46
+00:02:22,175 --> 00:02:29,225
+W transpose to capital matrix X plus and then this vector B,
+W的转置乘以大写矩阵X加上这个向量b
+
+47
+00:02:29,225 --> 00:02:31,040
+B and so on.
+b,等等
+
+48
+00:02:31,040 --> 00:02:33,315
+B, where this thing,
+b 这个东西
+
+49
+00:02:33,315 --> 00:02:34,480
+this B, B, B, B,
+这个 b b b b
+
+50
+00:02:34,480 --> 00:02:38,980
+B thing is a 1xM vector or
+这个东西就是一个1×m的向量 或者
+
+51
+00:02:38,980 --> 00:02:46,725
+1xM matrix or that is as a M dimensional row vector.
+1×m 的矩阵 或者说是一个m维的行向量
+
+52
+00:02:46,725 --> 00:02:50,495
+So hopefully there you are with matrix multiplication.
+希望你比较熟悉矩阵乘法
+
+53
+00:02:50,495 --> 00:02:56,300
+You might see that W transpose X1,
+那么就会发现 W转置（乘上）x1
+
+54
+00:02:56,300 --> 00:02:58,760
+X2 and so on to XM,
+x2 等等 一直到xm
+
+55
+00:02:58,760 --> 00:03:05,755
+that W transpose can be a row vector.
+这个W转置可以是一个行向量
+
+56
+00:03:05,755 --> 00:03:10,655
+So this W transpose will be a row vector like that.
+所以W转置会是一个这样的行向量
+
+57
+00:03:10,655 --> 00:03:18,614
+And so this first term will evaluate to W transpose X1,
+所以第一个项的关于W转置乘X1
+
+58
+00:03:18,614 --> 00:03:22,970
+W transpose X2 and so on, dot, dot, dot,
+W转置乘X2 等等 点点点
+
+59
+00:03:22,970 --> 00:03:29,840
+W transpose XM, and then we add this second term B,
+W转置乘xm 然后我们加上第二项b
+
+60
+00:03:29,840 --> 00:03:30,960
+B, B, and so on,
+b b 等等
+
+61
+00:03:30,960 --> 00:03:33,565
+you end up adding B to each element.
+当你给每个元素加上b后就结束了
+
+62
+00:03:33,565 --> 00:03:37,650
+So you end up with another 1xM vector.
+所以结束后得出一个1×m的向量
+
+63
+00:03:37,650 --> 00:03:38,955
+Well that's the first element,
+这是第一个元素
+
+64
+00:03:38,955 --> 00:03:40,590
+that's the second element and so on,
+这是第二个元素等等
+
+65
+00:03:40,590 --> 00:03:42,810
+and that's the nth element.
+这是第n个元素
+
+66
+00:03:42,810 --> 00:03:45,605
+And if you refer to the definitions above,
+如果你参考上面的定义
+
+67
+00:03:45,605 --> 00:03:51,250
+this first element is exactly the definition of Z1.
+第一个元素恰恰是z1的定义
+
+68
+00:03:51,250 --> 00:03:57,305
+The second element is exactly the definition of Z2 and so on.
+第二个元素恰恰是z2的定义 等等
+
+69
+00:03:57,305 --> 00:04:00,035
+So just as X was once obtained,
+所以X是一次性获得的
+
+70
+00:04:00,035 --> 00:04:02,870
+when you took your training examples and
+当你把你的训练样本都堆积在一起
+
+71
+00:04:02,870 --> 00:04:07,400
+stacked them next to each other, stacked them horizontally.
+一个挨着一个 横向堆积
+
+72
+00:04:07,400 --> 00:04:11,069
+I'm going to define capital Z to be this where
+我将会把大写Z定义为这个 在这里
+
+73
+00:04:11,069 --> 00:04:16,385
+you take the lowercase Z's and stack them horizontally.
+你用小写z表示 横向排在一起
+
+74
+00:04:16,385 --> 00:04:18,580
+So when you stack the lower case X's corresponding to
+所以当你将对应于不同训练样本
+
+75
+00:04:18,580 --> 00:04:21,080
+a different training examples,horizontally
+的小写x们横向的堆积起来时
+
+76
+00:04:21,080 --> 00:04:24,350
+you get this variable capital X and
+你得到了这个变量 大写X
+
+77
+00:04:24,350 --> 00:04:27,420
+the same way when you take these lowercase Z variables,
+小写z变量也是同样的处理
+
+78
+00:04:27,420 --> 00:04:28,805
+and stack them horizontally,
+把他们横向地堆积起来
+
+79
+00:04:28,805 --> 00:04:34,050
+you get this variable capital Z.
+你就得到了这个变量 大写Z
+
+80
+00:04:34,050 --> 00:04:37,400
+And it turns out, that in order to implement this,
+结果发现 为了计算这个
+
+81
+00:04:37,400 --> 00:04:45,773
+the numpy command is capital Z equals NP dot w dot T,
+numpy的指令为大写Z = np.dot(w.T)
+
+82
+00:04:45,773 --> 00:04:51,095
+that's w transpose X and then plus b.
+(这是w的转置) Z = np.dot(w.T,X) + b
+
+83
+00:04:51,095 --> 00:04:53,645
+Now there is a subtlety in Python,
+这里有个Python巧妙的地方
+
+84
+00:04:53,645 --> 00:04:56,405
+which is at here b is a real number
+在这个地方b是一个实数
+
+85
+00:04:56,405 --> 00:04:59,405
+or if you want to say you know 1x1 matrix,
+或者你可以说是1×1的矩阵
+
+86
+00:04:59,405 --> 00:05:01,330
+is just a normal real number.
+就是一个普通的实数
+
+87
+00:05:01,330 --> 00:05:06,230
+But, when you add this vector to this real number,
+但是 当你把向量加上这个实数时
+
+88
+00:05:06,230 --> 00:05:08,235
+Python automatically takes this real number B
+Python会自动的把实数b
+
+89
+00:05:08,235 --> 00:05:13,235
+and expands it out to this 1XM row vector.
+扩展成一个1×m的行向量
+
+90
+00:05:13,235 --> 00:05:16,490
+So in case this operation seems a little bit mysterious,
+所以这个操作看上去有一点神秘
+
+91
+00:05:16,490 --> 00:05:20,120
+this is called broadcasting in Python,
+在Python中这叫做广播(broadcasting)
+
+92
+00:05:20,120 --> 00:05:22,210
+and you don't have to worry about it for now,
+目前你不用对此感到顾虑
+
+93
+00:05:22,210 --> 00:05:25,760
+we'll talk about it some more in the next video.
+我们会在下一节视频中更多的谈及它
+
+94
+00:05:25,760 --> 00:05:29,180
+But the takeaway is that with just one line of code, with this line of code,
+再说回来 只要用一行的代码 运用这行代码
+
+95
+00:05:29,180 --> 00:05:33,290
+you can calculate capital Z
+你可以计算大写Z
+
+96
+00:05:33,290 --> 00:05:35,698
+and capital Z is going to be a 1XM matrix
+而大写Z是一个1×m的矩阵
+
+97
+00:05:35,698 --> 00:05:37,698
+that contains all of the lower cases Z's.
+包含所有的小写z们
+
+98
+00:05:37,698 --> 00:05:41,200
+Lowercase Z1 through lower case ZM.
+小写z1一直到小写zm
+
+99
+00:05:41,200 --> 00:05:46,255
+So that was Z, how about these values a.
+这就是Z（的内容） 那么变量a是怎样的呢
+
+100
+00:05:46,255 --> 00:05:48,260
+What we like to do next,
+我们接下去要做的
+
+101
+00:05:48,260 --> 00:05:52,685
+is find a way to compute A1,
+是找到一个办法来计算a1
+
+102
+00:05:52,685 --> 00:05:57,220
+A2 and so on to AM,
+a2等等一直到am
+
+103
+00:05:57,220 --> 00:05:58,700
+all at the same time,
+都在同一时间完成
+
+104
+00:05:58,700 --> 00:06:03,350
+and just as stacking lowercase X's resulted in
+就像把小写x们堆积起来形成
+
+105
+00:06:03,350 --> 00:06:08,870
+capital X and stacking horizontally lowercase Z's resulted in capital Z,
+大写X 还有横向的堆积小写z们形成大写Z
+
+106
+00:06:08,870 --> 00:06:10,810
+stacking lower case A,
+堆积小写a
+
+107
+00:06:10,810 --> 00:06:12,470
+is going to result in a new variable,
+就会形成一个新的变量
+
+108
+00:06:12,470 --> 00:06:15,200
+which we are going to define as capital A.
+我们把它定义为大写A
+
+109
+00:06:15,200 --> 00:06:18,075
+And in the program assignment,
+在编程作业中
+
+110
+00:06:18,075 --> 00:06:22,790
+you see how to implement a vector valued sigmoid function,
+你能看到如何对一个向量进行sigmoid函数操作
+
+111
+00:06:22,790 --> 00:06:24,480
+so that the sigmoid function,
+所以sigmoid函数
+
+112
+00:06:24,480 --> 00:06:32,380
+inputs this capital Z as a variable and very efficiently outputs capital A.
+把大写Z当做一个变量进行输入 然后非常高效的输出大写A
+
+113
+00:06:32,380 --> 00:06:36,620
+So you see the details of that in the programming assignment.
+你仔细看看编程作业里的细节
+
+114
+00:06:36,620 --> 00:06:38,110
+So just to recap,
+总的来说
+
+115
+00:06:38,110 --> 00:06:42,655
+what we've seen on this slide is that instead of needing to loop over
+我们在这张幻灯片所看到的是 不需要for循环
+
+116
+00:06:42,655 --> 00:06:47,515
+M training examples to compute lowercase Z and lowercase A,
+（就可以）从m个训练样本来一次性计算出小写z和小写a
+
+117
+00:06:47,515 --> 00:06:52,090
+one of the time, you can implement this one line of code,
+而你运行这些只需要一行代码
+
+118
+00:06:52,090 --> 00:06:54,290
+to compute all these Z's at the same time.
+在同一时间计算所有的z
+
+119
+00:06:54,290 --> 00:06:57,100
+And then, this one line of code,
+这一行的代码
+
+120
+00:06:57,100 --> 00:06:59,260
+with appropriate implementation of
+通过恰当地一次性运用
+
+121
+00:06:59,260 --> 00:07:04,115
+lowercase Sigma to compute all the lowercase A's all at the same time.
+小写的sigma来计算所有的小写a们
+
+122
+00:07:04,115 --> 00:07:05,965
+So this is how you implement
+所以这就是你如何执行
+
+123
+00:07:05,965 --> 00:07:07,948
+a vectorize implementation of
+一个向量的操作
+
+124
+00:07:07,948 --> 00:07:11,560
+the forward propagation for all M training examples at the same time.
+来对所有的m个训练样本 在同一时间计算它的正向传播
+
+125
+00:07:11,560 --> 00:07:13,985
+So to summarize, you've just seen how you can use
+概括一下 你刚刚看到如何
+
+126
+00:07:13,985 --> 00:07:18,100
+vectorization to very efficiently compute all of the activations,
+使用向量化得以高效的计算激活函数
+
+127
+00:07:18,100 --> 00:07:21,700
+all the lowercase A's at the same time.
+在同一时间算出小写a们
+
+128
+00:07:21,700 --> 00:07:24,860
+Next, it turns out, you can also use vectorization very
+接下来 你会发现同样可以用向量化来
+
+129
+00:07:24,860 --> 00:07:27,910
+efficiently to compute the backward propagation,
+高效地计算反向传播
+
+130
+00:07:27,910 --> 00:07:29,650
+to compute the gradients.
+并以此来计算梯度
+
+131
+00:07:29,650 --> 00:07:32,000
+Let's see how you can do that, in the next video.
+我们在下一次视频中 将看到它如何实现
+

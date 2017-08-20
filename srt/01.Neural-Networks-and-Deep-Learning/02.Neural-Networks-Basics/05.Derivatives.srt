@@ -1,0 +1,851 @@
+1
+00:00:00,030 --> 00:00:03,174
+in this video I want to help you gain an
+在这个视频中我想帮助你获得
+【翻译/时间轴：陈倩倩 时间轴/审核：AcceptedDoge】
+
+2
+00:00:03,174 --> 00:00:06,123
+intuitive understanding of calculus and
+对微积分和导数直观的理解
+
+3
+00:00:06,123 --> 00:00:08,378
+the derivatives now maybe you're
+或许你认为
+
+4
+00:00:08,378 --> 00:00:10,672
+thinking that you haven't seen calculus
+你再也没有接触微积分
+
+5
+00:00:10,672 --> 00:00:12,810
+since your college days and depending on
+自从大学后，这取决于你
+
+6
+00:00:12,810 --> 00:00:14,923
+when you graduate maybe that was quite
+什么时候毕业，也许有
+
+7
+00:00:14,923 --> 00:00:17,548
+some time back now if that's what you're
+一段时间了，如果你顾虑这点
+
+8
+00:00:17,548 --> 00:00:19,997
+thinking don't worry you don't need a
+请不要担心，你并不需要
+
+9
+00:00:19,997 --> 00:00:22,504
+deep understanding of calculus in order
+非常深入理解微积分，为了
+
+10
+00:00:22,504 --> 00:00:24,949
+to apply neural networks and deep learning
+高效应用神经网络和深度学习
+
+11
+00:00:24,949 --> 00:00:27,506
+very effectively so if you're watching
+因此如果你观看
+
+12
+00:00:27,506 --> 00:00:29,572
+this video or some of the later videos
+这个视频或者以后的视频
+
+13
+00:00:29,572 --> 00:00:31,348
+be wondering wow this stuff really for
+时心想：哇喔，这些知识
+
+14
+00:00:31,348 --> 00:00:32,805
+me this calculus looks really
+这些运算对我来说真的
+
+15
+00:00:32,805 --> 00:00:35,122
+complicated my advice to you is the
+很复杂，我给你的建议是
+
+16
+00:00:35,122 --> 00:00:37,378
+following which is that watch the videos
+坚持学习视频
+
+17
+00:00:37,378 --> 00:00:39,248
+and then if you could do the homework
+最好做下课后作业
+
+18
+00:00:39,248 --> 00:00:40,806
+and complete the programming homework
+成功地完成编程作业
+
+19
+00:00:40,806 --> 00:00:42,720
+successfully then you can apply deep
+然后你就可以使用深度
+
+20
+00:00:42,720 --> 00:00:45,373
+learning in fact what you see later is
+学习了，事实上之后你将看到
+
+21
+00:00:45,373 --> 00:00:47,676
+that in week 4 will define a couple of
+在第4周将会定义
+
+22
+00:00:47,676 --> 00:00:49,551
+types of functions that will enable you
+很多种类的函数类型，它们能够帮助你把
+
+23
+00:00:49,551 --> 00:00:51,451
+to encapsulate everything that needs to
+所有需要的知识结合起来
+
+24
+00:00:51,451 --> 00:00:53,232
+be done with respect to calculus that
+通过微积分
+
+25
+00:00:53,232 --> 00:00:54,924
+these functions called forward functions
+其中有叫做前向函数
+
+26
+00:00:54,924 --> 00:00:56,572
+and backward functions that you learn
+和反向函数的函数，因此你
+
+27
+00:00:56,572 --> 00:00:58,917
+about that let you put everything you
+不需要了解所有你使用的
+
+28
+00:00:58,917 --> 00:01:00,599
+need to know about calculus into these
+那些微积分中的函数
+
+29
+00:01:00,599 --> 00:01:02,313
+functions so that you don't need to
+因此你无需
+
+30
+00:01:02,313 --> 00:01:04,676
+worry about them anymore beyond that but
+担心它们，除此之外
+
+31
+00:01:04,676 --> 00:01:07,025
+I thought that in this foray into deep
+在对深度学习的尝试中
+
+32
+00:01:07,025 --> 00:01:09,431
+learning that this week we should open
+这周我们
+
+33
+00:01:09,431 --> 00:01:11,218
+up the box and peer a little bit further
+要一探究竟，进一步深入
+
+34
+00:01:11,218 --> 00:01:13,645
+into the details of calculus but really
+了解微积分的细节
+
+35
+00:01:13,645 --> 00:01:15,296
+all you need is an intuitive
+所有你确实需要的东西只是
+
+36
+00:01:15,296 --> 00:01:17,539
+understanding of this in order to build
+直观地认识微积分，用来构建
+
+37
+00:01:17,539 --> 00:01:19,370
+and successfully apply these algorithms
+和成功的应用这些算法
+
+38
+00:01:19,370 --> 00:01:22,605
+oh and finally if you are among that
+最后，如果你是
+
+39
+00:01:22,605 --> 00:01:24,701
+maybe smaller group of people that are
+小部分人群，那些
+
+40
+00:01:24,701 --> 00:01:26,441
+expert in calculus if you're very
+精通微积分的一员，你对
+
+41
+00:01:26,441 --> 00:01:28,551
+familiar with calculus observe this it's
+微积分非常熟悉
+
+42
+00:01:28,551 --> 00:01:30,291
+probably okay for you to skip this video
+你可以跳过这部分视频
+
+43
+00:01:30,291 --> 00:01:32,803
+but for everyone else let's dive in and
+其他同学，让我们开始
+
+44
+00:01:32,803 --> 00:01:35,111
+try to get an intuitive understanding of
+深入学习
+
+45
+00:01:35,111 --> 00:01:37,087
+derivatives I've plotted here the
+导数。我在这里画了一个
+
+46
+00:01:37,087 --> 00:01:40,478
+function f of a equals 3a so it's just
+函数，f(a)=3a,它是
+
+47
+00:01:40,478 --> 00:01:42,820
+a straight line to gain intuition about
+一条直线，来简单理解
+
+48
+00:01:42,820 --> 00:01:44,603
+derivatives let's look at a few points
+导数。让我们看看
+
+49
+00:01:44,603 --> 00:01:47,467
+on this function let's say that a is
+函数中几个点，假定a
+
+50
+00:01:47,467 --> 00:01:50,645
+equal to 2 in that case f of a which is
+等于2,那么f(a)
+
+51
+00:01:50,645 --> 00:01:54,012
+equal to 3 times a is equal to 6 so if a
+等于a的3倍,等于6，也就是说如果a
+
+52
+00:01:54,012 --> 00:01:57,402
+is equal to 2 then you know F of a will
+等于2,那么函数f(a)
+
+53
+00:01:57,402 --> 00:01:59,438
+be equal to 6 let's say we give the
+等于6.假定我们
+
+54
+00:01:59,438 --> 00:02:01,291
+value of a you know just a little bit of
+稍微改变a的值，只变一点点
+
+55
+00:02:01,291 --> 00:02:03,765
+a nudge I'm going to just bump up me a
+移动，只增加
+
+56
+00:02:03,765 --> 00:02:07,374
+little bit so there is now 2.00 1 right
+一点点，2.001
+
+57
+00:02:07,374 --> 00:02:09,065
+so I'm going to get a like a tiny little
+我将微小的
+
+58
+00:02:09,065 --> 00:02:13,078
+nudge to the right so now is let's say 2.001
+右移，这时是2.001
+
+59
+00:02:13,078 --> 00:02:16,621
+this plug this is to scale 2.001
+这个坐标值是2.001
+
+60
+00:02:16,621 --> 00:02:20,414
+the 0.001 difference is too small to
+0.001的差别实在太小了
+
+61
+00:02:20,414 --> 00:02:21,894
+show on this plot this give them a
+不能在图中显示，我们
+
+62
+00:02:21,894 --> 00:02:24,455
+little nudge to the right now f of a is
+把它右移一点，现在f(a)
+
+63
+00:02:24,455 --> 00:02:26,987
+equal to three times a so six point
+等于a的3倍是
+
+64
+00:02:26,987 --> 00:02:29,813
+zero zero three,Simplot this over here
+6.003,画在这里
+
+65
+00:02:29,813 --> 00:02:32,459
+this is not to the scale this is six point
+比例不太符合，这是
+
+66
+00:02:32,459 --> 00:02:34,901
+zero zero three so if you look at this
+6.003，你看
+
+67
+00:02:34,901 --> 00:02:37,698
+low triangle here some highlighting in
+这个小三角形，绿色高亮部分
+
+68
+00:02:37,698 --> 00:02:40,275
+green what we see is that if I match a
+如果我
+
+69
+00:02:40,275 --> 00:02:44,696
+0.001 to the right then F of a goes up
+向右移动0.001，那么f(a)增加
+
+70
+00:02:44,696 --> 00:02:49,667
+by 0.003 the amount that F of a went up
+0.003，f的值增加
+
+71
+00:02:49,667 --> 00:02:52,831
+is three times as big as the amount that
+3倍于
+
+72
+00:02:52,831 --> 00:02:55,175
+I judged nudging a to the right so we're going
+右移的a,因此我们
+
+73
+00:02:55,175 --> 00:02:58,880
+to say that the slope of the derivative
+说：斜率，这个导数
+
+74
+00:02:58,880 --> 00:03:03,339
+of the function f of a at a equals two
+函数f(a)在a等于2
+
+75
+00:03:03,339 --> 00:03:05,967
+or when a is equal to 2 the slope is
+或者说，当a=2时，斜率是
+
+76
+00:03:05,967 --> 00:03:08,406
+three and you know the term derivative
+3，导数这个概念
+
+77
+00:03:08,406 --> 00:03:09,878
+basically means slope is just that
+基本意味着斜率
+
+78
+00:03:09,878 --> 00:03:12,286
+derivative sound like a scary a more
+导数听起来是一个很可怕
+
+79
+00:03:12,286 --> 00:03:14,350
+intimidating word whereas slope is a
+很令人惊恐的词，但是斜率以一种
+
+80
+00:03:14,350 --> 00:03:16,636
+friendlier way to describe the concept
+很友好的方式来描述导数这个
+
+81
+00:03:16,636 --> 00:03:17,639
+of derivative so one of these year
+概念，所以有时提到
+
+82
+00:03:17,639 --> 00:03:20,015
+derivative just think slope of the
+导数，把它当做函数的斜率
+
+83
+00:03:20,015 --> 00:03:22,679
+function and more formally the slope is
+就好了，更正式的斜率
+
+84
+00:03:22,679 --> 00:03:26,595
+defined as the height divided by the
+定义为高除以
+
+85
+00:03:26,595 --> 00:03:28,848
+width of this little triangle that we
+宽，在这个绿色小三角形
+
+86
+00:03:28,848 --> 00:03:32,065
+have in green so this is you know 0.003
+即0.003
+
+87
+00:03:32,065 --> 00:03:35,818
+over 0.001 and the fact that the slope is
+除以0.001，斜率
+
+88
+00:03:35,818 --> 00:03:37,665
+equal to 3 or the derivative is equal 3
+等于3，或者说导数等于3
+
+89
+00:03:37,665 --> 00:03:40,182
+just represents the fact that when you
+这表示当你
+
+90
+00:03:40,182 --> 00:03:43,154
+nudge a to the right by 0.001 by tiny
+将a右移0.001，移动一点点
+
+91
+00:03:43,154 --> 00:03:46,533
+amount the amount that F of a goes up is
+f(a)的数额增加
+
+92
+00:03:46,533 --> 00:03:49,343
+three times as big as the amount that
+3倍的量
+
+93
+00:03:49,343 --> 00:03:51,991
+united the united a in the horizontal
+水平方向a的总量
+
+94
+00:03:51,991 --> 00:03:53,744
+direction so that's all that the slope
+这就是这条线的斜率
+
+95
+00:03:53,744 --> 00:03:55,653
+of a line is now let's look at this
+现在让我们看看
+
+96
+00:03:55,653 --> 00:03:57,863
+function at a different point let's say
+这个函数，从不同的角度
+
+97
+00:03:57,863 --> 00:03:59,891
+that a is now equal to five
+假设a等于5
+
+98
+00:03:59,891 --> 00:04:02,802
+in that case f of a three times a is
+此时f(a),3乘以a
+
+99
+00:04:02,802 --> 00:04:05,497
+equal to 15 so let's say I again give a
+等于15，我再一次
+
+100
+00:04:05,497 --> 00:04:06,431
+and notch to the right
+右移a
+
+101
+00:04:06,431 --> 00:04:08,481
+a tiny level less is now bumped up to
+很小幅度，增加到
+
+102
+00:04:08,481 --> 00:04:10,742
+five point oo one F of a is three
+5.001,f(a)等于
+
+103
+00:04:10,742 --> 00:04:11,284
+times that
+3倍
+
+104
+00:04:11,284 --> 00:04:15,111
+so f of a is equal to fifteen point zero
+f(a)等于15.003
+
+105
+00:04:15,111 --> 00:04:18,371
+three and so once again when I bump up a to
+再一次当我增加a
+
+106
+00:04:18,371 --> 00:04:21,188
+the right nudge a to the right by 0.001
+将a右移0.001
+
+107
+00:04:21,188 --> 00:04:23,306
+F of a goes up three times as much
+f(a)增加3倍
+
+108
+00:04:23,306 --> 00:04:27,481
+so the slope again at a equals five is
+所以在a等于5时，斜率
+
+109
+00:04:27,481 --> 00:04:30,544
+also three so the way we write is that
+是3，所以我们将
+
+110
+00:04:30,544 --> 00:04:32,869
+the slope of the function f is equal to
+函数f等于3的斜率表达为
+
+111
+00:04:32,869 --> 00:04:38,746
+three we say D F of a da and this just
+d f(a)/da
+
+112
+00:04:38,746 --> 00:04:41,264
+means the slope of the function f of a
+这表示f(a)的斜率
+
+113
+00:04:41,264 --> 00:04:43,921
+when you nudge the variable a a tiny
+当你微小改变变量a
+
+114
+00:04:43,921 --> 00:04:47,352
+little amount um this is equal to three
+的值，它等于3
+
+115
+00:04:47,352 --> 00:04:50,287
+and an alternative way to write this
+一个替代方式表达
+
+116
+00:04:50,287 --> 00:04:52,749
+derivative formula is as follows you can
+导数公式是你可以
+
+117
+00:04:52,749 --> 00:04:58,675
+also write this as d da of f of a so
+这样写，d/da f(a)
+
+118
+00:04:58,675 --> 00:05:00,616
+whether you put the f of a on top of
+不管你是否将f(a)放在上面
+
+119
+00:05:00,616 --> 00:05:02,356
+whether you write it you know down here
+或是放在这里（右边）
+
+120
+00:05:02,356 --> 00:05:03,145
+it doesn't matter
+都没有关系
+
+121
+00:05:03,145 --> 00:05:05,743
+but all those equation means is that if
+这些等式表示如果
+
+122
+00:05:05,743 --> 00:05:08,165
+I nudge a to the right a little bit
+将a右移一点
+
+123
+00:05:08,165 --> 00:05:11,420
+I expect F of a to go up by three times
+那么f(a)增加3倍
+
+124
+00:05:11,420 --> 00:05:13,806
+as much as I nudge just the value of
+我移动a的值
+
+125
+00:05:13,806 --> 00:05:17,684
+little a now for this video I explained
+在这个视频中我讲解
+
+126
+00:05:17,684 --> 00:05:20,336
+derivatives talking about what happens
+导数，谈论的情况是
+
+127
+00:05:20,336 --> 00:05:26,164
+we nudge the variable a by 0.001 um if
+我们将变量a偏移0.001，如果
+
+128
+00:05:26,164 --> 00:05:27,746
+you want the formal mathematical
+你想知道正式的
+
+129
+00:05:27,746 --> 00:05:28,981
+definition of the derivatives
+导数数学定义
+
+130
+00:05:28,981 --> 00:05:31,438
+derivatives are defined with an even
+导数是
+
+131
+00:05:31,438 --> 00:05:34,131
+smaller value of how much you nudge a to
+你右移a非常小的值
+
+132
+00:05:34,131 --> 00:05:36,731
+the right so it's not often 00 1 is not
+不是0.001
+
+133
+00:05:36,731 --> 00:05:43,189
+0.00000001 is not 0.0ooooo and so on 1 is sort of
+不是0.00000001，不是0.00000..1,是
+
+134
+00:05:43,189 --> 00:05:45,236
+even smaller than that and the formal
+非常非常小的值,通常
+
+135
+00:05:45,236 --> 00:05:47,673
+definition of derivative says what have
+导数的定义是
+
+136
+00:05:47,673 --> 00:05:50,149
+you nudge a to the right by an info
+你右移a以
+
+137
+00:05:50,149 --> 00:05:52,132
+testable amount basically an infinite
+可度量的值
+
+138
+00:05:52,132 --> 00:05:54,599
+infinitely tiny tiny amount if you do
+一个无限小的值
+
+139
+00:05:54,599 --> 00:05:57,618
+that just f of a go up three times as
+f(a)增加3倍
+
+140
+00:05:57,618 --> 00:05:59,881
+much as whatever was a tiny tiny tiny
+增加了一个非常非常小的值
+
+141
+00:05:59,881 --> 00:06:01,653
+amount that you now stay to the right so
+也就是在这个三角形右边的变化值
+
+142
+00:06:01,653 --> 00:06:04,152
+that's actually the formal definition of
+那就是导数的正式定义
+
+143
+00:06:04,152 --> 00:06:06,225
+a derivative but for the purposes of our
+但是为了
+
+144
+00:06:06,225 --> 00:06:08,040
+intuitive understanding we're going to
+直观的认识，我们将
+
+145
+00:06:08,040 --> 00:06:10,154
+talk about nudging a to the right by
+探讨右移a以
+
+146
+00:06:10,154 --> 00:06:13,616
+this small amount 0.001 even if it's
+0.001这个值即使
+
+147
+00:06:13,616 --> 00:06:17,489
+0.001 isn't exactly you know tiny tiny
+0.001并不是无穷小的
+
+148
+00:06:17,489 --> 00:06:20,183
+insa testable now one property of the
+可测数据.导数的一个特性是
+
+149
+00:06:20,183 --> 00:06:22,966
+derivative is that no matter where you
+这个函数任何
+
+150
+00:06:22,966 --> 00:06:25,046
+take the slope of this function it is
+地方的斜率总是
+
+151
+00:06:25,046 --> 00:06:27,988
+equal to 3 whether a is equal to 2 or a
+等于3不管a等于2或a
+
+152
+00:06:27,988 --> 00:06:30,411
+is equal to 5 the slope of this function
+等于5，这个函数的斜率
+
+153
+00:06:30,411 --> 00:06:33,599
+is equal to 3 meaning that whatever is
+总等于3，也就是说不管
+
+154
+00:06:33,599 --> 00:06:36,246
+the value of a if you increase it by
+a的值如何，如果你增加
+
+155
+00:06:36,246 --> 00:06:37,472
+0.001 that
+0.001
+
+156
+00:06:37,472 --> 00:06:39,827
+value of f of a goes up by three times
+f(a)的值就增加3倍
+
+157
+00:06:39,827 --> 00:06:41,958
+as much so this function has the same
+这个函数在所有地方的
+
+158
+00:06:41,958 --> 00:06:43,829
+slope everywhere and one way to see that
+斜率都相等.一种证明的方式是
+
+159
+00:06:43,829 --> 00:06:46,005
+is that wherever you draw this your
+无论你将小三角形
+
+160
+00:06:46,005 --> 00:06:49,202
+little triangle right the height divided
+画在哪里，它的高除以
+
+161
+00:06:49,202 --> 00:06:52,311
+by the width always has a ratio of three
+宽的比值总是3
+
+162
+00:06:52,311 --> 00:06:54,520
+to one so I hope this gives you a sense
+比1.我希望带给你一种感受
+
+163
+00:06:54,520 --> 00:06:56,331
+of what the slope what the derivative of
+什么是斜率什么是导函数
+
+164
+00:06:56,331 --> 00:06:58,098
+the function means for a straight line
+对于一条直线
+
+165
+00:06:58,098 --> 00:07:00,375
+where in this example the slope of the
+在例子中函数的斜率
+
+166
+00:07:00,375 --> 00:07:02,882
+function was three everywhere in the
+在任何地方都是3
+
+167
+00:07:02,882 --> 00:07:04,647
+next video let's take a look at a
+在下一个视频中让我们看看
+
+168
+00:07:04,647 --> 00:07:06,712
+slightly more complex example where the
+一个更复杂的例子
+
+169
+00:07:06,712 --> 00:07:08,714
+slopes of the function can be different
+我们将提到的这个函数的斜率是可变的
+
+170
+00:07:08,714 --> 00:07:09,979
+at different points on the function
+当在函数图像上不同的点时
+

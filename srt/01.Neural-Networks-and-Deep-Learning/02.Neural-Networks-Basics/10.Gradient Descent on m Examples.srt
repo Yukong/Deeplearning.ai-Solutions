@@ -1,0 +1,871 @@
+﻿1
+00:00:00,060 --> 00:00:01,941
+in the previous video you saw how to
+在之前的视频中你已经看到如何
+【翻译/时间轴：庞伟 审核：AcceptedDoge】
+
+2
+00:00:01,941 --> 00:00:03,724
+compute derivatives and implement
+计算导数和应用
+
+3
+00:00:03,724 --> 00:00:05,938
+gradient descent with respect to just
+梯度下降在
+
+4
+00:00:05,938 --> 00:00:07,472
+one training example for logistic
+logistic回归的一个训练样本上
+
+5
+00:00:07,472 --> 00:00:10,143
+regression now we want to do it for m
+现在我们想要把它应用在m个
+
+6
+00:00:10,143 --> 00:00:12,565
+training examples to get started let's
+训练样本上 首先 让我们
+
+7
+00:00:12,565 --> 00:00:14,557
+remind ourselves that the definition of
+时刻记住有关于
+
+8
+00:00:14,557 --> 00:00:17,754
+the cost function J cost function (w,b)
+损失函数J（w,b)的定义
+
+9
+00:00:17,754 --> 00:00:19,772
+which you care about is this average
+它是1/m 乘上
+
+10
+00:00:19,772 --> 00:00:22,643
+right 1 over m sum from i equals 1 through m
+求和从i等于1到m时的
+
+11
+00:00:22,699 --> 00:00:25,093
+you know the loss when your algorithm
+这个损失函数L 当你的算法
+
+12
+00:00:25,093 --> 00:00:29,565
+output a^i on the example y well you
+输出关于样本y的a^i
+
+13
+00:00:29,565 --> 00:00:33,413
+know a^i is the prediction on the I've
+你知道 a^i是训练样本的预测值
+
+14
+00:00:33,413 --> 00:00:36,337
+trained example which is Sigma of z^i
+也就是σ(z^i)
+
+15
+00:00:36,337 --> 00:00:41,785
+which is equal to Sigma of W transpose x^i
+等于sigma作用于W的转置乘上x^i
+
+16
+00:00:41,785 --> 00:00:46,797
+plus b ok so what we show in the
+加上b 所以 我们在
+
+17
+00:00:46,800 --> 00:00:48,702
+previous slide is for any single
+前面的幻灯中展示的是对于任意单个
+
+18
+00:00:48,702 --> 00:00:51,551
+training example how to compute the
+训练样本 如何计算微分
+
+19
+00:00:51,551 --> 00:00:55,744
+derivatives when you have just one
+当你只有一个
+
+20
+00:00:55,744 --> 00:01:00,279
+training example great so dw1 dw2 and
+训练样本 因此dw1 dw2和
+
+21
+00:01:00,279 --> 00:01:03,936
+db with now the superscript i to
+db添上上标i
+
+22
+00:01:03,936 --> 00:01:06,631
+denote the corresponding values you get
+表示你求得的相应的值
+
+23
+00:01:06,645 --> 00:01:08,242
+if you are doing what we did on the
+如果你面对的是我们在
+
+24
+00:01:08,242 --> 00:01:10,752
+previous slide but just using the one
+之前的幻灯中演示的那种情况 但只使用了一个
+
+25
+00:01:10,799 --> 00:01:14,969
+training example (x^i,y^i) excuse me
+训练样本(x^i,y^i) 抱歉
+
+26
+00:01:14,969 --> 00:01:17,939
+I missing i there as well so now you
+我这里少了个i 现在你知道
+
+27
+00:01:17,939 --> 00:01:20,732
+know the overall cost functions with the sum
+带有求和的全局代价函数
+
+28
+00:01:20,732 --> 00:01:22,412
+was really the average of the 1
+实际上是1到m项
+
+29
+00:01:22,412 --> 00:01:26,225
+over m term of the individual losses so
+各个损失的平均 所以
+
+30
+00:01:26,225 --> 00:01:29,286
+it turns out that the derivative respect
+它表明 全局代价函数
+
+31
+00:01:29,286 --> 00:01:32,923
+to say w_1 of the overall cost function
+对w_1的微分
+
+32
+00:01:32,923 --> 00:01:37,299
+is also going to be the average of
+也同样是
+
+33
+00:01:37,299 --> 00:01:42,582
+derivatives respect to w1 of the
+各项损失对w_1微分的平均
+
+34
+00:01:42,582 --> 00:01:46,037
+individual loss terms but previously we
+但之前我们
+
+35
+00:01:46,037 --> 00:01:48,256
+have already shown how to compute this
+已经演示了如何计算
+
+36
+00:01:48,256 --> 00:01:54,010
+term as say (dw_1)^i right which we you
+这项 也就是我所写的
+
+37
+00:01:54,010 --> 00:01:56,123
+know on the previous slide show how the
+即之前幻灯中演示的如何
+
+38
+00:01:56,123 --> 00:01:57,731
+computes on a single training example
+对单个训练样本进行计算
+
+39
+00:01:57,731 --> 00:02:00,390
+so what you need to do is really compute
+所以你真正需要做的是计算
+
+40
+00:02:00,390 --> 00:02:03,197
+these own derivatives as we showed on
+这些微分如我们在
+
+41
+00:02:03,197 --> 00:02:05,054
+the previous training example and
+之前的训练样本上做的并且
+
+42
+00:02:05,054 --> 00:02:07,380
+average them and this will give you the
+求平均 这会给你
+
+43
+00:02:07,380 --> 00:02:10,373
+overall gradient that you can use to
+全局梯度值 你能够
+
+44
+00:02:10,373 --> 00:02:12,976
+implement straight into gradient decent so I know there was
+把它直接应用到梯度下降算法中 所以 这里有
+
+45
+00:02:12,976 --> 00:02:15,606
+a lot of details but let's take all of
+很多细节 但让我们把这些
+
+46
+00:02:15,606 --> 00:02:18,170
+this up and wrap this up into a concrete
+装进一个具体的
+
+47
+00:02:18,170 --> 00:02:20,331
+algorithms and what you should implement
+算法 同时你需要一起应用的
+
+48
+00:02:20,331 --> 00:02:21,931
+together just logistic regression with
+就是logistic回归和
+
+49
+00:02:21,931 --> 00:02:24,977
+gradient descent working so just what
+和梯度下降 因此你能做的
+
+50
+00:02:24,977 --> 00:02:28,283
+you can do let's initialize J equals 0
+让我们初始化J等于0
+
+51
+00:02:28,283 --> 00:02:37,740
+um... dw_1 equals 0 dw_2 equals 0 db equals
+dw_1等于0 dw_2等于0 db等于
+
+52
+00:02:37,740 --> 00:02:40,338
+0 and what we're going to do is use a
+0 并且我们将要做的是使用一个
+
+53
+00:02:40,338 --> 00:02:43,710
+for loop over the training set and
+for循环遍历训练集 同时
+
+54
+00:02:43,710 --> 00:02:45,773
+compute the derivatives to respect each
+计算相应的每个
+
+55
+00:02:45,773 --> 00:02:47,746
+training example and then add them up
+训练样本的微分 然后把它们加起来
+
+56
+00:02:47,746 --> 00:02:49,139
+all right so see as we do it for i
+好了 如我们所做的让i
+
+57
+00:02:49,139 --> 00:02:51,475
+equals 1 through m so m is the number of
+等于1到m m正好是
+
+58
+00:02:51,475 --> 00:02:54,237
+training examples we compute z^i equals W
+训练样本个数 我们计算z^i等于
+
+59
+00:02:54,237 --> 00:02:57,351
+transpose x^i plus b um... the
+W的转置乘上x^i 加上b
+
+60
+00:02:57,351 --> 00:03:00,469
+prediction a^i is equal to Sigma of z^i
+a^i的预测值等于σ(z^i)
+
+61
+00:03:00,469 --> 00:03:03,846
+and then you know let's let's add up J
+然后你知道 让我们加上J
+
+62
+00:03:03,846 --> 00:03:09,147
+J plus equals (y^i)log(a^i) um... plus 1 minus
+J加等于(y^i)log(a^i)加上
+
+63
+00:03:09,147 --> 00:03:12,475
+y I log 1 minus a^i and then put a
+(1-y^i)log(1-a^i) 然后加上一个
+
+64
+00:03:12,475 --> 00:03:13,897
+negative sign in front of the whole
+符号在整个
+
+65
+00:03:13,897 --> 00:03:15,890
+thing and then as we saw earlier we have
+公式的前面 然后如我们早前所见 我们有
+
+66
+00:03:15,890 --> 00:03:20,765
+dz^i or it is equal to a^i minus y^i and
+dz^i或者它等于a^i减去y^i
+
+67
+00:03:20,765 --> 00:03:28,652
+dw gets plus equals (x_1)^i dz^i dw_2 plus
+dw加等于(x_1)^i乘上dz^i dw_2加
+
+68
+00:03:28,652 --> 00:03:33,547
+equals (x_2)^i dz^i or and i'm doing this
+等于(x_2)^i乘上dz^i 或者我正在做这个
+
+69
+00:03:33,547 --> 00:03:35,136
+calculation assuming that you have just
+计算 假设你只有
+
+70
+00:03:35,136 --> 00:03:37,681
+the two features so the n is equal to 2
+两个特征 所以n等于2
+
+71
+00:03:37,681 --> 00:03:40,999
+otherwise you do this for dw_1 dw_2 dw_3
+否则你做这个从dw_1 dw_2 dw_3
+
+72
+00:03:41,070 --> 00:03:45,318
+and so on and db plus equals dz^i and I
+一直下去 同时db加等于dz^i
+
+73
+00:03:45,318 --> 00:03:47,578
+guess that's the end of the for loop and
+我想 这是for循环的结束
+
+74
+00:03:47,578 --> 00:03:49,313
+then finally having done this for all m
+最终对所有的m个训练样本都进行了这个计算
+
+75
+00:03:49,313 --> 00:03:52,047
+training examples you will still need to
+你还需要
+
+76
+00:03:52,047 --> 00:03:54,772
+divide by m because we're computing
+除以m 因为我们计算
+
+77
+00:03:54,772 --> 00:03:56,911
+averages so dw_1
+平均值 因此dw_1
+
+78
+00:03:56,911 --> 00:04:02,526
+divide equals m dw_2 divide equals m db
+除等于m dw_2除等于m db
+
+79
+00:04:02,526 --> 00:04:04,597
+divide equals m in all the computed
+除等于m 以平均的形式
+
+80
+00:04:04,597 --> 00:04:07,053
+averages and so with all of these
+随着所有这些
+
+81
+00:04:07,053 --> 00:04:08,892
+calculations you've just computed the
+计算 你已经计算了
+
+82
+00:04:08,892 --> 00:04:11,169
+derivative of the cost function J with
+损失函数J
+
+83
+00:04:11,169 --> 00:04:14,147
+respect to each parameters w_1 w_2
+对各个参数w_1 w_2
+
+84
+00:04:14,250 --> 00:04:16,986
+and b just come to details what we're
+和b的微分 回顾我们正在做的细节
+
+85
+00:04:16,986 --> 00:04:21,587
+doing we're using dw_1 and dw_2 and db
+我们使用dw_1 dw_2和db
+
+86
+00:04:21,587 --> 00:04:24,930
+to as accumulators right so that after
+作为累加器 以至于这个计算之后
+
+87
+00:04:24,930 --> 00:04:28,032
+this computation you know dw_1 is equal
+你知道dw_1等于
+
+88
+00:04:28,032 --> 00:04:31,442
+to the derivative of your overall cost
+你的全局代价函数
+
+89
+00:04:31,442 --> 00:04:33,985
+function with respect to w_1 and
+对w_1的微分
+
+90
+00:04:33,985 --> 00:04:36,862
+similarly for dw_2 and db so notice that
+对dw_2和db也是一样 同时注意
+
+91
+00:04:36,862 --> 00:04:39,838
+dw_1 and dw_2 do not have a superscript i
+dw_1和dw_2没有上标i
+
+92
+00:04:39,720 --> 00:04:41,533
+because we're using them in this code as
+因为我们在这代码中把它们作为
+
+93
+00:04:41,533 --> 00:04:43,296
+accumulators to sum over the entire
+累加器去求取整个
+
+94
+00:04:43,296 --> 00:04:45,886
+training set whereas in contrast dz^i
+训练集上的和 相反的 dz^i
+
+95
+00:04:45,886 --> 00:04:49,185
+here this was um... dz with respect to
+这是对应于
+
+96
+00:04:49,185 --> 00:04:51,310
+just one single training example that is
+单个训练样本的dz 也就是
+
+97
+00:04:51,310 --> 00:04:53,574
+why that has a superscript i to refer to
+为什么会有一个上标i指向
+
+98
+00:04:53,574 --> 00:04:55,688
+the one training example i that's
+相应的第i个被计算的
+
+99
+00:04:55,688 --> 00:04:58,536
+computed on and so having finished all
+训练样本 完成所有
+
+100
+00:04:58,536 --> 00:05:00,831
+these calculations to implement one step
+这些计算后应用一步
+
+101
+00:05:00,831 --> 00:05:03,239
+of gradient descent you implement w_1
+梯度下降 使得w_1
+
+102
+00:05:03,239 --> 00:05:06,500
+gets updated as w_1 minus a learning rate
+获得更新 即w_1减去学习率
+
+103
+00:05:06,500 --> 00:05:10,914
+times dw_1 w_2 gives updates as w_2 minus
+乘上dw_1 w_2更新即w_2减去
+
+104
+00:05:10,914 --> 00:05:13,733
+learning rate times dw_2 and b gets
+学习率乘上dw_2 同时b
+
+105
+00:05:13,733 --> 00:05:17,171
+update as b minus learning rate times db
+更新即b减去学习率乘上db
+
+106
+00:05:17,171 --> 00:05:21,164
+where dw_1 dw_2 and db where you know as
+这里dw_1 dw_2和db 如你知道的被计算
+
+107
+00:05:21,164 --> 00:05:24,119
+computed and finally J here would also
+最终这里的J也会
+
+108
+00:05:24,119 --> 00:05:26,876
+be a correct value for your cost
+是你代价函数的正确值
+
+109
+00:05:26,876 --> 00:05:28,633
+function so everything on the slide
+所以幻灯片上的所有东西
+
+110
+00:05:28,633 --> 00:05:31,060
+implements just one single step of
+只应用了一步
+
+111
+00:05:31,060 --> 00:05:33,017
+gradient descent and so you have to
+梯度下降 因此你需要
+
+112
+00:05:33,017 --> 00:05:35,655
+repeat everything on this slide multiple
+重复以上内容很多次
+
+113
+00:05:35,655 --> 00:05:37,610
+times in order to take multiple steps of
+以应用多次
+
+114
+00:05:37,610 --> 00:05:40,225
+gradient descent in case these details
+梯度下降 看起来这些细节
+
+115
+00:05:40,225 --> 00:05:41,679
+seem too complicated
+似乎很复杂
+
+116
+00:05:41,679 --> 00:05:43,953
+again don't worry too much about it for
+但目前不要担心太多
+
+117
+00:05:43,953 --> 00:05:45,925
+now hopefully all this will be clearer
+希望你明白 所有这些会变的更加清楚
+
+118
+00:05:45,925 --> 00:05:48,616
+when you go and implement this in the
+当你继续尝试并应用这些在
+
+119
+00:05:48,616 --> 00:05:50,590
+programming assignment but it turns out
+编程作业里 但它表明
+
+120
+00:05:50,590 --> 00:05:54,282
+there are two weaknesses with the
+计算中有两个缺点
+
+121
+00:05:54,282 --> 00:05:57,330
+calculation as with as with implements
+当应用在这里的时候
+
+122
+00:05:57,330 --> 00:05:59,686
+here which is that to implement
+就是说应用此方法
+
+123
+00:05:59,686 --> 00:06:01,550
+logistic regression this way you need to
+在logistic回归上你需要
+
+124
+00:06:01,550 --> 00:06:03,869
+write two for loops the first for loop
+编写两个for循环 第一个for循环
+
+125
+00:06:03,869 --> 00:06:05,602
+is a small loop over the m training
+是一个小循环遍历m个训练
+
+126
+00:06:05,602 --> 00:06:07,821
+examples and the second for loop is a
+样本 第二个for循环是一个
+
+127
+00:06:07,821 --> 00:06:10,804
+for loop over all the features over here
+遍历所有特征的for循环
+
+128
+00:06:10,919 --> 00:06:12,997
+right so in this example we just had two
+这个例子中我们只有2个特征
+
+129
+00:06:12,997 --> 00:06:15,978
+features so n is equal to 2 and n_x
+所以n等于2并且n_x
+
+130
+00:06:15,978 --> 00:06:18,179
+equals 2 but if you have more features
+等于2 但如果你有更多特征
+
+131
+00:06:18,179 --> 00:06:21,106
+you end up writing your dw_1 dw_2 and
+你开始编写你的dw_1 dw_2
+
+132
+00:06:21,106 --> 00:06:23,155
+you have similar computations for dw_3
+你有相似的计算从dw_3
+
+133
+00:06:23,155 --> 00:06:25,937
+and so on down to dw_n so seems like you
+一直下去到dw_n 所以看来你
+
+134
+00:06:25,937 --> 00:06:28,874
+need to have a for loop over the
+需要一个for循环遍历
+
+135
+00:06:28,874 --> 00:06:30,909
+features over all n features
+所有n个特征
+
+136
+00:06:31,279 --> 00:06:33,269
+when you're implementing deep learning
+当你应用深度学习
+
+137
+00:06:33,269 --> 00:06:36,254
+algorithms, you'll find that having explicit
+算法 你会发现在代码中显式地
+
+138
+00:06:36,254 --> 00:06:38,468
+for loops in your code makes your
+使用for循环使你的
+
+139
+00:06:38,468 --> 00:06:41,871
+algorithm run less efficiency and so in
+算法很低效 同时在
+
+140
+00:06:41,871 --> 00:06:44,253
+the deep learning area would move to a
+深度学习领域会有
+
+141
+00:06:44,253 --> 00:06:46,614
+bigger and bigger data sets and so being
+越来越大的数据集 所以能够
+
+142
+00:06:46,614 --> 00:06:48,738
+able to implement your algorithms
+应用你的算法
+
+143
+00:06:48,738 --> 00:06:50,797
+without using explicit for loops is
+且没有显式的for循环
+
+144
+00:06:50,797 --> 00:06:52,886
+really important and will help you to
+会是重要的并且会帮助你
+
+145
+00:06:52,886 --> 00:06:55,086
+scale to much bigger data sets so it
+适用于更大的数据集 所以
+
+146
+00:06:55,086 --> 00:06:56,734
+turns out that there are set of
+这里有一些
+
+147
+00:06:56,734 --> 00:06:58,234
+techniques called vectorization
+叫做矢量化技术
+
+148
+00:06:58,234 --> 00:07:01,131
+techniques that allows you to get rid of
+它可以允许你的代码摆脱
+
+149
+00:07:01,131 --> 00:07:03,865
+these explicit full loops in your code I
+这些显式的for循环
+
+150
+00:07:03,865 --> 00:07:06,165
+think in the pre deep learning era
+我想在先于深度学习的时代
+
+151
+00:07:06,165 --> 00:07:08,221
+that's before the rise of deep learning
+也就是深度学习兴起之前
+
+152
+00:07:08,221 --> 00:07:11,214
+vectorization was a nice to have you
+矢量化是很棒的 可以使你
+
+153
+00:07:11,214 --> 00:07:12,978
+could sometimes do it to speed a vehicle
+有时候加速你的运算
+
+154
+00:07:12,978 --> 00:07:15,384
+and sometimes not but in the deep
+但有时候也未必能够 但是在
+
+155
+00:07:15,384 --> 00:07:17,658
+learning era vectorization that is
+深度学习时代矢量化
+
+156
+00:07:17,658 --> 00:07:20,098
+getting rid of for loops like this and
+即像这样摆脱for循环
+
+157
+00:07:20,098 --> 00:07:22,715
+like this has become really important
+已经变得相当重要
+
+158
+00:07:22,715 --> 00:07:25,047
+because we're more and more training on
+因为我们越来越多地训练
+
+159
+00:07:25,047 --> 00:07:27,169
+very large datasets and so you really
+非常大的数据集 因此你真的
+
+160
+00:07:27,169 --> 00:07:29,180
+need your code to be very efficient so
+需要你的代码变得非常高效 所以
+
+161
+00:07:29,180 --> 00:07:31,507
+in the next few videos we'll talk about
+在接下来的几个视频中 我们会谈到
+
+162
+00:07:31,507 --> 00:07:34,240
+vectorization and how to implement all
+矢量化以及如何应用这些
+
+163
+00:07:34,240 --> 00:07:37,656
+this without using even a single for loop
+而连一个for循环都不使用
+
+164
+00:07:37,656 --> 00:07:40,886
+so of this I hope you have a sense
+所以关于这些 我希望你有
+
+165
+00:07:40,886 --> 00:07:43,131
+of how to implement logistic regression
+关于如何应用logistic回归
+
+166
+00:07:43,131 --> 00:07:44,365
+or gradient descent for logistic
+或是用于logistic回归的梯度下降
+
+167
+00:07:44,365 --> 00:07:46,166
+regression um... things will be clearer
+事情会变得更加清晰
+
+168
+00:07:46,166 --> 00:07:48,123
+when you implement the program exercise
+当你进行编程练习
+
+169
+00:07:48,123 --> 00:07:50,469
+but before actually doing the program
+但在真正做编程
+
+170
+00:07:50,469 --> 00:07:52,037
+exercise let's first talk about
+练习之前 让我们先谈谈
+
+171
+00:07:52,037 --> 00:07:54,090
+vectorization so then you can implement
+矢量化 然后你可以应用
+
+172
+00:07:54,090 --> 00:07:56,310
+this whole thing implement a single
+全部这些东西 应用一个
+
+173
+00:07:56,310 --> 00:07:58,331
+iteration of gradient descent without
+梯度下降的迭代而不使用
+
+174
+00:07:58,369 --> 00:08:01,479
+using any for loop
+任何for循环
+

@@ -1,0 +1,722 @@
+﻿1
+00:00:00,060 --> 00:00:02,330
+welcome back, in this video we'll talk
+欢迎回来 在本节我们将讨论
+
+2
+00:00:02,330 --> 00:00:04,860
+about how to compute derivatives for you
+怎样计算偏导数
+
+3
+00:00:04,860 --> 00:00:06,782
+to implement gradient descent for
+来实现逻辑回归的梯度下降算法
+
+4
+00:00:06,782 --> 00:00:08,913
+logistic regression. the key take aways
+它的核心关键点是
+
+5
+00:00:08,913 --> 00:00:11,156
+will be what you need to implement that
+其中有几个重要的公式
+
+6
+00:00:11,156 --> 00:00:12,775
+are the key equations you need in order
+用来实现关于逻辑回归的
+
+7
+00:00:12,775 --> 00:00:15,736
+to implement gradient descent for
+梯度下降算法
+
+8
+00:00:15,736 --> 00:00:18,272
+logistic regression. but in this video I
+但是在本节视频中
+
+9
+00:00:18,272 --> 00:00:20,394
+want to do this computation using the
+我将使用 导数计算图 的方式来计算梯度
+
+10
+00:00:20,394 --> 00:00:22,832
+computation graph. I have to admit using
+虽然使用导数计算图
+
+11
+00:00:22,832 --> 00:00:25,104
+the computation graph is a little bit of
+来计算逻辑回归的梯度下降
+
+12
+00:00:25,104 --> 00:00:27,276
+an overkill for deriving gradient
+有点大材小用了
+
+13
+00:00:27,276 --> 00:00:29,411
+descent for logistic regression. but I
+但是 我认为
+
+14
+00:00:29,411 --> 00:00:31,205
+want to start explaining things this way
+以这种方式来讲解
+
+15
+00:00:31,205 --> 00:00:33,592
+to get you familiar with these ideas. so
+可以更好地理解梯度下降
+
+16
+00:00:33,592 --> 00:00:35,097
+that hopefully you'll make a bit more
+从而在讨论神经网络时 可以
+
+17
+00:00:35,097 --> 00:00:36,614
+sense when we talk about full fledged
+更深刻而全面地
+
+18
+00:00:36,614 --> 00:00:37,796
+neural networks
+理解神经网络
+
+19
+00:00:37,796 --> 00:00:40,626
+so let's dive into gradient
+接下来开始学习
+
+20
+00:00:40,626 --> 00:00:44,814
+descent for logistic regression. to recap
+逻辑回归的梯度下降算法
+
+21
+00:00:44,814 --> 00:00:48,002
+we had set up logistic regression as
+回想一下逻辑回归的公式
+
+22
+00:00:48,002 --> 00:00:51,363
+follows your predictions y hat is
+y~定义如下 y~=a=sigma(z)
+
+23
+00:00:51,363 --> 00:00:56,764
+defined as follows where z is that and
+其中的z=w^T*x+b
+
+24
+00:00:56,764 --> 00:00:59,966
+if we focus on just one example for now
+现在只考虑单个样本的情况
+
+25
+00:00:59,966 --> 00:01:03,010
+then the loss or respect to that one
+关于该样本的损失函数定义如下
+
+26
+00:01:03,010 --> 00:01:05,973
+example is defined as follows where a is
+L(a,y)=-(ylog(a)+(1-y)log(1-a)) 其中a是
+
+27
+00:01:05,973 --> 00:01:08,151
+the output of the logistic regression and y
+逻辑回归的输出 y是
+
+28
+00:01:08,151 --> 00:01:11,305
+is the ground truth label so let's write
+样本的标签值 现在写出该样本的
+
+29
+00:01:11,305 --> 00:01:14,698
+this out as a computation graph and for
+偏导数计算图
+
+30
+00:01:14,698 --> 00:01:17,494
+this example let's say we have only two
+假设样本只有两个
+
+31
+00:01:17,494 --> 00:01:21,963
+features x1 and x2. so in order to
+特征x1和x2 为了
+
+32
+00:01:21,963 --> 00:01:27,667
+compute z, we'll need to input w1 w2 and
+计算z 我们需要输入参数w1 w2 和 b
+
+33
+00:01:27,667 --> 00:01:29,927
+b in addition to the feature values x1
+再包括样本特征值x1 x2
+
+34
+00:01:29,927 --> 00:01:32,793
+x2 so these things in a computation
+因此用来计算z的
+
+35
+00:01:32,793 --> 00:01:36,875
+graph get used to compute z which is w1
+偏导数计算公式
+
+36
+00:01:36,875 --> 00:01:43,801
+x1 plus w2 x2 plus b. draw a rectangle
+z=w1*x1+w2*x2+b (如图用长方形括
+
+37
+00:01:43,801 --> 00:01:47,807
+box around that and then we compute y
+起来了) 然后计算 y~
+
+38
+00:01:47,807 --> 00:01:52,417
+hat or a equals Sigma of Z that's the
+或者 a 等于sigma(z) 也就是
+
+39
+00:01:52,417 --> 00:01:55,049
+next step in a computation graph and
+偏导数计算图的下一步
+
+40
+00:01:55,049 --> 00:01:59,010
+then finally we compute L(a,y) and I
+最后计算L(a,y)
+
+41
+00:01:59,010 --> 00:02:02,289
+won't copy the formula again so in
+我不会再写出这个公式了
+
+42
+00:02:02,289 --> 00:02:04,577
+logistic regression what we want to do
+因此在逻辑回归中我们需要做的是
+
+43
+00:02:04,577 --> 00:02:09,105
+is to modify the parameters w and b in
+变换参数 w 和 b 的值
+
+44
+00:02:09,105 --> 00:02:11,814
+order to reduce this loss
+来最小化损失函数函数L(a,y)
+
+45
+00:02:12,660 --> 00:02:15,031
+we've described before propagation steps
+在前面我们已经讲解了一步一步
+
+46
+00:02:15,031 --> 00:02:17,347
+of how you actually compute the loss on
+在单个训练样本上计算损失函数函数
+
+47
+00:02:17,347 --> 00:02:19,962
+a single training example now let's talk
+现在让我们来
+
+48
+00:02:19,980 --> 00:02:22,046
+about how you can go backwards to talk
+讨论怎样向后
+
+49
+00:02:22,046 --> 00:02:24,644
+to compute the derivatives here's the
+计算偏导数 给出
+
+50
+00:02:24,644 --> 00:02:25,544
+cleaned up version of the diagram
+的初始表达式如下z=w1*x1+w2*x2+b
+
+51
+00:02:25,544 --> 00:02:27,942
+because what we want to do is compute
+要想计算损失函数L(a,y)
+
+52
+00:02:27,942 --> 00:02:30,790
+derivatives respect to this loss the
+的偏导数
+
+53
+00:02:30,790 --> 00:02:32,814
+first thing we want to do we're going
+首先我们要
+
+54
+00:02:32,814 --> 00:02:35,206
+backwards is to compute the derivative
+向前一步先计算
+
+55
+00:02:35,206 --> 00:02:38,902
+of this loss with respect to the script
+(dL(a,y)/da) 这是损失函数L
+
+56
+00:02:38,902 --> 00:02:41,282
+over there with respect to this variable
+关于 变量a 的偏导数
+
+57
+00:02:41,282 --> 00:02:44,303
+a and so in the code you know you just
+而在(Python)代码中你只需要
+
+58
+00:02:44,303 --> 00:02:48,327
+use da right to denote this variable
+使用 da 来表示(dL(a,y)/da)
+
+59
+00:02:48,327 --> 00:02:51,323
+and it turns out that if you are
+事实上如果你
+
+60
+00:02:51,323 --> 00:02:53,661
+familiar with calculus you can show that
+熟悉微积分 偏导数 dL(a,y)/da 的
+
+61
+00:02:53,661 --> 00:02:57,252
+this ends up being negative y over a
+最终结果是 -y/a
+
+62
+00:02:57,252 --> 00:03:02,839
+plus one minus y over one minus a and
+加上 (1-y)/(1-a)
+
+63
+00:03:02,839 --> 00:03:03,926
+the way you do that is you take the
+代价函数的偏导数计算公式
+
+64
+00:03:03,926 --> 00:03:06,595
+formula for the loss and if you are familiar
+就是这样 并且如果你对
+
+65
+00:03:06,595 --> 00:03:08,481
+with calculus you can compute the
+微积分熟悉的话 你计算
+
+66
+00:03:08,481 --> 00:03:10,115
+derivative with respect to the variable
+的关于 变量a 的
+
+67
+00:03:10,115 --> 00:03:13,016
+lowercase a and you get this formula but
+偏导数就是公式dL(a,y)=(-y/a)+(1-y/1-a)
+
+68
+00:03:13,016 --> 00:03:14,449
+if you're not familiar of calculus don't
+如果你不熟悉微积分
+
+69
+00:03:14,449 --> 00:03:16,427
+worry about it we'll provide the
+也不必太担心 我们会列出本课程
+
+70
+00:03:16,427 --> 00:03:18,926
+derivative formulas you need through out
+涉及的所有求导公式
+
+71
+00:03:19,050 --> 00:03:20,500
+this course so if you are a expert in
+因此 如果你非常熟悉微积分
+
+72
+00:03:20,500 --> 00:03:23,120
+calculus you'll encourage you to look up
+我们鼓励你主动
+
+73
+00:03:23,120 --> 00:03:24,008
+the formula for the loss from their
+推导前面介绍的损失函数的求导公式
+
+74
+00:03:24,008 --> 00:03:26,777
+previous slide and try to get director
+使用微积分直接求出
+
+75
+00:03:26,940 --> 00:03:29,500
+for respect to a using you know calculus
+L(a,y)关于变量a的偏导数
+
+76
+00:03:29,500 --> 00:03:31,091
+but if you don't know enough calculus to
+如果你不太了解微积分
+
+77
+00:03:31,091 --> 00:03:32,532
+do that don't worry about it
+也不用太担心
+
+78
+00:03:32,532 --> 00:03:35,362
+now having computed this quantity or da
+现在计算出 da
+
+79
+00:03:35,362 --> 00:03:37,302
+the derivative of your final output
+关于变量a 的最终结果
+
+80
+00:03:37,302 --> 00:03:39,824
+variable respect to a you can then go
+现在可以再向后一步
+
+81
+00:03:39,824 --> 00:03:42,752
+backwards and it turns out that you can
+计算dz 你可以认为
+
+82
+00:03:42,752 --> 00:03:46,918
+show dz which this is the Python code
+dz就是Python(一种编程语言)代码
+
+83
+00:03:46,918 --> 00:03:48,977
+variable name this is going to be you
+中的变量名
+
+84
+00:03:48,977 --> 00:03:51,692
+know the derivative of the loss with
+dz是代价函数关于z的偏导数(dL/dz)
+
+85
+00:03:51,692 --> 00:03:54,788
+respect to z or for L you can really write
+对于dL 可以写成
+
+86
+00:03:54,778 --> 00:03:58,445
+the loss including a and y explicitly as
+dL(a,y) 显式地包含L
+
+87
+00:03:58,445 --> 00:04:01,064
+parameters or not right give either type
+的参数a 和 y 这两种形式
+
+88
+00:04:01,080 --> 00:04:03,728
+of notation is equally acceptable they
+dL/dz 或者 dL(a,y)/dz 都是正确的
+
+89
+00:04:03,728 --> 00:04:08,466
+can show that this is equal to a minus y
+它们(dL/dz)求导的结果等于 a-y
+
+90
+00:04:08,520 --> 00:04:11,224
+just a couple comments only for those
+稍微给熟悉微积分的人
+
+91
+00:04:11,224 --> 00:04:13,951
+of you did a experts in
+解释一下
+
+92
+00:04:13,980 --> 00:04:15,368
+calculus if you're not explain calculus
+如果你对微积分不熟悉
+
+93
+00:04:15,368 --> 00:04:17,258
+don't worry about it but it turns out
+也不用担心
+
+94
+00:04:17,258 --> 00:04:20,844
+that this right dL dz this can be
+实际上 dL/dz 等于
+
+95
+00:04:20,844 --> 00:04:24,814
+expressed as dL da time
+(dL/da)*(da/dz)
+
+96
+00:04:24,990 --> 00:04:29,528
+da dz and it turns out that da dz
+并且da/dz
+
+97
+00:04:29,528 --> 00:04:33,440
+this turns out to be a times 1 minus a
+等于a*(1-a)
+
+98
+00:04:33,440 --> 00:04:36,963
+and dL da we are previously worked out
+而 dL/da 在前面已经计算过了
+
+99
+00:04:36,963 --> 00:04:39,260
+over here and so if you take these two
+因此将这两项
+
+100
+00:04:39,260 --> 00:04:41,880
+quantities dL da which is this
+dL/da 即这部分
+
+101
+00:04:41,880 --> 00:04:44,316
+term together with da dz which is this
+和 da/dz 这部分
+
+102
+00:04:44,316 --> 00:04:46,136
+term and just take these two things and
+进行相乘
+
+103
+00:04:46,136 --> 00:04:48,598
+multiply them you can show that you the
+最终的公式
+
+104
+00:04:48,598 --> 00:04:51,994
+equation simplifies the a minus y so
+化简成 (a-y)
+
+105
+00:04:51,994 --> 00:04:53,758
+that's how you derive it and this is
+这个推导的过程
+
+106
+00:04:53,758 --> 00:04:55,896
+really the chain rule that I briefly
+就是我之前提到过的"链式法则"(一种求导法则)
+
+107
+00:04:55,896 --> 00:04:59,070
+clue to you before ok so feel free to go
+如果你对微积分熟悉
+
+108
+00:04:59,070 --> 00:05:01,038
+through that calculation yourself if you
+放心地去推导
+
+109
+00:05:01,038 --> 00:05:03,100
+are knowledgeable calculus but if you
+整个求导过程
+
+110
+00:05:03,100 --> 00:05:04,652
+aren't all you need to know is that you
+如果不熟悉微积分 你只需要知道
+
+111
+00:05:04,652 --> 00:05:07,157
+can compute dz as a minus y and it
+dz 等于 (a-y)
+
+112
+00:05:07,157 --> 00:05:09,576
+already done the calculus for you and
+已经计算好了
+
+113
+00:05:09,576 --> 00:05:11,268
+then the final step in back propagation
+现在最后一步向后推导
+
+114
+00:05:11,268 --> 00:05:14,361
+is to go back to compute how much you
+就是变化 w 和 b这两个参数
+
+115
+00:05:14,361 --> 00:05:18,269
+need to change w and b so in particular
+来计算出新的L函数 特别地
+
+116
+00:05:18,269 --> 00:05:21,165
+you can show that the derivative respect
+损失函数L关于w1的偏导数
+
+117
+00:05:21,165 --> 00:05:27,031
+to w1 and will call this DW 1 that
+dL/dw1 写成 dw1
+
+118
+00:05:27,031 --> 00:05:30,969
+this is equal to x1 times dz
+等于x1*dz
+
+119
+00:05:31,199 --> 00:05:34,582
+and then similarly dw 2 which is how
+同样地 dw2 写成 w2
+
+120
+00:05:34,582 --> 00:05:37,396
+much you want to change w2 is x2 times
+的变化量 dw2等于 x2*dz
+
+121
+00:05:37,396 --> 00:05:42,820
+dz and b excuse me db is equal to dz so
+b 不好意思应该是 db 等于dz
+
+122
+00:05:42,820 --> 00:05:45,162
+if you want to do gradient descents with
+因此关于单个样本的
+
+123
+00:05:45,162 --> 00:05:47,690
+respect to just this one example what
+梯度下降算法
+
+124
+00:05:47,690 --> 00:05:49,668
+you will do is the following you would
+你所需要做的就是这些事情
+
+125
+00:05:49,740 --> 00:05:52,988
+use this formula to compute dz and then
+使用公式dz=(a-y)计算dz
+
+126
+00:05:52,988 --> 00:05:56,387
+use these formulas to compute dw1 dw2
+使用dw1=x1*dz计算dw1 dw2=x2*dz计算dw2
+
+127
+00:05:56,387 --> 00:06:00,145
+and db and then you perform these
+db=dz来计算db 然后
+
+128
+00:06:00,145 --> 00:06:05,240
+updates w1 gets updated w1 - learning
+更新w1为w1减去学习率乘以dw1(w1:=w1-alpha*dw1)
+
+129
+00:06:05,240 --> 00:06:07,999
+rate alpha times dw1 w2 gets updated
+类似地更新w2:=w2-alpha*dw2
+
+130
+00:06:07,999 --> 00:06:12,218
+similarly and B gets set as b - the
+更新b为b减去学习率乘以db
+
+131
+00:06:12,218 --> 00:06:14,946
+learning rate times db and so this will
+(b:=b-alpha*db) 这就是
+
+132
+00:06:14,946 --> 00:06:17,342
+be one step of gradicent descent with respect to a
+关于单个样本实例的一次梯度更新步骤
+
+133
+00:06:17,342 --> 00:06:19,908
+single example so you've seen how to
+现在你已经知道了
+
+134
+00:06:19,908 --> 00:06:22,134
+compute derivatives and implement
+怎样计算导数并且实现
+
+135
+00:06:22,134 --> 00:06:23,935
+gradient descent for logistic regression
+针对单个训练样本的
+
+136
+00:06:23,935 --> 00:06:26,146
+with respect to a single training
+逻辑回归的梯度下降算法
+
+137
+00:06:26,146 --> 00:06:28,086
+example but to train logistic
+但是训练逻辑回归模型
+
+138
+00:06:28,086 --> 00:06:30,248
+regression model you have not just one
+不仅仅只有一个训练样本
+
+139
+00:06:30,248 --> 00:06:32,292
+training example given entire training
+而是有m个训练样本的整个训练集
+
+140
+00:06:32,292 --> 00:06:34,865
+set of m training examples so
+
+141
+00:06:34,865 --> 00:06:36,783
+in the next video let's see how you can
+因此在下一节视频中 我们将
+
+142
+00:06:36,783 --> 00:06:38,719
+take these ideas and apply them to
+这些想法(知识点)应用到
+
+143
+00:06:38,719 --> 00:06:40,952
+learning not just from one example but
+整个训练样本集中 而不仅仅只是
+
+144
+00:06:40,970 --> 00:06:42,121
+from an entire training set
+单个样本上
+
+145
+00:06:42,121 --> 00:06:42,121
+

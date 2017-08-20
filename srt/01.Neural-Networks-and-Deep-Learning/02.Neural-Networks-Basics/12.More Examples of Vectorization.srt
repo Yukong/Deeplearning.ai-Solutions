@@ -1,0 +1,474 @@
+1
+00:00:00,670 --> 00:00:04,870
+In the previous video, you saw
+a few examples of how vectorization
+从上节视频中，你知道了怎样矢量化
+【翻译/时间轴：舒正英 审核/校对：AcceptedDoge】
+
+2
+00:00:04,870 --> 00:00:08,140
+by using built-in functions and
+by avoiding explicit for
+通过numpy内置函数以及避开循环loop方式
+
+3
+00:00:08,140 --> 00:00:11,210
+loops allows you to speed
+up your code significantly.
+有效的提高代码速度
+
+4
+00:00:11,210 --> 00:00:12,870
+Let's take a look at a few more examples.
+下面看看另外的一些例子
+
+5
+00:00:13,960 --> 00:00:17,950
+The rule of thumb to keep in mind is when
+you're programming your neural networks or
+经验提醒我，当我们在写神经网络程序时
+
+6
+00:00:17,950 --> 00:00:21,240
+when you're programming logistic
+regression, whenever possible,
+或者在写逻辑(logistic)回归，或者其他神经网络模型时
+
+7
+00:00:21,240 --> 00:00:22,540
+avoid explicit for loops.
+应该避免写循环(loop)语句
+
+8
+00:00:23,680 --> 00:00:27,470
+And it's not always possible
+to never use a for loop.
+虽然有时写循环(loop)是不可避免的
+
+9
+00:00:27,470 --> 00:00:31,670
+But when you can use a built-in function,
+or find some other way to compute
+但是我们可以使用比如numpy内置函数去计算
+
+10
+00:00:31,670 --> 00:00:37,120
+whatever you need, it'll often go faster
+than if you had an explicit for loop.
+当你这样使用后，程序效率总是快于循环(loop)
+
+11
+00:00:37,120 --> 00:00:38,640
+Let's look at another example.
+让我们看另外一个例子
+
+12
+00:00:38,640 --> 00:00:45,735
+If ever you want to compute a vector
+u as the product of a matrix A and
+如果你想计算向量u = 矩阵A乘以v (u=Av)
+
+13
+00:00:45,735 --> 00:00:50,251
+another vector v, then the definition of
+这时矩阵乘法定义为
+
+14
+00:00:50,251 --> 00:00:55,283
+a matrix multiplier is
+that your ui = sum over i
+Ui = sum_i sum_j A(ij) V(j)
+
+15
+00:00:55,283 --> 00:01:00,202
+sum over j Aij VJ,
+that's how you define UI.
+（如图所示）这取决于你怎么定义U(i)值
+
+16
+00:01:00,202 --> 00:01:05,511
+And so the non vectorization
+implementation of this
+同样使用非矢量化实现
+
+17
+00:01:05,511 --> 00:01:10,817
+would be to set U = np.zeros( n, 1), and
+U 等于 np.zeros(n,1) 并且
+
+18
+00:01:10,817 --> 00:01:16,001
+then for i and so on,
+for j and so on, right.
+通过两层循环 for i :  for j:
+
+19
+00:01:16,001 --> 00:01:24,309
+And then u[i] += A[i][j] * v[j].
+得到 u[i] += A[i][j] * v[j].
+
+20
+00:01:24,309 --> 00:01:29,053
+So now this has two for
+loops looping over both i and j.
+现在就有了i和j的两层循环
+
+21
+00:01:29,053 --> 00:01:30,680
+So that's a non vectorization.
+这就是非矢量化
+
+22
+00:01:30,680 --> 00:01:38,980
+The vectorized implementation
+would say u = np.A, v.
+矢量化方式就可以用 u = np.dot(A,v)
+
+23
+00:01:38,980 --> 00:01:41,680
+And the implementation on
+the right the vectorized
+右边这种矢量化实现方式
+
+24
+00:01:41,680 --> 00:01:46,430
+version now eliminates two different for
+loops and it's going to be way faster.
+消除了两层循环使得代码运行速度更快
+
+25
+00:01:46,430 --> 00:01:48,180
+Let's go through one more example.
+下面通过另一个例子
+
+26
+00:01:48,180 --> 00:01:53,160
+Let's say you already have a vector
+v in memory and you want to
+如果你已经有一个向量 v
+
+27
+00:01:53,160 --> 00:01:57,430
+apply the exponential operation on
+every element of say it is vector v.
+并且想要对向量v的每个元素做指数操作
+
+28
+00:01:57,430 --> 00:02:02,296
+So you compute u = vector,
+that's e to v1, e to the v2,
+得到向量u 等于 e的v1 ， e的v2
+
+29
+00:02:02,296 --> 00:02:07,090
+and so on down to e to the Vn.
+一直到e的vn 次方
+
+30
+00:02:07,090 --> 00:02:11,650
+So this would be a non-vectorized
+implementation, which is that first,
+这里是非向量化的实现方式
+
+31
+00:02:11,650 --> 00:02:14,710
+you initialize u to a vector of zeroes.
+首先你初始化了向量u = np.zeros(n,1)
+
+32
+00:02:14,710 --> 00:02:19,760
+And then you have a for loop that
+computes the elements one at a time.
+并且通过循环依次计算每个元素
+
+33
+00:02:19,760 --> 00:02:26,240
+But it turns out that Python NumPy have
+many built in functions that allow you to
+但事实证明可以通过python的numpy内置函数
+
+34
+00:02:26,240 --> 00:02:32,660
+compute these vectors with just
+a single call to a single function.
+帮助你计算这样的单个函数
+
+35
+00:02:32,660 --> 00:02:41,200
+So what I would do to implement
+this is import NumPy as np.
+所以我会引入(import) numpy 取别名为(as) np
+
+36
+00:02:41,200 --> 00:02:48,106
+And then what you just call
+u equals np.e to the (v).
+执行 u = np.exp(v) 命令
+
+37
+00:02:48,106 --> 00:02:54,095
+And so notice that whereas previously
+you had a explicit for loop,
+注意到  在之前有循环的代码中
+
+38
+00:02:54,095 --> 00:03:00,375
+with just one line of code here, does V
+as an input vector use an output vector?
+这里仅用了一行代码， 向量v作为输入， u作为输出
+
+39
+00:03:00,375 --> 00:03:04,555
+You've got to rail up the explicit for
+loop, and the implementation on the right
+你已经知道为什么需要循环，并且通过右边代码实现
+
+40
+00:03:04,555 --> 00:03:07,581
+will be much faster than the one
+medium explicit for loop.
+效率会明显的快于循环方式
+
+41
+00:03:07,581 --> 00:03:11,760
+In fact, the NumPy library has many
+of the vector value functions.
+事实上，numpy库有很多向量函数
+
+42
+00:03:11,760 --> 00:03:16,445
+So np.log of v will compute
+the element wise log,
+比如np.log 是计算对数函数(log)
+
+43
+00:03:16,445 --> 00:03:20,405
+np.abs computes the absolute value,
+np.abs是计算数据的绝对值
+
+44
+00:03:20,405 --> 00:03:26,350
+np.maximum computes
+the element y's maximum.
+np.maximum计算元素y中的最大值
+
+45
+00:03:26,350 --> 00:03:31,650
+So you take the max of
+every element of v with 0.
+你也可以np.maximum(v,0)
+
+46
+00:03:31,650 --> 00:03:39,386
+v**2 just takes the element y's
+square of each element of v.
+v**2代表获得元素y每个值得平方
+
+47
+00:03:39,386 --> 00:03:44,350
+1/v takes the element y's inverse and so on.
+1/v 获取元素y的逆 等等
+
+48
+00:03:44,350 --> 00:03:48,800
+So whenever you are tempted to write the
+for loop, take a look and see if there's
+所以当你想写循环时候
+
+49
+00:03:48,800 --> 00:03:53,420
+a way to call a NumPy built in function
+to do it without that for loop.
+检查numpy是否存在类似的内置函数 从而避免使用循环(loop)方式
+
+50
+00:03:54,580 --> 00:03:56,340
+So, let's take all of these learnings and
+那么 将刚才所学到的内容
+
+51
+00:03:56,340 --> 00:04:00,950
+apply it to our logistic regression
+gradient descent implementation and
+运用在逻辑回归的梯度下降上
+
+52
+00:04:00,950 --> 00:04:04,950
+see if we can at least get rid of
+one of the two folders that we had.
+看看我们是否能简化两个计算过程中的某一步
+
+53
+00:04:04,950 --> 00:04:09,620
+So here's our code for computing
+the derivatives for logistic regression.
+这是我们逻辑回归的求导代码
+
+54
+00:04:09,620 --> 00:04:10,890
+And we had two for loops.
+有两层循环
+
+55
+00:04:10,890 --> 00:04:12,530
+One was this one up here.
+这是一个循环
+
+56
+00:04:12,530 --> 00:04:14,730
+And the second one was this one, right?
+这儿是第二个循环
+
+57
+00:04:14,730 --> 00:04:19,177
+So in our example we had n or nx = 2.
+在这例子我们有n 或者nx =2 特征值
+
+58
+00:04:19,177 --> 00:04:24,182
+But if you had more features than just
+two features then you need to have a for
+如果你有超过两个特征时
+
+59
+00:04:24,182 --> 00:04:26,978
+loop over dw1, dw2, dw3, and so on.
+需要循环dw1 dw2 dw3 等等
+
+60
+00:04:26,978 --> 00:04:32,370
+So it's as if there's actually a for
+j = 1, 2 and x.
+所以j的实际值是1 ，2 和 x
+
+61
+00:04:32,370 --> 00:04:39,030
+dwj, dwj your guest updated, right.
+dwj就是你想要更新的值
+
+62
+00:04:39,030 --> 00:04:45,490
+So we'd like to eliminate this second
+volume, that's what we'll do on this line.
+所以我们想要消除第二循环，在这一行
+
+63
+00:04:45,490 --> 00:04:50,670
+So the way we'll do so is that instead
+of explicitly initializing dw1,
+这样我们就不用初始化dw1
+
+64
+00:04:50,670 --> 00:04:56,350
+dw2 and so on to 0s,
+we're going to get rid of this.
+dw2 都等于0，去掉这些
+
+65
+00:04:56,350 --> 00:04:59,760
+And instead make dw a vector.
+而是定义dw为一个向量
+
+66
+00:04:59,760 --> 00:05:05,188
+So I'm going to set dw = np.zeros and
+设置dw = np.zeros((n(x),1))
+
+67
+00:05:05,188 --> 00:05:12,560
+let's make this an x but
+one dimensional vector.
+定义了一个x行，1维的向量
+
+68
+00:05:12,560 --> 00:05:17,500
+Then here instead of this full loop
+over the individual components,
+从而替代了循环每个组成
+
+69
+00:05:17,500 --> 00:05:19,883
+we just use this vector value operation.
+我们仅仅使用了一个向量操作
+
+70
+00:05:19,883 --> 00:05:24,503
+dw += x(i)
+
+71
+00:05:24,503 --> 00:05:29,894
+times（乘以） dz(i).
+
+72
+00:05:29,894 --> 00:05:35,287
+And then finally and so that this
+最后
+
+73
+00:05:35,287 --> 00:05:40,700
+we will just have dw div = m.
+我们得到dw = dw/m
+
+74
+00:05:40,700 --> 00:05:44,130
+So now we've gone from having two for
+loops to just one for loop.
+现在我们通过将两层循环转成一层循环
+
+75
+00:05:44,130 --> 00:05:48,822
+We still have this one for loop that loops
+over the individual training examples.
+我们仍然还有这个循环训练样本
+
+76
+00:05:50,491 --> 00:05:53,720
+So I hope this video gave you
+a sense of vectorization.
+希望这个视频给了你一点向量化感觉
+
+77
+00:05:53,720 --> 00:05:57,880
+And by getting rid of one for loop,
+your code will already run faster.
+减少一层循环使你代码更快
+
+78
+00:05:57,880 --> 00:06:01,220
+But it turns out we could do even better,
+so the next video,
+但事实证明我们能做得更好 所以在下个视频
+
+79
+00:06:01,220 --> 00:06:05,060
+we'll talk about how to vectorize
+logistic regression even further, and
+进一步的讲解逻辑回归
+
+80
+00:06:05,060 --> 00:06:06,820
+you see a pretty surprising result.
+得到更好的监督结果
+
+81
+00:06:06,820 --> 00:06:11,490
+That, without using any for loops, without
+needing a for loop over the training
+到此，通过在训练中没有任何循环
+
+82
+00:06:11,490 --> 00:06:16,390
+examples, you could write code to
+process the entire training set.
+写出代码去运行整个训练集
+
+83
+00:06:16,390 --> 00:06:18,700
+So pretty much all at the same time.
+到此为止一切都好
+
+84
+00:06:18,700 --> 00:06:20,440
+So let's see that in the next video.
+让我们看下一个视频
+

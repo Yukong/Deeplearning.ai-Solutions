@@ -1,0 +1,1113 @@
+
+
+1
+00:00:00.060 --> 00:00:01.949
+in the last video we work through an
+
+2
+00:00:01.949 --> 00:00:04.380
+example of using a computation graph to
+
+3
+00:00:04.380 --> 00:00:06.750
+compute a function J now let's take a
+
+4
+00:00:06.750 --> 00:00:08.580
+cleaned up version at their computation
+
+5
+00:00:08.580 --> 00:00:10.740
+graph and show how you can use it to
+
+6
+00:00:10.740 --> 00:00:13.740
+figure out derivative calculations for
+
+7
+00:00:13.740 --> 00:00:16.320
+that function J so here's a computation
+
+8
+00:00:16.320 --> 00:00:19.289
+graph let's say you want to compute the
+
+9
+00:00:19.289 --> 00:00:23.519
+derivative of J with respect to B so
+
+10
+00:00:23.519 --> 00:00:25.920
+what is that well this says if we were
+
+11
+00:00:25.920 --> 00:00:28.230
+to take this value of B and change it a
+
+12
+00:00:28.230 --> 00:00:31.019
+little bit how would the value of J
+
+13
+00:00:31.019 --> 00:00:36.809
+change well J is defined as um V times D
+
+14
+00:00:36.809 --> 00:00:43.170
+and right now B is equal to 11 so then
+
+15
+00:00:43.170 --> 00:00:46.230
+with the bump up B by a little bit to 11
+
+16
+00:00:46.230 --> 00:00:50.250
+point oo 1 then J which is currently 33
+
+17
+00:00:50.250 --> 00:00:53.250
+will end up being bumps up to V times a
+
+18
+00:00:53.250 --> 00:00:57.690
+new value of V becomes 33 0.001 and so
+
+19
+00:00:57.690 --> 00:01:03.329
+if you bump up V by 0.001 um then J
+
+20
+00:01:03.329 --> 00:01:07.110
+which is 3 D so currently 33 will get
+
+21
+00:01:07.110 --> 00:01:11.970
+bumped up to 33 point zero 3 so here
+
+22
+00:01:11.970 --> 00:01:14.580
+we've increased V by 0.001 and the net
+
+23
+00:01:14.580 --> 00:01:17.189
+result of that is that J goes up three
+
+24
+00:01:17.189 --> 00:01:19.740
+times as much so the derivative of J of
+
+25
+00:01:19.740 --> 00:01:22.590
+respect to B is equal to three because
+
+26
+00:01:22.590 --> 00:01:26.250
+the increase in J is three times the
+
+27
+00:01:26.250 --> 00:01:29.100
+increase in V and in fact this is very
+
+28
+00:01:29.100 --> 00:01:32.070
+analogous to the example we had in the
+
+29
+00:01:32.070 --> 00:01:36.500
+previous video where we had on F of a
+
+30
+00:01:36.500 --> 00:01:40.619
+equals three a and so we then derive
+
+31
+00:01:40.619 --> 00:01:47.009
+that DF da which was slightly simplified
+
+32
+00:01:47.009 --> 00:01:48.869
+letting sloppy notation you can read it
+
+33
+00:01:48.869 --> 00:01:50.970
+d FD a was equal to three
+
+34
+00:01:50.970 --> 00:01:53.790
+right so instead here we have um J
+
+35
+00:01:53.790 --> 00:01:58.560
+equals BB and so DJ D V is equal to
+
+36
+00:01:58.560 --> 00:02:06.930
+three with here J playing the role of F
+
+37
+00:02:06.930 --> 00:02:09.959
+and V playing the role of a in this
+
+38
+00:02:09.959 --> 00:02:12.090
+previous example that we had right from
+
+39
+00:02:12.090 --> 00:02:15.410
+from an earlier video so indeed
+
+40
+00:02:15.410 --> 00:02:18.330
+terminology of backpropagation what
+
+41
+00:02:18.330 --> 00:02:19.709
+we're seeing is that if you want to
+
+42
+00:02:19.709 --> 00:02:22.890 
+compute the derivative of this final
+
+43
+00:02:22.890 --> 00:02:24.900
+output variable which usually is a
+
+44
+00:02:24.900 --> 00:02:27.810
+variable you care most about with
+
+45
+00:02:27.810 --> 00:02:30.720
+respect to B then we've done you know
+
+46
+00:02:30.720 --> 00:02:33.599
+sort of one step of back propagation so
+
+47
+00:02:33.599 --> 00:02:35.670
+we've gone one step backwards in this
+
+48
+00:02:35.670 --> 00:02:38.700
+graph now let's look at another example
+
+49
+00:02:38.700 --> 00:02:43.950
+what is DJ da in other words if we bump
+
+50
+00:02:43.950 --> 00:02:46.560
+up the value of a how does that affect
+
+51
+00:02:46.560 --> 00:02:51.060
+the value of J well let's go through the
+
+52
+00:02:51.060 --> 00:02:53.700
+example right now a is equal to five so
+
+53
+00:02:53.700 --> 00:02:57.090
+let's bump it up to five point zero one
+
+54
+00:02:57.090 --> 00:03:00.360
+the net impact of that is at D which was
+
+55
+00:03:00.360 --> 00:03:04.140
+a plus u so that was previous 11 this we
+
+56
+00:03:04.140 --> 00:03:06.510
+can increase the eleven point zero one
+
+57
+00:03:06.510 --> 00:03:09.060
+and then we've already seen as above
+
+58
+00:03:09.060 --> 00:03:14.340
+that J now gets bump up to thirty three
+
+59
+00:03:14.340 --> 00:03:17.010
+point zero zero three so what we've seen
+
+60
+00:03:17.010 --> 00:03:20.100
+is that if you increase a by 0.001 J
+
+61
+00:03:20.100 --> 00:03:23.340
+increases by point zero three and by
+
+62
+00:03:23.340 --> 00:03:25.200
+increase a I mean maybe you were to take
+
+63
+00:03:25.200 --> 00:03:27.329
+this value five and just plug in a new
+
+64
+00:03:27.329 --> 00:03:30.120
+value right then the change to a will
+
+65
+00:03:30.120 --> 00:03:31.500 
+propagate to the rights of the
+
+66
+00:03:31.500 --> 00:03:34.200
+computation graph so the J ends up being
+
+67
+00:03:34.200 --> 00:03:38.850
+thirty three point zero three and so the
+
+68
+00:03:38.850 --> 00:03:41.340
+increase the J is three times the
+
+69
+00:03:41.340 --> 00:03:43.470
+increase to a so that means this
+
+70
+00:03:43.470 --> 00:03:47.190
+derivative is equal to three and one way
+
+71
+00:03:47.190 --> 00:03:49.799
+to break this down is to say that if you
+
+72
+00:03:49.799 --> 00:03:52.980
+have if you change a then that will
+
+73
+00:03:52.980 --> 00:03:56.549
+change V and through changing B that
+
+74
+00:03:56.549 --> 00:04:02.010
+will change a and so the net change to
+
+75
+00:04:02.010 --> 00:04:04.109
+the value of J when you bump up the
+
+76
+00:04:04.109 --> 00:04:06.060
+value and when you nudge the value of a
+
+77
+00:04:06.060 --> 00:04:14.340
+up a little bit is that um first by
+
+78
+00:04:14.340 --> 00:04:18.450
+changing a you end up increasing B well
+
+79
+00:04:18.450 --> 00:04:20.789
+how much does D increase right it is
+
+80
+00:04:20.789 --> 00:04:25.440
+increased by an amount determined by DV da
+
+82
+00:04:25.440 --> 00:04:30.030
+and then the change in V will cause the
+
+83
+00:04:30.030 --> 00:04:34.980
+value of J to also increase so in
+
+84
+00:04:34.980 --> 00:04:36.930
+calculus is actually called the chain
+
+85
+00:04:36.930 --> 00:04:43.650
+rule that is a affects V of X J then the
+
+86
+00:04:43.650 --> 00:04:46.590
+amount that J changes where you nudge a
+
+87
+00:04:46.590 --> 00:04:50.480
+is the product of how much V changes
+
+88
+00:04:50.480 --> 00:04:54.480
+when you nudge a times how much J
+
+89
+00:04:54.480 --> 00:04:57.570
+changes when you nudge B so in calculus
+
+90
+00:04:57.570 --> 00:05:01.370
+um the gate is called the chain rule and
+
+91
+00:05:01.370 --> 00:05:04.410
+what we saw from this calculation is
+
+92
+00:05:04.410 --> 00:05:07.260
+that if you increase a by point zero one
+
+93
+00:05:07.260 --> 00:05:12.630
+V changes by the same amount so DV da is
+
+94
+00:05:12.630 --> 00:05:15.330
+equal to one so in fact if you plug in
+
+95
+00:05:15.330 --> 00:05:18.470
+what we have worked our previously Oh
+
+96
+00:05:18.470 --> 00:05:25.290
+DVD J is equal to three and DVD a is
+
+97
+00:05:25.290 --> 00:05:27.600
+equal to one so the product of these
+
+98
+00:05:27.600 --> 00:05:29.669
+three times one then I should give you
+
+99
+00:05:29.669 --> 00:05:32.490
+the correct value that DJ da is equal to
+
+100
+00:05:32.490 --> 00:05:35.610
+3 so this illustration shows how by
+
+101
+00:05:35.610 --> 00:05:40.169
+having computed DJ DV of this derivative
+
+102
+00:05:40.169 --> 00:05:42.720
+respect to this variable it can then
+
+103
+00:05:42.720 --> 00:05:49.200
+help you to compute DJ da and so that's
+
+104
+00:05:49.200 --> 00:05:51.240
+another step within some backward
+
+105
+00:05:51.240 --> 00:05:56.190
+calculation I'll just introduce one more
+
+106
+00:05:56.190 --> 00:05:59.570
+new notational convention which is that
+
+107
+00:05:59.570 --> 00:06:02.970
+in when you're writing code to implement
+
+108
+00:06:02.970 --> 00:06:05.850
+back-propagation they'll usually be some
+
+109
+00:06:05.850 --> 00:06:08.340
+final output variable that you really
+
+110
+00:06:08.340 --> 00:06:12.710
+care about right so the final output
+
+111
+00:06:12.710 --> 00:06:14.580
+variable that you really care about
+
+112
+00:06:14.580 --> 00:06:16.080
+whether you want to optimize and in this
+
+113
+00:06:16.080 --> 00:06:18.690
+case this final output variable is Jane
+
+114
+00:06:18.690 --> 00:06:20.280
+is really the last node in your
+
+115
+00:06:20.280 --> 00:06:23.010
+computation graph and so a lot of the
+
+116
+00:06:23.010 --> 00:06:25.260
+computations will be trying to compute
+
+117
+00:06:25.260 --> 00:06:27.360 
+the derivative of that you know final
+
+118
+00:06:27.360 --> 00:06:29.250
+output variable so D of this final
+
+119
+00:06:29.250 --> 00:06:31.650
+output variable with respect to some
+
+120
+00:06:31.650 --> 00:06:36.580
+other variable and just call that D fall right
+
+122
+00:06:36.580 --> 00:06:39.580
+so a lot of the computations you have
+
+123
+00:06:39.580 --> 00:06:41.710
+would be to compute the derivative of
+
+124
+00:06:41.710 --> 00:06:43.930
+the final output variable really J in
+
+125
+00:06:43.930 --> 00:06:46.000
+this case with various intermediate
+
+126
+00:06:46.000 --> 00:06:49.720
+variables such as ABC U or V and when
+
+127
+00:06:49.720 --> 00:06:53.500
+you implement this in software you know
+
+128
+00:06:53.500 --> 00:06:55.900
+what you call this variable name alright
+
+129
+00:06:55.900 --> 00:06:58.990
+one thing you could do is in in Tison
+
+130
+00:06:58.990 --> 00:07:00.820
+you can write you know give us a very
+
+131
+00:07:00.820 --> 00:07:03.040
+long variable name ID final output of
+
+132
+00:07:03.040 --> 00:07:05.860
+all over a diva but that's a very long
+
+133
+00:07:05.860 --> 00:07:07.420
+variable name you could call this a get
+
+134
+00:07:07.420 --> 00:07:11.380
+DJ d bar but because you're always
+
+135
+00:07:11.380 --> 00:07:14.530
+taking derivatives respect to DJ respect
+
+136
+00:07:14.530 --> 00:07:16.420
+to this final output variable I'm going
+
+137
+00:07:16.420 --> 00:07:18.820
+to introduce a new notation we're in
+
+138
+00:07:18.820 --> 00:07:21.610
+code when you are computing this thing
+
+139
+00:07:21.610 --> 00:07:25.12
+um in the code you write we're just
+
+140
+00:07:25.120 --> 00:07:28.840
+going to use the variable name d VAR in
+
+141
+00:07:28.840 --> 00:07:31.810
+order to represent that quantity okay so
+
+142
+00:07:31.810 --> 00:07:34.870
+d VAR in the code you write will
+
+143
+00:07:34.870 --> 00:07:37.450
+represent the derivative of the final
+
+144
+00:07:37.450 --> 00:07:39.310
+output variables you care about such as
+
+145
+00:07:39.310 --> 00:07:42.490
+J or sometimes the loss L with respect
+
+146
+00:07:42.490 --> 00:07:44.710
+to the various intermediate quantities
+
+147
+00:07:44.710 --> 00:07:47.500
+in computing in your code so this thing
+
+148
+00:07:47.500 --> 00:07:50.370
+here in your codes you know you use them
+
+149
+00:07:50.370 --> 00:07:54.160
+DV to denote this value so DV would be
+
+150
+00:07:54.160 --> 00:07:58.290
+equal to 3 and your cold you
+
+151
+00:07:58.290 --> 00:08:01.660
+representatives as on da right which is
+
+152
+00:08:01.660 --> 00:08:03.960
+a we also figured out to be equal to 3
+
+153
+00:08:03.960 --> 00:08:08.620
+okay so um with Sun back propagation
+
+154
+00:08:08.620 --> 00:08:12.160
+partially through this computation graph
+
+155
+00:08:12.160 --> 00:08:14.620
+let's go through the rest of this
+
+156
+00:08:14.620 --> 00:08:17.470
+example on the next slide so let's go to
+
+157
+00:08:17.470 --> 00:08:20.560
+a cleaned up copy of the computation
+
+158
+00:08:20.560 --> 00:08:23.650
+graph and just to recap what we've done
+
+159
+00:08:23.650 --> 00:08:26.680
+so far is go backward here and figured
+
+160
+00:08:26.680 --> 00:08:30.160
+out that DV is equal to 3 the gain the
+
+161
+00:08:30.160 --> 00:08:31.960
+definition of DV that's just the
+
+162
+00:08:31.960 --> 00:08:34.090
+variable name of the code is really DJ
+
+163
+00:08:34.090 --> 00:08:38.560
+DV I will figured out that D a is equal
+
+164
+00:08:38.560 --> 00:08:41.410
+to 3 and again da is the variable name
+
+165
+00:08:41.410 --> 00:08:43.090 
+in your code and that's really the value
+
+166
+00:08:43.090 --> 00:08:44.040
+of DJ
+
+167
+00:08:44.040 --> 00:08:50.020
+da and what sort of hand wave how you
+
+168
+00:08:50.020 --> 00:08:52.120
+know we've gone backwards on these two
+
+169
+00:08:52.120 --> 00:08:55.360
+edges like so now let's keep computing
+
+170
+00:08:55.360 --> 00:08:57.330
+derivatives or let's look at the value
+
+171
+00:08:57.330 --> 00:09:03.610
+you so what is DJ vu well through a
+
+172
+00:09:03.610 --> 00:09:05.380
+similar calculation is what we did
+
+173
+00:09:05.380 --> 00:09:08.550
+before and we start off with u equals 6
+
+174
+00:09:08.550 --> 00:09:11.740
+if you bump up you to the 6.01
+
+175
+00:09:11.740 --> 00:09:15.820
+then V which is previous 11 goes up to
+
+176
+00:09:15.820 --> 00:09:20.800
+11 point over 1 and so J goes from 33 -
+
+177
+00:09:20.800 --> 00:09:24.370
+33 point 0 3 and so the increase in J is
+
+178
+00:09:24.370 --> 00:09:27.940
+3 X so this is equal and the analysis
+
+179
+00:09:27.940 --> 00:09:30.010
+that U is very similar to the analysis
+
+180
+00:09:30.010 --> 00:09:33.310
+we did for a this is actually computed
+
+181
+00:09:33.310 --> 00:09:42.430
+as a DJ DV x DV d you wear this we had
+
+182
+00:09:42.430 --> 00:09:46.750
+already figured out was 3 and this turns
+
+183
+00:09:46.750 --> 00:09:49.600
+out to be equal to 1 so we've kind of
+
+184
+00:09:49.600 --> 00:09:52.089
+one more step back application we end up
+
+185
+00:09:52.089 --> 00:09:57.700
+computing that D U is also equal to 3
+
+186
+00:09:57.700 --> 00:10:02.020
+and D U is of course just as DJ gu now
+
+187
+00:10:02.020 --> 00:10:04.899
+we just step through one last example in
+
+188
+00:10:04.899 --> 00:10:09.190
+detail so what is DJ DP right so you
+
+189
+00:10:09.190 --> 00:10:11.230
+imagine if you are allowed to change the
+
+190
+00:10:11.230 --> 00:10:13.750
+value of B and you want to tweak be a
+
+191
+00:10:13.750 --> 00:10:16.959
+little bit in order to minimize or
+
+192
+00:10:16.959 --> 00:10:19.149
+maximize the value of J alright so what
+
+193
+00:10:19.149 --> 00:10:20.950
+is the derivative what's the slope of
+
+194
+00:10:20.950 --> 00:10:24.190
+this function J when you change the
+
+195
+00:10:24.190 --> 00:10:27.160
+value of B a little bit it turns out
+
+196
+00:10:27.160 --> 00:10:29.950
+that using the chain rule for calculus
+
+197
+00:10:29.950 --> 00:10:32.800
+this can be written as the product of
+
+198
+00:10:32.800 --> 00:10:38.970
+two things is DG j vu times d u DB and
+
+199
+00:10:38.970 --> 00:10:42.850
+the reasoning is if you change be a
+
+200
+00:10:42.850 --> 00:10:47.170
+little bit so b goes from 3 to say the
+
+201
+00:10:47.170 --> 00:10:50.230
+point 0 1 um the way of no effect Jane
+
+202
+00:10:50.230 --> 00:10:53.380
+is it will first affect you so how much
+
+203
+00:10:53.380 --> 00:10:57.100
+does it affect you well U is defined as
+
+204
+00:10:57.100 --> 00:11:02.190
+B times C right so this will go from six
+
+205
+00:11:02.190 --> 00:11:08.290
+when B is equal to 3/2 now our 6.00 to
+
+206
+00:11:08.290 --> 00:11:13.180
+right because C is equal to 2 in our
+
+207
+00:11:13.180 --> 00:11:16.320
+example here and so this tells us that
+
+208
+00:11:16.320 --> 00:11:20.800
+PUD B is equal to 2 because when you
+
+209
+00:11:20.800 --> 00:11:24.100
+pump up B by point O 1 you increase this
+
+210
+00:11:24.100 --> 00:11:28.690
+twice as much so d UD b this is equal to
+
+211
+00:11:28.690 --> 00:11:33.010
+2 and now we know that U has gone up
+
+212
+00:11:33.010 --> 00:11:35.620
+twice as much as B has gone up
+
+213
+00:11:35.620 --> 00:11:39.880
+well once DJ D you we've already figured
+
+214
+00:11:39.880 --> 00:11:42.850
+out that this is equal to 3 and so by
+
+215
+00:11:42.850 --> 00:11:45.040
+multiplying these two out we find that
+
+216
+00:11:45.040 --> 00:11:48.520 
+DJ DB is equal to 6 and again
+
+217
+00:11:48.520 --> 00:11:50.320
+here's the reasoning for the second part
+
+218
+00:11:50.320 --> 00:11:52.480
+of the argument which is we want to know
+
+219
+00:11:52.480 --> 00:11:55.570
+when you goes up by point over to how
+
+220
+00:11:55.570 --> 00:12:00.190
+does that affect J the fact that DJ D U
+
+221
+00:12:00.190 --> 00:12:03.250
+is equal to 3 that tells us that when
+
+222
+00:12:03.250 --> 00:12:07.120
+you goes up by point zero two J goes up
+
+223
+00:12:07.120 --> 00:12:11.460
+three times as much so J should go up by
+
+224
+00:12:11.460 --> 00:12:16.360
+0.06 right so so bill that's comes from
+
+225
+00:12:16.360 --> 00:12:19.390
+in fact that DJ d u is equal to three
+
+226
+00:12:19.390 --> 00:12:22.240
+and if you check the map in detail you
+
+227
+00:12:22.240 --> 00:12:25.810
+will find that if B becomes three point
+
+228
+00:12:25.810 --> 00:12:28.060
+zero one then you become six point zero
+
+229
+00:12:28.060 --> 00:12:35.380
+two V becomes 11.0 - all right so that's
+
+230
+00:12:35.380 --> 00:12:39.330
+a plus u so this 5 Plus u and then J
+
+231
+00:12:39.330 --> 00:12:42.790
+which is equal to 3 times V then ends up
+
+232
+00:12:42.790 --> 00:12:47.080
+being equal to 33 point zero zero six
+
+233
+00:12:47.080 --> 00:12:49.960
+right and so that's how you get that DK
+
+234
+00:12:49.960 --> 00:12:53.740
+DB is equal to 6 and to fill that in
+
+235
+00:12:53.740 --> 00:12:57.130 
+this is if we go backwards so this is DB
+
+236
+00:12:57.130 --> 00:12:59.970
+is equal to 6 and DD really is the
+
+237
+00:12:59.970 --> 00:13:02.830
+Python code variable name for you know
+
+238
+00:13:02.830 --> 00:13:05.209
+DJ dB
+
+239
+00:13:05.209 --> 00:13:06.949
+and I won't I won't go through the last
+
+240
+00:13:06.949 --> 00:13:08.929
+example in great detail but it turns out
+
+241
+00:13:08.929 --> 00:13:13.939
+that if you also computes out DJ da this
+
+242
+00:13:13.939 --> 00:13:21.470
+turns out to be DJ b u times d u da and
+
+243
+00:13:21.470 --> 00:13:23.720
+this turns out to be ninth it turns out
+
+244
+00:13:23.720 --> 00:13:26.720
+these three times three I won't go
+
+245
+00:13:26.720 --> 00:13:28.339
+through that example in detail Pacelle
+
+246
+00:13:28.339 --> 00:13:30.559
+through this last step you know it is
+
+247
+00:13:30.559 --> 00:13:35.379
+possible to derive that B C is equal to
+
+248
+00:13:35.379 --> 00:13:38.569
+so the key takeaway from this video from
+
+249
+00:13:38.569 --> 00:13:40.519
+this example is that when computing
+
+250
+00:13:40.519 --> 00:13:42.110
+derivatives in computing all of these
+
+251
+00:13:42.110 --> 00:13:44.959
+derivatives the most efficient way to do
+
+252
+00:13:44.959 --> 00:13:47.110
+so is through a right-to-left
+
+253
+00:13:47.110 --> 00:13:49.579
+computation following the direction of
+
+254
+00:13:49.579 --> 00:13:51.740
+the event arrows and in particular we'll
+
+255
+00:13:51.740 --> 00:13:53.689
+first compute the derivative respect to
+
+256
+00:13:53.689 --> 00:13:56.720
+B and then that becomes useful for
+
+257
+00:13:56.720 --> 00:13:58.579
+computing the derivative respect to a
+
+258
+00:13:58.579 --> 00:14:01.040
+and the derivative with respect to U and
+
+259
+00:14:01.040 --> 00:14:04.459
+then the derivative respect to u for
+
+260
+00:14:04.459 --> 00:14:09.139
+example this term for example this term
+
+261
+00:14:09.139 --> 00:14:11.269
+over here and this term over here those
+
+262
+00:14:11.269 --> 00:14:13.220
+in turn become useful for computing to
+
+263
+00:14:13.220 --> 00:14:14.629
+their servers going to be in the
+
+264
+00:14:14.629 --> 00:14:17.329
+director of respect to C so that was a
+
+265
+00:14:17.329 --> 00:14:19.730
+computation drop and how there's a
+
+266
+00:14:19.730 --> 00:14:22.339
+forward or left to right calculation to
+
+267
+00:14:22.339 --> 00:14:25.189
+compute the cost function such as JD you
+
+268
+00:14:25.189 --> 00:14:27.799
+might want to optimize and a backward or
+
+269
+00:14:27.799 --> 00:14:30.709
+a right to left calculation to compute
+
+270
+00:14:30.709 --> 00:14:33.259
+derivatives if you're not familiar with
+
+271
+00:14:33.259 --> 00:14:35.509
+calculus or the chain rule I know some
+
+272
+00:14:35.509 --> 00:14:36.799
+of those details would have gone by
+
+273
+00:14:36.799 --> 00:14:38.990
+really quickly but you didn't follow all
+
+274
+00:14:38.990 --> 00:14:40.790
+the details don't worry about it in the
+
+275
+00:14:40.790 --> 00:14:43.579
+next video we'll go for this again in
+
+276
+00:14:43.579 --> 00:14:45.350
+the context of logistic regression and
+
+277
+00:14:45.350 --> 00:14:47.569
+show you exactly what you need to do in
+
+278
+00:14:47.569 --> 00:14:49.819
+order to implement the computations you
+
+279
+00:14:49.819 --> 00:14:51.649
+need to compute the derivatives of the
+
+280
+00:14:51.649 --> 00:14:54.910
+logistic regression model

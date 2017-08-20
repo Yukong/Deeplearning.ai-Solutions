@@ -1,0 +1,640 @@
+1
+00:00:00.000 --> 00:00:01.440
+In the previous video,
+在之前的视频中
+【翻译/时间轴：李晶 审核：AcceptedDoge】
+
+2
+00:00:01.440 --> 00:00:05.700
+you saw how you can use vectorization to compute their predictions
+你知道了如何向量化的计算同时对
+
+3
+00:00:05.700 --> 00:00:11.485
+the lowercase a's for an entire training set all at the same time.
+整个训练集预测结果a
+
+4
+00:00:11.485 --> 00:00:15.030
+In this video, you see how you can use vectorization to also
+在这个视频中 你将学会如何向量化
+
+5
+00:00:15.030 --> 00:00:19.205
+perform the gradient computations for all m training samples.
+计算m个训练数据的梯度
+
+6
+00:00:19.205 --> 00:00:21.380
+Again, all those at the same time.
+强调一下 是同时计算
+
+7
+00:00:21.380 --> 00:00:22.890
+And then at the end of this video,
+在本视频的末尾
+
+8
+00:00:22.890 --> 00:00:26.175
+we'll put it all together and show how you can derive
+我们会将之前讲的结合起来 向你展示
+
+9
+00:00:26.175 --> 00:00:29.730
+a very efficient implementation of logistic regression.
+如何得到一个非常高效的logistic回归的实现
+
+10
+00:00:29.730 --> 00:00:32.505
+So, you may remember that for the gradient computation,
+你可能记得讲梯度计算时
+
+11
+00:00:32.505 --> 00:00:36.910
+what we did was we computed dz1 for the first example,
+我列举了几个例子
+
+12
+00:00:36.910 --> 00:00:43.870
+which could be a1 minus y1 and then dz2 equals
+dz1 = a1-y1
+
+13
+00:00:43.870 --> 00:00:52.134
+a2 minus y2 and so on.
+d2=a2-y2 等等列举下去
+
+14
+00:00:52.134 --> 00:00:56.425
+And so on for all m training examples.
+对m个训练数据做同样的运算
+
+15
+00:00:56.425 --> 00:01:01.218
+So, what we're going to do is define a new variable,
+我们现在可以定义一个新的变量
+
+16
+00:01:01.218 --> 00:01:08.595
+dZ is going to be dz1, dz2, dzm.
+d(大写)Z = [dz1,dz2,...dzm]
+
+17
+00:01:08.595 --> 00:01:13.910
+Again, all the d lowercase z variables stacked horizontally.
+所有的dz变量横向排列
+
+18
+00:01:13.910 --> 00:01:21.200
+So, this would be 1 by m matrix or alternatively a m dimensional row vector.
+dZ将会是一个1*m的矩阵 或者说一个m维行向量
+
+19
+00:01:21.200 --> 00:01:23.520
+Now recall that from the previous slide,
+回忆之前的幻灯片
+
+20
+00:01:23.520 --> 00:01:28.405
+we'd already figured out how to compute capital A which was this: a1 through
+我们已经描述了如何计算A,即[a1,...am]
+
+21
+00:01:28.405 --> 00:01:36.735
+am and we had to find capital Y as y1 through ym.
+我们需要找到一个Y=[y1,...ym]
+
+22
+00:01:36.735 --> 00:01:39.200
+Also you know, stacked horizontally.
+像之前一样 y1,...ym横向排列
+
+23
+00:01:39.200 --> 00:01:42.780
+So, based on these definitions,
+基于这些定义
+
+24
+00:01:42.780 --> 00:01:46.770
+maybe you can see for yourself that dZ can be computed as
+你也许会发现我们可以这样计算dZ
+
+25
+00:01:46.770 --> 00:01:52.750
+just A minus Y because it's going to be equal to a1 - y1.
+dz = A-Y 这等同于
+
+26
+00:01:52.750 --> 00:01:55.670
+So, the first element, a2 - y2,
+[a1-y1,a2-y2...]
+
+27
+00:01:55.670 --> 00:01:59.980
+so in the second element and so on.
+以此类推
+
+28
+00:01:59.980 --> 00:02:06.115
+And, so this first element a1 - y1 is exactly the definition of dz1.
+第一个元素a1-y1就是dz1
+
+29
+00:02:06.115 --> 00:02:11.670
+The second element is exactly the definition of dz2 and so on.
+第二个元素就是dz2 ...
+
+30
+00:02:11.670 --> 00:02:13.965
+So, with just one line of code,
+所以仅需要一行代码
+
+31
+00:02:13.965 --> 00:02:20.095
+you can compute all of this at the same time.
+你就可以同时完成这所有的计算
+
+32
+00:02:20.095 --> 00:02:24.010
+Now, in the previous implementation,
+在之前的实现中
+
+33
+00:02:24.010 --> 00:02:27.695
+we've gotten rid of one for loop already but we still had
+我们已经去掉了一个for循环 但是
+
+34
+00:02:27.695 --> 00:02:31.600
+this second for loop over training examples.
+我们仍然有一个遍历训练集的循环
+
+35
+00:02:31.600 --> 00:02:35.440
+So we initialize dw to zero to a vector of zeroes.
+我们使用dw=0将dw初始化为0向量
+
+36
+00:02:35.440 --> 00:02:38.905
+But then we still have to loop over training examples where we have
+但是我们还有一个遍历训练集的循环
+
+37
+00:02:38.905 --> 00:02:43.015
+dw plus equals x1 times dz1,
+对第一个训练样本有dw+=x1*dz1
+
+38
+00:02:43.015 --> 00:02:50.440
+for the first training example dw plus equals x2 dz2 and so on.
+第二个样本dw+=x2*dz2 ...
+
+39
+00:02:50.440 --> 00:02:56.980
+So we do the M times and then dw divide equals by m and similarly for B, right?
+我们重复M次 然后dw/=m B也类似
+
+40
+00:02:56.980 --> 00:03:03.370
+db was initialized as 0 and db plus equals dz1.
+db被初始化为0向量 然后db+=dz1
+
+41
+00:03:03.370 --> 00:03:09.120
+db plus equals dz2 down to you know
+db+=dz2 这样重复到
+
+42
+00:03:09.120 --> 00:03:16.835
+dz(m) and db divide equals m. So that's what we had in the previous implementation.
+dzm 接着db/=m 这就是我们在之前的实现中做的
+
+43
+00:03:16.835 --> 00:03:18.700
+We'd already got rid of one for loop.
+我们已经去掉了一个for循环
+
+44
+00:03:18.700 --> 00:03:25.045
+So, at least now dw is a vector and we went separately updating dw1,
+至少现在dw是个向量了 然后我们分别
+
+45
+00:03:25.045 --> 00:03:26.850
+dw2 and so on.
+更新dz1 dw2等
+
+46
+00:03:26.850 --> 00:03:29.860
+So, we got rid of that already but we still
+我们去掉了一个for循环但是还
+
+47
+00:03:29.860 --> 00:03:33.630
+had the for loop over the M examples in the training set.
+有个for循环遍历训练集
+
+48
+00:03:33.630 --> 00:03:36.290
+So, let's take these operations and vectorize them.
+让我们继续下面的操作把它们向量化
+
+49
+00:03:36.290 --> 00:03:38.380
+Here's what we can do, for
+我们可以这么做
+
+50
+00:03:38.380 --> 00:03:42.745
+the vectorize implementation of db was doing is basically summing up,
+向量化的实现 db只需要对
+
+51
+00:03:42.745 --> 00:03:47.940
+all of these dzs and then dividing by m. So,
+这些dz求和然后除以m
+
+52
+00:03:47.940 --> 00:03:51.580
+db is basically one over m,
+db=1/m
+
+53
+00:03:51.580 --> 00:03:56.530
+sum from I equals once through m of dzi and
+对dz1到dzm求和
+
+54
+00:03:56.530 --> 00:04:03.055
+well all the dzs are in that row vector and so in Python,
+所有的dz组成了一个行向量 所以
+
+55
+00:04:03.055 --> 00:04:04.765
+what you do is implement you know,
+在Python中你仅需要
+
+56
+00:04:04.765 --> 00:04:08.155
+1 over m times np.
+1/m
+
+57
+00:04:08.155 --> 00:04:12.210
+sum of the Z.
+1/m*np.sum(dZ)
+
+58
+00:04:12.210 --> 00:04:15.115
+So, you just take this variable and call the np.
+你只要把这个变量传给np.sum函数
+
+59
+00:04:15.115 --> 00:04:19.195
+sum function on it and that would give you db.
+就可以得到db
+
+60
+00:04:19.195 --> 00:04:22.330
+How about dw or just write
+那么dw呢
+
+61
+00:04:22.330 --> 00:04:26.375
+out the correct equations who can verify is the right thing to do.
+先写出正确的公式 这才能证明我们做的是正确的
+
+62
+00:04:26.375 --> 00:04:28.164
+Dw turns out to be one over m,
+dw=1/m
+
+63
+00:04:28.164 --> 00:04:34.485
+times the matrix X times dZ transpose.
+dw=1/m*X*dZ转置
+
+64
+00:04:34.485 --> 00:04:37.990
+And, so kind of see why that's the case.
+让我们看看为什么是这样
+
+65
+00:04:37.990 --> 00:04:41.806
+This equal to one over m then the matrix X's,
+这等于1/m乘以
+
+66
+00:04:41.806 --> 00:04:48.325
+x1 through xm stacked up in columns like that and dZ
+列向量x1...xm堆积起来
+
+67
+00:04:48.325 --> 00:04:56.040
+transpose is going to be dz1 down to dzm like so.
+dZ转置是dz1...dzm
+
+68
+00:04:56.040 --> 00:05:00.900
+And so, if you figure out what this matrix times this vector works out to be,
+如果你明白这个矩阵乘以这个向量会得到什么
+
+69
+00:05:00.900 --> 00:05:05.585
+it is turns out to be one over m times x1
+这等于1/m    
+
+70
+00:05:05.585 --> 00:05:12.523
+dz1 plus... plus xm dzm.
+这等于1/m*[x1*dz1+...+xm*dzm]
+
+71
+00:05:12.523 --> 00:05:21.405
+And so, this is a n*1 vector and this is what you actually end up with,
+这是一个n*1的向量 也就是你最终得到的
+
+72
+00:05:21.405 --> 00:05:24.725
+with dw because dw was taking these you know,
+因为dw中包括了这些
+
+73
+00:05:24.725 --> 00:05:27.710
+xi dzi and adding them up and so that's what exactly
+xi*dzi 然后把他们加起来
+
+74
+00:05:27.710 --> 00:05:32.300
+this matrix vector multiplication is doing and so again,
+就是这个矩阵和向量相乘做的
+
+75
+00:05:32.300 --> 00:05:35.655
+with one line of code you can compute dw.
+只要一行代码你就可以计算出dw
+
+76
+00:05:35.655 --> 00:05:40.010
+So, the vectorized implementation of the derivative calculations is just this,
+向量化计算导数的实现就像下面这样
+
+77
+00:05:40.010 --> 00:05:44.540
+you use this line to implement db and use
+你用这行代码计算db
+
+78
+00:05:44.540 --> 00:05:50.540
+this line to implement dw and notice that without the for loop over the training set,
+这行代码计算dw 注意我们没有在训练集上使用for循环
+
+79
+00:05:50.540 --> 00:05:55.265
+you can now compute the updates you want to your parameters.
+现在你可以计算参数的更新
+
+80
+00:05:55.265 --> 00:06:01.185
+So now, let's put all together into how you would actually implement logistic regression.
+现在 我们回顾之前所学 看看应该如何实现一个logistic回归
+
+81
+00:06:01.185 --> 00:06:02.550
+So, this is our original,
+这是我们之前的
+
+82
+00:06:02.550 --> 00:06:07.866
+highly inefficient non vectorize implementation.
+没有向量化非常低效
+
+83
+00:06:07.866 --> 00:06:11.775
+So, the first thing we've done in the previous video was get rid of this volume, right?
+首先是我们在前一个视频中做的去掉这一堆
+
+84
+00:06:11.775 --> 00:06:14.400
+So, instead of looping over dw1,
+不用循环遍历
+
+85
+00:06:14.400 --> 00:06:15.755
+dw2 and so on,
+dw1 dw2等
+
+86
+00:06:15.755 --> 00:06:23.595
+we have replaced this with a vector value dw which is dw+= xi,
+我们已经用一个向量化的代码dw+=xi替换这些 
+
+87
+00:06:23.595 --> 00:06:28.775
+which is now a vector times dz(i).
+xi是一个向量 给他乘以dzi
+
+88
+00:06:28.775 --> 00:06:32.000
+But now, we will see that we can also get rid of not
+现在 我们不仅要取消那些循环
+
+89
+00:06:32.000 --> 00:06:36.670
+just for loop of those but also get rid of this for loop.
+还要取消掉这个for循环
+
+90
+00:06:36.670 --> 00:06:38.654
+So, here is how you do it.
+你可以这么做
+
+91
+00:06:38.654 --> 00:06:42.925
+So, using what we have from the previous slides,
+用前面幻灯片我们得到的
+
+92
+00:06:42.925 --> 00:06:47.085
+you would say, capitalZ, Z equal to w transpose X + b
+Z=wTX + B
+
+93
+00:06:47.085 --> 00:06:57.625
+and the code you is write capital Z equals np.
+你的代码应该是Z=np.dot(w.T,X)+b
+
+94
+00:06:57.625 --> 00:07:07.315
+w transpose X + b and then A equals sigmoid of capital Z.
+然后A = sigmoid(Z)
+
+95
+00:07:07.315 --> 00:07:12.710
+So, you have now computed all of this and all of this for all the values of I.
+你已经对所有i完成了这些和这些计算
+
+96
+00:07:12.710 --> 00:07:14.715
+Next on the previous slide,
+之前的幻灯片
+
+97
+00:07:14.715 --> 00:07:21.070
+we said you would compute dZ equals A - Y.
+我们知道你还应该计算dZ=A-Y
+
+98
+00:07:21.070 --> 00:07:24.460
+So, now you computed all of this for all the values of i.
+就对所有i完成了这个计算
+
+99
+00:07:24.460 --> 00:07:32.495
+Then, finally dw equals 1/m x
+最后 dw=1/m XdZ.T
+
+100
+00:07:32.495 --> 00:07:39.700
+dZ transpose and db equals 1/m of you know, np.
+db=1/m np.sum(dZ)
+
+101
+00:07:39.700 --> 00:07:43.328
+sum dZ.
+db=1/m np.sum(dZ)
+
+102
+00:07:43.328 --> 00:07:49.120
+So, you've just done front propagation and back propagation,
+你完成了前向和后向传播
+
+103
+00:07:49.120 --> 00:07:53.030
+really computing the predictions and computing the derivatives on
+确实实现了对所有训练样本进行预测和求导
+
+104
+00:07:53.030 --> 00:07:57.340
+all M training examples without using a for loop.
+而且没有使用一个for循环
+
+105
+00:07:57.340 --> 00:08:00.835
+And so the gradient descent update then would be you know w
+然后梯度下降更新参数
+
+106
+00:08:00.835 --> 00:08:04.462
+gets updated as w minus the learning rate times
+w=w-α*dw
+
+107
+00:08:04.462 --> 00:08:12.020
+dw which was just computed above and B is update as B minus the learning rate times db.
+b=b-α*db
+
+108
+00:08:12.020 --> 00:08:17.341
+Sometimes it's pretty close to notice that it is an assignment,
+有时候这和赋值很接近
+
+109
+00:08:17.341 --> 00:08:21.675
+but I guess I haven't been totally consistent with that notation.
+不过我应该没有完全使用这个符号
+
+110
+00:08:21.675 --> 00:08:25.450
+But with this, you have just implemented
+有了这些 
+
+111
+00:08:25.450 --> 00:08:29.635
+a single iteration of gradient descent for logistic regression.
+我们就通过一次迭代实现一次梯度下降
+
+112
+00:08:29.635 --> 00:08:32.308
+Now, I know I said that we should get rid of
+我们能不使用for循环时
+
+113
+00:08:32.308 --> 00:08:35.260
+explicit for loops whenever you can but if you want to
+就不要使用for循环 但是如果你希望
+
+114
+00:08:35.260 --> 00:08:38.230
+implement multiple iteration as
+多次迭代进行
+
+115
+00:08:38.230 --> 00:08:42.880
+a gradient descent then you still need a for loop over the number of iterations.
+梯度下降 那么你仍然需要for循环
+
+116
+00:08:42.880 --> 00:08:47.860
+So, if you want to have a thousand deliveration of gradient descent,
+如果你要求1000次导数进行梯度下降
+
+117
+00:08:47.860 --> 00:08:53.675
+you might still need a for loop over the iteration number.
+你或许仍旧需要一个for循环
+
+118
+00:08:53.675 --> 00:08:55.870
+There is an outermost for loop like that then I
+这个最外面的for循环
+
+119
+00:08:55.870 --> 00:08:59.210
+don't think there is any way to get rid of that for loop.
+我认为应该没有方式把他去掉
+
+120
+00:08:59.210 --> 00:09:02.390
+But I do think it's incredibly cool that you can implement
+不过我还是觉得一次迭代就可以进行一次梯度下降
+
+121
+00:09:02.390 --> 00:09:07.117
+at least one iteration of gradient descent without needing to use a full loop.
+而不需要任何循环 这很cool
+
+122
+00:09:07.117 --> 00:09:09.880
+So, that's it you now have a highly vectorize and
+你得到了一个高度向量化的
+
+123
+00:09:09.880 --> 00:09:14.745
+highly efficient implementation of gradient descent for logistic regression.
+非常高效的logistic回归的梯度下降算法
+
+124
+00:09:14.745 --> 00:09:18.850
+There is just one more detail that I want to talk about in the next video,
+这里有一些细节我想在下个视频中讨论
+
+125
+00:09:18.850 --> 00:09:24.155
+which is in our description here I briefly alluded to this technique called broadcasting.
+这里我简单提一下 这种技术被称为broadcasting
+
+126
+00:09:24.155 --> 00:09:28.240
+Broadcasting turns out to be a technique that Python and
+Broadcasting也是一种能够使你的
+
+127
+00:09:28.240 --> 00:09:32.915
+numpy allows you to use to make certain parts of your code also much more efficient.
+Python和Numpy部分代码更高效的技术
+
+128
+00:09:32.915 --> 00:09:37.090
+So, let's see some more details of broadcasting in the next video.
+我们在下个视频中学习关于broadcasting的更多细节

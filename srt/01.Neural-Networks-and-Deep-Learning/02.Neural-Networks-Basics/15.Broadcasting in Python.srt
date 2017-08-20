@@ -1,0 +1,901 @@
+1
+00:00:00,210 --> 00:00:03,240
+In the previous video, I mentioned that broadcasting
+在之前的视频中 我提到了广播(broadcasting)
+
+2
+00:00:03,240 --> 00:00:07,040
+is another technique that you can use
+to make your Python code run faster.
+这是另外一种使你的python代码运行得更快的技术
+
+3
+00:00:07,040 --> 00:00:11,860
+In this video, let's delve into how
+broadcasting in Python actually works.
+现在我们将深入了解它的broadcasting具体是如何工作的
+
+4
+00:00:11,860 --> 00:00:14,240
+Let's suppose today broadcasting with an example.
+让我们用一个例子引出今天要讲的broadcasting
+
+5
+00:00:14,240 --> 00:00:18,730
+In this matrix, I've shown the number
+of calories from carbohydrates,
+这个矩阵中展示了4种不同食物 以及每100g食物中的
+
+6
+00:00:18,730 --> 00:00:22,320
+proteins, and fats in 100 grams of four different foods.
+碳水化合物 蛋白质和脂肪中含有的卡路里
+
+7
+00:00:22,320 --> 00:00:25,380
+So for example, a 100 grams of apples turns out,
+例如 没100g苹果
+
+8
+00:00:25,380 --> 00:00:29,690
+has 56 calories from carbs, and
+much less from proteins and fats.
+有56卡路里来自碳水化合物
+蛋白质和脂肪中仅含有很少卡路里
+
+9
+00:00:29,690 --> 00:00:35,110
+Whereas, in contrast, a 100 grams of
+beef has 104 calories from protein and
+相反，100g牛肉的蛋白质中含有104卡路里
+
+10
+00:00:35,110 --> 00:00:37,620
+135 calories from fat.
+脂肪中含有135卡路里
+
+11
+00:00:37,620 --> 00:00:43,330
+Now, let's say your goal is to
+calculate the percentage of calories
+你的任务是分别计算这四种食物的
+
+12
+00:00:43,330 --> 00:00:48,440
+from carbs, proteins and fats for each of the four foods.
+碳水化合物、蛋白质和脂肪产生的卡路里的百分比
+
+13
+00:00:48,440 --> 00:00:52,338
+So, for example, if you look at this column and
+我们以这一列为例
+
+14
+00:00:52,338 --> 00:00:57,697
+add up the numbers in that column
+you get that 100 grams of apple
+把该列所有数字加起来 你会发现每100g苹果
+
+15
+00:00:57,697 --> 00:01:02,580
+has 56 plus 1.2 plus 1.8 so that's 59 calories.
+56+1.2+1.8 有59卡路里
+
+16
+00:01:02,580 --> 00:01:06,806
+And so as a percentage the percentage of
+下来算百分比
+
+17
+00:01:06,806 --> 00:01:11,800
+calories from carbohydrates in an apple would
+苹果的碳水化合物所产生的卡路里
+
+18
+00:01:11,800 --> 00:01:16,932
+be 56 over 59, that's about 94.9%.
+占56/59 大约是94.9%
+
+19
+00:01:16,932 --> 00:01:22,399
+So most of the calories in an apple
+come from carbs, whereas in contrast,
+因此苹果的卡路里主要来自碳水化合物
+
+20
+00:01:22,399 --> 00:01:27,630
+most of the calories of beef come
+from protein and fat and so on.
+相反 牛肉的卡路里主要来自蛋白质和脂肪
+
+21
+00:01:27,630 --> 00:01:33,630
+So the calculation you want is really
+to sum up each of the four columns
+你需要做的运算就是把这个矩阵的4列数字分别加起来
+
+22
+00:01:33,630 --> 00:01:38,740
+of this matrix to get the total number
+of calories in 100 grams of apples,
+得到100g苹果
+
+23
+00:01:38,740 --> 00:01:40,920
+beef, eggs, and potatoes.
+牛肉、鸡蛋、土豆总共含有的卡路里
+
+24
+00:01:40,920 --> 00:01:45,090
+And then to divide throughout the matrix,
+然后对整个矩阵做除法运算
+
+25
+00:01:47,230 --> 00:01:51,230
+so as to get the percentage of
+calories from carbs, proteins and
+得到四种食物的碳水化合物 蛋白质 脂肪
+
+26
+00:01:51,230 --> 00:01:54,870
+fats for each of the four foods.
+分别产生卡路里的百分比
+
+27
+00:01:54,870 --> 00:02:01,370
+So the question is, can you do
+this without an explicit for-loop?
+问题是 你可以不用for循环完成么
+
+28
+00:02:01,370 --> 00:02:03,290
+Let's take a look at
+how you could do that.
+我们看一下你可以怎么实现
+
+29
+00:02:04,450 --> 00:02:08,602
+What I'm going to do is
+show you how you can set,
+我接下来向你展示如何解决该问题
+
+30
+00:02:08,602 --> 00:02:12,990
+say this matrix equal to
+three by four matrix A.
+让这个矩阵等于一个3*4的矩阵A
+
+31
+00:02:12,990 --> 00:02:18,300
+And then with one line of Python code
+we're going to sum down the columns.
+接下来我们用一行Python代码把矩阵按列加起来
+
+32
+00:02:18,300 --> 00:02:22,078
+So we're going to get four numbers
+corresponding to the total number
+我们将得到4个数字 表示这四种食物
+
+33
+00:02:22,078 --> 00:02:25,046
+of calories in these four
+different types of foods,
+所含卡路里总数
+
+34
+00:02:25,046 --> 00:02:28,095
+100 grams of these four
+different types of foods.
+100g 四种不同的食物
+
+35
+00:02:28,095 --> 00:02:32,113
+And I'm going to use a second line
+of Python code to divide each of
+我接下来会用第二行Python代码将四列分别除以
+
+36
+00:02:32,113 --> 00:02:35,390
+the four columns by
+their corresponding sum.
+他们对应的总和
+
+37
+00:02:35,390 --> 00:02:37,250
+If that verbal description
+wasn't very clearly,
+如果口头表述还不够清楚的话
+
+38
+00:02:37,250 --> 00:02:40,670
+hopefully it will be clearer in a second
+when we look in the Python code.
+希望我们可以通过Python代码表述清楚
+
+39
+00:02:40,670 --> 00:02:42,460
+So here we are in the Jupyter notebook.
+我们打开Jupyter notebook
+
+40
+00:02:42,460 --> 00:02:46,150
+I've already written this first
+piece of code to prepopulate
+我已经写好了第一段代码
+
+41
+00:02:46,150 --> 00:02:49,860
+the matrix A with the numbers we had
+just now, so we'll hit shift enter and
+将我们之前给出的数值存入矩阵A 我们按下shift enter
+
+42
+00:02:49,860 --> 00:02:51,220
+just run that, so there's the matrix A.
+运行代码 就有了矩阵A
+
+43
+00:02:51,220 --> 00:02:55,080
+And now here are the two
+lines of Python code.
+接下来是两行Python代码
+
+44
+00:02:55,080 --> 00:02:59,983
+First, we're going to compute
+cal = A.sum(axis=0).
+首先 我们计算cal = A.sum(axis=0)
+
+45
+00:02:59,983 --> 00:03:02,280
+And axis equals 0 means to sum vertically.
+axis=0表示纵向求和
+
+46
+00:03:02,280 --> 00:03:05,280
+We'll say more about that in a little bit.
+我们稍后会更细致的讨论
+
+47
+00:03:05,280 --> 00:03:06,076
+And then print cal.
+然后打印cal
+
+48
+00:03:06,076 --> 00:03:07,825
+So we've sum vertically.
+我们已经纵向的把他们加起来了
+
+49
+00:03:07,825 --> 00:03:13,735
+Now 59 is the total number of
+calories in the apple, 239 was
+59是苹果总共含有的卡路里
+
+50
+00:03:13,735 --> 00:03:19,575
+the total number of calories in the beef
+and the eggs and potato and so on.
+239是牛肉总共含有的卡路里 后面是鸡蛋 土豆
+
+51
+00:03:19,575 --> 00:03:25,151
+And then with a compute
+接下来计算
+
+52
+00:03:25,151 --> 00:03:30,733
+percentage = A/cal.reshape(1,4).
+
+53
+00:03:30,733 --> 00:03:33,927
+Actually we want percentages,
+so multiply by 100 here.
+我们想要的是百分比，因此这里乘100
+
+54
+00:03:35,913 --> 00:03:38,860
+And then let's print percentage.
+然后我们打印percentage
+
+55
+00:03:40,800 --> 00:03:41,950
+Let's run that.
+运行
+
+56
+00:03:41,950 --> 00:03:46,870
+And so that command we've taken the matrix A and
+我们用这条指令把矩阵A除以
+
+57
+00:03:46,870 --> 00:03:50,820
+divided it by this one by four matrix.
+这个1*4的矩阵
+
+58
+00:03:50,820 --> 00:03:52,672
+And this gives us
+the matrix of percentages.
+我们得到了这个百分比矩阵
+
+59
+00:03:52,672 --> 00:03:57,327
+So as we worked out kind of by
+hand just now in the apple there
+就像我之前手算的苹果那样
+
+60
+00:03:57,327 --> 00:04:02,480
+was a first column 94.9% of
+the calories are from carbs.
+94.9%的卡路里都来自碳水化合物
+
+61
+00:04:02,480 --> 00:04:04,000
+Let's go back to the slides.
+我们回到幻灯片
+
+62
+00:04:04,000 --> 00:04:06,310
+So just to repeat the two
+lines of code we had,
+重复一下我们写的两行代码
+
+63
+00:04:06,310 --> 00:04:09,940
+this is what have written
+out in the Jupyter notebook.
+这是我们在Jupyter notebook中写的
+
+64
+00:04:09,940 --> 00:04:13,306
+To add a bit of detail this parameter,
+讨论一下关于这个参数的一些细节
+
+65
+00:04:13,306 --> 00:04:18,540
+(axis = 0), means that you
+want Python to sum vertically.
+(axis=0)表示你希望Python纵向求和
+
+66
+00:04:18,540 --> 00:04:21,567
+So if this is axis 0 this
+means to sum vertically,
+axis 0意味着纵向相加
+
+67
+00:04:21,567 --> 00:04:24,029
+whereas the horizontal axis is axis 1.
+相反 横向是axis 1
+
+68
+00:04:24,029 --> 00:04:28,050
+So be able to write axis 1 or sum
+horizontally instead of sum vertically.
+所以 可以写axis 1横向求和
+
+69
+00:04:28,050 --> 00:04:30,670
+And then this command here,
+这是代码
+
+70
+00:04:30,670 --> 00:04:35,210
+this is an example of Python
+broadcasting where you take a matrix A.
+这是一个Python broadcasting的例子 你有一个矩阵A
+
+71
+00:04:35,210 --> 00:04:43,330
+So this is a three by four matrix and
+you divide it by a one by four matrix.
+矩阵A是一个3*4的矩阵 你用它除以一个1*4的矩阵
+
+72
+00:04:43,330 --> 00:04:47,370
+And technically, after this first
+line of codes cal, the variable cal,
+严格来说 在第一行代码之后 变量cal
+
+73
+00:04:47,370 --> 00:04:49,590
+is already a one by four matrix.
+已经是一个1*4的矩阵了
+
+74
+00:04:49,590 --> 00:04:52,616
+So technically you don't need
+to call reshape here again, so
+所以严格来说 你不需要在这里再次调用reshape
+
+75
+00:04:52,616 --> 00:04:54,722
+that's actually a little bit redundant.
+这事实上有一点冗余
+
+76
+00:04:54,722 --> 00:04:59,140
+But when I'm writing Python codes if
+I'm not entirely sure what matrix,
+但是如果我在写Python代码的时候并不完全确定矩阵的维度
+
+77
+00:04:59,140 --> 00:05:04,056
+what what the dimensions of a matrix I often
+would just call a reshape command just to
+我通常会调用reshape指令
+
+78
+00:05:04,056 --> 00:05:07,833
+make sure that it's the right
+column vector or the row vector or
+确保这是一个合适的列向量或者行向量
+
+79
+00:05:07,833 --> 00:05:09,500
+whatever you want it to be.
+或者你想要的维度
+
+80
+00:05:09,500 --> 00:05:11,840
+The reshape command is a constant time.
+reshape指令仅需常量时间
+
+81
+00:05:11,840 --> 00:05:15,150
+It's a order one operation
+that's very cheap to call.
+调用他并不会开销并不大
+
+82
+00:05:15,150 --> 00:05:18,404
+So don't be shy about using the reshape
+command to make sure that your matrices
+所以调用reshape不用为难 确保你的矩阵
+
+83
+00:05:18,404 --> 00:05:20,830
+are the size you need it to be.
+是你需要的尺寸
+
+84
+00:05:21,920 --> 00:05:27,272
+Now, let's explain in greater detail how
+this type of operation works, right?
+下来 我们解释这一操作更多的细节
+
+85
+00:05:27,272 --> 00:05:33,780
+We had a three by four matrix and
+we divided it by a one by four matrix.
+我们有一个3*4的矩阵 我们用它除以1*4的矩阵
+
+86
+00:05:33,780 --> 00:05:37,840
+So, how can you divide a three by
+four matrix by a one by four matrix?
+我们如何让一个3*4的矩阵除以1*4的矩阵呢？
+
+87
+00:05:37,840 --> 00:05:38,860
+Or by one by four vector?
+或者说1*4的向量
+
+88
+00:05:40,130 --> 00:05:43,160
+Let's go through a few more
+examples of broadcasting.
+让我们继续看几个broadcasting的例子
+
+89
+00:05:43,160 --> 00:05:47,920
+If you take a 4 by 1 vector and
+add it to a number, what
+如果你有一个4*1的向量 给他加一个数
+
+90
+00:05:47,920 --> 00:05:53,011
+Python will do is take this number and auto-expand
+Python会自动的将这个数
+
+91
+00:05:53,011 --> 00:05:58,180
+it into a four by one vector as well, as follows.
+扩展成为一个4*1的向量 例如
+
+92
+00:05:58,180 --> 00:06:00,257
+And so the vector [1, 2, 3, 4]
+向量[1, 2, 3, 4]
+
+93
+00:06:00,257 --> 00:06:04,450
+plus the number 100 ends up
+with that vector on the right.
+加上数字100 得到右边那个向量
+
+94
+00:06:04,450 --> 00:06:09,280
+You're adding a 100 to every element,
+and in fact we use this form of
+你给每个数字都加了100 事实上我们在之前的视频中
+
+95
+00:06:09,280 --> 00:06:14,365
+broadcasting where that constant was
+the parameter b in an earlier video.
+使用了这种形式的broadcasting 那个视频的常数是b
+
+96
+00:06:14,365 --> 00:06:19,414
+And this type of broadcasting works with
+both column vectors and row vectors,
+这种类型的broadcasting同样适用与行向量和列向量
+
+97
+00:06:19,414 --> 00:06:24,157
+and in fact we use a similar form of
+broadcasting earlier with the constant
+事实上 在之前logistic回归的视频中我们使用了类似形式的
+
+98
+00:06:24,157 --> 00:06:29,330
+we've added to a vector being
+the parameter b in logistic regression.
+broadcasting 我们在加法中使用了向量化的参数b
+
+99
+00:06:29,330 --> 00:06:31,610
+Here's another example.
+下面是另一个例子
+
+100
+00:06:31,610 --> 00:06:35,900
+Let's say you have a two
+by three matrix and
+假设你有一个2*3的矩阵
+
+101
+00:06:35,900 --> 00:06:39,420
+you add it to this one by n matrix.
+你给它加上这个1*n的矩阵
+
+102
+00:06:40,950 --> 00:06:45,682
+So the general case would be if you
+更一般的情况是 如果你有一个
+
+103
+00:06:45,682 --> 00:06:50,583
+have some (m,n) matrix here and
+(m*n)的矩阵
+
+104
+00:06:50,583 --> 00:06:55,330
+you add it to a (1,n) matrix.
+你给它加上(1*n)的矩阵
+
+105
+00:06:55,330 --> 00:06:58,667
+What Python will do is copy the matrix m,
+Python将会拷贝这个矩阵m次
+
+106
+00:06:58,667 --> 00:07:03,672
+times to turn this into m by n matrix, so instead of this one by
+将这个矩阵变为m*n的矩阵 来看这个1*3的矩阵
+
+107
+00:07:03,672 --> 00:07:09,980
+three matrix it'll copy it twice in
+this example to turn it into this.
+在这个例子中 他会被拷贝两次 变成这个样子
+
+108
+00:07:09,980 --> 00:07:14,092
+Also, two by three matrix and
+we'll add these so
+这是2*3的矩阵 我们把他们加起来
+
+109
+00:07:14,092 --> 00:07:18,270
+you'll end up with the sum on the right, okay?
+你将会得到右边的结果
+
+110
+00:07:18,270 --> 00:07:21,583
+So you taken, you added 100 to the first column,
+你给第一列加100
+
+111
+00:07:21,583 --> 00:07:25,812
+added 200 to second column, added 300 to the third column.
+第二列加200 第三列加300
+
+112
+00:07:25,812 --> 00:07:28,796
+And this is basically what we did on the previous slide,
+这基本上就是我们在上一张幻灯片做的操作
+
+113
+00:07:28,796 --> 00:07:32,810
+except that we use a division operation
+instead of an addition operation.
+只是我们使用了除法而不是加法
+
+114
+00:07:34,180 --> 00:07:40,402
+So one last example,
+whether you have a (m,n) matrix and
+最后一个例子 如果你有一个(m*n)的矩阵
+
+115
+00:07:40,402 --> 00:07:46,260
+you add this to a (m,1) vector,
+(m,1) matrix.
+和这个(m*1)的向量相加
+
+116
+00:07:47,310 --> 00:07:50,760
+Then just copy this n times horizontally.
+就将这个横向拷贝n次
+
+117
+00:07:50,760 --> 00:07:53,510
+So you end up with an (m,n) matrix.
+你最后得到一个(m*n)的矩阵
+
+118
+00:07:53,510 --> 00:07:56,990
+So as you can imagine you copy
+it horizontally three times.
+你可以想象你横向拷贝了他三次
+
+119
+00:07:56,990 --> 00:07:58,650
+And you add those.
+然后把这两个矩阵加起来
+
+120
+00:07:58,650 --> 00:08:01,070
+So when you add them you end up with this.
+你把他们加起来 会得到这个
+
+121
+00:08:01,070 --> 00:08:06,890
+So we've added 100 to the first row and
+added 200 to the second row.
+我们给第一行加了100 第二行加了200
+
+122
+00:08:08,270 --> 00:08:12,061
+Here's the more general principle
+of broadcasting in Python.
+关于Python中broadcasting更一般的原理
+
+123
+00:08:12,061 --> 00:08:17,353
+If you have an (m,n) matrix and you add or
+如果你有一个(m*n)的矩阵 你把他和
+
+124
+00:08:17,353 --> 00:08:24,409
+subtract or multiply or
+divide with a (1,n) matrix,
+一个(1*n)的矩阵做四则运算
+
+125
+00:08:24,409 --> 00:08:31,177
+then this will copy it m
+times into an (m,n) matrix.
+就会把这个(1*n)的矩阵拷贝m次成为一个(m*n)的矩阵
+
+126
+00:08:31,177 --> 00:08:33,781
+And then apply the addition,
+subtraction, and
+然后再在元素层面应用加法 减法
+
+127
+00:08:33,781 --> 00:08:36,140
+multiplication of division elementwise.
+乘法 除法等等
+
+128
+00:08:37,250 --> 00:08:42,250
+If conversely, you were to take the (m,n)
+matrix and add, subtract, multiply,
+相反 你有一个(m*n)的矩阵和一个(m*1)的矩阵
+
+129
+00:08:42,250 --> 00:08:49,060
+divide by an (m,1) matrix,
+then also this would copy it now n times.
+做四则运算 (m*1)的矩阵会被拷贝n次
+
+130
+00:08:49,060 --> 00:08:54,740
+And turn that into an (m,n) matrix and
+then apply the operation elementwise.
+变成一个(m*n)的矩阵再在元素层级做运算
+
+131
+00:08:54,740 --> 00:09:00,327
+Just one of the broadcasting,
+which is if you have an (m,1) matrix,
+如果你有一个(m*1)的矩阵
+
+132
+00:09:00,327 --> 00:09:05,175
+so that's really a column vector
+like [1,2,3], and you add,
+比如一个具体的列向量[1,2,3] 你把他和一个
+
+133
+00:09:05,175 --> 00:09:08,482
+subtract, multiply or
+divide by a real number.
+实数做四则运算
+
+134
+00:09:08,482 --> 00:09:11,080
+So maybe a (1,1) matrix.
+也可能是(1*1)的矩阵
+
+135
+00:09:11,080 --> 00:09:16,117
+So such as that plus 100,
+then you end up copying
+例如 加上100 然后你拷贝
+
+136
+00:09:16,117 --> 00:09:23,512
+this real number n times until you'll
+also get another (n,1) matrix.
+这个实数n次得到一个(n*1)的矩阵
+
+137
+00:09:23,512 --> 00:09:29,700
+And then you perform the operation such
+as addition on this example element-wise.
+然后你在元素层级做运算 例如加法
+
+138
+00:09:29,700 --> 00:09:35,823
+And something similar also works for row vectors.
+类似的 行向量也是以类似的方式运行
+
+139
+00:09:38,281 --> 00:09:43,730
+The fully general version of broadcasting
+can do even a little bit more than this.
+完整的broadcasting还有更多形式
+
+140
+00:09:43,730 --> 00:09:49,080
+If you're interested you can read the documentation for
+如过你对此感到很有兴趣 你可以在
+
+141
+00:09:49,080 --> 00:09:52,240
+NumPy, and look at broadcasting in that documentation.
+NumPy的文档中继续研究broadcasting
+
+142
+00:09:52,240 --> 00:09:56,380
+That gives an even slightly more general definition of broadcasting.
+文档给了broadcasting更通用的定义
+
+143
+00:09:56,380 --> 00:10:00,140
+But the ones on the slide are the main
+forms of broadcasting that you end up
+但是讲义上的是你在实现
+
+144
+00:10:00,140 --> 00:10:02,560
+needing to use when you
+implement a neural network.
+神经网络的过程中需要的形式
+
+145
+00:10:03,890 --> 00:10:06,840
+Before we wrap up,
+just one last comment, which is for
+我们结束之前 最后一点说明
+
+146
+00:10:06,840 --> 00:10:10,210
+those of you that are used to
+programming in either MATLAB or
+如果你使用过MATLAB或
+
+147
+00:10:10,210 --> 00:10:15,760
+Octave, if you've ever used the MATLAB or
+Octave function bsxfun
+Octave 如果你使用过他们的一个函数bsxfun
+
+148
+00:10:15,760 --> 00:10:20,590
+in neural network programming bsxfun does
+something similar, not quite the same.
+在神经网络编程中 bsxfun的效果与这个很相似但不完全相同
+
+149
+00:10:20,590 --> 00:10:25,750
+But it is often used for similar purpose
+as what we use broadcasting in Python for.
+但它和我们在python中使用广播的目的是类似的
+
+150
+00:10:25,750 --> 00:10:28,505
+But this is really only for very advanced MATLAB and
+这真的是只针对高级的MATLAB和
+
+151
+00:10:28,505 --> 00:10:31,600
+Octave users, if you've not heard of this,
+don't worry about it.
+Octave用户 如果你没有听说过 不用担心
+
+152
+00:10:31,600 --> 00:10:35,524
+You don't need to know it when you're
+coding up neural networks in Python.
+你在使用Python写神经网络的过程中并不需要知道它
+
+153
+00:10:35,524 --> 00:10:38,720
+So, that was broadcasting in Python.
+这就是Python的broadcasting
+
+154
+00:10:38,720 --> 00:10:42,360
+I hope that when you do the programming
+homework that broadcasting will allow you
+希望你做编程作业的时候broadcasting能够
+
+155
+00:10:42,360 --> 00:10:44,580
+to not only make a code run faster,
+使你的代码运行的更快
+
+156
+00:10:44,580 --> 00:10:48,920
+but also help you get what you want
+done with fewer lines of code.
+让你用更少的代码完成你想做的
+
+157
+00:10:50,360 --> 00:10:53,630
+Before you dive into the programming
+excercise, I want to share with you just
+在你去做编程作业之前 我想和你分享
+
+158
+00:10:53,630 --> 00:10:56,290
+one more set of ideas,
+which is that there's some tips and
+一些技巧 这些技巧
+
+159
+00:10:56,290 --> 00:11:00,700
+tricks that I've found reduces
+the number of bugs in my Python code and
+可以减少我的Python代码中的bug
+
+160
+00:11:00,700 --> 00:11:02,640
+that I hope will help you too.
+我希望同样对你有用
+
+161
+00:11:02,640 --> 00:11:05,550
+So with that,
+let's talk about that in the next video.
+这些技巧我们在下一个视频中讨论
+

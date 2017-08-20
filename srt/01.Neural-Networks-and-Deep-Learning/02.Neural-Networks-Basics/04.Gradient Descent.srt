@@ -1,0 +1,907 @@
+1
+00:00:00,590 --> 00:00:03,210
+You've seen the logistic regression model.
+在上个视频里 你看到了逻辑回归模型
+【翻译：曹越 happycaoyue.github.io】
+
+2
+00:00:03,210 --> 00:00:05,038
+You've seen the loss function
+你看到了损失函数
+
+3
+00:00:05,038 --> 00:00:08,558
+that measures how well you're doing on the single training example.
+损失函数可以在单一训练样例上衡量效果
+
+4
+00:00:08,558 --> 00:00:10,587
+You've also seen the cost function
+你也看到了成本函数（同代价函数）
+
+5
+00:00:10,587 --> 00:00:16,031
+that measures how well your parameters w and b are doing on your entire training set.
+成本函数可以在你的全部训练集上衡量参数w和b的效果
+
+6
+00:00:16,031 --> 00:00:20,700
+Now let's talk about how you can use the gradient descent algorithm
+现在我们讨论如何使用梯度下降法（gradient descent）
+
+7
+00:00:20,700 --> 00:00:22,181
+to train or to learn
+来训练或者学习
+
+8
+00:00:22,181 --> 00:00:24,992
+the parameters w and b on your training set.
+在你测试集上的参数w和b
+
+9
+00:00:24,992 --> 00:00:26,447
+To recap
+总的来说
+
+10
+00:00:26,447 --> 00:00:30,230
+here is the familiar logistic regression algorithm
+这里有一个我们已经熟悉的逻辑回归算法
+
+11
+00:00:30,230 --> 00:00:34,822
+And we have on the second line the cost function  J
+在第二行我们看到了成本函数 J
+
+12
+00:00:34,822 --> 00:00:37,381
+which is a function of your parameters w and b
+成本函数J有参数w和b
+
+13
+00:00:37,381 --> 00:00:39,552
+And that's defined as the average.
+并且定义为平均值
+
+14
+00:00:39,552 --> 00:00:43,325
+So it's 1 over m times the sum of this loss function
+因此计算从1到m的损失函数之和
+
+15
+00:00:43,325 --> 00:00:48,101
+And so the loss function measures how well your algorithms
+损失函数可以衡量你的算法的效果
+
+16
+00:00:48,101 --> 00:00:51,444
+outputs y-hat(i) on each of the training examples
+在每一个训练样例都输出y^(i)
+
+17
+00:00:51,444 --> 00:00:57,508
+stacks up or compares to the ground true label y(i) on each of the training examples.
+在每一个训练样例上与真实的标签y(i)进行比较
+
+18
+00:00:57,508 --> 00:01:00,457
+And the full formula is expanded out on the right
+完整的公式在等号右边展开
+
+19
+00:01:00,457 --> 00:01:06,253
+So the cost function measures how well your parameters w and b are doing on the training set
+因此成本函数可以衡量你的参数w和b在训练集上的效果
+
+20
+00:01:06,253 --> 00:01:09,709
+So in order to learn the set of parameters w and b
+要使得参数w和b的设置变的合理
+
+21
+00:01:09,709 --> 00:01:17,632
+it seems natural that we want to find w and b that
+make the cost function J(w, b) as small as possible
+自然地想到要去找到使得成本函数 J(w, b)尽可能小所对应的w和b
+
+22
+00:01:17,632 --> 00:01:20,535
+So here's an illustration of gradient descent
+接下来给出梯度下降法(gradient descent)的说明
+
+23
+00:01:20,535 --> 00:01:28,169
+In this diagram the horizontal axes represent your spatial parameters w and b
+在这个图中横轴表示你的空间参数w和b
+
+24
+00:01:28,169 --> 00:01:31,166
+In practice w can be much higher dimensional
+在实践中w可以是更高的维度
+
+25
+00:01:31,166 --> 00:01:32,737
+but for the purposes of plotting,
+但是为了更好地绘图
+
+26
+00:01:32,737 --> 00:01:37,858
+let's illustrate w as a single real number and b as a single real number
+我们定义w和b都是单一实数
+
+27
+00:01:37,858 --> 00:01:44,854
+The cost function J(w,b) is then some surface above these horizontal axes w and b
+成本函数J(w,b)是在水平轴w和b上的曲面
+
+28
+00:01:44,854 --> 00:01:50,283
+So the height of the surface represents the value of J(w,b) at a certain point
+因此曲面的高度就是 J(w,b)在某一点的值
+
+29
+00:01:50,283 --> 00:01:54,220
+And what we want to do is really to find the value of w and b
+我们所想要做的就是找到这样的w和b
+
+30
+00:01:54,220 --> 00:01:59,821
+that corresponds to the minimum of the cost function J
+使得对应的成本函数J值是最小值
+
+31
+00:01:59,821 --> 00:02:05,436
+It turns out that this cost function J is a convex function
+我们可以看到 成本函数J是一个凸函数(convex function)
+
+32
+00:02:05,436 --> 00:02:07,866
+So it's just a single big bowl
+像这样的一个大碗
+
+33
+00:02:07,866 --> 00:02:09,771
+so this is a convex function
+因此这是一个凸函数
+
+34
+00:02:09,771 --> 00:02:13,422
+and this is opposed to functions that look like this
+并且这与看起来像这样的函数相反
+
+35
+00:02:13,422 --> 00:02:14,260
+which are non-convex
+它是非凸的
+
+36
+00:02:14,260 --> 00:02:16,804
+and has lots of different local optimum
+并且有很多不同的局部最优
+
+37
+00:02:16,804 --> 00:02:21,416
+So the fact that our cost function J(w,b)
+因此我们的成本函数J(w,b)
+
+38
+00:02:21,416 --> 00:02:23,099
+as defined here is convex
+之所以定义为凸函数
+
+39
+00:02:23,099 --> 00:02:28,721
+is one of the huge reasons why we use this particular cost function J for logistic regression
+一个重要原因是我们使用对于逻辑回归这个特殊成本函数J造成的
+
+40
+00:02:28,721 --> 00:02:33,383
+So to find a good value for the parameters
+为了去找到参数更好的值
+
+41
+00:02:33,383 --> 00:02:38,896
+what we'll do is initialize w and b to some initial value
+我们将会做得就是用一些初始值来初始化w和b
+
+42
+00:02:38,896 --> 00:02:41,774
+maybe denoted by that little red dot
+可能是用那个小红点表示的
+
+43
+00:02:41,774 --> 00:02:47,779
+And for logistic regression almost any initialization method works
+对于逻辑回归几乎所有的初始化方法都有效
+
+44
+00:02:47,779 --> 00:02:50,690
+usually you initialize the value to zero
+通常用0来进行初始化
+
+45
+00:02:50,690 --> 00:02:52,910
+Random initialization also works
+随机初始化也有效
+
+46
+00:02:52,910 --> 00:02:55,630
+but people don't usually do that for logistic regression
+但是对于逻辑回归我们通常不这么做
+
+47
+00:02:55,630 --> 00:02:57,589
+But because this function is convex
+但是因为函数是凸函数
+
+48
+00:02:57,589 --> 00:02:59,196
+no matter where you initialize
+无论在哪里初始化
+
+49
+00:02:59,196 --> 00:03:02,180
+you should get to the same point or roughly the same point.
+你应该达到同一点或大致相同的点
+
+50
+00:03:02,180 --> 00:03:06,450
+And what gradient descent does is it starts at that initial point
+梯度下降法以初始点开始
+
+51
+00:03:06,450 --> 00:03:10,310
+and then takes a step in the steepest downhill direction
+然后朝最陡的下坡方向走一步
+
+52
+00:03:10,310 --> 00:03:12,855
+So after one step of gradient descent
+因此在梯度下降法一步后
+
+53
+00:03:12,855 --> 00:03:14,515
+you might end up there
+你或许在那里停止
+
+54
+00:03:14,515 --> 00:03:19,320
+because it's trying to take a step downhill in the direction of steepest descent
+因为它正试图沿着最陡下降的方向走下坡路
+
+55
+00:03:19,320 --> 00:03:21,250
+or as quickly downhill as possible.
+或者尽可能快地下坡
+
+56
+00:03:21,250 --> 00:03:23,600
+So that's one iteration of gradient descent
+这是梯度下降的一次迭代
+
+57
+00:03:23,600 --> 00:03:27,084
+And after two iterations of gradient descent you might step there
+两次迭代或许会到达那里
+
+58
+00:03:27,084 --> 00:03:28,830
+three iterations and so on.
+三次等等
+
+59
+00:03:28,830 --> 00:03:32,640
+I guess this is now hidden by the back of the plot until eventually
+我猜想这是隐藏在曲线后面
+
+60
+00:03:32,640 --> 00:03:38,880
+hopefully you converge to this global optimum or get to something close to the global optimum
+希望你收敛到这个全局最优值或接近全局最优值
+
+61
+00:03:38,880 --> 00:03:42,300
+So this picture illustrates the gradient descent algorithm
+所以这张图片说明了梯度下降法
+
+62
+00:03:42,300 --> 00:03:44,310
+Let's write a bit more of the details
+让我们多写一点细节
+
+63
+00:03:44,310 --> 00:03:45,616
+For the purpose of illustration
+为了更好地说明
+
+64
+00:03:45,616 --> 00:03:47,522
+let's say that there's some function
+让我们来看一些函数
+
+65
+00:03:47,522 --> 00:03:49,447
+J(w) that you want to minimize,
+J(w)是你想要找到其最小值
+
+66
+00:03:49,447 --> 00:03:51,700
+and maybe that function looks like this
+可能函数会看起来像这样
+
+67
+00:03:51,700 --> 00:03:53,075
+To make this easier to draw
+为了更容易去画
+
+68
+00:03:53,075 --> 00:03:54,893
+I'm going to ignore b for now
+我现在忽略b
+
+69
+00:03:54,893 --> 00:03:59,210
+just to make this a one-dimensional plot instead of a high-dimensional plot
+仅仅是用一维曲线代替多维曲线
+
+70
+00:03:59,210 --> 00:04:01,240
+So gradient descent does this
+梯度下降法是这样做的
+
+71
+00:04:01,240 --> 00:04:06,740
+we're going to repeatedly carry out the following update
+我们将重复执行以下更新的操作
+
+72
+00:04:06,740 --> 00:04:09,467
+We're going to take the value of w and update it
+我们更新w的值
+
+73
+00:04:09,467 --> 00:04:12,508
+going to use colon equals to represent updating w
+使用：=表示更新w
+
+74
+00:04:12,508 --> 00:04:22,351
+So set w to w minus α times and this is a derivative dJ(w)/dw.
+设置w为w-α dJ(w)/dw(公式如图)
+（dJ(w)/dw表示函数J(w)对w求导）
+
+75
+00:04:22,351 --> 00:04:26,230
+I will repeatedly do that until the algorithm converges
+在算法收敛之前我会重复这样做。
+
+76
+00:04:26,230 --> 00:04:27,592
+So couple of points in the notation
+我要说明公式中的两点
+
+77
+00:04:27,592 --> 00:04:30,032
+α here is the learning rate
+首先在这里的α表示学习率(learning rate)
+
+78
+00:04:30,032 --> 00:04:36,820
+and controls how big a step we take on each iteration or gradient descent
+学习率可以控制我们在每一次迭代或者梯度下降法中步长大小
+
+79
+00:04:36,820 --> 00:04:41,200
+We'll talk later about some ways by choosing the learning rate α
+我们之后讨论如何选择学习率α
+
+80
+00:04:41,200 --> 00:04:44,490
+And second this quantity here this is a derivative
+其次在这里的这个数是导数
+
+81
+00:04:44,490 --> 00:04:48,010
+This is basically the update or the change you want to make to the parameters w
+这就是对参数w的基本更新或者改变
+
+82
+00:04:48,010 --> 00:04:52,700
+When we start to write code to implement gradient descent
+当我们开始编写代码来实现梯度下降
+
+83
+00:04:52,700 --> 00:04:57,380
+we're going to use the convention that the variable name in our code
+我们将使用代码中变量名的约定
+
+84
+00:04:58,620 --> 00:05:02,300
+dw will be used to represent this derivative term
+dw表示导数
+
+85
+00:05:02,300 --> 00:05:06,551
+So when you write code you write something like
+因此你会像这样编写代码
+
+86
+00:05:06,551 --> 00:05:10,046
+w colon equals w minus alpha times dw
+w：=w-α dw(公式如图)
+
+87
+00:05:10,046 --> 00:05:14,750
+And so we use dw to be the variable name to represent this derivative term.
+我们用dw作为导数的变量名
+
+88
+00:05:14,750 --> 00:05:19,330
+Now let's just make sure that this gradient descent update makes sense
+现在我们确保梯度下降法更新是有意义的
+
+89
+00:05:19,330 --> 00:05:21,880
+Let's say that w was over here
+我们看w在这
+
+90
+00:05:21,880 --> 00:05:26,060
+So you're at this point on the cost function J(w)
+对应的成本函数J(w)在曲线上的这一点
+
+91
+00:05:26,060 --> 00:05:29,270
+Remember that the definition of a derivative
+记住导数的定义
+
+92
+00:05:29,270 --> 00:05:31,420
+is the slope of a function at the point
+是函数在这个点上的斜率
+
+93
+00:05:31,420 --> 00:05:36,190
+So the slope of the function is really the height divided by the width
+而函数的斜率是高除宽
+
+94
+00:05:36,190 --> 00:05:40,290
+of a low triangle here at this tangent to J(w) at that point
+在这个点相切于 J(w)的一个小三角形
+
+95
+00:05:40,290 --> 00:05:43,900
+And so, here the derivative is positive.
+在这里导数是正的
+
+96
+00:05:43,900 --> 00:05:48,830
+w gets updated as w minus a learning rate times the derivative
+w通过w自身减去学习率乘导数来更新
+
+97
+00:05:48,830 --> 00:05:53,310
+The derivative is positive and so you end up subtracting from w
+导数是正的所以你每一次从w中减去这个乘积
+
+98
+00:05:53,310 --> 00:05:55,260
+you end up taking a step to the left
+接着每一次都向左边走一步
+
+99
+00:05:55,260 --> 00:05:59,380
+And so gradient descent will make your algorithm slowly
+像这样梯度下降法会使你的算法渐渐地
+
+100
+00:05:59,380 --> 00:06:04,450
+decrease the parameter if you have started off with this large value of w
+减小这个参数w 如果在一开始你参数w的值就非常的大的话
+
+101
+00:06:04,450 --> 00:06:08,545
+As another example if w was over here
+另一个例子 如果w的位置是在这里
+
+102
+00:06:08,545 --> 00:06:15,050
+then at this point the slope here of dJ/dw will be negative
+这个点处的斜率将会是负的
+
+103
+00:06:15,050 --> 00:06:22,771
+and so the gradient descent update would subtract α times a negative number
+并且梯度下降法在更新参数时 w将会减去 α乘上一个负数
+
+104
+00:06:22,771 --> 00:06:25,216
+And so end up slowly increasing w
+并慢慢地使得参数w增加
+
+105
+00:06:25,216 --> 00:06:31,530
+so you end up making w bigger and bigger with successive iterations and gradient descent
+因此你会用一个成功的迭代和梯度下降法来 使得参数w越来越大
+
+106
+00:06:31,530 --> 00:06:34,568
+So that hopefully whether you initialize on the left or on the right
+无论你初始化的位置是在左边还是右边
+
+107
+00:06:34,568 --> 00:06:39,000
+gradient descent will move you towards this global minimum here
+梯度下降法会朝着全局最小值方向移动
+
+108
+00:06:39,000 --> 00:06:43,100
+If you're not familiar with derivates or with calculus
+如果你不熟悉导数或者微积分
+
+109
+00:06:43,100 --> 00:06:47,459
+and what this term dJ(w)/dw means
+你也不熟悉dJ(w)/dw的含义
+
+110
+00:06:47,459 --> 00:06:49,564
+don't worry too much about it
+不要着急
+
+111
+00:06:49,564 --> 00:06:53,770
+We'll talk some more about derivatives in the next video
+在下一个视频我们会讨论更多的知识关于导数
+
+112
+00:06:53,770 --> 00:06:56,761
+If you have a deep knowledge of calculus
+如果你深入了解过微积分
+
+113
+00:06:56,761 --> 00:07:02,321
+you might be able to have a deeper intuitions about how neural networks work
+你应该可以对神经网络如何工作有更深刻更直观的认识
+
+114
+00:07:02,321 --> 00:07:05,471
+But even if you're not that familiar with calculus
+但是即使你并不熟悉微积分
+
+115
+00:07:05,471 --> 00:07:10,525
+in the next few videos we'll give you enough intuitions about derivatives and about calculus
+通过下面的几个视频 我们也会对导数和微积分有足够直接的认识
+
+116
+00:07:10,525 --> 00:07:14,980
+that you'll be able to effectively use neural networks
+你将能够有效的使用神经网络
+
+117
+00:07:14,980 --> 00:07:16,410
+But the overall intuition for now
+但是现在所有的直观认识
+
+118
+00:07:16,410 --> 00:07:21,520
+is that this term represents the slope of the function
+便是这个术语 表示的是函数的斜率
+
+119
+00:07:21,520 --> 00:07:26,760
+and we want to know the slope of the function at the current setting of the parameters
+并且我们知道 函数的斜率用在当前的参数设置处
+
+120
+00:07:26,760 --> 00:07:30,156
+so that we can take these steps of steepest descent
+据此我们可以采用下降速度最快的步长
+
+121
+00:07:30,156 --> 00:07:32,205
+so that we know what direction to step in
+我们也可以知道 下一步更新的方向
+
+122
+00:07:32,205 --> 00:07:35,465
+in order to go downhill on the cost function J
+为了可以在成本函数J上走下坡路
+
+123
+00:07:35,465 --> 00:07:39,384
+So we wrote our gradient descent for J
+因此目前对于J的梯度下降法 我们写出来的
+
+124
+00:07:39,384 --> 00:07:42,014
+if only w was your parameter
+只需要w是你的参数就好了
+
+125
+00:07:42,520 --> 00:07:47,150
+In logistic regression, your cost function is a function of both w and b.
+在逻辑回归中你的成本函数是一个含有w和b的函数
+
+126
+00:07:47,150 --> 00:07:50,894
+So in that case, the inner loop of gradient descent, that is this thing here
+在这种情况下 梯度下降的内部循环 就是这里的这个东西
+
+127
+00:07:50,894 --> 00:07:53,302
+this thing you have to repeat becomes as follows
+你不得不像这样重复
+
+128
+00:07:53,302 --> 00:08:02,274
+w:=w-α dJ(w,b)/dw
+
+129
+00:08:02,274 --> 00:08:11,720
+b:=b-α dJ(w,b)/db
+
+130
+00:08:11,720 --> 00:08:17,300
+So these two equations at the bottom are the actual update you implement
+这两个等式是你实际更新参数时进行的操作
+
+131
+00:08:17,300 --> 00:08:22,320
+As an aside I just want to mention one notational convention in calculus that
+另外我想提到的是 在微积分的符号约定中
+
+132
+00:08:22,320 --> 00:08:24,560
+is a bit confusing to some people
+对一些人来说是有点困惑的
+
+133
+00:08:24,560 --> 00:08:28,387
+I don't think it's super important that you understand calculus
+我不认为目前理解微积分（符号约定）是非常重要的
+
+134
+00:08:28,387 --> 00:08:32,411
+but in case you see this I want to make sure that you don't think too much of this
+如果你看到这些 希望你不要想太多
+
+135
+00:08:32,411 --> 00:08:35,519
+Which is that in calculus this term here
+在微积分中在这的术语
+
+136
+00:08:35,519 --> 00:08:40,730
+we actually write as fallows of that funny squiggle symbol
+作为这一有趣的花体标志我们实际上这么写
+（如图所写的是偏微分符号,读作round）
+
+137
+00:08:40,730 --> 00:08:46,160
+So this symbol this is actually just a lower case d
+所以这个符号这实际上只是一个小写d(即d是偏微分符的小写)
+
+138
+00:08:46,160 --> 00:08:50,734
+in a fancy font in a stylized font for when you see this expression
+当你看到这个表达式的时候 用一个花哨的、样式化的字体
+
+139
+00:08:50,734 --> 00:08:56,145
+all this means is derivative J(w,b) or really the slope of the function J(w,b)
+所有的含义都是J(w,b)的导数或者函数J(w,b)的斜率
+
+140
+00:08:56,145 --> 00:09:01,580
+how much that function slopes in the w direction
+也即是函数在w这一点的斜率是多少
+
+141
+00:09:01,580 --> 00:09:04,466
+And the rule of the notation in calculus
+在微积分中这个符号的规则
+
+142
+00:09:04,466 --> 00:09:06,390
+which I think isn't totally logical
+我认为并不是完全符合逻辑的
+
+143
+00:09:06,390 --> 00:09:09,747
+but the rule in the notation for calculus
+同时对于微积分中这个符号的规则
+
+144
+00:09:09,747 --> 00:09:13,598
+which I think just makes things much more complicated than you need to be
+我认为这样规则会导致更加的复杂
+
+145
+00:09:13,598 --> 00:09:18,205
+is that if J is a function of two or more variables
+也就是指 是当函数J有两个以上的变量（使用偏导数符号）
+
+146
+00:09:18,205 --> 00:09:21,952
+then instead of using lowercase d you use this funny symbol
+我们不使用小写字母d 而使用更加花哨的符号
+
+147
+00:09:21,952 --> 00:09:24,380
+This is called a partial derivative symbol
+这个就称作偏导数符号
+
+148
+00:09:24,380 --> 00:09:26,120
+But don't worry about this
+但是别担心
+
+149
+00:09:26,120 --> 00:09:31,090
+and if J is a function of only one variable, then you use lowercase d
+如果J只有一个变量就是用小写字母d
+
+150
+00:09:31,090 --> 00:09:35,465
+So the only difference between whether you use this funny partial derivative symbol
+唯一的区别就是你是用偏导数符号
+
+151
+00:09:35,465 --> 00:09:38,040
+or lowercase d as we did on top
+还是小写字母d
+
+152
+00:09:38,040 --> 00:09:41,570
+is whether J is a function of two or more variables
+是取决于你的函数J是否含有两个以上的变量
+
+153
+00:09:41,570 --> 00:09:45,900
+In which case, you use this symbol,the partial derivative symbol
+变量超过两个 你使用偏导数符号
+
+154
+00:09:45,900 --> 00:09:51,480
+or if J is only a function of one variable then you use lowercase d
+如果你的函数只有一个变量你就使用小写字母d
+
+155
+00:09:51,480 --> 00:09:55,410
+This is one of those funny rules of notation in calculus that
+这是在微积分上一个有趣的符号规则
+
+156
+00:09:55,410 --> 00:09:58,540
+I think just make things more complicated than they need to be
+我认为它使事情变得更加复杂了
+
+157
+00:09:58,540 --> 00:10:01,231
+But if you see this partial derivative symbol
+但是如果你看到了偏导数符号
+
+158
+00:10:01,231 --> 00:10:04,698
+all it means is you're measure the slope of the function
+其含义就是计算函数关于其中一个变量
+
+159
+00:10:04,698 --> 00:10:07,398
+with respect to one of the variables
+在对应点处 所对应的斜率
+
+160
+00:10:07,398 --> 00:10:14,043
+And similarly to add here to the formerly correct mathematical notation in calculus
+类似在这里 这里的微积分符号正式地写的话 应该改用另一个数学符号
+
+161
+00:10:14,043 --> 00:10:18,070
+because here J has two inputs not just one
+因为在这里J有两个输入参数而不是一个
+
+162
+00:10:18,070 --> 00:10:22,540
+This thing at the bottom should be written with this partial derivative simple
+屏幕底部的这个东西应该用这个偏导数来写
+
+163
+00:10:22,540 --> 00:10:28,290
+But it really means the same thing as almost the same thing as lower case d
+但是这真的表达了和小写字母d同样的事情
+
+164
+00:10:28,290 --> 00:10:31,360
+Finally when you implement this in code
+最后当你编写代码想要实现
+
+165
+00:10:31,360 --> 00:10:34,635
+we're going to use the convention that this quantity
+我们屏幕写出的这个式子时
+
+166
+00:10:34,635 --> 00:10:37,377
+really the amount by which you update w
+通常在更新w的值的时候
+
+167
+00:10:37,377 --> 00:10:41,718
+will denote as the variable dw in your code
+我们会用dw这个变量来代替这个式子
+
+168
+00:10:41,718 --> 00:10:44,220
+And this quantity, right?
+同样也有下面这个式子
+
+169
+00:10:44,220 --> 00:10:47,230
+The amount by which you want to update b
+当你想去更新b的数值
+
+170
+00:10:47,230 --> 00:10:50,740
+will denote by the variable db in your code
+我们将会用db这个变量来表明下面这个式子
+
+171
+00:10:50,740 --> 00:10:55,580
+All right, so, that's how you can implement gradient descent
+综上 这就是梯度下降法的实现方法
+
+172
+00:10:55,580 --> 00:10:58,388
+Now if you haven't seen calculus for a few years
+如果现在你已经很多年不看微积分了
+
+173
+00:10:58,388 --> 00:11:01,852
+I know that that might seem like a lot more derivatives in calculus
+我知道有很多的导数在微积分中
+
+174
+00:11:01,852 --> 00:11:03,770
+than you might be comfortable with so far
+比现在讲的看起来舒服得多
+
+175
+00:11:03,770 --> 00:11:06,330
+But if you're feeling that waydon't worry about it
+如果你有这种感觉 也不要担心
+
+176
+00:11:06,330 --> 00:11:10,150
+In the next video, we'll give you better intuition about derivatives
+我们会在下一个视频中 给你更多关于导数的解释
+
+177
+00:11:10,150 --> 00:11:13,560
+And even without the deep mathematical understanding of calculus
+甚至不通过深度数学知识来理解微积分
+
+178
+00:11:13,560 --> 00:11:16,310
+with just an intuitive understanding of calculus
+而是通过直观来理解微积分
+
+179
+00:11:16,310 --> 00:11:19,130
+you will be able to make neural networks work effectively
+你可以是神经网络变得更加有效
+
+180
+00:11:19,130 --> 00:11:21,391
+So that, let's go onto the next video
+让我们进入下一个视频
+
+181
+00:11:21,391 --> 00:11:23,685
+where we'll talk a little bit more about derivatives
+来讨论导数
+

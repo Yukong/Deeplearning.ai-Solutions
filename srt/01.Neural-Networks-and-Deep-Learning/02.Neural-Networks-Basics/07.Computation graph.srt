@@ -1,0 +1,361 @@
+﻿1
+00:00:00,000 --> 00:00:02,514
+probably say that the computations of a
+可以说一个神经网络的计算
+【翻译：刘振卫 审核/时间轴：AcceptedDoge】
+
+2
+00:00:02,514 --> 00:00:04,273
+neural network are all organized in
+都是按照
+
+3
+00:00:04,273 --> 00:00:06,580
+terms of a forward path or a forward
+前向或反向传播过程组织的
+
+4
+00:00:06,580 --> 00:00:08,807
+propagation step, in which we compute the
+其中首先我们计算出
+
+5
+00:00:08,807 --> 00:00:11,273
+output of the new network followed by a
+一个新的网络的输出（前向过程）
+
+6
+00:00:11,273 --> 00:00:13,203
+backward pass or a back complication
+紧接着进行一个反向传输操作
+
+7
+00:00:13,203 --> 00:00:15,417
+step which we use to compute gradients
+后者我们用来计算出对应的梯度
+
+8
+00:00:15,417 --> 00:00:18,494
+or compute derivatives. the computation
+或者导数 这个计算图
+
+9
+00:00:18,494 --> 00:00:21,040
+graph explains why it is organized this
+解释了为什么我们用这样的方式这样组织
+
+10
+00:00:21,040 --> 00:00:23,507
+way, in this video we'll go through an
+在这个视频中 我们将看一个例子
+
+11
+00:00:23,507 --> 00:00:27,004
+example in order to illustrate the
+为了阐明这个计算过程
+
+12
+00:00:27,004 --> 00:00:29,849
+computation graph. let's use a simpler
+让我们举一个比逻辑回归
+
+13
+00:00:29,849 --> 00:00:32,717
+example than logistic regression or a
+更加简单的 或者说
+
+14
+00:00:32,717 --> 00:00:35,434
+informal neural network. let's say that
+不那么正式的神经网络的例子
+
+15
+00:00:35,434 --> 00:00:37,288
+we're trying to compute a function J
+我们尝试计算函数J
+
+16
+00:00:37,288 --> 00:00:39,638
+which is a function of three variables a
+J是由三个变量a,b,c组成的函数
+
+17
+00:00:39,638 --> 00:00:42,340
+B and C and let's say that function is
+这个函数是
+
+18
+00:00:42,340 --> 00:00:45,764
+three times a plus B times C, computing
+3(a+b*c)
+
+19
+00:00:45,764 --> 00:00:47,984
+this function actually has three
+计算这个函数实际上有三个
+
+20
+00:00:47,984 --> 00:00:50,531
+distinct steps, the first is you need to
+不同的步骤，第一个首先是
+
+21
+00:00:50,531 --> 00:00:53,480
+compute what is B times C and let's say
+计算b乘以c
+
+22
+00:00:53,480 --> 00:00:55,679
+we store that in a variable called u so
+我们把它储存在变量u中
+
+23
+00:00:55,679 --> 00:00:58,699
+U is equal to B times C and then you
+因此u=b*c
+
+24
+00:00:58,699 --> 00:01:02,100
+might compute v is equal a times u (a+u), so
+然后计算v=a+u(原字幕口误)
+
+25
+00:01:02,100 --> 00:01:05,708
+let's say you know this is V and then
+这就是v
+
+26
+00:01:05,708 --> 00:01:09,938
+finally your output J is 3 times V so
+最后输出J就是3*v
+
+27
+00:01:09,938 --> 00:01:14,311
+this is your final function J you trying
+这就是要计算的函数J
+
+28
+00:01:14,311 --> 00:01:17,996
+to compute we can take these three steps
+我们可以把这三步
+
+29
+00:01:17,996 --> 00:01:20,790
+and draw them in a computation graph as follows
+画成如下的计算图
+
+30
+00:01:20,790 --> 00:01:25,252
+let's say I draw your three variables a
+我先在这画三个变量a,b,c
+
+31
+00:01:25,252 --> 00:01:27,855
+B and C here so the first thing we did
+第一步就是
+
+32
+00:01:27,855 --> 00:01:32,703
+was compute u equals B times C I'm going
+计算u=b*c
+
+33
+00:01:32,703 --> 00:01:35,918
+to put a rectangular box around that and
+我在这周围放个矩形框
+
+34
+00:01:35,918 --> 00:01:38,954
+so the inputs of that are B and C and
+它的输入是b,c
+
+35
+00:01:38,954 --> 00:01:46,173
+then you might have V equals a plus u so
+接着第二步，v=a+u
+
+36
+00:01:46,173 --> 00:01:53,216
+the inputs to that ah  so the inputs to
+因此这个的输入就是，，额，，
+
+37
+00:01:53,216 --> 00:01:55,128
+that are u which we just computed
+刚才计算出来的u
+
+38
+00:01:55,128 --> 00:01:58,656
+together with a and then finally we have
+还有a，最后一步
+
+39
+00:01:58,656 --> 00:02:04,924
+J equals three times v so as I can
+J=3*v
+
+40
+00:02:04,924 --> 00:02:08,820
+for example a equals five B equals 3
+举个例子：a=5,b=3,
+
+41
+00:02:08,820 --> 00:02:13,192
+and C equals two, then u equals BC would
+c=2，u=bc
+
+42
+00:02:13,192 --> 00:02:17,224
+be six, V equals a plus u be five plus
+就是6,v=a+u，就是5+
+
+43
+00:02:17,224 --> 00:02:19,769
+six and eleven J is three times v so J
+6，就是11。J是三倍的v，因此
+
+44
+00:02:19,769 --> 00:02:22,116
+is equal to 33 and and indeed hope you
+J就等于33
+
+45
+00:02:22,116 --> 00:02:25,229
+can verify that you know this is a three
+你应该明白这是
+
+46
+00:02:25,229 --> 00:02:30,149
+times five plus three times two and if
+3*（5+3*2）
+
+47
+00:02:30,149 --> 00:02:31,268
+you expand that out
+如果你把它算出来
+
+48
+00:02:31,268 --> 00:02:33,461
+you know you actually get thirty three
+实际上得到33
+
+49
+00:02:33,461 --> 00:02:36,263
+has the value of J so the computation
+就是J的值，因此这个
+
+50
+00:02:36,263 --> 00:02:38,434
+graph comes in handy when there is some
+计算图用起来很方便 当有
+
+51
+00:02:38,434 --> 00:02:41,470
+distinguished or some special output
+不同的或者一些特殊的输出变量时
+
+52
+00:02:41,470 --> 00:02:44,903
+variable such as J in this case that you
+（如你想要优化的J）
+
+53
+00:02:44,903 --> 00:02:47,386
+want to optimize and in the case of the
+并且在逻辑回归中
+
+54
+00:02:47,386 --> 00:02:50,450
+logistic regression J is of course the
+J也是我们想要
+
+55
+00:02:50,450 --> 00:02:52,449
+cost function that we're trying to
+最小化的代价函数
+
+56
+00:02:52,449 --> 00:02:55,113
+minimize and what we've seen in this
+我们从这个小例子中
+
+57
+00:02:55,113 --> 00:02:57,651
+little example is that through a
+可以看出 通过一个
+
+58
+00:02:57,651 --> 00:03:00,163
+left-to-right pause you can compute the
+从左向右的过程 你可以计算出
+
+59
+00:03:00,163 --> 00:03:02,624
+value of J and what we'll see in the
+J的值 并且在接下来的幻灯片中
+
+60
+00:03:02,624 --> 00:03:05,096
+next couple slides is that in order to
+我们会看到
+
+61
+00:03:05,096 --> 00:03:06,181
+compute derivatives
+为了计算导数
+
+62
+00:03:06,181 --> 00:03:10,667
+Opa right to left pause like this kind
+从右到左的这个过程
+
+63
+00:03:10,667 --> 00:03:12,640
+of going in the opposite direction as
+（和这个蓝色箭头的过程相反）
+
+64
+00:03:12,640 --> 00:03:15,488
+the blue arrows that would be most
+这会是
+
+65
+00:03:15,488 --> 00:03:17,751
+natural for computing the derivatives so
+用于计算导数最自然的方式，因此
+
+66
+00:03:17,751 --> 00:03:19,550
+the recap the computation graph
+概括一下：计算图
+
+67
+00:03:19,550 --> 00:03:21,978
+organizes a computation with this blue
+组织计算的形式 是用蓝色箭头
+
+68
+00:03:21,978 --> 00:03:24,838
+arrow left to right computation, lets
+从左到右的计算 让我们
+
+69
+00:03:24,838 --> 00:03:26,686
+defer to the next video how you can do
+看看下一个视频怎么做
+
+70
+00:03:26,686 --> 00:03:30,047
+the backward red arrow right to left
+这个反向红色箭头 也就是从右到左
+
+71
+00:03:30,047 --> 00:03:32,402
+computation of the derivatives, let's go
+的导数计算 让我们继续
+
+72
+00:03:32,402 --> 00:03:33,219
+on to the next video
+下一个视频
+

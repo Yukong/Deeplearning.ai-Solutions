@@ -1,0 +1,501 @@
+
+1
+00:00:00.000 --> 00:00:03.195
+Welcome back. Vectorization is basically
+欢迎回来 向量化通常是
+2
+00:00:03.195 --> 00:00:07.315
+the art of getting rid of explicit for loops in your code.
+消除你的代码中显式循环语句的艺术
+3
+00:00:07.315 --> 00:00:11.835
+In the deep learning era safety in deep learning in practice,
+在深度学习安全领域、深度学习、练习中
+4
+00:00:11.835 --> 00:00:15.210
+you often find yourself training on relatively large data sets,
+你经常发现你自己训练大的数据集
+5
+00:00:15.210 --> 00:00:18.475
+because that's when deep learning algorithms tend to shine.
+因为深度学习算法更加倾向于出类拔萃
+6
+00:00:18.475 --> 00:00:22.790
+And so, it's important that your code very quickly because otherwise,
+所以你的代码运行得非常快非常重要，否则
+7
+00:00:22.790 --> 00:00:24.525
+if it's running on a big data set,
+如果它运行在一个大的数据集上面
+8
+00:00:24.525 --> 00:00:27.000
+your code might take a long time to run then you just find
+你的代码可能花费很长时间去运行，你会发现
+9
+00:00:27.000 --> 00:00:30.255
+yourself waiting a very long time to get the result.
+你将要等待非常长的时间去得到结果
+10
+00:00:30.255 --> 00:00:32.035
+So in the deep learning era,
+所以在深度学习领域
+11
+00:00:32.035 --> 00:00:37.490
+I think the ability to perform vectorization has become a key skill.
+我认为可以去完成向量化以及变成一个关键的技巧
+12
+00:00:37.490 --> 00:00:40.010
+Let's start with an example.
+让我们用一个例子开始
+13
+00:00:40.010 --> 00:00:42.225
+So, what is Vectorization?
+什么是向量化？
+14
+00:00:42.225 --> 00:00:48.780
+In logistic regression you need to compute Z equals W transpose X plus B,
+在逻辑回归中，你需要去计算Z=WTX+B
+15
+00:00:48.780 --> 00:00:55.405
+where W was this column vector and X is also this vector.
+W是列向量，X也是列向量
+16
+00:00:55.405 --> 00:00:58.000
+Maybe there are very large vectors if you have a lot of features.
+如果你有很多的特征，那么就会有一个非常大的向量
+17
+00:00:58.000 --> 00:01:07.080
+So, W and X were both these R and n R, NX dimensional vectors.
+所以W和X是R内的nx维向量
+18
+00:01:07.080 --> 00:01:10.170
+So, to compute W transpose X,
+所以去计算W'X
+19
+00:01:10.170 --> 00:01:15.660
+if you had a non-vectorized implementation,
+ 如果你有一个非向量化的实现
+20
+00:01:15.660 --> 00:01:18.725
+you would do something like Z equals zero.
+你将会做一些事情，例如Z=0
+21
+00:01:18.725 --> 00:01:24.860
+And then for I in range of n-X.
+*pythn代码   i in range(n-x)
+22
+00:01:24.860 --> 00:01:27.330
+So, for I equals 1, 2 NX,
+*python代码  所以i=1,2....nx
+23
+00:01:27.330 --> 00:01:34.040
+Z plus equals W I times XI.
+Z+=W[i]*X[i]
+24
+00:01:34.040 --> 00:01:37.100
+And then maybe you do Z plus equal B at the end.
+所以你在最后z+=b
+25
+00:01:37.100 --> 00:01:39.855
+So, that's a non-vectorized implementation.
+所以，这是一个非向量化的实现
+26
+00:01:39.855 --> 00:01:43.090
+Then you find that that's going to be really slow.
+你会发现这是真的很慢
+27
+00:01:43.090 --> 00:01:48.560
+In contrast, a vectorized implementation would just compute W transpose X directly.
+作为对比，一个向量化的实现将会非常直接计算WtX
+28
+00:01:48.560 --> 00:01:52.085
+In Python or a numpy,
+在Python 或者numpy
+29
+00:01:52.085 --> 00:02:01.428
+the command you use for that is Z equals np.W,
+你将要为那个实现的命令是Z=np.w X
+30
+00:02:01.428 --> 00:02:06.270
+X, so this computes W transpose X.
+这是在计算WtX
+31
+00:02:06.270 --> 00:02:09.075
+And you can also just add B to that directly.
+你也直接将要加上B
+32
+00:02:09.075 --> 00:02:12.400
+And you find that this is much faster.
+你将会发现这个非常快
+33
+00:02:12.400 --> 00:02:17.075
+Let's actually illustrate this with a little demo.
+让我们用一个小例子说明一下
+34
+00:02:17.075 --> 00:02:21.960
+So, here's my Jupiter notebook in which I'm going to write some Python code.
+在我的Jupiter notebook 我将会写一些Python代码
+35
+00:02:21.960 --> 00:02:28.041
+So, first, let me import the numpy library to import.
+首先，让我们导入numpy库
+36
+00:02:28.041 --> 00:02:30.000
+Send nP. And so, for example,
+作为 np，例如 
+37
+00:02:30.000 --> 00:02:36.570
+I can create A as an array as follows.
+像下面这样我将要创建一个数组A
+38
+00:02:36.570 --> 00:02:39.560
+Let's say print A.
+ 让我们看下打印A
+39
+00:02:39.560 --> 00:02:41.160
+Now, having written this chunk of code,
+现在，写下这些代码块
+40
+00:02:41.160 --> 00:02:43.170
+if I hit shift enter,
+如果我在键盘敲击shift 和 enter 两个键
+41
+00:02:43.170 --> 00:02:44.847
+then it executes the code.
+它将要执行这个代码
+42
+00:02:44.847 --> 00:02:47.970
+So, it created the array A and it prints it out.
+所以，它创建了数组A以及打印它
+43
+00:02:47.970 --> 00:02:50.580
+Now, let's do the Vectorization demo.
+现在，让我们完成向量化的例子
+44
+00:02:50.580 --> 00:02:51.990
+I'm going to import the time libraries,
+我将要导入time库
+45
+00:02:51.990 --> 00:02:53.580
+since we use that,
+因为我要使用那个
+46
+00:02:53.580 --> 00:02:56.565
+in order to time how long different operations take.
+为了去计算两次不同的操作花费了多长时间
+47
+00:02:56.565 --> 00:02:59.139
+Can they create an array A?
+他们能创建一个数组A吗
+48
+00:02:59.139 --> 00:03:02.905
+Those random thought rand.
+通过rand函数随机得到
+49
+00:03:02.905 --> 00:03:10.065
+This creates a million dimensional array with random values.
+用随机值创建了一个百万维度的数组
+50
+00:03:10.065 --> 00:03:13.300
+b = np.random.rand.
+b = np.random.rand.
+51
+00:03:13.300 --> 00:03:16.120
+Another million dimensional array.
+另外一个百万维度的数组
+52
+00:03:16.120 --> 00:03:20.810
+And, now, tic=time.time, so this measure the current time,
+现在 tic=time.time，记录一下当前时间
+53
+00:03:20.810 --> 00:03:26.395
+c = np.dot (a, b).
+c = np.dot (a, b).
+54
+00:03:26.395 --> 00:03:28.649
+toc = time.time.
+toc = time.time.
+55
+00:03:28.649 --> 00:03:31.950
+And this print,
+打印一下
+56
+00:03:31.950 --> 00:03:34.857
+it is the vectorized version.
+向量化的版本
+57
+00:03:34.857 --> 00:03:37.685
+It's a vectorize version.
+这是一个向量化的版本
+58
+00:03:37.685 --> 00:03:41.985
+And so, let's print out.
+现在让我们打印一下
+59
+00:03:41.985 --> 00:03:45.060
+Let's see the last time,
+让我们看一下运行时间
+60
+00:03:45.060 --> 00:03:48.330
+so there's toc - tic x 1000,
+python代码*  toc - tic x 1000
+61
+00:03:48.330 --> 00:03:52.075
+so that we can express this in milliseconds.
+所以我们表达这个在毫秒级上
+62
+00:03:52.075 --> 00:03:54.075
+So, ms is milliseconds.
+ms代表毫秒
+63
+00:03:54.075 --> 00:03:56.435
+I'm going to hit Shift Enter.
+我将要同时敲击Shift和 Enter
+64
+00:03:56.435 --> 00:04:01.890
+So, that code took about three milliseconds or this time 1.5,
+所以这个代码花费3毫秒或者这个时间的1.5倍
+65
+00:04:01.890 --> 00:04:06.170
+maybe about 1.5 or 3.5 milliseconds at a time.
+或许大概 1.5 或者3.5毫秒 
+66
+00:04:06.170 --> 00:04:08.370
+It varies a little bit as I run it,
+它有点变化当我再次运行它的时候
+67
+00:04:08.370 --> 00:04:12.085
+but looks like maybe on average it's taking like 1.5 milliseconds,
+但是好像，平均她要花费1.5毫秒
+68
+00:04:12.085 --> 00:04:15.665
+maybe two milliseconds as I run this.
+或许我这次运行是2毫秒
+69
+00:04:15.665 --> 00:04:16.967
+All right.
+是的
+70
+00:04:16.967 --> 00:04:19.005
+Let's keep adding to this block of code.
+让我们继续增加这个代码
+71
+00:04:19.005 --> 00:04:22.270
+That's not implementing non-vectorize version.
+这是非向量化的版本
+72
+00:04:22.270 --> 00:04:24.151
+Let's see, c = 0,
+让我们看看，c=0
+73
+00:04:24.151 --> 00:04:27.750
+then tic = time.time.
+ tic = time.time.
+74
+00:04:27.750 --> 00:04:29.335
+Now, let's implement a for loop.
+现在它实现了一个for 循环
+75
+00:04:29.335 --> 00:04:35.348
+For I in range of 1 million,
+python 代码:for i in range 1:1000000
+76
+00:04:35.348 --> 00:04:38.676
+I'll pick out the number of zeros right.
+我将要取出0右边的数字
+77
+00:04:38.676 --> 00:04:43.936
+C += (a,i) x (b,
+C += (a,i) x (b,i)
+78
+00:04:43.936 --> 00:04:50.775
+i), and then toc = time.time.
+以及 toc = time.time.
+79
+00:04:50.775 --> 00:04:57.725
+Finally, print more than explicit for loop.
+最后，打印for loop
+80
+00:04:57.725 --> 00:05:15.225
+The time it takes is this 1000 x toc - tic + "ms"
+它花费的时间是1000*toc-tic ms
+81
+00:05:15.225 --> 00:05:17.505
+to know that we're doing this in milliseconds.
+为了知道我们正在做这个在毫秒级别
+82
+00:05:17.505 --> 00:05:19.735
+Let's do one more thing.
+让我们再做点其他的事情
+83
+00:05:19.735 --> 00:05:22.802
+Let's just print out the value of C we
+我们打印出C的值。
+84
+00:05:22.802 --> 00:05:27.960
+compute it to make sure that it's the same value in both cases.
+计算一下它，确认在两个案例中他们是相同的。
+85
+00:05:27.960 --> 00:05:35.770
+I'm going to hit shift enter to run this and check that out.
+我打算去敲击shift和enter去运行这个，检查一下结果
+86
+00:05:35.770 --> 00:05:38.305
+In both cases, the vectorize version
+在两个案例中，向量化版本
+87
+00:05:38.305 --> 00:05:41.125
+and the non-vectorize version computed the same values,
+和非向量化版本计算了相同的值
+88
+00:05:41.125 --> 00:05:45.355
+as you know, 2.50 to 6.99, so on.
+正如你知道的，2.50 到 6.99
+89
+00:05:45.355 --> 00:05:48.670
+The vectorize version took 1.5 milliseconds.
+向量化版本花费了1.5毫秒
+90
+00:05:48.670 --> 00:05:57.555
+The explicit for loop and non-vectorize version took about 400, almost 500 milliseconds.
+很明确，for loop和非向量化版本花费了大约400，几乎500毫秒
+91
+00:05:57.555 --> 00:06:01.285
+The non-vectorize version took something like 300
+非向量化版本多花费了300
+92
+00:06:01.285 --> 00:06:05.660
+times longer than the vectorize version.
+倍向量化版本的时间
+93
+00:06:05.660 --> 00:06:11.230
+With this example you see that if only you remember to vectorize your code,
+用这个例子你将会看见如果你仅仅记住去向量化你的代码
+94
+00:06:11.230 --> 00:06:15.120
+your code actually runs over 300 times faster.
+你的代码完全运行300倍快
+95
+00:06:15.120 --> 00:06:16.540
+Let's just run it again.
+让我们再次运行一下它
+96
+00:06:16.540 --> 00:06:18.930
+Just run it again.
+再次运行一下它
+97
+00:06:18.930 --> 00:06:22.235
+Yeah. Vectorize version 1.5 milliseconds seconds and the for loop.
+向量化版本1.5毫秒，循环使用了
+98
+00:06:22.235 --> 00:06:25.960
+So 481 milliseconds, again,
+481毫秒
+99
+00:06:25.960 --> 00:06:29.535
+about 300 times slower to do the explicit for loop.
+大约慢300倍用循环做这个
+100
+00:06:29.535 --> 00:06:30.980
+If the time slows down,
+如果时间变慢
+101
+00:06:30.980 --> 00:06:33.880
+it's the difference between your code taking maybe one minute to
+这个有很大的不同在你的代码花费一分钟去运行和
+102
+00:06:33.880 --> 00:06:37.615
+run versus taking say five hours to run.
+花费5个小时去运行
+103
+00:06:37.615 --> 00:06:41.410
+And when you are implementing deep learning algorithms,
+当你正在实现深度学习算法
+104
+00:06:41.410 --> 00:06:43.300
+you can really get a result back faster.
+你能真正的快速得到一个返回的结果
+105
+00:06:43.300 --> 00:06:46.590
+It will be much faster if you vectorize your code.
+它将会更快，如果你向量化你的代码
+106
+00:06:46.590 --> 00:06:49.300
+Some of you might have heard that a lot of
+你可能听过很多这样的话
+107
+00:06:49.300 --> 00:06:54.260
+scaleable deep learning implementations are done on a GPU or a graphics processing unit.
+大规模的深度学习使用了GPU或者图像处理单元实现
+108
+00:06:54.260 --> 00:06:59.515
+But all the demos I did just now in the Jupiter notebook where actually on the CPU.
+但是我做的所有的案例都是在Jupiter notebook上面实现，这里只有CPU
+109
+00:06:59.515 --> 00:07:04.530
+And it turns out that both GPU and CPU have parallelization instructions.
+CPU和GPU都有并行化的指令
+110
+00:07:04.530 --> 00:07:07.530
+They're sometimes called SIMD instructions.
+他们有时候会叫做SIMD指令
+111
+00:07:07.530 --> 00:07:11.190
+This stands for a single instruction multiple data.
+这个代表了一个单独指令多维数据
+112
+00:07:11.190 --> 00:07:13.045
+But what this basically means is that,
+这个的基础意义是什么？
+113
+00:07:13.045 --> 00:07:16.835
+if you use built-in functions such as this
+如果你使用了built-in函数，像这样
+114
+00:07:16.835 --> 00:07:23.495
+np.function or other functions that don't require you explicitly implementing a for loop.
+np.function 或者 并不要求你实现循环的函数
+115
+00:07:23.495 --> 00:07:28.150
+It enables Python numpy to take
+python的numpy充分
+116
+00:07:28.150 --> 00:07:33.640
+much better advantage of parallelism to do your computations much faster.
+利用并行化去更快的计算
+117
+00:07:33.640 --> 00:07:38.610
+And this is true both computations on CPUs and computations on GPUs.
+这是事实在GPU和CPU上面计算
+118
+00:07:38.610 --> 00:07:41.070
+It's just that GPUs are remarkably good at
+GPU更加擅长
+119
+00:07:41.070 --> 00:07:44.980
+these SIMD calculations but CPU is actually also not too bad at that.
+SIMD计算但是CPU事实上也不是太差
+120
+00:07:44.980 --> 00:07:47.510
+Maybe just not as good as GPUs.
+可能没有GPU那么擅长吧
+121
+00:07:47.510 --> 00:07:51.660
+You're seeing how vectorization can significantly speed up your code.
+你看下，怎么向量化能够加速你的代码
+122
+00:07:51.660 --> 00:07:54.685
+The rule of thumb to remember is whenever possible,
+经验法则是无论什么时候
+123
+00:07:54.685 --> 00:07:57.425
+avoid using explicit four loops.
+避免使用显式的for循环
+124
+00:07:57.425 --> 00:07:59.980
+Let's go onto the next video to see some more examples of
+让我们进入到下一个视频去看下更多的向量化的案例
+125
+00:07:59.980 --> 00:08:04.000
+vectorization and also start to vectorize logistic regression.
+和开始去向量化逻辑回归

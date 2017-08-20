@@ -1,0 +1,1126 @@
+1
+00:00:00,030 --> 00:00:02,033
+in this video and show you a slightly
+在这个视频中 我将给出一个
+【翻译：谢小彬 时间轴/审核：AcceptedDoge】
+
+2
+00:00:02,033 --> 00:00:04,164
+more complex example where the slope of
+更加复杂的例子 在这个例子中
+
+3
+00:00:04,164 --> 00:00:07,312
+the function can be different at different points in the function
+函数在不同点处的斜率是不一样的
+
+4
+00:00:07,312 --> 00:00:09,194
+let's start with an example here I plot to the
+先来举个例子 我在这里画一个函数
+
+5
+00:00:09,194 --> 00:00:12,739
+function f of a equals a squared let's
+f(a)等于a的平方
+
+6
+00:00:12,739 --> 00:00:15,427
+take a look at the point in equals two
+来看看a等于2的点
+
+7
+00:00:15,427 --> 00:00:19,382
+so a squared or F of a is equal to four
+在这个点上 a的平方等于4
+
+8
+00:00:19,382 --> 00:00:22,949
+let's nudge a slightly to the right so
+让我们稍稍往右推进一点点
+
+9
+00:00:22,949 --> 00:00:24,775
+now a is equal to two point zero zero
+现在a等于2.001
+
+10
+00:00:24,775 --> 00:00:27,990
+one f of a which is a squared is going
+而f(a) 即a的平方
+
+11
+00:00:27,990 --> 00:00:31,228
+to be approximately four point zero zero
+大约为4.004
+
+12
+00:00:31,228 --> 00:00:33,675
+four it turns out that the exact value
+但是 如果你用计算器算的话
+
+13
+00:00:33,675 --> 00:00:36,751
+if you call the calculator and figure this out is actually four point zero
+这个准确的值应该为
+
+14
+00:00:36,751 --> 00:00:40,116
+zero four zero zero one now I'm just to
+4.004001 我只是为了简便起见
+
+15
+00:00:40,116 --> 00:00:43,030
+say a 4.04 is close enough so what this
+省略了后面的部分
+
+16
+00:00:43,030 --> 00:00:45,240
+means is that when a is equal to two
+所以这里想表达的是 当a等于2时
+
+17
+00:00:45,240 --> 00:00:47,999
+let's plot that here so if this is a is
+我们把它画在这里
+
+18
+00:00:47,999 --> 00:00:51,098
+equal to 2 F of a is equal to four but
+如果a等于2的话 那么f(a)就等于4
+
+19
+00:00:51,098 --> 00:00:52,974
+when I nudge a little bit to the right
+但是当我稍稍往右移动一点的时候
+
+20
+00:00:52,974 --> 00:00:56,801
+two point zero zero one then it goes up to the x
+即a=2.001的时候 注意这里
+
+21
+00:00:56,801 --> 00:00:59,428
+and y-axes are not to scale here then it
+图上的x轴和y轴是不成比例的
+
+22
+00:00:59,428 --> 00:01:02,440
+goes up to about four point zero zero
+然后这里的y大约为4.004
+
+23
+00:01:02,440 --> 00:01:05,236
+four again the x and y-axes here are not
+再次注意这里的x轴和y轴是不成比例的
+
+24
+00:01:05,236 --> 00:01:07,481
+drawn to scale let's draw this on the
+我们重新在图上画一下
+
+25
+00:01:07,481 --> 00:01:10,185
+plot so what we're saying is that if a
+如果a等于2的话
+
+26
+00:01:10,185 --> 00:01:13,488
+is equal to 2 then F of a is equal to 4
+那么f(a)就等于4
+
+27
+00:01:13,488 --> 00:01:16,552
+and here at the x and y axes are not
+注意这里x轴和y轴的比例还是不太准确
+
+28
+00:01:16,552 --> 00:01:19,045
+drawn to scale technically this vertical
+实际上这个点的高度
+
+29
+00:01:19,045 --> 00:01:20,777
+height should be much higher than this
+要比这里纵轴的x值
+
+30
+00:01:20,777 --> 00:01:22,522
+horizontal height so the x and y axes
+还要大那么一点点 所以x轴和y轴
+
+31
+00:01:22,522 --> 00:01:25,350
+are not on the same scale um but if I
+还是不成比例的
+
+32
+00:01:25,350 --> 00:01:29,397
+now nudge a to 2.001 then F of a
+如果让a等于2.001
+
+33
+00:01:29,397 --> 00:01:33,262
+becomes roughly 4.004 so if you draw this
+则f(a)约为4.004 如果你在这儿画
+
+34
+00:01:33,262 --> 00:01:36,072
+little triangle again what this means is
+一个小三角形 你就会发现
+
+35
+00:01:36,072 --> 00:01:40,134
+that if I nudge a to the right by 0.001 f
+如果把a往右移动0.001
+
+36
+00:01:40,134 --> 00:01:44,443
+of a goes up four times as much by 0.004
+那么f(a)将增大四倍 即增大0.004
+
+37
+00:01:44,443 --> 00:01:46,855
+so in the language of calculus we say
+在微积分中 我们把这个
+
+38
+00:01:46,855 --> 00:01:49,277
+that the slope that is the derivative
+此三角形斜边的斜率
+
+39
+00:01:49,277 --> 00:01:56,021
+from F of a at a equals 2 is 4 or to
+称为f(a)在点a=2处的导数(即为4)
+
+40
+00:01:56,021 --> 00:01:58,049
+write this out with calculus notation
+或者写成微积分的形式
+
+41
+00:01:58,049 --> 00:02:02,016
+we say that d/da of f of a is equal to 4
+当a等于2的时候
+
+42
+00:02:02,016 --> 00:02:05,514
+when a is equal to 2 now one thing about
+d/da f(a)等于4 由此可知
+
+43
+00:02:05,514 --> 00:02:07,669
+this function f of a equals a square is
+函数f(a)=a^2
+
+44
+00:02:07,669 --> 00:02:09,606
+that the slope is different for
+在a取不同值的时候
+
+45
+00:02:09,606 --> 00:02:11,419
+different values of a this is different
+它的斜率是不同的 这和
+
+46
+00:02:11,419 --> 00:02:14,056
+and the example we saw on the previous slide
+上个视频中的例子是不同的
+
+47
+00:02:14,056 --> 00:02:17,381
+so let's look at a different point if a
+现在换个点来看看
+
+48
+00:02:17,381 --> 00:02:20,254
+is equal to 5 so except equals 2 now you
+如果a等于5(不再等于2)
+
+49
+00:02:20,254 --> 00:02:23,967
+have a equals 5 then a squared is equal to 25
+a等于5 那么a的平方则为25
+
+50
+00:02:23,967 --> 00:02:27,643
+so that's f of a if I nudge a to the
+所以这是f(a)的值 如果再一次
+
+51
+00:02:27,643 --> 00:02:28,332
+right again
+把a往右移一点点
+
+52
+00:02:28,332 --> 00:02:31,299
+it's tiny little nudge of a so now a is 5
+只是移动非常小的一段距离
+
+53
+00:02:31,299 --> 00:02:34,338
+point 0 0 1 then F of a will be
+现在a等于5.001 而f(a)的值
+
+54
+00:02:34,338 --> 00:02:40,441
+approximately 25 point 0 1 0 so what we
+大约为25.010 由此可见
+
+55
+00:02:40,441 --> 00:02:44,387
+see is that by nudging a up by 0.001 F
+当我们只往右移动了0.001时
+
+56
+00:02:44,387 --> 00:02:47,529
+of a goes up 10 times as much so we have
+f(a)却增大了10倍
+
+57
+00:02:47,529 --> 00:02:51,477
+that d da f of a is equal to 10 when a
+即可以写作d/da f(a)等于10
+
+58
+00:02:51,477 --> 00:02:54,421
+is equal to 5 because F of a goes up 10
+而此时a的值为5 这里只是小小地
+
+59
+00:02:54,421 --> 00:02:56,654
+times as much as a does when I make a
+移动了a 就使得f(a)的值
+
+60
+00:02:56,654 --> 00:02:59,379
+tiny little nudge to a so one way to see
+增大了10倍 这里有种直观的方法可以解释
+
+61
+00:02:59,379 --> 00:03:01,005
+why the derivative is different at
+为什么一个点的斜率
+
+62
+00:03:01,005 --> 00:03:02,751
+different points is that if you draw
+在不同位置会不同 如果你在曲线上
+
+63
+00:03:02,751 --> 00:03:07,444
+that here a little triangle right at different locations on this you see that
+的不同位置画一些小小的三角形 你就会发现
+
+64
+00:03:07,444 --> 00:03:09,598
+the ratio of the height of the triangle
+三角形高和宽的比值
+
+65
+00:03:09,598 --> 00:03:12,255
+over the width of the triangle is very
+在曲线上不同的地方
+
+66
+00:03:12,255 --> 00:03:14,205
+different at different points on the
+它们是不同的
+
+67
+00:03:14,205 --> 00:03:17,322
+curve so here the slope is equal to 4
+所以当a=2时，这里
+
+68
+00:03:17,322 --> 00:03:19,635
+when a is equal to 2 but is equal to 10
+的斜率为4 而当a=5时
+
+69
+00:03:19,635 --> 00:03:22,530
+when a is equal to 5 now if you pull up
+这里的斜率为10 如果你翻看
+
+70
+00:03:22,530 --> 00:03:26,217
+a calculus textbook a calculus textbook will tell you that
+微积分的课本 课本会告诉你
+
+71
+00:03:26,217 --> 00:03:29,278
+d/da of f of a so f of a is equal to a
+d/da f(a) 这里f(a)等于a的平方
+
+72
+00:03:29,278 --> 00:03:32,225
+square so that d/da of a squared one of the
+所以d/da f(a)的值
+
+73
+00:03:32,225 --> 00:03:33,306
+formulas you find that the calculus
+由课本上的公式可知
+
+74
+00:03:33,306 --> 00:03:35,244
+textbook is that this thing the slope of
+这个函数f(a)=a^2的斜率
+
+75
+00:03:35,244 --> 00:03:37,893
+the function a squared is equal to 2a
+应该等于2a
+
+76
+00:03:37,893 --> 00:03:39,252
+I'm not going to prove this but the way you
+我不会在这里证明这个公式
+
+77
+00:03:39,252 --> 00:03:41,338
+find yours out is that you open up a
+但是你可以打开你的微积分课本
+
+78
+00:03:41,338 --> 00:03:44,821
+calculus textbooks to the table formulas
+找到上面的公式表
+
+79
+00:03:44,821 --> 00:03:46,464
+and it'll tell you the derivative of two
+它会告诉你f(a)=a^2
+
+80
+00:03:46,464 --> 00:03:50,003
+of a squared is equal to 2a and indeed
+的导数确实为2a
+
+81
+00:03:50,003 --> 00:03:52,026
+this is consistent with what we've
+事实上这也和我们
+
+82
+00:03:52,026 --> 00:03:54,809
+worked out mainly when a is equal to 2
+手工算的结果一样 当a为2时
+
+83
+00:03:54,809 --> 00:03:58,913
+the slopes of function to a is 2 times 2
+函数的斜率为2乘以2
+
+84
+00:03:58,913 --> 00:04:01,825
+is therefore equal to 4 and when a is
+即等于4 当a为5时
+
+85
+00:04:01,825 --> 00:04:03,897
+equal to 5 then the slope of the
+函数的斜率为
+
+86
+00:04:03,897 --> 00:04:06,805
+function 2 times a is 2 times 5 is equal
+2乘以a 即2乘以5等于10
+
+87
+00:04:06,805 --> 00:04:09,791
+to 10 so if you ever pull up a calculus
+如果你翻看微积分课本
+
+88
+00:04:09,791 --> 00:04:12,305
+textbook and you see this formula that
+你会看到这个公式
+
+89
+00:04:12,305 --> 00:04:14,725
+the derivative of a squared is equal to
+即a的平方的导数等于2a
+
+90
+00:04:14,725 --> 00:04:17,740
+2a all that means is that for any given
+这意味着任意给定一点a
+
+91
+00:04:17,740 --> 00:04:21,265
+value of a if you nudge it up with by
+如果你稍微将a
+
+92
+00:04:21,265 --> 00:04:26,295
+0.001 already your tiny little value you
+增大0.001
+
+93
+00:04:26,295 --> 00:04:31,086
+would expect f of a to go up by 2a that
+那么你会看到f(a)将增大2a
+
+94
+00:04:31,086 --> 00:04:33,581
+is the slope or the derivative times
+即增大的值为点在a处斜率或导数
+
+95
+00:04:33,581 --> 00:04:36,289
+however much you had an urge to the
+乘以你向右移动的距离
+
+96
+00:04:36,289 --> 00:04:39,101
+right the value of a now one tiny little
+现在 有个小细节需要注意
+
+97
+00:04:39,101 --> 00:04:40,813
+detail you know I have used these
+之前我在这里
+
+98
+00:04:40,813 --> 00:04:43,216
+approximate symbols here and this wasn't
+使用了一些不精确的值 这里的值
+
+99
+00:04:43,216 --> 00:04:46,435
+exactly 4.04 there's an extra point 001
+不应该为4.04 你知道这里
+
+100
+00:04:46,435 --> 00:04:49,235
+you know there it turns out that this
+应该还有额外001 这里有
+
+101
+00:04:49,235 --> 00:04:52,653
+extra pont 001 this little thing here is
+额外的001 是因为
+
+102
+00:04:52,653 --> 00:04:55,008
+because we were nudging a to the right
+我们把a向右移动了0.001
+
+103
+00:04:55,008 --> 00:04:57,915
+by 0.001 if we're instead nudging it to
+然而 如果我们把a
+
+104
+00:04:57,915 --> 00:05:00,553
+the right by this new infinitesimally
+向右移动像这样一个非常非常小的值
+
+105
+00:05:00,553 --> 00:05:03,312
+small value then this extra ever term
+那么这个额外的项
+
+106
+00:05:03,312 --> 00:05:06,341
+will go away and you find that the
+将可以被忽略 这样的话
+
+107
+00:05:06,341 --> 00:05:08,792
+amount that f of a goes up is exactly
+你会发现f(a)增大的值
+
+108
+00:05:08,792 --> 00:05:12,581
+equal to the derivative times the amount
+刚好等于导数乘以
+
+109
+00:05:12,581 --> 00:05:14,696
+that you nudged to the right and
+你向右边移动的距离
+
+110
+00:05:14,696 --> 00:05:17,783
+the reason why is not 4.004 exactly is
+至于为什么不是刚好等于4.004
+
+111
+00:05:17,783 --> 00:05:20,301
+because derivatives are defined using
+是因为导数就是根据
+
+112
+00:05:20,301 --> 00:05:23,747
+this infinitesimally small not just to
+这个极小值来定义的
+
+113
+00:05:23,747 --> 00:05:26,393
+a rather than you know 0.001 which is
+而这里的0.001虽然比较小
+
+114
+00:05:26,393 --> 00:05:29,363
+well and while 0.001 is small is not
+但是它还不足以小到
+
+115
+00:05:29,363 --> 00:05:31,901
+infinitesimally small so that's why the
+可以被忽略 这就是为什么
+
+116
+00:05:31,901 --> 00:05:33,685
+amount that effort where it went up
+例子中导数增大的值
+
+117
+00:05:33,685 --> 00:05:35,995
+isn't exactly given by the formula but
+不是刚好等于导数公式算出来的值
+
+118
+00:05:35,995 --> 00:05:38,261
+is only kind of approximately given by
+而只是根据导数算出来的一个估计值
+
+119
+00:05:38,261 --> 00:05:40,204
+the derivative to wrap up this video
+为了总结这堂课所学的知识
+
+120
+00:05:40,204 --> 00:05:42,279
+let's just go through a few more quick
+我们再来看看几个例子
+
+121
+00:05:42,279 --> 00:05:44,707
+examples the example you've already seen
+之前你已经知道的是
+
+122
+00:05:44,707 --> 00:05:49,205
+is that if f of a equals a squared then
+f(a)等于a的平方
+
+123
+00:05:49,205 --> 00:05:52,859
+in calculus textbooks formula table will
+按照微积分课本上的写法
+
+124
+00:05:52,859 --> 00:05:54,665
+tell you that the derivative is equal to
+这个函数的导数应该为2a
+
+125
+00:05:54,665 --> 00:05:57,430
+2a and so the example we went through
+和之前的例子一样
+
+126
+00:05:57,430 --> 00:06:00,072
+was that if a is equal to 2 f of a
+如果a等于2 那么f(a)等于4
+
+127
+00:06:00,072 --> 00:06:03,927
+equals 4 and if we nudge a so it's a
+如果我们把a向右边移动一点
+
+128
+00:06:03,927 --> 00:06:06,692
+little bit bigger then f of a is about
+那么f(a)将增大一点 大约为4.004
+
+129
+00:06:06,692 --> 00:06:10,295
+4.004 and so f of a went up four times as
+所以f(a)增大了向右移动距离的四倍
+
+130
+00:06:10,295 --> 00:06:13,307
+much and indeed when a is equal to 2 the
+所以事实上 当a等于2时
+
+131
+00:06:13,307 --> 00:06:15,457
+derivative is equal to 4 let's look at
+导数的值为4
+
+132
+00:06:15,457 --> 00:06:18,083
+some other examples let's say instead
+来看看其他例子
+
+133
+00:06:18,083 --> 00:06:21,135
+f of a is equal to a cubed if you go to a
+假设f(a)等于a的三次方 如果你
+
+134
+00:06:21,135 --> 00:06:23,466
+calculus textbook and look up the table
+翻看微积分课本上的导数公式表
+
+135
+00:06:23,466 --> 00:06:26,102
+of formulas you see that the slope of the
+你会发现这个函数的斜率
+
+136
+00:06:26,102 --> 00:06:28,441
+function again the derivative of this
+即这个函数的导数
+
+137
+00:06:28,441 --> 00:06:31,963
+function is equal to 3a squared so you
+等于3乘以a的平方
+
+138
+00:06:31,963 --> 00:06:35,064
+can get this formula out of a calculus textbook
+你可以从微积分课本上查到这个公式
+
+139
+00:06:35,064 --> 00:06:38,602
+so what this means so the way to
+所以这是什么意思呢
+
+140
+00:06:38,602 --> 00:06:41,087
+interpret this is as follows let's take
+同样地举一个例子
+
+141
+00:06:41,087 --> 00:06:42,875
+a equals 2 as an example again
+我们再次令a等于2
+
+142
+00:06:42,875 --> 00:06:47,665
+so f of a or a cubed is equal to 8 does
+所以a的三次方等于8
+
+143
+00:06:47,665 --> 00:06:50,836
+2 to power 3 so if we give a tiny little
+即2的三次方 如果我们又将a增大一点点
+
+144
+00:06:50,836 --> 00:06:54,769
+nudge you find that f of a is about
+你会发现f(a)的值
+
+145
+00:06:54,769 --> 00:06:57,980
+eight point zero one two and feel free
+大约为8.012 你可以自己检查一遍
+
+146
+00:06:57,980 --> 00:06:59,980
+to check this take two point zero zero
+如果我们取8.012
+
+147
+00:06:59,980 --> 00:07:02,150
+one two three you find that is very
+你会发现2.001的三次方
+
+148
+00:07:02,150 --> 00:07:04,713
+close to eight point zero one two and
+和8.012很接近
+
+149
+00:07:04,713 --> 00:07:06,939
+indeed when a is equal to 2 that's 3
+事实上 当a等于2时
+
+150
+00:07:06,939 --> 00:07:10,482
+times 2 squared that's equal to 3 times
+导数值为3乘以2的平方
+
+151
+00:07:10,482 --> 00:07:12,905
+4 is equal to 12 so the derivative
+即3乘以4等于12 所以导数公式
+
+152
+00:07:12,905 --> 00:07:14,889
+formula predicts that if you now nudge a
+表明如果你将a向右移动
+
+153
+00:07:14,889 --> 00:07:17,127
+to the right by a tiny little bit f of a
+很小的一段距离
+
+154
+00:07:17,127 --> 00:07:20,423
+should go up 12 times as much and indeed
+那么f(a)将会增大向右移动距离的12倍
+
+155
+00:07:20,423 --> 00:07:23,199
+this is true when a went up by point 001
+所以当a增加0.001时
+
+156
+00:07:23,199 --> 00:07:27,415
+f of a went up 12 times as much by point 012
+f(a)增大了四倍 即0.012
+
+157
+00:07:27,415 --> 00:07:29,388
+just one last example and then we'll
+来看最后一个例子
+
+158
+00:07:29,388 --> 00:07:32,050
+wrap up let's say the f of a is equal to
+假设f(a)是一个log函数
+
+159
+00:07:32,050 --> 00:07:34,439
+the log function right so I'm going to
+即f(a)=log(a)
+
+160
+00:07:34,439 --> 00:07:36,988
+write log of a and I'm going to use a
+写作log(a) 然后我将使用
+
+161
+00:07:36,988 --> 00:07:39,707
+umm base e logarithm so some people
+一个以e为底数的对数函数 有些人
+
+162
+00:07:39,707 --> 00:07:42,519
+write that as ln of a so if you go to
+可能会写作ln(a)
+
+163
+00:07:42,519 --> 00:07:44,617
+calculus textbooks you find that when
+所以如果你去看微积分课本
+
+164
+00:07:44,617 --> 00:07:47,612
+you take the derivative of log of a and
+那么log(a)的导数
+
+165
+00:07:47,612 --> 00:07:50,685
+so this is a function that just looks
+注意函数log(a)的图像是这样的
+
+166
+00:07:50,685 --> 00:07:53,199
+like that the slope of this function is
+函数log(a)的斜率
+
+167
+00:07:53,199 --> 00:07:56,539
+given by 1 over a so the way to
+应该为a分之1 所以我们
+
+168
+00:07:56,539 --> 00:08:00,241
+interpret this is that if a is any value
+可以解释如下 如果a取任何值
+
+169
+00:08:00,241 --> 00:08:02,877
+again let's just keep using equals 2 as
+比如又取a等于2
+
+170
+00:08:02,877 --> 00:08:05,752
+an example um and you nudge a to the
+然后又把a
+
+171
+00:08:05,752 --> 00:08:09,844
+right by 0.001 you would expect f of a
+向右边移动0.001 那么f(a)将增大a分之1
+
+172
+00:08:09,844 --> 00:08:14,269
+to go up by 1 over a that is by the
+即函数f(a)的导数
+
+173
+00:08:14,269 --> 00:08:16,542
+derivative times the amounts that you
+乘以你增大a的值(0.001)
+
+174
+00:08:16,542 --> 00:08:20,610
+increase a so in fact um if you pull up a
+事实上 如果你借助计算器的话
+
+175
+00:08:20,610 --> 00:08:23,102
+calculator you find that as a is equal
+你会发现当a等于2时
+
+176
+00:08:23,102 --> 00:08:31,755
+to 2 f of a is about 0.69315 and if you
+f(a)约为0.69315
+
+177
+00:08:31,755 --> 00:08:35,472
+increase f and if you increase a to 2
+如果你增加f 如果你将a增大到2.001
+
+178
+00:08:35,472 --> 00:08:42,202
+point 001 then f of a is about 0.69365
+那么f(a)约为0.69365
+
+179
+00:08:42,202 --> 00:08:47,941
+so it's gone up by 0.0005
+所以f(a)增大了0.0005
+
+180
+00:08:47,941 --> 00:08:50,407
+indeed if you look at the formula for the
+事实上 如果你查看导数公式
+
+181
+00:08:50,407 --> 00:08:55,198
+derivative when a is equal to 2 d/da f of
+当a等于2的时候
+
+182
+00:08:55,198 --> 00:08:58,482
+a is equal to 1/2 so this derivative
+导数值d/da f(a)等于二分之一
+
+183
+00:08:58,482 --> 00:09:01,135
+formula predicts that if you pump up a
+所以导数公式表明 如果你
+
+184
+00:09:01,135 --> 00:09:04,898
+by 0.001 you will expect f of a to go up
+把a增大0.001
+
+185
+00:09:04,898 --> 00:09:07,034
+by only one half as much and one half
+f(a)将只会增大0.001的二分之一
+
+186
+00:09:07,034 --> 00:09:12,133
+0.0001 is 0.0005 which is exactly what we
+即0.0005 这就是我们所得到的值
+
+187
+00:09:12,133 --> 00:09:15,309
+got right then when a goes up by 0.001
+当a增大0.001时
+
+188
+00:09:15,309 --> 00:09:18,200
+going from a close to two equals two
+从a等于2增大到非常近的2.001
+
+189
+00:09:18,200 --> 00:09:22,017
+point 001 f of a goes up by half as
+f(a)增大了
+
+190
+00:09:22,017 --> 00:09:23,271
+much as this are going up by
+这个(0.001)的二分之一
+
+191
+00:09:23,271 --> 00:09:27,073
+approximately 0.0005 so if you draw that
+即增大了大约0.0005 所以如果你在这儿
+
+192
+00:09:27,073 --> 00:09:29,422
+little triangle if you will is that if
+画个小三角形 你就会发现
+
+193
+00:09:29,422 --> 00:09:32,835
+on the horizontal axis goes up by 0.001
+如果x轴增加了0.001
+
+194
+00:09:32,835 --> 00:09:35,954
+under vertical axis log of a goes up by
+那么y轴上的函数log(a)
+
+195
+00:09:35,954 --> 00:09:41,609
+half of that so point 0005 and so that one
+将增大0.001的一半 即0.0005
+
+196
+00:09:41,609 --> 00:09:44,597
+over a 1/2 in this case when a is equal
+所以a分之1 当a等于2时这里是二分之一
+
+197
+00:09:44,597 --> 00:09:46,772
+to 2 that's just the slope of this line
+这个二分之一就是当a等于2时
+
+198
+00:09:46,772 --> 00:09:50,417
+when a is equal to 2 so that's it for
+这条线的斜率 这些就是有关
+
+199
+00:09:50,417 --> 00:09:52,330
+derivatives there's just two take-home
+导数的一些知识 所以在这个视频中
+
+200
+00:09:52,330 --> 00:09:54,864
+messages from this video first is that
+你只需要记住两点 第一点是
+
+201
+00:09:54,864 --> 00:09:56,919
+the derivative of the function just
+函数的导数
+
+202
+00:09:56,919 --> 00:09:59,339
+means the slope of a function and the
+就是函数的斜率
+
+203
+00:09:59,339 --> 00:10:01,385
+slope of a function can be different at
+而函数的斜率
+
+204
+00:10:01,385 --> 00:10:03,426
+different points on the function in our
+在不同的点是不同的
+
+205
+00:10:03,426 --> 00:10:05,696
+first example where f of a equals 3a
+在第一个例子中f(a)=3a
+
+206
+00:10:05,696 --> 00:10:07,974
+this is a straight line the derivative was
+这是一条直线 在任何点
+
+207
+00:10:07,974 --> 00:10:09,749
+the same everywhere it was 3 everywhere
+它的斜率都是相同的 均为3
+
+208
+00:10:09,749 --> 00:10:11,733
+but for other functions like f of a
+但是对于函数f(a)=a^2
+
+209
+00:10:11,733 --> 00:10:13,925
+equals a squared or f(a) equals log of a
+或者f(a)=log(a)
+
+210
+00:10:13,925 --> 00:10:17,096
+the slope of the line varys so the
+它们的斜率是变化的
+
+211
+00:10:17,096 --> 00:10:18,843
+slope or the derivative can be different
+所以它们的导数或者斜率
+
+212
+00:10:18,843 --> 00:10:21,072
+at different points on the curve so does
+在曲线上不同的点处是不同的
+
+213
+00:10:21,072 --> 00:10:22,768
+the first take away derivative just
+所以这是第一个你需要记住的
+
+214
+00:10:22,768 --> 00:10:25,484
+means slope of a line second takeaway is
+即导数就是斜率 第二点是
+
+215
+00:10:25,484 --> 00:10:26,899
+that if you want to look up the
+如果你想知道
+
+216
+00:10:26,899 --> 00:10:28,638
+derivative of a function you can flip
+一个函数的导数
+
+217
+00:10:28,638 --> 00:10:31,045
+open your calculus textbook or look at
+你可参考你的微积分课本或者维基百科
+
+218
+00:10:31,045 --> 00:10:33,903
+Wikipedia and often get a formula for
+然后你应该就能
+
+219
+00:10:33,903 --> 00:10:35,448
+the slope of these functions at
+找到这些函数的导数公式
+
+220
+00:10:35,448 --> 00:10:37,900
+different points so that I hope you have
+最后 我希望
+
+221
+00:10:37,900 --> 00:10:39,538
+an intuitive understanding of
+你能通过我生动的讲解
+
+222
+00:10:39,538 --> 00:10:42,247
+derivatives or slopes of lines let's go
+掌握这些有关导数和斜率的知识
+
+223
+00:10:42,247 --> 00:10:43,860
+into the next video we'll start to talk
+接下来让我们进入下一个视频
+
+224
+00:10:43,860 --> 00:10:45,789
+about the computation graph and how to
+下一课 我们将讲解计算图
+
+225
+00:10:45,789 --> 00:10:48,755
+use that to compute derivatives of more complex functions
+以及如何用它来求更加复杂的函数的导数
+

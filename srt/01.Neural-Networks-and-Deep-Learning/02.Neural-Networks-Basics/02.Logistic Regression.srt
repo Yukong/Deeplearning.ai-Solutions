@@ -1,0 +1,581 @@
+﻿1
+00:00:00,060 --> 00:00:02,754
+in this video we'll go over logistic
+在这个视频中,我们会重温
+【翻译：宋泽瀚 校对：AcceptedDoge】
+
+2
+00:00:02,754 --> 00:00:04,820
+regression this is a learning algorithm
+逻辑回归,这是一种学习算法
+
+3
+00:00:04,820 --> 00:00:07,616
+that you use when the output labels why
+你使用它之时就知道为什么输出标签
+
+4
+00:00:07,616 --> 00:00:09,730
+in a supervised learning problem are all
+在一个监督学习问题中都
+
+5
+00:00:09,730 --> 00:00:12,101
+either 0 or 1 so for binary
+或者是0或者是1,所以对于二元
+
+6
+00:00:12,101 --> 00:00:15,816
+classification problems given an input
+分类问题来讲,给定一个输入
+
+7
+00:00:15,816 --> 00:00:18,700
+feature vector X may be corresponding to
+特征向量X,它可能对应
+
+8
+00:00:18,700 --> 00:00:20,968
+an image that you want to recognize as
+一张图片,你想识别这张图片识别
+
+9
+00:00:20,968 --> 00:00:22,746
+either a cat picture or not a cat
+看它是否是一只猫或者不是一只猫的
+
+10
+00:00:22,746 --> 00:00:25,284
+picture you want an algorithm that can
+图片,你想要一个算法能够
+
+11
+00:00:25,284 --> 00:00:27,491
+output the prediction which you only
+输出预测,你只能
+
+12
+00:00:27,491 --> 00:00:31,040
+call y hat which is your estimate of Y
+称之为y冒（帽）,也就是你对实际值Y的估计
+
+13
+00:00:31,040 --> 00:00:34,052
+more formally you want Y hat to be the
+更正式地来说,你想让y冒表示
+
+14
+00:00:34,052 --> 00:00:36,908
+probability or the chance the Y is equal
+y等于1的一种可能性或者是机会
+
+15
+00:00:36,908 --> 00:00:41,331
+to 1 given the input features X so in
+前提条件是给定了输入特征X,
+
+16
+00:00:41,331 --> 00:00:44,672
+other words if X is a picture as we saw
+换句话来说,如果X是我们在上个视频
+
+17
+00:00:44,672 --> 00:00:47,353
+in the last video you want Y hat to tell
+看到的图片,你想让y冒来告诉
+
+18
+00:00:47,353 --> 00:00:49,255
+you what is the chance that this is a
+你这是一只猫的图片的机率有多大
+
+19
+00:00:49,255 --> 00:00:52,798
+cat picture so X as we said in the
+因此正如在之前的视频中所说的
+
+20
+00:00:52,798 --> 00:00:55,970
+previous video is a nx dimensional
+X是一个n_x维的向量
+
+21
+00:00:55,970 --> 00:01:00,909
+vector given that the parameters of
+逻辑回归的参数
+
+22
+00:01:00,909 --> 00:01:04,749
+logistic regression will be w which is
+我们用W来表示，这也是一个
+
+23
+00:01:04,749 --> 00:01:07,635
+also an nx dimensional vector
+n_x维向量,
+
+24
+00:01:07,635 --> 00:01:11,157
+together with b which is just a real
+参数里面还有b,这是一个实数,
+
+25
+00:01:11,157 --> 00:01:14,220
+number so giving an input X and the
+所以给出输入x以及
+
+26
+00:01:14,220 --> 00:01:17,834
+parameters w and b how do we generate
+参数w和b之后,我们怎样产生
+
+27
+00:01:17,834 --> 00:01:21,937
+the output Y hat well one thing you
+输出预测值y冒,一件
+
+28
+00:01:21,937 --> 00:01:23,733
+could try that doesn't work would be to
+你可以尝试却不可行的事是
+
+29
+00:01:23,733 --> 00:01:28,210
+have Y hat be w transpose X plus b you
+让y冒等于w的转置乘以x然后加上b,
+
+30
+00:01:28,210 --> 00:01:31,877
+know kind of a linear function of the
+这种关于输入x的线性函数
+
+31
+00:01:31,877 --> 00:01:34,940
+input X and in fact this is what you use
+实际上这是你在
+
+32
+00:01:34,940 --> 00:01:38,028
+if you were doing linear regression but
+做线性回归时所用到的,但是
+
+33
+00:01:38,028 --> 00:01:40,278
+this isn't a very good algorithm for
+这对于二元分类问题来讲
+
+34
+00:01:40,278 --> 00:01:42,681
+binary classification because you want Y
+不是一个非常好的算法,因为你想让y冒
+
+35
+00:01:42,681 --> 00:01:45,397
+hat to be the chance that Y is equal to
+表示实际值y等于1的机率的话,
+
+36
+00:01:45,397 --> 00:01:48,520
+1 so Y hat should really be between 0
+y冒应该在0到1之间
+
+37
+00:01:48,520 --> 00:01:53,285
+and 1 and it's difficult to enforce that
+这很难去实现
+
+38
+00:01:53,285 --> 00:01:56,378
+because w transpose x plus b can be much
+因为w的转置乘以x再加上b可能
+
+39
+00:01:56,378 --> 00:01:58,709
+bigger than 1 or can even be negative
+比1要大得多,或者甚至为一个负值
+
+40
+00:01:58,709 --> 00:02:00,720
+which doesn't make sense for probability
+对于你想要的在0和1之间的概率来说
+
+41
+00:02:00,720 --> 00:02:04,379
+that you want to be between 0 & 1 so in
+它是没有意义的，因此在
+
+42
+00:02:04,379 --> 00:02:06,456
+logistic regression our output is
+逻辑回归中,我们的输出
+
+43
+00:02:06,456 --> 00:02:09,256
+there going to be Y hat equals the
+应该是y冒等于
+
+44
+00:02:09,256 --> 00:02:11,471
+sigmoid function applied to this quantity
+由这个式子作为自变量的sigmoid函数中
+
+45
+00:02:11,471 --> 00:02:14,212
+this is what the sigmoid function looks like
+这是sigmoid函数的图像
+
+46
+00:02:14,212 --> 00:02:17,788
+if on the horizontal axis I
+如果我把水平轴作为
+
+47
+00:02:17,788 --> 00:02:21,579
+plot Z then the function sigmoid of Z
+z轴,那么关于z的sigmoid函数
+
+48
+00:02:21,579 --> 00:02:25,909
+look like this so it goes smoothly from
+是这样的,它是平滑地
+
+49
+00:02:25,909 --> 00:02:31,132
+0 up to 1 let me label my axis here this
+从0走向1,让我在这里标记纵轴,这
+
+50
+00:02:31,132 --> 00:02:33,999
+is 0 and it crosses the vertical axis at
+是0,曲线与纵轴相交的截距是
+
+51
+00:02:33,999 --> 00:02:37,792
+0.5 so this is what sigmoid of z looks
+0.5,这就是关于z的sigmoid函数的图像
+
+52
+00:02:37,792 --> 00:02:40,975
+like and we're going to use Z to denote
+我们通常都使用z
+
+53
+00:02:40,975 --> 00:02:43,785
+this quantity w transpose X plus b just
+来表示w的转置乘以x再加上b的值
+
+54
+00:02:43,785 --> 00:02:46,274
+the formula for the sigmoid function
+关于sigmoid函数的公式是这样的
+
+55
+00:02:46,274 --> 00:02:50,118
+sigmoid of Z where Z is a real number is
+在这里z是一个实数
+
+56
+00:02:50,118 --> 00:02:53,114
+1 over 1 plus e to the negative z so
+1除以1加上e的负z次方,这里
+
+57
+00:02:53,114 --> 00:02:57,002
+notice a couple of things if Z is very
+要说明一些要注意的事情,如果z非常大
+
+58
+00:02:57,002 --> 00:03:00,270
+large then e to the negative Z will be
+那么e的负z次方将会
+
+59
+00:03:00,270 --> 00:03:03,702
+close to 0 so then sigmoid of Z will be
+接近于0,关于z的sigmoid函数将会
+
+60
+00:03:03,702 --> 00:03:06,671
+approximately 1 over 1 plus something
+近似等于1除以1加上某个
+
+61
+00:03:06,671 --> 00:03:08,460
+very close to 0 because you know e to
+非常接近于0的项,因为e的指数
+
+62
+00:03:08,460 --> 00:03:10,722
+negative of the very large number will
+如果是个绝对值很大的负数的话,这项将会
+
+63
+00:03:10,722 --> 00:03:13,145
+be close to 0 so this is close to 1
+接近于0,所以这个接近1
+
+64
+00:03:13,145 --> 00:03:15,957
+and indeed we if you look on the plots
+实际上如果你看左边的图
+
+65
+00:03:15,957 --> 00:03:18,254
+on the left if Z is very large then
+如果z很大的话那么
+
+66
+00:03:18,254 --> 00:03:20,278
+sigmoid of Z it is very close to 1
+关于z的sigmoid函数会非常接近1
+
+67
+00:03:20,278 --> 00:03:25,610
+conversely if Z is very small or it is a
+相反地,如果z非常小或者说
+
+68
+00:03:25,610 --> 00:03:34,391
+very large negative number then sigmoid
+是一个绝对值很大的负数 那么关于z的sigmoid函数
+
+69
+00:03:34,391 --> 00:03:39,311
+of z becomes 1 over 1 plus e to the
+就是1除以1加上e的负z次方
+
+70
+00:03:39,311 --> 00:03:42,203
+negative Z and this becomes its a huge
+这项变成一个很大的数
+
+71
+00:03:42,203 --> 00:03:44,886
+number so this becomes you know think of
+你可以认为这是
+
+72
+00:03:44,886 --> 00:03:47,885
+it as 1 over 1 plus a number that is
+1除以1加上一个
+
+73
+00:03:47,885 --> 00:03:56,582
+very very big and so that's close to 0
+非常非常大的数,所以这个就接近于0
+
+74
+00:03:56,582 --> 00:03:58,942
+and indeed you see that as Z becomes a
+实际上你看到当z变成一个
+
+75
+00:03:58,942 --> 00:04:01,555
+very large negative number sigmoid of z
+绝对值很大的负数,关于z的sigmoid函数
+
+76
+00:04:01,555 --> 00:04:04,432
+you know goes very close to 0 so when
+就会非常接近于0,因此当
+
+77
+00:04:04,432 --> 00:04:06,868
+you implement logistic regression your
+你实现逻辑回归时,你的
+
+78
+00:04:06,868 --> 00:04:09,696
+job is to try to learn parameters w and
+工作就是去让机器学习参数w以及b
+
+79
+00:04:09,696 --> 00:04:12,952
+b so that Y hat becomes a good estimate
+这样才使得y冒成为对y=1这一情况的概率
+
+80
+00:04:12,952 --> 00:04:15,254
+of the chance of Y being equal to 1
+的一个很好的估计
+
+81
+00:04:15,254 --> 00:04:18,110
+before moving on just another note on
+在继续进行之前,在符号上要注意的另一点是
+
+82
+00:04:18,110 --> 00:04:20,592
+the notation when we program neural
+当我们对神经网络进行编程时
+
+83
+00:04:20,592 --> 00:04:23,829
+networks will usually keep the parameter w
+经常会让参数w
+
+84
+00:04:23,829 --> 00:04:27,894
+and prameter b separate we're here b
+和参数b分开，在这里
+
+85
+00:04:27,894 --> 00:04:30,563
+corresponds to the interceptor  in
+参数b对应的是一种偏置
+
+86
+00:04:30,563 --> 00:04:32,330
+some of the classes you might have seen
+在某些课程里,你可能已经见过
+
+87
+00:04:32,330 --> 00:04:34,882
+a notation that handles this differently
+处理这个问题时的其他符号表示
+
+88
+00:04:34,882 --> 00:04:38,240
+in some conventions you define an extra
+比如在某些例子里,你定义一个额外的特征
+
+89
+00:04:38,240 --> 00:04:42,043
+feature called x0 and with that equal to
+称之为x_0,并且使它等于1
+
+90
+00:04:42,043 --> 00:04:47,114
+one so that now X is in R of nx plus
+那么现在x就是一个n_x加1维的变量
+
+91
+00:04:47,114 --> 00:04:50,107
+one and then you define Y hat to be
+然后你定义y冒等于
+
+92
+00:04:50,107 --> 00:04:54,367
+equal to Sigma of theta transpose X in
+θ的转置乘以x这个项 的sigmoid函数
+
+93
+00:04:54,367 --> 00:04:56,552
+this alternative notational convention
+在这个备选的符号惯例里
+
+94
+00:04:56,552 --> 00:05:00,271
+you have a vector parameters theta theta
+你有一个参数向量θ,θ_0
+
+95
+00:05:00,271 --> 00:05:06,276
+0 theta 1 theta 2 down to theta nx
+θ_1,θ_2直到θ_n_x
+
+96
+00:05:06,276 --> 00:05:12,220
+and so theta 0 plays the role of b
+这样θ_0就充当了b
+
+97
+00:05:12,220 --> 00:05:14,780
+that's just a real number and theta 1
+这是一个实数
+
+98
+00:05:14,780 --> 00:05:17,420
+down to theta nx play the role of w
+而剩下的θ_1直到θ_n_x充当了w
+
+99
+00:05:17,420 --> 00:05:19,855
+it turns out when you implement your
+结果就是当你实现你的
+
+100
+00:05:19,855 --> 00:05:22,339
+neural network will be easier to just
+神经网络时 有一个比较简单的方法是
+
+101
+00:05:22,339 --> 00:05:26,675
+keep B and W as separate parameters and
+保持b和w分开
+
+102
+00:05:26,675 --> 00:05:29,338
+so in this class we will not use any of
+因此在这节课里我们不会使用任何
+
+103
+00:05:29,338 --> 00:05:31,316
+this notational convention that I just
+这类符号惯例,就是我刚
+
+104
+00:05:31,316 --> 00:05:33,437
+wrote in red if you've not seen this
+用红笔写的,如果你在之前
+
+105
+00:05:33,437 --> 00:05:35,589
+notation before in other classes don't
+的其他课程里没有见过这类符号记法,不要
+
+106
+00:05:35,589 --> 00:05:37,706
+worry about it it's just that for those
+担心,只是对于那些
+
+107
+00:05:37,706 --> 00:05:39,644
+of you that have seen this notation I
+已经见过这类符号记法的人,我
+
+108
+00:05:39,644 --> 00:05:41,738
+wanted to mention explicitly that we're
+想明确地提一下,也就是我们
+
+109
+00:05:41,738 --> 00:05:43,558
+not using that notation in this course
+在这节课里不用像这样的符号记法
+
+110
+00:05:43,558 --> 00:05:45,754
+but if you've not seen this before is
+但是你之前没有见过的话就
+
+111
+00:05:45,754 --> 00:05:47,332
+not important and you don't need to
+无所谓了,你不需要去
+
+112
+00:05:47,332 --> 00:05:50,038
+worry about it so you've now seen what
+担心,现在你已经知道
+
+113
+00:05:50,038 --> 00:05:52,150
+the logistic regression model looks like
+逻辑回归模型是什么样子了
+
+114
+00:05:52,150 --> 00:05:55,536
+next to train the parameters w and b you
+下一步要做的是训练参数w和b,你
+
+115
+00:05:55,536 --> 00:05:57,800
+need to define a cost function let's do
+需要定义一个代价函数,让我们在
+
+116
+00:05:57,800 --> 00:05:58,854
+that in the next video
+下节课里对其进行解释
+

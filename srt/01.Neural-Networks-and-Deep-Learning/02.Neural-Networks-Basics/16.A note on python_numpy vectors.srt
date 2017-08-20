@@ -1,0 +1,573 @@
+1
+00:00:00,450 --> 00:00:04,786
+The ability of python to allow you
+to use broadcasting operations and
+Python的特性允许你使用广播(broadcasting )功能
+
+2
+00:00:04,786 --> 00:00:09,944
+more generally, the great flexibility of
+the python numpy program language is,
+这是python的numpy程序语言库中最灵活的地方
+
+3
+00:00:09,944 --> 00:00:14,748
+I think, both a strength as well as
+a weakness of the programming language.
+而我认为这是程序语言的优点 也是缺点
+
+4
+00:00:14,748 --> 00:00:18,393
+I think it's a strength because
+they create expressivity of the language.
+优点的原因在于它们创造出语言的表达性
+
+5
+00:00:18,393 --> 00:00:22,547
+A great flexibility of the language lets
+you get a lot done even with just a single
+python语言巨大的灵活性 使得你仅仅通过一行代码
+
+6
+00:00:22,547 --> 00:00:24,165
+line of code.
+就能做很多事情
+
+7
+00:00:24,165 --> 00:00:28,530
+But there's also weakness because with
+broadcasting and this great amount of
+但是这也是缺点 由于广播巨大的灵活性
+
+8
+00:00:28,530 --> 00:00:32,610
+flexibility, sometimes it's possible
+you can introduce very subtle bugs or
+有时候如果你对于广播的特点
+
+9
+00:00:32,610 --> 00:00:36,530
+very strange looking bugs, if you're not
+familiar with all of the intricacies of
+以及广播的工作原理这些细节不熟悉的话
+
+10
+00:00:36,530 --> 00:00:39,800
+how broadcasting and how features like broadcasting work.
+你可能会产生很细微或者看起来很奇怪的bug
+
+11
+00:00:39,800 --> 00:00:44,500
+For example, if you take a column vector
+and add it to a row vector, you would
+例如 如果你将一个列向量添加到一个行向量当中
+
+12
+00:00:44,500 --> 00:00:48,700
+expect it to throw up a dimension mismatch or type error or something.
+你会以为它报出维度不匹配或类型错误之类的错误
+
+13
+00:00:48,700 --> 00:00:52,620
+But you might actually get back
+a matrix as a sum of a row vector and
+但是实际上你会得到一个
+
+14
+00:00:52,620 --> 00:00:54,030
+a column vector.
+行向量和列向量的求和
+
+15
+00:00:54,030 --> 00:00:58,370
+So there is an internal logic to these strange effects of Python.
+在python的这些奇怪的影响之中 有一个内在的逻辑关系
+
+16
+00:00:58,370 --> 00:01:03,370
+But if you're not familiar with Python,
+I've seen some students have very strange,
+但是如果你对python不熟悉 我曾经见过一些学生
+
+17
+00:01:03,370 --> 00:01:05,680
+very hard to find bugs.
+非常生硬 非常艰难地去寻找bug
+
+18
+00:01:05,680 --> 00:01:09,380
+So what I want to do in this video is
+share with you some couple tips and
+所以我在这里想做的就是分享给你们一些技巧
+
+19
+00:01:09,380 --> 00:01:12,800
+tricks that have been very
+useful for me to eliminate or
+这些技巧对我非常有用 它们能
+
+20
+00:01:12,800 --> 00:01:17,320
+simplify all the strange looking bugs in my own code.
+消除或者简化在我的代码中所有看起来很奇怪的bug
+
+21
+00:01:17,320 --> 00:01:19,280
+And I hope that with these tips and tricks,
+同时我也希望通过这些技巧
+
+22
+00:01:19,280 --> 00:01:24,193
+you'll also be able to much more easily
+write bug-free, python and numpy code.
+你也能更容易地写没有bug的python和numpy代码
+
+23
+00:01:25,430 --> 00:01:30,200
+To illustrate one of the less intuitive effects of Python-Numpy,
+为了演示Python-numpy的一个容易被忽略的效果
+
+24
+00:01:30,200 --> 00:01:34,990
+especially how you construct vectors in
+Python-Numpy, let me do a quick demo.
+特别是怎样在Python-Numpy中构造向量 让我来做一个快速示范
+
+25
+00:01:34,990 --> 00:01:40,817
+Let's set a = np.random.randn(5),
+首先设置 a = np.random.randn(5)
+
+26
+00:01:40,817 --> 00:01:45,699
+so this creates five random Gaussian
+这样会生成存储在数组a中的
+
+27
+00:01:45,699 --> 00:01:49,640
+variables stored in array a.
+5个高斯随机数变量
+
+28
+00:01:49,640 --> 00:01:55,420
+And so let's print(a) and now it turns out that
+之后输出a 从屏幕上可以得知
+
+29
+00:01:55,420 --> 00:02:02,740
+the shape of a when you do this
+is this five comma structure.
+此时a的shape(形状)是一个(5，)的结构
+
+30
+00:02:02,740 --> 00:02:06,320
+And so this is called a rank one array in Python and
+这在python当中被称作 一个一维数组
+
+31
+00:02:06,320 --> 00:02:09,750
+it's neither a row vector nor a column vector.
+它既不是一个行向量也不是一个列向量
+
+32
+00:02:09,750 --> 00:02:12,570
+And this leads it to have some
+slightly non-intuitive effects.
+这也导致它有一些不是很直观的效果
+
+33
+00:02:12,570 --> 00:02:17,180
+So for example, if I print a transpose,
+it ends up looking the same as a.
+举个例子,如果我输出一个转置阵 最终结果它会和a看起来一样
+
+34
+00:02:17,180 --> 00:02:20,220
+So a and a transpose end up looking the same.
+所以a和a的转置阵最结果看起来一样
+
+35
+00:02:20,220 --> 00:02:25,800
+And if I print the inner product between
+a and a transpose, you might think
+而如果我输出a和a的转置阵的内积 你可能会想
+
+36
+00:02:25,800 --> 00:02:30,190
+a times a transpose is maybe the outer
+product should give you matrix maybe.
+a乘以a的转置返回给你的可能会是一个矩阵
+
+37
+00:02:30,190 --> 00:02:34,170
+But if I do that,
+you instead get back a number.
+但是如果我这样做 你只会得到一个数
+
+38
+00:02:34,170 --> 00:02:39,612
+So what I would recommend is that
+when you're coding neural networks,
+所以我建议当你编写神经网络时
+
+39
+00:02:39,612 --> 00:02:46,115
+that you just not use data structures
+where the shape is 5, or n, rank 1 array.
+不要在它的shape是(5, )还是(n, ) 或者一维数组时使用数据结构
+
+40
+00:02:46,115 --> 00:02:52,134
+Instead, if you set a to be this, (5,1),
+相反 如果你设置a为(5,1)
+
+41
+00:02:52,134 --> 00:02:58,764
+then this commits a to
+be (5,1) column vector.
+那么这就将a置于5行1列向量中
+
+42
+00:02:58,764 --> 00:03:02,399
+And whereas previously, a and
+a transpose looked the same,
+而在先前的操作里 a和a的转置看起来一样
+
+43
+00:03:02,399 --> 00:03:06,590
+it becomes now a transpose,
+now a transpose is a row vector.
+而现在这样的a 变成一个新的a的转置 并且它是一个行向量
+
+44
+00:03:06,590 --> 00:03:08,437
+Notice one subtle difference.
+请注意一个细微的差别
+
+45
+00:03:08,437 --> 00:03:12,213
+In this data structure, there are two
+square brackets when we print a transpose.
+在这种数据结构中 当我们输出a的转置时有两对方括号
+
+46
+00:03:12,213 --> 00:03:14,460
+Whereas previously,
+there was one square bracket.
+而之前只有一对方括号
+
+47
+00:03:14,460 --> 00:03:19,393
+So that's the difference
+between this is really a 1 by
+所以这就是1行5列的矩阵
+
+48
+00:03:19,393 --> 00:03:23,481
+5 matrix versus one of
+these rank 1 arrays.
+和一维数组的差别
+
+49
+00:03:23,481 --> 00:03:28,129
+And if you print, say,
+the product between a and a transpose,
+如果你输出a和a的转置的乘积
+
+50
+00:03:28,129 --> 00:03:32,444
+then this gives you the outer
+product of a vector, right?
+然后返回给你一个向量的外积 对吗?
+
+51
+00:03:32,444 --> 00:03:35,795
+And so, the outer product of
+a vector gives you a matrix.
+所以这两个向量的外积返回给你一个矩阵
+
+52
+00:03:35,795 --> 00:03:40,305
+So, let's look in greater detail
+at what we just saw here.
+就我们刚才看到的 再进一步说明
+
+53
+00:03:40,305 --> 00:03:43,185
+The first command that we ran,
+just now, was this.
+首先我们刚刚运行的命令是这个
+
+54
+00:03:43,185 --> 00:03:47,839
+And this created a data structure with
+而且它生成了一个数据结构(a.shape)
+
+55
+00:03:47,839 --> 00:03:52,930
+a.shape was this funny thing (5,) so
+a.shape是(5,) 一个有趣的东西
+
+56
+00:03:52,930 --> 00:03:57,270
+this is called a rank 1 array.
+这被称作a的一维数组
+
+57
+00:03:57,270 --> 00:03:58,960
+And this is a very funny data structure.
+同时这也是一个非常有趣的数据结构
+
+58
+00:03:58,960 --> 00:04:04,000
+It doesn't behave consistently as either
+a row vector nor a column vector,
+它不像行向量和列向量那样表现地很一致
+
+59
+00:04:04,000 --> 00:04:06,750
+which makes some of its effects nonintuitive.
+这也让它的一些影响不那么明显
+
+60
+00:04:06,750 --> 00:04:10,770
+So what I'm going to recommend is that
+when you're doing your programing
+所以我建议 当你在
+
+61
+00:04:10,770 --> 00:04:14,050
+exercises, or in fact when you're
+implementing logistic regression or
+编程练习或者在执行逻辑回归和
+
+62
+00:04:14,050 --> 00:04:19,740
+neural networks that you just
+do not use these rank 1 arrays.
+神经网络时你不需要使用这些一维数组
+
+63
+00:04:21,020 --> 00:04:24,098
+Instead, if every time
+you create an array,
+相反 如果你每次创建一个数组
+
+64
+00:04:24,098 --> 00:04:27,500
+you commit to making it
+either a column vector, so
+你都得让它成为一个列向量
+
+65
+00:04:27,500 --> 00:04:32,360
+this creates a (5,1) vector, or
+commit to making it a row vector,
+产生一个(5,1)向量 或者你让它成为一个行向量
+
+66
+00:04:32,360 --> 00:04:36,670
+then the behavior of your vectors
+may be easier to understand.
+那么你的向量的行为可能会更容易被理解
+
+67
+00:04:36,670 --> 00:04:43,115
+So in this case,
+a.shape is going to be equal to 5,1.
+所以在这种情况下 a.shape等同于5,1
+
+68
+00:04:43,115 --> 00:04:48,510
+And so this behaves a lot like a, but
+in fact, this is a column vector.
+这种表现很像a 但是实际上却是一个列向量
+
+69
+00:04:48,510 --> 00:04:53,233
+And that's why you can think of this as
+(5,1) matrix, where it's a column vector.
+同时这也是为什么当它是一个列向量的时候你能认为这是矩阵(5,1)
+
+70
+00:04:53,233 --> 00:04:56,880
+And here a.shape is going to be 1,5,
+同时这里a.shape将要变成1,5
+
+71
+00:04:56,880 --> 00:05:01,000
+and this behaves consistently
+as a row vector.
+这就像行向量一样
+
+72
+00:05:02,150 --> 00:05:06,258
+So when you need a vector,
+I would say either use this or this, but
+所以当你需要一个向量时 我会说用这个或那个
+
+73
+00:05:06,258 --> 00:05:07,538
+not a rank 1 array.
+但绝不会是一维数组
+
+74
+00:05:07,538 --> 00:05:12,061
+One more thing that I do a lot in my
+code is if I'm not entirely sure what's
+我写代码时还有一件经常做的事 那就是如果我不完全确定
+
+75
+00:05:12,061 --> 00:05:17,029
+the dimension of one of my vectors,
+I'll often throw in an assertion statement
+一个向量的维度(dimension) 我经常会扔进一个断言语句
+
+76
+00:05:17,029 --> 00:05:21,720
+like this, to make sure, in this case,
+that this is a (5,1) vector.
+像这样 去确保在这种情况下是一个(5,1)向量
+
+77
+00:05:21,720 --> 00:05:23,730
+So this is a column vector.
+或者说这是一个列向量
+
+78
+00:05:23,730 --> 00:05:26,900
+These assertions are really
+Set to execute, and
+这些断言语句实际上是要去执行的
+
+79
+00:05:26,900 --> 00:05:30,250
+they also help to serve as
+documentation for your code.
+并且它们也会有助于为你的代码提供信息
+
+80
+00:05:30,250 --> 00:05:34,160
+So don't hesitate to throw in assertion
+statements like this whenever you
+所以不论你要做什么 不要犹豫
+
+81
+00:05:34,160 --> 00:05:35,320
+feel like.
+直接插入断言语句
+
+82
+00:05:35,320 --> 00:05:39,510
+And then finally, if for some reason
+you do end up with a rank 1 array,
+如果你不小心 以一维数组来执行
+
+83
+00:05:39,510 --> 00:05:43,960
+You can reshape this, a equals a.reshape
+你也能够重新改变数组维数 a=a.reshape
+
+84
+00:05:43,960 --> 00:05:48,900
+into say a (5,1) array or a (1,5) array so
+表明一个(5,1)数组或者一个(1,5)数组
+
+85
+00:05:48,900 --> 00:05:53,750
+that it behaves more consistently as
+either column vector or row vector.
+以至于它表现更像列向量或行向量
+
+86
+00:05:53,750 --> 00:05:57,626
+So I've sometimes seen students
+end up with very hard to track
+因此我有时候看见学生因为一维数组不直观的影响
+
+87
+00:05:57,626 --> 00:06:01,119
+because those are the nonintuitive
+effects of rank 1 arrays.
+以难以定位bug告终
+
+88
+00:06:01,119 --> 00:06:06,246
+By eliminating rank 1 arrays in my old
+code, I think my code became simpler.
+通过在原先的代码里清除一维数组 我的代码变得更加简洁
+
+89
+00:06:06,246 --> 00:06:09,463
+And I did not actually find it
+restrictive in terms of things I could
+而且实际上就我在代码中表现的事情而言
+
+90
+00:06:09,463 --> 00:06:10,335
+express in code.
+我并没有发现它有什么限制
+
+91
+00:06:10,335 --> 00:06:12,469
+I just never used a rank 1 array.
+我从来不使用一维数组
+
+92
+00:06:12,469 --> 00:06:17,090
+And so takeaways are to simplify
+your code, don't use rank 1 arrays.
+因此 要去简化你的代码 而且不要使用一维数组
+
+93
+00:06:17,090 --> 00:06:19,437
+Always use either n by one matrices,
+总是使用n*1维矩阵(基本上是列向量)
+
+94
+00:06:19,437 --> 00:06:24,510
+basically column vectors, or one by
+n matrices, or basically row vectors.
+或者1*n维矩阵(基本是行向量)
+
+95
+00:06:24,510 --> 00:06:26,599
+Feel free to toss a lot of
+insertion statements, so
+这样你可以减少很多assert语句
+
+96
+00:06:26,599 --> 00:06:29,590
+double-check the dimensions
+of your matrices and arrays.
+来节省复核矩阵和数组的维数的时间
+
+97
+00:06:29,590 --> 00:06:34,480
+And also, don't be shy about calling the
+reshape operation to make sure that your
+另外 为了确保你的矩阵或向量是你所需要的维数
+
+98
+00:06:34,480 --> 00:06:38,780
+matrices or your vectors
+are the dimension that you need it to be.
+不要羞于reshape操作
+
+99
+00:06:38,780 --> 00:06:39,420
+So that,
+总之
+
+100
+00:06:39,420 --> 00:06:44,770
+I hope that this set of suggestions
+helps you to eliminate a cause of bugs
+我希望这些建议能帮助你 解决一个python中的bug
+
+101
+00:06:44,770 --> 00:06:48,840
+from Python code, and makes the problem
+exercise easier for you to complete.
+从而使你更容易地完成练习
+
