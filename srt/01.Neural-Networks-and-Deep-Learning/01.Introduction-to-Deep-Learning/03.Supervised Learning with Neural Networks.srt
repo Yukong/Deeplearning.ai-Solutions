@@ -1,0 +1,668 @@
+1
+00:00:04,002 --> 00:00:06,532
+There's been a lot of type about neural networks.
+关于神经网络 也有很多的种类
+【翻译/字幕/时间轴：AcceptedDoge】
+
+2
+00:00:06,532 --> 00:00:10,852
+And perhaps some of that type is justified, given how well they're working.
+考虑到它们的使用效果 有些使用起来恰到好处 
+【仅供学习交流使用，请勿标价售卖】
+
+3
+00:00:10,852 --> 00:00:11,902
+But it turns out that so
+但事实表明 到目前
+
+4
+00:00:11,902 --> 00:00:16,392
+far, almost all the economic value created by neural networks has been through
+几乎所有由神经网络创造的经济价值 本质上都离不开
+
+5
+00:00:16,392 --> 00:00:19,652
+one type of machine learning, called supervised learning.
+一种机器学习类别 叫做监督学习
+
+6
+00:00:19,709 --> 00:00:22,859
+Let's see what that means, and let's go over some examples.
+让我们举例看看 那是什么意思
+
+7
+00:00:22,978 --> 00:00:25,888
+In supervised learning, you have some input x, and
+在监督学习中 你有一些输入x
+
+8
+00:00:25,888 --> 00:00:30,068
+you want to learn a function mapping to some output y.
+以及你想学习到一个函数 来映射到一些输出y
+
+9
+00:00:30,068 --> 00:00:34,748
+So for example, just now we saw the housing price prediction application where
+比如 我们之前提到的房价预测的例子
+
+10
+00:00:34,748 --> 00:00:40,708
+you input some features of a home and try to output or estimate the price y.
+你只要输入有关一个房屋的一些特征 试着去输出或者估计价格y
+
+11
+00:00:40,708 --> 00:00:42,038
+Here are some other examples 
+我们举一些其它的例子
+
+12
+00:00:42,038 --> 00:00:46,798
+that neural networks have been applied to very effectively.
+来说明神经网络已经被高效应用到其它地方
+
+13
+00:00:46,798 --> 00:00:51,038
+Possibly the single most lucrative application of deep learning today is
+如今应用深度学习获利最多的一个领域
+
+14
+00:00:51,038 --> 00:00:56,008
+online advertising, maybe not the most inspiring, but certainly very lucrative,
+就是在线广告 这也许不是最鼓舞人心的 但真的很赚钱
+
+15
+00:00:56,008 --> 00:01:02,628
+in which, by inputting information about an ad to the website it's thinking
+具体就是通过在网站上输入一个广告的相关信息
+
+16
+00:01:02,628 --> 00:01:06,878
+of showing you, and some information about the user, neural networks have
+因为也输入了用户的信息 于是它会考虑是否向你展示  
+
+17
+00:01:06,878 --> 00:01:10,558
+gotten very good at predicting whether or not you click on an ad.
+神经网络已经非常擅长于预测 你是否会点开这个广告
+
+18
+00:01:10,558 --> 00:01:11,628
+And by showing you and
+通过向你展示
+
+
+19
+00:01:11,628 --> 00:01:15,658
+showing users the ads that you are most likely to click on, this has been
+向用户展示最有可能点开的广告
+
+20
+00:01:15,658 --> 00:01:20,688
+an incredibly lucrative application of neural networks at multiple companies.
+这就是神经网络在很多家公司 难以置信地提高获利的一种应用
+
+21
+00:01:20,688 --> 00:01:23,898
+Because the ability to show you ads that you're more likely to
+因为有了这种向你展示 最有可能点击开的广告的能力
+
+22
+00:01:23,898 --> 00:01:26,548
+click on has a direct impact on the bottom
+而这一点击的行为的改变会
+
+23
+00:01:26,548 --> 00:01:29,067
+line of some of the very large online advertising companies.
+直接影响到一些大型的在线广告公司的收入
+
+24
+00:01:30,488 --> 00:01:35,008
+Computer vision has also made huge strides in the last several years,
+计算机视觉在过去的几年里也取得了长足的进步
+
+25
+00:01:35,008 --> 00:01:36,908
+mostly due to deep learning.
+这也多亏了深度学习
+
+26
+00:01:36,908 --> 00:01:40,998
+So you might input an image and want to output an index,
+你可以输入一个图像 然后想输出一个索引
+
+27
+00:01:40,998 --> 00:01:45,153
+say from 1 to 1,000 trying to tell you if this picture,
+范围从1到1000 来试着告诉你这张照片
+
+28
+00:01:45,153 --> 00:01:47,163
+it might be any one of, say a 1000 different images.
+它可能是 比方说1000个不同的图像中的任何一个 
+
+29
+00:01:47,163 --> 00:01:50,363
+So, you might use that for photo tagging.
+所以 你可能会选择用它来给照片打标签
+
+30
+00:01:50,363 --> 00:01:54,383
+I think the recent progress in speech recognition has also been very exciting,
+深度学习最近在语音识别方面的进步也是非常令人兴奋的
+
+31
+00:01:54,383 --> 00:01:57,773
+where you can now input an audio clip to a neural network, and
+你现在可以将音频片段输入神经网络
+
+32
+00:01:57,773 --> 00:02:00,788
+have it output a text transcript.
+然后让它输出文本记录
+
+33
+00:02:00,788 --> 00:02:05,258
+Machine translation has also made huge
+strides thanks to deep learning where now
+得益于深度学习 机器翻译也有很大的发展
+
+34
+00:02:05,258 --> 00:02:09,258
+you can have a neural network input an
+English sentence and directly output say,
+你可以有一个神经网络输入英语句子
+
+35
+00:02:09,258 --> 00:02:10,868
+a Chinese sentence.
+接着输出一个中文句子
+
+36
+00:02:10,868 --> 00:02:15,788
+And in autonomous driving, you might input
+an image, say a picture of what's in
+在自动驾驶技术中 你可以输入一幅图像 
+
+37
+00:02:15,788 --> 00:02:20,458
+front of your car as well as some
+information from a radar, and
+就好像一个信息雷达展示汽车前方有什么
+
+38
+00:02:20,458 --> 00:02:24,938
+based on that, maybe a neural network
+can be trained to tell you the position
+据此你可以训练一个神经网络来
+
+39
+00:02:24,938 --> 00:02:25,958
+of the other cars on the road.
+告诉汽车在马路上面具体的位置
+
+40
+00:02:25,958 --> 00:02:30,728
+So this becomes a key component in autonomous driving systems.
+这就是在自动驾驶系统中的一个关键成分
+
+41
+00:02:30,728 --> 00:02:35,588
+So a lot of the value creation through
+neural networks has been through cleverly
+那么深度学习系统已经可以创造如此多的价值
+
+42
+00:02:35,588 --> 00:02:39,218
+selecting what should be x and what should be y for
+通过智能的选择 哪些作为x 哪些作为y
+
+43
+00:02:39,218 --> 00:02:44,858
+your particular problem, and then fitting
+this supervised learning component into
+来针对于你当前的问题 然后拟合监督学习部分
+
+44
+00:02:44,858 --> 00:02:48,518
+often a bigger system such as an autonomous vehicle.
+往往是一个更大的系统 比如自动驾驶
+
+45
+00:02:48,518 --> 00:02:52,738
+It turns out that slightly different types of neural networks are useful for
+这表明稍微不同种类的神经网络
+
+46
+00:02:52,738 --> 00:02:54,823
+different applications.
+也是可以有效应用到不同的领域的
+
+47
+00:02:54,823 --> 00:02:59,963
+For example, in the real estate application that we saw in the previous
+比如说 应用到我们在上一个视频提到的房地产领域
+
+48
+00:02:59,963 --> 00:03:04,383
+video, we use a universally standard neural network architecture, right?
+我们不就使用了一个普遍标准的神经网络架构吗？
+
+49
+00:03:04,383 --> 00:03:08,373
+Maybe for real estate and online advertising might be a relatively
+也许对于房地产和在线广告来说 可能是相对的
+
+50
+00:03:08,373 --> 00:03:11,483
+standard neural network, like the one that we saw.
+标准一些的神经网络 正如我们之前见到的
+
+51
+00:03:13,273 --> 00:03:18,978
+For image applications we'll often use convolution on neural networks,
+对于图像应用 我们经常在神经网络上使用卷积
+
+52
+00:03:18,978 --> 00:03:20,538
+often abbreviated CNN.
+通常缩写为CNN
+
+53
+00:03:21,588 --> 00:03:23,858
+And for sequence data.
+对于序列数据
+
+54
+00:03:23,858 --> 00:03:27,698
+So for example, audio has a temporal component, right?
+例如 音频中含有时间成分
+
+55
+00:03:27,698 --> 00:03:32,848
+Audio is played out over time, so audio is most naturally represented
+随着时间的推移 音频被播放出来 所以音频是最自然的表现
+
+56
+00:03:32,848 --> 00:03:37,968
+as a one-dimensional time series or
+as a one-dimensional temporal sequence.
+作为一维时间序列（两种英文说法）
+
+57
+00:03:37,968 --> 00:03:42,278
+And so for sequence data, you often use an RNN,
+对于序列数据 你经常使用RNN
+
+58
+00:03:42,278 --> 00:03:45,668
+a recurrent neural network.
+一种递归神经网络
+
+59
+00:03:45,668 --> 00:03:50,128
+Language, English and Chinese, the
+alphabets or the words come one at a time.
+语言 英语和汉语 字母表或单词 都是逐个出现的
+
+60
+00:03:50,128 --> 00:03:54,683
+So language is also most naturally represented as sequence data.
+所以语言也是最自然的序列数据
+
+61
+00:03:54,683 --> 00:04:00,558
+And so more complex versions of RNNs are often used for these applications.
+因此更复杂的RNNs版本经常用于这些应用
+
+62
+00:04:00,558 --> 00:04:04,218
+And then, for more complex applications, like autonomous driving, where you have
+对于更复杂的应用 比如自动驾驶 你有
+
+63
+00:04:04,218 --> 00:04:09,059
+an image, that might suggest more of a CNN
+convolution neural network structure and
+一张图片 可能会显示更多的CNN卷积神经网络结构
+
+64
+00:04:09,059 --> 00:04:12,338
+radar info which is something quite different.
+其中的雷达信息是完全不同的
+
+65
+00:04:12,338 --> 00:04:15,220
+You might end up with a more custom, or
+你可能会有一个更定制的 或者
+
+66
+00:04:15,220 --> 00:04:19,738
+some more complex, hybrid neural network architecture.
+一些更复杂的 混合的神经网络结构
+
+67
+00:04:20,738 --> 00:04:25,960
+So, just to be a bit more concrete about what are the standard CNN and
+所以 为了更具体地说明什么是标准的CNN和
+
+68
+00:04:25,960 --> 00:04:27,808
+RNN architectures.
+RNN结构
+
+69
+00:04:27,808 --> 00:04:32,648
+So in the literature you might have seen pictures like this.
+在文献中你可能见过这样的图片
+
+70
+00:04:32,648 --> 00:04:34,600
+So that's a standard neural net.
+这是一个标准的神经网络
+
+71
+00:04:34,600 --> 00:04:36,658
+You might have seen  pictures like this.
+你可能见过这样的图片
+
+72
+00:04:36,658 --> 00:04:41,688
+Well this is an example of a Convolutional
+Neural Network, and we'll see in
+这是一个卷积神经网络的例子 我们会
+
+73
+00:04:41,688 --> 00:04:45,816
+a later course exactly what this picture
+means and how can you implement this.
+在后面的课程了解这幅图的原理和实现
+
+74
+00:04:45,816 --> 00:04:51,418
+But convolutional networks are often use for image data.
+但卷积网络通常用于图像数据
+
+75
+00:04:51,418 --> 00:04:53,958
+And you might also have seen pictures like this.
+你可能也会看到这样的图片
+
+76
+00:04:53,958 --> 00:04:57,448
+And you'll learn how to implement this in a later course.
+你将在以后的课程中学习如何实现它
+
+77
+00:04:57,448 --> 00:05:00,038
+Recurrent neural networks are very good for
+递归神经网络非常适合
+
+78
+00:05:00,038 --> 00:05:06,078
+this type of one-dimensional sequence
+data that has maybe a temporal component.
+这种一维序列 数据可能是一个时间组成部分
+
+79
+00:05:06,078 --> 00:05:10,168
+You might also have heard about applications of machine learning
+你可能也听说过机器学习的应用
+
+80
+00:05:10,168 --> 00:05:13,858
+to both Structured Data and Unstructured Data.
+对于结构化数据和非结构化数据
+
+81
+00:05:13,858 --> 00:05:14,818
+Here's what the terms mean.
+下面是这些术语的含义
+
+82
+00:05:14,818 --> 00:05:18,478
+Structured Data means basically databases of data.
+结构化数据意味着数据的基本数据库
+
+83
+00:05:19,768 --> 00:05:24,868
+So, for example, in housing price prediction, you might have a database or
+例如 在房价预测中 你可能有一个数据库
+
+84
+00:05:24,868 --> 00:05:27,998
+the column that tells you the size and the number of bedrooms.
+有专门的几列数据 告诉你卧室的大小和数量
+
+85
+00:05:27,998 --> 00:05:33,318
+So, this is structured data, or in predicting whether or not a user will
+这就是结构化数据 或预测用户是否会
+
+86
+00:05:33,318 --> 00:05:37,190
+click on an ad, you might have information
+about the user, such as the age,
+点击广告 你可能会得到关于用户的信息 比如年龄
+
+87
+00:05:37,190 --> 00:05:41,448
+some information about the ad, and then
+labels why that you're trying to predict.
+以及关于广告的一些信息 然后对你的预测分类标注
+
+88
+00:05:41,448 --> 00:05:46,328
+So that's structured data, meaning that each of the features,
+这就是结构化数据 意思是每个特征
+
+89
+00:05:46,328 --> 00:05:49,598
+such as size of the house, the number of bedrooms, or
+比如说房屋大小 卧室数量 或者是
+
+90
+00:05:49,598 --> 00:05:54,388
+the age of a user, has a very well defined meaning.
+一个用户的年龄 都有一个很好的定义
+
+91
+00:05:54,388 --> 00:06:00,378
+In contrast, unstructured data refers
+to things like audio, raw audio,
+相反 非结构化数据是指 比如音频 原始音频
+
+92
+00:06:00,378 --> 00:06:05,653
+or images where you might want to
+recognize what's in the image or text.
+或者你想要识别图像或文本中的内容
+
+93
+00:06:05,653 --> 00:06:09,093
+Here the features might be the pixel values in an image or
+这里的特征可能是图像中的像素值
+
+94
+00:06:09,093 --> 00:06:12,053
+the individual words in a piece of text.
+文本中的单个单词
+
+95
+00:06:12,053 --> 00:06:14,193
+Historically, it has been much harder for
+从历史经验上看 这是很难的
+
+96
+00:06:14,193 --> 00:06:19,338
+computers to make sense of unstructured
+data compared to structured data.
+与结构化数据比较 去让计算机理解非结构化数据很难
+
+97
+00:06:19,338 --> 00:06:24,128
+And the fact the human race has evolved to be very good at understanding
+但人类进化得非常善于理解
+
+98
+00:06:24,128 --> 00:06:26,136
+audio cues as well as images.
+音频信号和图像
+
+99
+00:06:26,136 --> 00:06:28,248
+And then text was a more recent invention, but
+文本是一个更近代的发明 但是
+
+100
+00:06:28,248 --> 00:06:31,618
+people are just really good at interpreting unstructured data.
+人们真的很擅长解读非结构化数据
+
+101
+00:06:31,618 --> 00:06:36,658
+And so one of the most exciting things
+about the rise of neural networks is that,
+神经网络的兴起就是这样最令人兴奋的事情之一
+
+102
+00:06:36,658 --> 00:06:41,138
+thanks to deep learning, thanks to neural
+networks, computers are now much better
+多亏了深度学习和神经网络 计算机现在能更好地
+
+103
+00:06:41,138 --> 00:06:46,178
+at interpreting unstructured data as
+well compared to just a few years ago.
+解释非结构化数据 这是与几年前相比的结果
+
+104
+00:06:46,178 --> 00:06:51,098
+And this creates opportunities for
+many new exciting applications that use
+这为我们创造了机会 许多新的令人兴奋的应用被使用
+
+105
+00:06:51,098 --> 00:06:55,087
+speech recognition, image recognition,
+natural language processing on text,
+语音识别 图像识别 自然语言文字处理
+
+106
+00:06:56,088 --> 00:07:00,038
+much more than was possible even just two or three years ago.
+甚至可能比两三年前的还要多
+
+107
+00:07:00,038 --> 00:07:03,798
+I think because people have a natural
+empathy to understanding unstructured
+因为人们天生就有本领理解非结构化数据
+
+108
+00:07:03,798 --> 00:07:08,108
+data, you might hear about neural
+network successes on unstructured data
+你可能听说了神经网络更多在媒体非结构化数据的成功
+
+109
+00:07:08,108 --> 00:07:12,918
+more in the media because it's just cool
+when the neural network recognizes a cat.
+当神经网络识别了一只猫时 那真的很酷
+
+110
+00:07:12,918 --> 00:07:15,608
+We all like that, and we all know what that means.
+我们都知道那意味着什么
+
+111
+00:07:15,608 --> 00:07:19,148
+But it turns out that a lot of short term economic value that neural
+但结果也表明 神经网络在许多短期经济价值的创造
+
+112
+00:07:19,148 --> 00:07:24,128
+networks are creating has also been on structured data,
+也是基于结构化数据的
+
+113
+00:07:24,128 --> 00:07:28,548
+such as much better advertising systems, much better profit recommendations, and
+比如更好的广告系统 更好的利润建议 还有
+
+114
+00:07:28,548 --> 00:07:33,588
+just a much better ability to process the giant databases that
+一个更好的能力去处理巨大的数据库
+
+115
+00:07:33,588 --> 00:07:37,148
+many companies have to make accurate predictions from them.
+许多公司不得不根据神经网络做出准确的预测
+
+116
+00:07:37,148 --> 00:07:41,088
+So in this course, a lot of the techniques we'll go over will apply
+因此在这门课中 我们将要讨论的许多技术都将适用
+
+117
+00:07:41,088 --> 00:07:44,548
+to both structured data and to unstructured data.
+不论是对结构化数据还是非结构化数据
+
+118
+00:07:44,548 --> 00:07:46,828
+For the purposes of explaining the algorithms,
+为了解释算法
+
+119
+00:07:46,828 --> 00:07:52,068
+we will draw a little bit more on examples that use unstructured data.
+我们将在使用非结构化数据的示例中多画一点图片
+
+120
+00:07:52,068 --> 00:07:56,138
+But as you think through applications of neural networks within your own team I
+但正如你所思考的 你自己团队里的神经网络
+
+121
+00:07:56,138 --> 00:08:01,218
+hope you find both uses for them in both structured and unstructured data.
+希望算法对于结构化和非结构化数据都有用处
+
+122
+00:08:02,448 --> 00:08:06,248
+So neural networks have transformed supervised learning and
+神经网络已经改变了监督学习
+
+123
+00:08:06,248 --> 00:08:09,358
+are creating tremendous economic value.
+正创造着巨大的经济价值
+
+124
+00:08:09,358 --> 00:08:12,768
+It turns out though, that the basic technical ideas behind neural networks
+但事实证明 基本的神经网络背后的技术理念
+
+125
+00:08:12,768 --> 00:08:16,378
+have mostly been around, sometimes for many decades.
+大部分都是离我们不遥远 有的是几十年
+
+126
+00:08:16,378 --> 00:08:20,838
+So why is it, then, that they're only just now taking off and working so well?
+那么 为什么他们现在才刚刚起步 效果得那么好
+
+127
+00:08:20,838 --> 00:08:24,828
+In the next video, we'll talk about why it's only quite recently
+下一集视频中 我们将讨论为什么最近的
+
+128
+00:08:24,828 --> 00:08:28,798
+that neural networks have become this incredibly powerful tool that you can use.
+神经网络已经成为你可以使用的强大工具

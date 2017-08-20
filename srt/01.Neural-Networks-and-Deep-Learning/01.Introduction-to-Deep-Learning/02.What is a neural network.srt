@@ -1,0 +1,574 @@
+
+1
+00:00:00.340 --> 00:00:03.150
+The term deep learning refers to training neural networks.
+深度学习中经常训练神经网络 
+
+2
+00:00:03.150 --> 00:00:05.340
+Sometimes very large neural networks.
+有时候它的规模很大
+ 
+3
+00:00:05.340 --> 00:00:07.700
+So what exactly is a neural network?
+那么神经网络究竟是什么呢
+
+4 
+00:00:07.700 --> 00:00:11.470
+In this video, let's try to give you some of the basic intuitions.
+在这个视频中 会讲些直观的基础知识
+
+5
+00:00:11.470 --> 00:00:15.300
+Let's start with a housing price prediction example.
+让我们从一个房价预测的例子开始讲起
+
+6
+00:00:15.300 --> 00:00:17.900
+Let's say you have a data sets with six houses.
+假设你有一个六间房屋的数据集
+
+7
+00:00:17.900 --> 00:00:20.700
+So you know the size of the houses in square feet or
+你知道房屋的面积 平方英尺
+
+8
+00:00:20.700 --> 00:00:24.350
+square meters, and you know the price of the house, and you want to fit
+或者是平方米 以及知道房屋价格 你想要拟合
+
+9
+00:00:24.350 --> 00:00:28.000
+a function to predict the price of
+the house as a function of the size.
+一个根据房屋面积预测房价的函数
+
+10
+00:00:28.000 --> 00:00:31.600
+So if you are familiar with linear regression, you might say, well,
+所以如果你对线性回归很熟悉 你可能会说 好吧
+
+11
+00:00:31.600 --> 00:00:33.510
+let's fit a straight line to this data.
+让我们在这些数据上拟合一条直线
+
+12
+00:00:33.510 --> 00:00:36.880
+So maybe you got a straight line like that.
+于是你可能会得到这样一条直线
+
+13
+00:00:36.880 --> 00:00:38.850
+But to be a bit fancier, you might say, well,
+但有点奇怪的是 你可能也发现了
+
+14
+00:00:38.850 --> 00:00:42.170
+we know that prices can never be negative.
+我们知道价格永远不会是负数的
+
+15
+00:00:42.170 --> 00:00:46.470
+So instead of a straight line fit which would eventually become negative,
+因此替代一条可能会让价格为负的直线的是
+
+16
+00:00:46.470 --> 00:00:49.930
+let's bend the curve here so
+it just ends up zero here.
+让我们在这里弯曲一点让它最终在零结束
+
+
+17
+00:00:49.930 --> 00:00:55.060
+So this thick blue line ends up being your function for
+这条粗的蓝线最终就是你的函数
+
+18
+00:00:55.060 --> 00:00:58.150
+predicting the price of a house as a function of its size.
+用于根据房屋面积预测价格
+
+19
+00:00:58.150 --> 00:01:02.040
+Whereas, zero here and then there's a straight line fit to the right.
+这里是零 而这里的直线拟合的很好
+
+
+20
+00:01:02.040 --> 00:01:06.180
+You can think of this function that you just fit to housing prices
+你也许认为这个函数只拟合房屋价格
+
+21
+00:01:06.180 --> 00:01:08.490
+as a very simple neuro network.
+作为一个非常简单的神经网络
+
+22
+00:01:08.490 --> 00:01:10.870
+It's almost the simplest possible neuro network.
+这几乎可能是最简单的神经网络
+
+23
+00:01:10.870 --> 00:01:11.620
+Let me draw it here.
+让我画在这里
+
+24
+00:01:13.800 --> 00:01:17.200
+We have as the input to the neuro network, the size of the house,
+我们把房屋的面积作为神经网络的输入
+
+25
+00:01:17.200 --> 00:01:18.800
+which we will call x.
+称之为x
+
+26
+00:01:18.800 --> 00:01:22.480
+It goes into this node, this little circle.
+通过这个节点 这个小圆圈
+
+27
+00:01:23.930 --> 00:01:27.450
+And then it outputs the price we call y.
+最终输出了价格 用y表示
+
+28
+00:01:28.470 --> 00:01:33.830
+So this little circle which is a single neuron, and
+其实这个小圆圈就是一个单独的神经元
+
+29
+00:01:33.830 --> 00:01:39.380
+then your network implements this function that we drew on the left.
+接着你的网络实现了左边这个函数的功能
+
+30
+00:01:39.380 --> 00:01:43.630
+And in the neuro network literature, you see this function a lot.
+在有关神经网络的文献中 你经常看得到这个函数
+
+31
+00:01:43.630 --> 00:01:48.530
+This function which goes to zero sometime
+and then takes off as a straight line.
+从趋近于零开始 然后变成一条直线
+
+32
+00:01:48.530 --> 00:01:53.156
+This function is called a ReLU 
+这个函数被称作ReLu
+
+33
+00:01:53.156 --> 00:01:57.597
+function, which stands for
+激活函数 它的全称是
+
+34
+00:01:57.597 --> 00:02:03.080
+rectified linear unit, so ReLU.
+rectified linear unit 即ReLU
+
+35
+00:02:03.080 --> 00:02:05.330
+And rectify just means taking a max of zero,
+rectify（修正）可以理解成取比零大的数字或零
+
+36
+00:02:05.330 --> 00:02:07.900
+which is why you get a function shaped like this.
+这也是你得到一个这样形状的函数的原因
+
+37
+00:02:07.900 --> 00:02:10.790
+You don't need to worry about ReLU units for now, but
+你现在不用担心不理解ReLU函数
+
+38
+00:02:10.790 --> 00:02:13.580
+it's just something you see again later in this course.
+你将会在这门课的后面再次看到它
+
+39
+00:02:13.580 --> 00:02:17.130
+So if this is a single neural network,
+好的 如果这是一个单神经元网络
+
+40
+00:02:17.130 --> 00:02:22.330
+maybe a tiny little neural network, a larger neural network
+也许规模很小 也许规模很大
+
+41
+00:02:22.330 --> 00:02:27.980
+is then formed by taking many of these
+single neurons and stacking them together.
+通过把这些单个神经元叠加在一起来形成
+
+42
+00:02:27.980 --> 00:02:34.190
+So if you think of this neuron is being like a single Lego brick, you then
+你可以把这些神经元想象成单独的乐高积木
+
+43
+00:02:34.190 --> 00:02:38.740
+get a bigger neural network by stacking
+together many of these Lego bricks.
+你通过搭积木来完成一个更大的神经网络
+
+44
+00:02:38.740 --> 00:02:39.980
+Let's see an example.
+让我们来看一个例子
+
+45
+00:02:39.980 --> 00:02:44.830
+Let's say that instead of predicting
+the price of a house just from its size,
+我们不仅仅用房屋的面积来预测它的价格
+
+46
+00:02:44.830 --> 00:02:49.060
+you now have other features,
+other things about the house,
+现在你有了一些有关房屋的其它特征
+
+47
+00:02:49.060 --> 00:02:53.690
+such as the number of bedrooms,
+shall we write this [INAUDIBLE] bedrooms.
+比如卧室的数量  
+
+48
+00:02:53.690 --> 00:02:57.760
+And you might think that one of the things that really affects
+或许有一个很重要的因素
+
+49
+00:02:57.760 --> 00:03:00.885
+the price of a house is family size.
+一家人的数量也会影响房屋价格
+
+50
+00:03:00.885 --> 00:03:06.010
+So can this house fit your family of three
+or family of four, or family of five?
+这个房屋能住下一个三口之家或者是四五个人的家庭吗？
+
+51
+00:03:06.010 --> 00:03:10.022
+And it's really based on the size in square feet or square meters, and
+价格的确是基于房屋的面积
+
+52
+00:03:10.022 --> 00:03:12.878
+the number of bedrooms that determines whether or
+和卧室的数量 不能确定的是
+
+53
+00:03:12.878 --> 00:03:15.608
+not a house can fit your family's family size.
+一个家庭的人数是否会对房屋价格造成影响
+
+54
+00:03:15.608 --> 00:03:20.047
+And then maybe you know the zip codes in different
+换个话题 你可能知道邮编 在别的
+
+55
+00:03:20.047 --> 00:03:24.518
+countries is called the postal code.
+国家也被叫作邮政编码
+
+56
+00:03:24.518 --> 00:03:30.660
+And the zip code maybe as a feature that tells you walkability.
+邮编或许能作为一个特征 告诉你步行化程度
+
+57
+00:03:30.660 --> 00:03:33.940
+So is this neighborhood highly walkable?
+比如这附近是不是高度步行化
+
+58
+00:03:33.940 --> 00:03:36.140
+Can you just walk to the grocery store and then walk to school?
+你是否能步行去杂货店或者是学校
+
+59
+00:03:36.140 --> 00:03:37.160
+Do you need to drive?
+你是否需要驾驶汽车
+
+60
+00:03:37.160 --> 00:03:39.880
+Some people prefer highly walkable neighborhoods.
+有些人喜欢居住在以步行为主的区域
+
+61
+00:03:39.880 --> 00:03:45.156
+And then the zip code, as well as the wealth maybe,
+另外根据邮政编码 还有富裕程度
+
+62
+00:03:45.156 --> 00:03:49.840
+tells you, certainly in the United States.
+在美国是这样的
+
+63
+00:03:49.840 --> 00:03:55.290
+But some other countries as well tells you how good is the school quality.
+但在其它国家也可能体现出附近学校的水平有多好
+
+64
+00:03:55.290 --> 00:03:59.496
+So each of these little circles I'm drawing can be one of those ReLU,
+这里每一个我画的小圆圈都可以是ReLU的一部分
+
+65
+00:03:59.496 --> 00:04:04.428
+rectified linear unit, or some other slightly nonlinear function so that based
+也就是指修正线性单元 或者其它稍微非线性的函数
+
+66
+00:04:04.428 --> 00:04:08.721
+on the size and number of bedrooms, you can estimate the family size.
+基于房屋面积和卧室数量 也可以估算家庭人口
+
+67
+00:04:08.721 --> 00:04:10.483
+With the zip code, estimate walkability,
+基于邮编 估测步行化程度
+
+68
+00:04:10.483 --> 00:04:12.970
+based on zip code as well you can estimate the school quality.
+基于邮编 你也可以估测学校的质量
+
+69
+00:04:12.970 --> 00:04:15.202
+And then, finally, you might think that,
+最后你可能会这样想
+
+70
+00:04:15.202 --> 00:04:18.030
+well, the way people decide how much they're willing to pay for
+人们决定他们乐意花费多少钱
+
+71
+00:04:18.030 --> 00:04:20.610
+a house is they look at the things that really matter to them.
+在一个房屋上 是与这些影响他们的事情息息相关的
+
+72
+00:04:20.610 --> 00:04:24.780
+In this case, family size, walkability and school quality and
+在这个情景里 家庭人口 步行化程度以及学校的质量
+
+73
+00:04:24.780 --> 00:04:27.190
+that helps you predict the price.
+都能帮助你预测房屋的价格
+
+74
+00:04:27.190 --> 00:04:31.930
+So in this example, x is all of these four
+以此为例 x是所有的这四个输入
+
+75
+00:04:31.930 --> 00:04:38.010
+inputs and y is the price you're trying to predict.
+y 是你尝试预测的价格
+
+76
+00:04:38.010 --> 00:04:43.350
+And so by stacking together a few of the
+single neurons or the simple predictors
+把这些单个的神经元叠加在一起 或者说是我们在上一页
+
+77
+00:04:43.350 --> 00:04:46.850
+we had from the previous slide, we now
+have a slightly larger neuro network.
+幻灯片做的简单预测 我们现在有了一个稍微大一点的神经网络
+
+78
+00:04:46.850 --> 00:04:51.790
+It turns out that a lot of the magic of
+a neuro network is that even though I had
+这显示了神经网络的神奇之处 虽然我已经
+
+79
+00:04:51.790 --> 00:04:56.650
+described a neuro network as requiring
+you to figure out that family size,
+描述了一个神经网络 通过要求你得到房屋面积
+
+80
+00:04:56.650 --> 00:04:59.880
+walkability and school quality are the factors, or
+步行化程度 学校的质量 这些是已经知道的
+
+81
+00:04:59.880 --> 00:05:01.660
+the things that determine a price.
+还有一些其它影响价格的因素
+
+82
+00:05:01.660 --> 00:05:05.260
+Part of the magic of a neural network is that when you implement it,
+神经网络的一部分神奇之处在于 当你实现它之后
+
+83
+00:05:05.260 --> 00:05:08.540
+you need to give it just the input, x.
+你要做的只是输入x
+
+84
+00:05:10.160 --> 00:05:14.340
+And the output y, for number of examples in your training set, and
+就能得到输出y 在你训练集的许多样本里
+
+85
+00:05:14.340 --> 00:05:17.370
+all these things in the middle it will figure out by itself.
+所有的中间过程都是它自己完成的
+
+86
+00:05:17.370 --> 00:05:21.510
+So what you actually implement is this,
+那么你实际上做的就是
+
+87
+00:05:21.510 --> 00:05:24.208
+where here you have a neural networks with four inputs.
+这儿你有了包括四个输入的神经网络
+
+88
+00:05:24.208 --> 00:05:27.760
+So the input the features might be the size number of bedrooms,
+因此输入的特征可能是卧室的数量
+
+89
+00:05:27.760 --> 00:05:31.990
+the zip code or postal codes, and the wealth of the neighborhood.
+邮政编码 和区域的富裕程度
+
+90
+00:05:33.580 --> 00:05:38.140
+And so given these input features,
+给出这些输入的特征
+
+91
+00:05:38.140 --> 00:05:42.470
+the job of the neural network will be to predict the price.
+神经网络的工作就是预测对应的价格
+
+92
+00:05:42.470 --> 00:05:47.726
+And notice also that each of these circles, these are called hidden units
+同时也注意到这些圆圈 这些被叫做隐藏单元
+
+93
+00:05:47.726 --> 00:05:53.342
+in a neural network, that each of them takes its input of four input features.
+在一个神经网络中 它们每个都从输入的四个特征获得自身输入
+
+94
+00:05:53.342 --> 00:05:57.939
+So for example, rather than saying this first nodes represents family size and
+比如说 第一个结点代表家庭人口
+
+95
+00:05:57.939 --> 00:06:02.741
+family size depends only on the features
+x1 and x2, instead, we're going to say,
+而家庭人口仅仅取决于x1和x2特征 换句话说
+
+96
+00:06:02.741 --> 00:06:06.856
+well, neural network, you decide whatever you want this node to be and
+在神经网络中 你决定在这个结点中想要得到什么
+
+97
+00:06:06.856 --> 00:06:10.990
+we'll give you all four input features to compute whatever you want.
+我们给出所有的四个输入来计算想要得到的
+
+98
+00:06:10.990 --> 00:06:15.330
+So we say that the layers is this input layer and
+因此我们说这一层输入层 以及
+
+99
+00:06:15.330 --> 00:06:18.160
+this layer in the middle, the neural network, are densely connected
+在中间的这一层 在神经网络中被紧密的连接起来了
+
+100
+00:06:18.160 --> 00:06:22.610
+because every input feature's connected to everyone of these circles in the middle.
+因为输入的每一个特征都连接到了中间的这些圆圈
+
+101
+00:06:22.610 --> 00:06:27.860
+And the remarkable thing about neural networks is that given enough data about x
+值得注意的是神经网络给予了足够的数据 有关x
+
+102
+00:06:27.860 --> 00:06:31.920
+and y, given enough training examples with both x and y, neural networks
+和y 给予了足够的训练样本有关x和y 神经网络
+
+103
+00:06:31.920 --> 00:06:36.120
+are remarkably good at figuring out functions that accurately map from x to y.
+非常擅长计算从x到y的精准映射函数
+
+104
+00:06:36.120 --> 00:06:38.886
+So that's a basic neural network.
+这就是一个基础的神经网络
+
+105
+00:06:38.886 --> 00:06:42.320
+It turns out that as you build out your own neural networks you probably find them
+你可能发现你自己的神经网络
+
+106
+00:06:42.320 --> 00:06:46.130
+to be most useful, most powerful, in supervised learning settings.
+在监督学习的环境下是如此的有效和强大
+
+107
+00:06:46.130 --> 00:06:48.820
+Meaning that you're trying to take an input x and
+也就是说你只要尝试输入一个X
+
+108
+00:06:48.820 --> 00:06:54.180
+map it some output y, like we just saw 
+in the housing price prediction example.
+即可把它映射成y 就好像我们在刚才房价预测的例子中看到的
+
+109
+00:06:54.180 --> 00:06:58.070
+In the next video, let's go over some more examples 
+of supervised learning, and
+在下一个视频中 让我们复习一下更多监督学习的例子
+
+110
+00:06:58.070 --> 00:07:03.400
+some examples of where you might find your 
+networks to be incredibly helpful for
+有些例子会让你觉得你的网络会十分有用
+
+111
+00:07:03.400 --> 00:07:04.039
+your applications, as well.
+你实际应用起来也是如此

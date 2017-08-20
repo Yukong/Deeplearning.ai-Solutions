@@ -1,0 +1,222 @@
+﻿1
+00:00:00,000 --> 00:00:02,174
+I hope you enjoyed this course
+我希望你们能够喜欢上这门课程
+【翻译：史红光 校对/审核：AcceptedDoge】
+
+2
+00:00:02,174 --> 00:00:03,678
+and to help you complete it
+为了帮助你们完成这门课程
+
+3
+00:00:03,678 --> 00:00:05,102
+I want to make sure that
+我想要确保
+
+4
+00:00:05,102 --> 00:00:07,463
+there are a few course resources that you know about
+你们知道一些课程资源
+
+5
+00:00:08,463 --> 00:00:11,335
+first if you have any questions
+首先如果你们有任何疑问
+
+6
+00:00:11,335 --> 00:00:13,797
+or you want to discuss anything with the classmates
+或者想和这个课程内其它同学讨论任何问题
+
+7
+00:00:13,797 --> 00:00:15,140
+or the teaching staff including me
+或者想和包括我在内的教学人员讨论任何问题
+
+8
+00:00:15,140 --> 00:00:16,911
+or if you want to file a bug report
+或者是想要归档一个错误报告
+
+9
+00:00:16,911 --> 00:00:19,835
+the best place to do that is the discussion forum
+论坛是去做这些事情最好的地方
+
+10
+00:00:19,835 --> 00:00:20,753
+the teaching staff and I
+我和其他教学人员
+
+11
+00:00:20,753 --> 00:00:23,125
+will be monitoring that regularly
+将定期关注论坛里的这些东西
+
+12
+00:00:23,125 --> 00:00:27,374
+and this is also a good place for you to get answers to your questions from your classmates
+并且这也是一个从与你一同学习本课程的同学那获取答案的好地方
+
+13
+00:00:27,374 --> 00:00:30,972
+or if you wish try to answer your classmates' questions
+如果你想要回答你的同学们的问题
+
+14
+00:00:30,972 --> 00:00:34,209
+to get to the discussion forum from this course home page
+可以从课程首页来到课程的论坛
+
+15
+00:00:34,226 --> 00:00:36,774
+if you look at this menu bar on the left you also
+如果你看到左侧的这个菜单栏
+
+16
+00:00:36,774 --> 00:00:38,805
+might look a bit different than mine
+可能会看起来和我的有些不一样
+
+17
+00:00:38,805 --> 00:00:40,680
+but they'll do this discussion forum tab
+但是他们将会做这个论坛标签
+
+18
+00:00:40,680 --> 00:00:42,665
+which gives you click on
+当你点击它的时候
+
+19
+00:00:42,665 --> 00:00:43,932
+gives you to the discussion forum
+将会打开课程的论坛
+
+20
+00:00:43,932 --> 00:00:47,702
+the best way to ask questions is on the discussion forum
+在论坛上提问是问问题的最好方法
+
+21
+00:00:47,702 --> 00:00:50,418
+but it for some reason you need to contact us directly
+但是出于某些原因你可能需要直接联系我们
+
+22
+00:00:50,418 --> 00:00:53,004
+or let us know about some problem
+或者是想让我们知道一些问题
+
+23
+00:00:53,004 --> 00:00:56,056
+feel free also to email us at this email address
+尽管把邮件发送到这个邮箱地址
+
+24
+00:00:56,056 --> 00:00:58,533
+I promise we will read every email
+我保证我们会阅读每一个邮件
+
+25
+00:00:58,533 --> 00:00:59,833
+and we'll try to
+并且尽力去
+
+26
+00:00:59,833 --> 00:01:01,998
+address commonly occurring issues
+解决普遍出现的问题
+
+27
+00:01:01,998 --> 00:01:04,988
+although depending on the email volume
+同样由于电子邮件的数量很多
+
+28
+00:01:04,988 --> 00:01:07,551
+I can't guarantee that we'll be able to
+我不保证我们能够
+
+29
+00:01:07,551 --> 00:01:08,201
+reply promptly to every email
+迅速回复每一个邮件
+
+30
+00:01:08,201 --> 00:01:10,702
+but we will read every email that you send
+但是我们会阅读你们发送的每一封邮件
+
+31
+00:01:10,702 --> 00:01:13,111
+next I know that there are other companies
+另外我知道有些其它公司
+
+32
+00:01:13,111 --> 00:01:17,450
+that wish to train maybe large numbers of employees with deep learning
+想要给大批的职员培训深度学习
+
+33
+00:01:17,450 --> 00:01:20,863
+if you're responsible for employee training in your company
+如果你们对在你们公司进行培训的职员负有责任
+
+34
+00:01:20,863 --> 00:01:25,439
+and would like to train a hundred or more employees
+并且会培训上百或者更多的雇员
+
+35
+00:01:25,439 --> 00:01:27,214
+with deep learning expertise
+让深度学习专家来培训
+
+36
+00:01:27,214 --> 00:01:30,307
+please feel free to get in touch at this email and
+尽管用这个电子邮箱与我们联系
+
+37
+00:01:30,307 --> 00:01:31,679
+we'll see if we can help you
+我们将看看是否能够帮助你们
+
+38
+00:01:31,679 --> 00:01:36,833
+we're just in the early phases of developing the university academic program
+我们处在开发大学学术课程的早期阶段
+
+39
+00:01:36,833 --> 00:01:41,040
+but if you're a university 
+instructor or a university administrator
+如果你是大学里的领导或者管理人员
+
+40
+00:01:41,300 --> 00:01:44,056
+interested in offering a deep learning course at your university
+并且对在你们学校提供一门深度学习课程感兴趣
+
+41
+00:01:44,056 --> 00:01:47,276
+please feel free to contact us at this email address
+请尽管通过这个邮箱地址联系我们
+
+42
+00:01:47,276 --> 00:01:50,181
+though I hope that gives you more resources to complete the course
+我会给你们提供更多的资源来完成这门课程
+
+43
+00:01:50,181 --> 00:01:53,772
+maybe I'll see some of you in the discussion forums
+我将在论坛中参与你们的讨论
+
+44
+00:01:53,772 --> 00:01:55,224
+and best of luck
+祝你们好运
+

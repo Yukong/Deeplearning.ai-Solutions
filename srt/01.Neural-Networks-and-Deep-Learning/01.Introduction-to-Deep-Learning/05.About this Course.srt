@@ -1,0 +1,255 @@
+
+1
+00:00:00.000 --> 00:00:02.610
+So you're just about to reach the end of
+你的学习进度已经快接近
+
+2
+00:00:02.610 --> 00:00:06.165
+the first week of material on the first course in this specialization.
+这个专项课程的第一门课的第一周的末尾了
+
+3
+00:00:06.165 --> 00:00:09.960
+Let me give you a quick sense of what you'll learn in the next few weeks as well.
+让我给你快速地介绍一下 下一周我们将要学习什么内容
+
+4
+00:00:09.960 --> 00:00:12.000
+As I said in the first video,
+在第一个视频里我已经说过
+
+5
+00:00:12.000 --> 00:00:15.150
+this specialization comprises five courses.
+这个专项课程一共有五门课
+
+6
+00:00:15.150 --> 00:00:17.250
+And right now, we're in the first of
+目前我们在它的第一门课
+
+7
+00:00:17.250 --> 00:00:20.385
+these five courses which teach you the most important foundations,
+在这门课中将教会你最重要的基础知识
+
+8
+00:00:20.385 --> 00:00:23.745
+really the most important building blocks of deep learning.
+它们真的是深度学习最重要的基石
+
+9
+00:00:23.745 --> 00:00:25.530
+So by the end of this first course,
+当你学到第一门课的结尾
+
+10
+00:00:25.530 --> 00:00:30.350
+you know how to build and get to work a deep neural network.
+你将知道如何建立一个深度神经网络并且使它奏效
+
+11
+00:00:30.350 --> 00:00:33.780
+So here the details of what is in this first course.
+下面是一些有关第一门课的细节
+
+12
+00:00:33.780 --> 00:00:35.725
+This course is four weeks of material.
+这门课有四个星期的材料
+
+13
+00:00:35.725 --> 00:00:37.620
+And you're just coming up to the end of
+目前你就要完成第一周的学习了
+
+14
+00:00:37.620 --> 00:00:40.110
+the first week when you saw an introduction to deep learning.
+当你看到了深度学习的介绍后
+
+15
+00:00:40.110 --> 00:00:41.530
+At the end of each week,
+在每一周的结尾
+
+16
+00:00:41.530 --> 00:00:44.190
+there are also be 10 multiple-choice questions that
+也都会有十个多选题
+
+17
+00:00:44.190 --> 00:00:47.495
+you can use to double check your understanding of the material.
+你可以用来检验自己对材料的理解
+
+18
+00:00:47.495 --> 00:00:49.185
+So when you're done watching this video,
+所以当你看完这个视频的时候
+
+19
+00:00:49.185 --> 00:00:51.860
+I hope you're going to take a look at those questions.
+我希望你能看看这些问题
+
+20
+00:00:51.860 --> 00:00:56.530
+In the second week, you then learn about the Basics of Neural Network Programming.
+在第二周 你会学习一些有关神经网络的编程知识
+
+21
+00:00:56.530 --> 00:00:58.420
+You'll learn the structure of what we
+了解神经网络的结构
+
+22
+00:00:58.420 --> 00:01:00.960
+call the forward propagation and the back propagation
+我们把它叫做正向传播和反向传播
+
+23
+00:01:00.960 --> 00:01:06.030
+steps of the algorithm and how to implement neural networks efficiently.
+逐步的完善你的算法 以及如何使得你的神经网络高效实现
+
+24
+00:01:06.030 --> 00:01:07.405
+Starting from the second week,
+从第二周开始
+
+25
+00:01:07.405 --> 00:01:10.125
+you also get to do a programming exercise
+你也会开始做一些编程训练（付费项目）
+
+26
+00:01:10.125 --> 00:01:13.605
+that lets you practice the material you've just learned,
+这让你练习你刚刚学到的材料
+
+27
+00:01:13.605 --> 00:01:16.735
+implement the algorithms yourself and see it work for yourself.
+自己实现算法 并看到它为自己工作
+
+28
+00:01:16.735 --> 00:01:19.550
+I find it really satisfying when I learn about algorithm and they
+当我学习算法的时候 我发现它真的很令人满意
+
+29
+00:01:19.550 --> 00:01:22.375
+get it coded up and I see it worked for myself.
+把它编写出来 让它为我自己工作
+
+30
+00:01:22.375 --> 00:01:24.080
+So I hope you enjoy that too.
+所以我希望你们也喜欢
+
+31
+00:01:24.080 --> 00:01:28.140
+Having learned the framework for neural network programming in the third week,
+在第三周学习了神经网络编程的框架后
+
+32
+00:01:28.140 --> 00:01:32.050
+you code up a single hidden layer neural network. All right.
+你将可以编写一个隐藏层神经网络
+
+33
+00:01:32.050 --> 00:01:34.470
+So you learn about all the key concepts needed
+所以你需要学习所有必需的关键概念
+
+34
+00:01:34.470 --> 00:01:37.005
+to implement and get to work in neural network.
+来实现神经网络的工作
+
+35
+00:01:37.005 --> 00:01:38.485
+And then finally in week four,
+最后在第四周
+
+36
+00:01:38.485 --> 00:01:41.175
+you build a deep neural network and neural network with
+你建立了一个深层的神经网络
+
+37
+00:01:41.175 --> 00:01:44.081
+many layers and see it worked for yourself.
+它有许多层 并且你能看到它为你工作
+
+38
+00:01:44.081 --> 00:01:47.930
+So, congratulations on finishing the videos after this one.
+所以 恭喜你完成了这段视频
+
+39
+00:01:47.930 --> 00:01:51.600
+I hope that you now have a good high-level sense of what's happening in deep learning.
+我希望你现在对深度学习的情况有一个更高层次的理解
+
+40
+00:01:51.600 --> 00:01:53.610
+And perhaps some of you are also assigned to,
+也许你们中的一些人也有一些想法
+
+41
+00:01:53.610 --> 00:01:57.355
+has some ideas of where you might want to apply deep learning yourself.
+可能想要有你自己应用深度学习的地方
+
+42
+00:01:57.355 --> 00:01:59.370
+So, I hope that after this video,
+我希望在这段视频结束之后
+
+43
+00:01:59.370 --> 00:02:03.850
+you go on to take a look at the 10 multiple choice questions that follow this video
+我们来看看这10个选择题
+
+44
+00:02:03.850 --> 00:02:05.500
+on the course website and just use
+它们会被显示在课程网站上
+
+45
+00:02:05.500 --> 00:02:08.760
+the 10 multiple choice questions to check your understanding.
+将会有10个选择题来检查你的理解
+
+46
+00:02:08.760 --> 00:02:11.199
+And don't review, you don't get all the answers right the first time,
+不用去复习前面的知识 有的答案你现在是不知道的
+
+47
+00:02:11.199 --> 00:02:14.710
+you can try again and again until you get them all right.
+你可以一次又一次地尝试 直到你把它们都做好
+
+48
+00:02:14.710 --> 00:02:19.145
+I found them useful to make sure that I'm understanding all the concepts,
+我发现它们很有用 以确保我理解所有的概念
+
+49
+00:02:19.145 --> 00:02:21.465
+I hope you're that way too.
+我希望你也可以做到
+
+50
+00:02:21.465 --> 00:02:24.000
+So with that, congrats again for getting up to
+我的话说完了 再次祝贺你
+
+51
+00:02:24.000 --> 00:02:27.670
+here and I look forward to seeing you in the week two videos.
+我期待在本周的另外两个视频中见到你

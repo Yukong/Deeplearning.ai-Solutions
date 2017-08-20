@@ -1,0 +1,1241 @@
+1
+00:00:01,436 --> 00:00:03,447
+if the basic technical idea is behind
+如果在深度学习和神经网络
+【翻译/矫正/字幕：AcceptedDoge】
+
+2
+00:00:03,447 --> 00:00:06,034
+deep learning behind neural networks have
+之前的基础技术理念
+【仅供交流学习，请勿商用】
+
+3
+00:00:06,051 --> 00:00:07,683
+been around for decades why are they
+已经存在大概几十年了 为什么
+
+4
+00:00:07,683 --> 00:00:10,344
+only just now taking off? in this video
+它们现在才突然流行起来呢？ 在这个视频
+
+5
+00:00:10,344 --> 00:00:12,434
+let's go over some of the main drivers
+让我们看一些使得深度学习变得如此热门
+
+6
+00:00:12,434 --> 00:00:14,465
+behind the rise of deep learning because
+的主要驱动因素
+
+7
+00:00:14,465 --> 00:00:16,447
+I think this will help you that the spot
+这将会帮助你
+
+8
+00:00:16,447 --> 00:00:18,483
+the best opportunities within your own
+在你的组织机构内发现
+
+9 
+00:00:18,483 --> 00:00:21,140
+organization to apply these to. over the
+最好的时机来应用这些东西
+
+10
+00:00:21,140 --> 00:00:22,639
+last few years a lot of people have
+在过去的几年里很多人
+
+11
+00:00:22,639 --> 00:00:24,804
+asked me Andrew why is deep learning
+都问我 Andrew 为什么深度学习
+
+12
+00:00:24,804 --> 00:00:27,236
+certainly working so well and when I
+能够如此有效？当我回答
+
+13
+00:00:27,236 --> 00:00:29,285
+answer the question this is usually the
+这个问题的时候 我通常
+
+14
+00:00:29,285 --> 00:00:31,536
+picture I draw for them let's say we
+给他们画个图
+
+15
+00:00:31,536 --> 00:00:33,503
+plot a figure where on the horizontal
+在水平轴上画一个形状
+
+16
+00:00:33,503 --> 00:00:36,569
+axis we plot the amount of data we have
+像这样绘制出
+
+17
+00:00:36,569 --> 00:00:39,673
+for a task and let's say on the vertical
+我们所有任务的数据量 而在垂直轴上
+
+18
+00:00:39,673 --> 00:00:42,886
+axis we plot the performance on above
+我们画出机器学习算法的性能
+
+19
+00:00:42,886 --> 00:00:44,797
+learning algorithms such as the accuracy
+比如说准确率（accuracy）
+
+20
+00:00:44,797 --> 00:00:48,635
+of our spam classifier or our ad click
+体现在垃圾邮件过滤或者广告点击预测
+
+21
+00:00:48,635 --> 00:00:52,351
+predictor or the accuracy of our neural
+或者是我们的神经网络
+
+22
+00:00:52,351 --> 00:00:54,335
+net for figuring out the position of
+在自动驾驶汽车时
+
+23
+00:00:54,335 --> 00:00:56,876
+other calls for our self-driving car. it
+判断位置的准确性
+
+24
+00:00:56,876 --> 00:00:58,829
+turns out if you plot the performance of
+根据图像可以发现 如果你
+
+25
+00:00:58,829 --> 00:01:00,703
+a traditional learning algorithm like
+把一个传统机器学习算法的性能画出来
+
+26
+00:01:00,703 --> 00:01:02,813
+support vector machine or logistic
+比如说支持向量机或者是逻辑回归
+
+27
+00:01:02,813 --> 00:01:05,039
+regression as a function of the amount
+作为数据量的一个函数
+
+28
+00:01:05,039 --> 00:01:08,078
+of data you have you might get a curve
+你可能得到一个弯曲的线
+
+29
+00:01:08,078 --> 00:01:10,171
+that looks like this where the
+就像图中这样的
+
+30
+00:01:10,171 --> 00:01:12,198
+performance improves for a while as you
+它的性能一开始
+
+31
+00:01:12,198 --> 00:01:14,544
+add more data but after a while the
+在你增加更多数据时会上升 但是一段变化后
+
+32
+00:01:14,544 --> 00:01:16,703
+performance you know pretty much
+它的性能就会像一个
+
+33
+00:01:16,703 --> 00:01:19,109
+plateaus right suppose your horizontal
+高原一样 假设你的
+
+34
+00:01:19,109 --> 00:01:21,578
+lines enjoy that very well you know was
+水平轴拉的很长很长
+
+35
+00:01:21,578 --> 00:01:25,548
+it they didn't know what to do with huge
+它们不知道如何处理
+
+36
+00:01:25,548 --> 00:01:28,533
+amounts of data and what happened in our
+规模巨大的数据 而过去十年
+
+37
+00:01:28,533 --> 00:01:31,178
+society over the last 10 years maybe is
+在我们的这个社会
+
+38
+00:01:31,178 --> 00:01:33,213
+that for a lot of problems we went from
+也许我们遇到的很多问题
+
+39
+00:01:33,213 --> 00:01:35,131
+having a relatively small amount of data
+只有相对较少的数据量
+
+40
+00:01:35,131 --> 00:01:39,067
+to having you know often a fairly large
+但是你也要知道
+
+41
+00:01:39,067 --> 00:01:41,372
+amount of data and all of this was
+多亏了数字化社会的来临
+
+42
+00:01:41,372 --> 00:01:44,347
+thanks to the digitization of a society
+现在的数据量都变得非常巨大
+
+43
+00:01:44,347 --> 00:01:47,308
+where so much human activity is now in
+我们花了很多时间
+
+44
+00:01:47,308 --> 00:01:49,349
+the digital realm we spend so much time
+活动在这些数字的领域
+
+45
+00:01:49,349 --> 00:01:51,544
+on the computers on websites on mobile
+比如在电脑网站上 在手机软件上
+
+46
+00:01:51,544 --> 00:01:54,977
+apps and activities on digital devices
+以及其它数字化的服务
+
+47
+00:01:54,977 --> 00:01:58,388
+creates data and thanks to the rise of
+它们都能创建数据 同时也归功于
+
+48
+00:01:58,388 --> 00:02:00,432
+inexpensive cameras built into our cell
+便宜的相机被配置到移动电话
+
+49
+00:02:00,432 --> 00:02:02,768
+phones accelerometers all sorts of
+还有加速仪 各类各样的传感器
+
+50
+00:02:02,768 --> 00:02:06,277
+sensors in the Internet of Things we
+同时在物联网领域
+
+51
+00:02:06,277 --> 00:02:08,268
+also just have been collecting one more
+我们也收集到了越来越多的数据
+
+52
+00:02:08,268 --> 00:02:11,717
+and more data so over the last 20 years
+仅仅在过去的20年里
+
+53
+00:02:11,717 --> 00:02:13,298
+for a lot of applications we just
+对于很多应用 我们
+
+54
+00:02:13,298 --> 00:02:16,681
+accumulate a lot more data more than traditional
+便收集到了大量的数据
+
+55
+00:02:16,681 --> 00:02:18,174
+learning algorithms were able to
+远超过机器学习算法能够
+
+56
+00:02:18,174 --> 00:02:20,854
+effectively take advantage of and what
+高效发挥它们优势的规模
+
+57
+00:02:20,854 --> 00:02:23,014
+neural network lead turns out that if you
+神经网络展现出的是 如果你
+
+58
+00:02:23,014 --> 00:02:26,701
+train a small neural net then this
+训练一个小型的神经网络
+
+59
+00:02:26,701 --> 00:02:28,420
+performance maybe looks like that
+那么这个性能可能会像这样
+
+60
+00:02:28,420 --> 00:02:31,942
+if you train a somewhat larger neural net
+如果你训练一个稍微大一点的神经网络
+
+61
+00:02:31,942 --> 00:02:34,992
+that's called as a medium-sized neural net
+比如说一个中等规模的神经网络
+
+62 
+00:02:34,992 --> 00:02:36,835
+to performance in something a little bit better
+它在某些数据上面的性能也会更好一些
+
+63
+00:02:36,835 --> 00:02:40,434
+and if you train a very large neural net
+如果你训练一个非常大的神经网络
+
+64
+00:02:40,434 --> 00:02:42,537
+then it's the form and often just keeps
+它就会变成这种形式 并且保持
+
+65
+00:02:42,537 --> 00:02:44,941
+getting better and better. so couple of
+变得越来越好 因此可以注意到两点
+
+66
+00:02:44,941 --> 00:02:47,309
+observations one is if you want to hit
+一点是如果你想要
+
+67
+00:02:47,309 --> 00:02:49,717
+this very high level of performance then
+获得较高的性能体现
+
+68
+00:02:49,717 --> 00:02:53,095
+you need two things first often you need
+那么你有两个条件要完成 第一个是你需要
+
+69
+00:02:53,095 --> 00:02:54,907
+to be able to train a big enough neural
+训练一个规模足够大的神经网络
+
+70
+00:02:54,907 --> 00:02:57,741
+network in order to take advantage of
+以发挥数据规模量巨大
+
+71
+00:02:57,741 --> 00:03:00,013
+the huge amount of data and second you
+的优点 另外你
+
+72
+00:03:00,013 --> 00:03:02,401
+need to be out here on the x axes you do
+需要能画到x轴的这个位置
+
+73
+00:03:02,401 --> 00:03:05,778
+need a lot of data so we often say that
+所以你需要很多的数据 因此我们经常说
+
+74
+00:03:05,778 --> 00:03:08,299
+scale has been driving deep learning
+规模一直在推动深度学习的进步
+
+75
+00:03:08,299 --> 00:03:11,214
+progress and by scale I mean both the
+这里的规模我指的也同时是
+
+76
+00:03:11,214 --> 00:03:13,454
+size of the neural network we need just
+神经网络的规模 我们需要
+
+77
+00:03:13,454 --> 00:03:15,364
+a neural network with a lot of hidden units a
+一个带有许多隐藏单元的神经网络
+
+78
+00:03:15,364 --> 00:03:17,464
+lot of parameters a lot of connections
+也有许多的参数 许多的关联性
+
+79
+00:03:17,464 --> 00:03:21,903
+as well as scale of the data in fact
+就如同需要大规模的数据一样
+
+80
+00:03:21,903 --> 00:03:24,371
+today one of the most reliable ways to
+事实上如今最可靠的方法
+
+81
+00:03:24,261 --> 00:03:25,609
+get better performance in the neural
+来在神经网络上获得更好的性能
+
+82
+00:03:25,609 --> 00:03:27,873
+network is often to either train a
+往往就是要么训练一个
+
+83
+00:03:27,873 --> 00:03:30,004
+bigger network or throw more data at it
+更大的神经网络 要么投入更多的数据
+
+84
+00:03:30,004 --> 00:03:32,341
+and that only works up to a point
+这只能在一定程度上起作用
+
+85
+00:03:32,341 --> 00:03:33,833
+because eventually you run out of data
+因为最终你耗尽了数据
+
+86
+00:03:33,833 --> 00:03:35,931
+or eventually then your network is so
+或者最终你的网络是如此大规模
+
+87
+00:03:35,931 --> 00:03:38,210
+big that it takes too long to train but
+导致将要用太久的时间去训练
+
+88
+00:03:38,210 --> 00:03:40,584
+just improving scale has actually taken
+但是仅仅提升规模的的确确地
+
+89
+00:03:40,584 --> 00:03:43,178
+us a long way in the world of deep learning
+让我们在深度学习的世界中摸索了很多时间
+
+90
+00:03:43,178 --> 00:03:46,067
+in order to make this diagram a bit more
+为了使这个图更加
+
+91
+00:03:46,067 --> 00:03:48,297
+technically precise and just add a few
+从技术上讲更精确一点
+
+92
+00:03:48,297 --> 00:03:50,438
+more things I wrote the amount of data
+我在X轴下面已经写明的
+
+93
+00:03:50,438 --> 00:03:53,177
+on the x-axis technically this is amount
+数据量这儿加上一个 标签（label）量
+
+94
+00:03:53,177 --> 00:03:58,241
+of labeled data where by label data
+通过添加这个标签量
+
+95
+00:03:58,241 --> 00:04:00,612
+I mean training examples we have both
+也就是指在训练样本时我们同时
+
+96
+00:04:00,612 --> 00:04:03,953
+the input X and the label Y I went to
+输入X和标签Y 接下来
+
+97
+00:04:03,953 --> 00:04:06,338
+introduce a little bit of notation that
+引入一点符号
+
+98
+00:04:06,338 --> 00:04:08,236
+we'll use later in this course we're
+这在后面的课程中都会用到
+
+99
+00:04:08,236 --> 00:04:10,675
+going to use lowercase alphabet m to
+我们使用小写的字母 m
+
+100
+00:04:10,675 --> 00:04:12,876
+denote the size of my training sets or
+表示我的训练集的规模
+
+101
+00:04:12,876 --> 00:04:14,050
+the number of training examples
+或者说训练样本的数量
+
+102
+00:04:14,050 --> 00:04:16,092
+this lowercase m so that's the
+这个小写字母m 因此这就是
+
+103
+00:04:16,092 --> 00:04:19,578
+horizontal axis couple other details to
+横轴 结合其他一些细节
+
+104
+00:04:19,578 --> 00:04:20,072
+this figure
+到这个图像中
+
+105
+00:04:20,072 --> 00:04:23,797
+in this regime of smaller training sets
+在这个小的训练集中
+
+106
+00:04:23,797 --> 00:04:27,313
+the relative ordering of the algorithms
+各种算法的优先级
+
+107
+00:04:27,313 --> 00:04:30,145
+is actually not very well defined so if
+事实上定义的也不是很明确
+
+108
+00:04:30,145 --> 00:04:32,245
+you don't have a lot of training data is
+所以如果你没有大量的训练集
+
+109
+00:04:32,245 --> 00:04:34,804
+often up to your skill at hand
+那效果会取决于你的
+
+110
+00:04:34,804 --> 00:04:36,991
+engineering features that determines the
+特征工程能力 那将决定
+
+111
+00:04:36,991 --> 00:04:39,376
+performance so it's quite possible that if
+最终的性能 因此很有可能
+
+112
+00:04:39,376 --> 00:04:42,114
+someone training an SVM is more
+假设有些人训练出了一个SVM（支持向量机）
+
+113
+00:04:42,114 --> 00:04:44,433 
+motivated to hand engineer features and
+表现的更接近正确特征 然而
+
+114 
+00:04:44,421 --> 00:04:46,625
+someone training even larger than
+有些人训练的规模大一些
+
+115
+00:04:46,625 --> 00:04:48,819
+that may be in this small training set
+可能在这个小的训练集中
+
+116
+00:04:48,819 --> 00:04:50,912
+regime the SVM could do better
+SVM算法可以做的更好
+
+117
+00:04:50,912 --> 00:04:53,736
+so you know in this region to the left
+因此你知道在这个图形区域的左边
+
+118
+00:04:53,736 --> 00:04:55,344
+of the figure the relative ordering
+各种算法之间的
+
+119
+00:04:55,344 --> 00:04:57,356
+between the algorithms is not that well
+优先级并不是定义的很明确
+
+120
+00:04:57,356 --> 00:04:59,967
+defined and performance depends much
+最终的性能更多的是取决于
+
+121
+00:04:59,967 --> 00:05:02,314
+more on your skill at engine features
+你在用工程选择特征方面的能力
+
+122
+00:05:02,314 --> 00:05:03,868
+and other normal details of the
+以及算法处理方面的一些细节
+
+123
+00:05:03,868 --> 00:05:06,379
+algorithms and there's only in this some
+只是在这某些
+
+124
+00:05:06,379 --> 00:05:09,178
+big data regions very large training sets
+大数据规模 非常庞大的训练集
+
+125
+00:05:09,178 --> 00:05:12,457
+very large M regions in the right that we
+也就是在右边这个m会非常的大时
+
+126
+00:05:12,457 --> 00:05:15,173
+more consistently see largely nerual nets
+我们能更加持续地看到更大的由神经网络
+
+127
+00:05:15,173 --> 00:05:17,869
+dominating the other approaches and so
+控制的其它方法 因此
+
+128
+00:05:17,990 --> 00:05:19,801
+if any of your friends ask you why are
+如果你的任何某个朋友问你
+
+129
+00:05:19,801 --> 00:05:21,985
+neural net as you know taking off I would
+为什么神经网络这么流行 我会
+
+130
+00:05:21,985 --> 00:05:23,969
+encourage you to draw this picture for
+鼓励你也替他们画这样一个图形
+
+131
+00:05:23,969 --> 00:05:27,094
+them as well so I will say that in the
+所以可以这么说
+
+132
+00:05:27,094 --> 00:05:29,506 
+early days in their morning rise of deep learning
+在深度学习萌芽的初期
+
+133
+00:05:29,661 --> 00:05:32,264
+it was scaled data and scale of
+数据的规模
+
+134
+00:05:32,264 --> 00:05:35,221
+computation just our ability to Train
+以及计算量 局限在我们
+
+135
+00:05:35,221 --> 00:05:36,688
+very large neural networks
+对于训练一个特别大的神经网络的能力
+
+136
+00:05:36,688 --> 00:05:39,846
+either on a CPU or GPU that enabled us
+无论是在CPU还是GPU上面 那都使得我们
+
+137
+00:05:39,846 --> 00:05:42,302
+to make a lot of progress but
+取得了巨大的进步
+
+138
+00:05:42,302 --> 00:05:44,111
+increasingly especially in the last
+但是渐渐地 尤其是在最近这几年
+
+139
+00:05:44,111 --> 00:05:46,423
+several years we've seen tremendous
+我们也见证了
+
+140
+00:05:46,423 --> 00:05:48,854
+algorithmic innovation as well so I also
+算法方面的极大创新
+
+141
+00:05:48,854 --> 00:05:50,455
+don't want to understate that
+我可以不是那么保守地说
+
+142
+00:05:50,455 --> 00:05:54,295
+interestingly many of the algorithmic
+有趣的是 许多算法方面的创新
+
+143
+00:05:54,295 --> 00:05:57,345
+innovations have been about trying to
+一直是在尝试着
+
+144
+00:05:57,345 --> 00:06:01,508
+make neural networks run much faster so
+使得神经网络运行的更快
+
+145
+00:06:01,508 --> 00:06:03,952
+as a concrete example one of the huge
+作为一个具体的例子
+
+146
+00:06:03,952 --> 00:06:05,716
+breakthroughs in neural networks has been
+神经网络方面的一个巨大突破是
+
+147
+00:06:05,716 --> 00:06:09,153
+switching from a sigmoid function which
+从sigmoid函数转换
+
+148
+00:06:09,153 --> 00:06:12,692
+looks like this to a ReLU function
+看起来像这样 到一个ReLU函数
+
+149
+00:06:12,692 --> 00:06:15,325
+which we talked about briefly in an
+这个函数我们在之前的视频里提到过
+
+150
+00:06:15,325 --> 00:06:18,893
+early video that looks like this if you
+它的形状就像这样
+
+151
+00:06:18,893 --> 00:06:20,521
+don't understand the details of one
+如果你无法理解刚才我说的某个细节
+
+152
+00:06:20,521 --> 00:06:22,630
+about the state don't worry about it but
+也不需要担心
+
+153
+00:06:22,630 --> 00:06:25,011
+it turns out that one of the problems of
+可以知道的一个
+
+154
+00:06:25,011 --> 00:06:26,266
+using sigmoid functions and machine
+使用sigmoid函数和
+
+155
+00:06:26,266 --> 00:06:27,804
+learning is that these regions
+机器学习问题是 在这个区域
+
+156
+00:06:28,221 --> 00:06:30,631
+here where the sigmoid of the function would
+也就是这个sigmoid函数的
+
+157
+00:06:30,631 --> 00:06:33,226
+gradient is nearly zero and so learning
+梯度会接近零 所以学习的速度
+
+158
+00:06:33,226 --> 00:06:35,680
+becomes really slow because when you
+会变得非常缓慢 因为当你
+
+159
+00:06:35,680 --> 00:06:37,387
+implement gradient descent and gradient
+实现梯度下降以及
+
+160
+00:06:37,387 --> 00:06:39,982
+is zero the parameters just change very
+梯度接近零的时候 参数会更新的
+
+161
+00:06:39,982 --> 00:06:41,779
+slowly and so learning is very slow
+很慢 所以学习的速率也会变的很慢
+
+162
+00:06:41,779 --> 00:06:44,995
+whereas by changing the what's called
+而通过改变这个被叫做
+
+163
+00:06:44,995 --> 00:06:46,756
+the activation function the neural
+激活函数的东西 神经网络
+
+164
+00:06:46,756 --> 00:06:48,697
+network to use this function called the
+换用这一个函数 叫做
+
+165
+00:06:48,697 --> 00:06:52,456
+ReLU function of the rectified linear
+ReLU的函数（修正线性单元）
+
+166
+00:06:52,456 --> 00:06:55,197
+unit ReLU. the gradient is equal to
+R e L U 它的梯度对于所有
+
+167
+00:06:55,197 --> 00:06:57,655
+one for all positive values of input
+输入的正值都是一
+
+168
+00:06:57,655 --> 00:07:00,552
+right and so the gradient is much less
+因此梯度不会
+
+169
+00:07:00,552 --> 00:07:03,717
+likely to gradually shrink to zero and
+趋向逐渐减少到零
+
+170
+00:07:03,717 --> 00:07:05,487
+the gradient here the slope of this line
+而这里的梯度 这条线的斜率
+
+171
+00:07:05,487 --> 00:07:07,668
+is zero on the left but it turns out
+在这左边是零
+
+172
+00:07:07,668 --> 00:07:09,758
+that just by switching to the sigmoid
+仅仅通过将Sigmod函数
+
+173
+00:07:09,758 --> 00:07:12,967
+function to the ReLU function has
+转换成ReLU函数便能够使得
+
+174
+00:07:12,967 --> 00:07:14,666
+made an algorithm called gradient
+一个叫做梯度下降（gradient descent）
+
+175
+00:07:14,666 --> 00:07:17,441
+descent work much faster and so this is
+的算法运行的更快 这就是
+
+176
+00:07:17,441 --> 00:07:19,298
+an example of maybe relatively simple
+一个或许相对比较简单
+
+177
+00:07:19,298 --> 00:07:22,480
+algorithm innovation but ultimately the
+的算法创新的例子 但是根本上
+
+178
+00:07:22,480 --> 00:07:24,113
+impact of this algorithmic innovation
+算法创新所带来的影响
+
+179
+00:07:24,113 --> 00:07:27,885
+was it really hope computation so there
+实际上是对计算带来的优化 所以
+
+180
+00:07:27,885 --> 00:07:29,581
+remains quite a lot of examples like
+有很多像这样的例子
+
+181
+00:07:29,581 --> 00:07:31,735
+this of where we change the algorithm
+我们通过改变算法
+
+182
+00:07:31,735 --> 00:07:33,947
+because it allows that code to run much
+使得代码运行的更快
+
+183
+00:07:33,947 --> 00:07:35,391
+faster and this allows us to train
+这也使得我们能够训练
+
+184
+00:07:35,391 --> 00:07:37,681
+bigger neural networks or to do so the
+规模更大的神经网络
+
+185
+00:07:37,681 --> 00:07:39,976
+reason of multi-client even when we have
+或者是多端口的网络 即使
+
+186
+00:07:39,976 --> 00:07:42,616
+a large network from all the data the
+我们从所有的数据中拥有了大规模的神经网络
+
+187
+00:07:42,616 --> 00:07:46,311
+other reason that fast computation is
+快速计算显得更加重要的
+
+188
+00:07:46,311 --> 00:07:49,179
+important is that it turns out the
+另一个原因是
+
+189
+00:07:49,179 --> 00:07:51,097
+process of training your network it is
+训练你的神经网络的过程
+
+190
+00:07:51,097 --> 00:07:53,978
+very intuitive often you have an idea
+很多时候是凭借直觉的
+
+191
+00:07:53,978 --> 00:07:56,686
+for a neural network architecture and so
+往往你对神经网络架构有了一个想法
+
+192
+00:07:56,686 --> 00:07:58,237
+you implement your idea and code
+于是你尝试实现你的想法 去写代码
+
+193
+00:07:58,237 --> 00:08:01,508
+implementing your idea then lets you run
+实现你的想法 然后让你运行一个
+
+194
+00:08:01,508 --> 00:08:03,278
+an experiment which tells you how well
+试验环境来告诉你
+
+195
+00:08:03,278 --> 00:08:05,417
+your neural network does and then by
+你的神经网络效果有多好 通过
+
+196
+00:08:05,417 --> 00:08:07,765
+looking at it you go back to change the
+参考这个结果再返回去修改
+
+197
+00:08:07,765 --> 00:08:10,717
+details of your neural network and then you
+你的神经网络里面的一些细节
+
+198
+00:08:10,717 --> 00:08:13,865
+go around this circle over and over and
+然后你不断的重复上面的操作
+
+199
+00:08:13,865 --> 00:08:16,492
+when your neural network takes a long time
+当你的神经网络需要很长时间
+
+200
+00:08:16,492 --> 00:08:18,920
+to Train it just takes a long time to go
+去训练 需要很长时间
+
+201
+00:08:18,920 --> 00:08:21,868
+around this cycle and there's a huge
+重复这一循环 在这里就有很大的
+
+202
+00:08:21,868 --> 00:08:24,271
+difference in your productivity building
+区别 根据你的生产效率去构建
+
+203
+00:08:24,271 --> 00:08:27,015
+effective neural networks when you can
+更高效的神经网络 当你能够
+
+204
+00:08:27,015 --> 00:08:30,036
+have an idea and try it and see the work
+有一个想法 试一试 看看效果如何
+
+205
+00:08:30,036 --> 00:08:34,369
+in ten minutes or maybe almost a day
+在10分钟内 或者也许要花上一整天
+
+206
+00:08:34,520 --> 00:08:36,604
+worthes if you've to train your neural
+如果你训练你的神经网络
+
+207
+00:08:36,604 --> 00:08:39,776
+network for a month which sometimes does
+用了一个月的时间 有时候发生这样的事情
+
+208
+00:08:39,776 --> 00:08:43,008
+happened because you get a result back you know
+也是值得的 因为你很快得到了一个结果
+
+209
+00:08:43,008 --> 00:08:45,078
+in ten minutes or maybe in a day you
+在10分钟内 或者一天内
+
+210
+00:08:45,078 --> 00:08:47,668
+should just try a lot more ideas and be
+你应该尝试更多的想法
+
+211
+00:08:47,668 --> 00:08:49,589
+much more likely to discover in your
+那极有可能使得你的神经网络
+
+212
+00:08:49,589 --> 00:08:51,085
+network and it works well for your
+在你的应用方面工作的更好
+
+213
+00:08:51,085 --> 00:08:54,369
+application and so faster computation
+所以更快的计算
+
+214
+00:08:54,369 --> 00:08:58,218
+has really helped in terms of speeding
+在提高速度方面
+
+215
+00:08:58,218 --> 00:09:00,112
+up the rate at which you can get an
+真的有帮助 那样你就能
+
+216
+00:09:00,112 --> 00:09:03,000
+experimental result back and this has
+更快地得到你的实验结果
+
+217
+00:09:03,000 --> 00:09:05,746
+really helped both practitioners of
+这也同时帮助了神经网络的实验人员
+
+218
+00:09:05,746 --> 00:09:08,051
+neuro networks as well as researchers
+和有关项目的研究人员
+
+219
+00:09:08,051 --> 00:09:11,079
+working at deep learning iterate much
+在深度学习的工作中迭代的更快
+
+220
+00:09:11,079 --> 00:09:13,599
+faster and improve your ideas much
+也能够更快的改进你的想法
+
+221
+00:09:13,599 --> 00:09:17,068
+faster and so all this has also been a
+所有这些都
+
+222
+00:09:17,068 --> 00:09:19,082
+huge boom to the entire deep learning
+使得整个深度学习的研究社群
+
+223
+00:09:19,082 --> 00:09:21,308
+research community which has been
+变的如此繁荣
+
+224
+00:09:21,308 --> 00:09:24,024
+incredible with just you know inventing
+包括令人难以置信地发明
+
+225
+00:09:24,024 --> 00:09:26,146
+new algorithms and making nonstop
+新的算法和取得不间断的进步
+
+226
+00:09:26,146 --> 00:09:29,154
+progress on that front so these are some
+这些都是开拓者在做的事情
+
+227
+00:09:29,154 --> 00:09:31,370
+of the forces powering the rise of deep
+这些力量使得深度学习不断壮大
+
+228
+00:09:31,370 --> 00:09:33,955
+learning but the good news is that these
+好消息是这些力量
+
+229
+00:09:33,955 --> 00:09:36,370
+forces are still working powerfully to
+目前也正常不断的奏效
+
+230
+00:09:36,370 --> 00:09:38,984
+make deep learning even better. Tech Data
+使得深度学习越来越好 研究表明
+
+231
+00:09:38,984 --> 00:09:41,615
+society is still throwing up one more
+我们的社会仍然正在抛出越来越多的
+
+232
+00:09:41,615 --> 00:09:44,216
+digital data or take computation with
+数字化数据 或者用一些特殊的
+
+233
+00:09:44,216 --> 00:09:46,150
+the rise of specialized hardware like
+硬件来进行计算比如说
+
+234
+00:09:46,150 --> 00:09:48,682
+GPUs and faster networking many types of
+GPU 以及更快的网络连接各种硬件
+
+235
+00:09:48,682 --> 00:09:51,286
+hardware I'm actually quite confident
+我非常有信心
+
+236
+00:09:51,286 --> 00:09:53,958
+that our ability to do very large neural
+我们可以做一个超级大规模的神经网络
+
+237
+00:09:53,958 --> 00:09:55,598
+networks or should a computation point
+而计算的能力
+
+238
+00:09:55,598 --> 00:09:58,333
+of view will keep on getting better and
+也会进一步的得到改善
+
+239
+00:09:58,333 --> 00:10:00,700
+take algorithms relative learning
+还有算法相对的学习
+
+240
+00:10:00,700 --> 00:10:03,519
+research communities though continuously
+研究社区连续不断的
+
+241
+00:10:03,519 --> 00:10:05,476
+phenomenal at innovating on the
+在算法前沿 产生非凡的创新
+
+242
+00:10:05,476 --> 00:10:08,069
+algorithms front so because of this I
+根据这些
+
+243
+00:10:08,069 --> 00:10:10,200
+think that we can be optimistic answer
+我们可以乐观地回答
+
+244
+00:10:10,200 --> 00:10:11,701
+the optimistic the deep learning will
+同时对深度学习保持乐观态度
+
+245
+00:10:11,701 --> 00:10:14,288
+keep on getting better for many years to come
+在接下来的这些年它都会变的越来越好
+
+246
+00:10:14,288 --> 00:10:17,558
+so that let's go on to the last video of
+让我们继续看最后一个视频
+
+247
+00:10:17,558 --> 00:10:19,051
+the section where we'll talk a little
+我们会谈到的部分
+
+248
+00:10:19,051 --> 00:10:21,131
+bit more about what you learn from this course
+更多是关于你将从这门课程中学到的知识
