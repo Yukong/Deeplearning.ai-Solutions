@@ -75,8 +75,9 @@ if you want to learn the tools of deep learning
 
 16
 00:00:30,763 --> 00:00:33,770
-and be able to apply them to build these amazing things
-并应用它们来做这些令人窒息的操作(X)
+and apply them to build these amazing things
+并应用它们来做这些令人赞叹的事情
+
 
 17
 00:00:33,770 --> 00:00:35,569
@@ -87,6 +88,7 @@ I want to help you get there
 00:00:35,569 --> 00:00:40,253
 When you finish this sequence of courses on cousera called the specialization
 当你完成cousera上面的这一系列专项课程
+
 
 19
 00:00:40,253 --> 00:00:44,370
@@ -228,8 +230,8 @@ So here's what you'll learn
 46
 00:01:42,869 --> 00:01:47,553
 in this sequence of courses
-aslo called specialization on cousera
-在cousera的这一系列也叫做专项课程中
+aslo called specialization on coursera
+在coursera的这一系列也叫做专项课程中
 
 47
 00:01:47,553 --> 00:01:48,967
@@ -305,7 +307,7 @@ to recognize and guess what
 60
 00:02:21,676 --> 00:02:22,831
 Cats
-喵星人！
+猫！
 
 61
 00:02:22,831 --> 00:02:23,971
@@ -315,7 +317,7 @@ For some reason
 62
 00:02:23,971 --> 00:02:27,204
 there is a cat meme running around in deep learning
-深度学习中会有一个猫的谜因运行
+深度学习中会运行有一个猫的谜因
 
 63
 00:02:27,204 --> 00:02:29,121
@@ -427,7 +429,7 @@ the strategy for building a machine learning system
 84
 00:03:14,516 --> 00:03:16,778
 has change the error of deep learning
-改变了深度学习的错误
+改变了深度学习的误差
 
 85
 00:03:16,778 --> 00:03:18,356
@@ -453,7 +455,7 @@ and test sets
 89
 00:03:26,241 --> 00:03:28,711
 has change the error of deep learning
-改变了深度学习的错误
+改变了深度学习的误差
 
 90
 00:03:28,711 --> 00:03:32,118
