@@ -427,7 +427,7 @@ the strategy for building a machine learning system
 84
 00:03:14,516 --> 00:03:16,778
 has change the error of deep learning
-改变了深度学习的错误
+改变了深度学习的误差
 
 85
 00:03:16,778 --> 00:03:18,356
@@ -453,7 +453,7 @@ and test sets
 89
 00:03:26,241 --> 00:03:28,711
 has change the error of deep learning
-改变了深度学习的错误
+改变了深度学习的误差
 
 90
 00:03:28,711 --> 00:03:32,118
