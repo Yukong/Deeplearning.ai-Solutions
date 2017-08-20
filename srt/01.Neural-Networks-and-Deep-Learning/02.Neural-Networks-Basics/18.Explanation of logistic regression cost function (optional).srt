@@ -2,7 +2,6 @@
 00:00:00,390 --> 00:00:03,860
 In an earlier video, I've written down a form for the cost function for
 在前面的视频中 我已经分析了逻辑回归的代价函数
-【翻译：彭世锦 审核：AcceptedDoge】
 
 2
 00:00:03,860 --> 00:00:05,230

@@ -2,13 +2,13 @@
 00:00:01,436 --> 00:00:03,447
 if the basic technical idea is behind
 如果在深度学习和神经网络
-【翻译/矫正/字幕：AcceptedDoge】
+
 
 2
 00:00:03,447 --> 00:00:06,034
 deep learning behind neural networks have
 之前的基础技术理念
-【仅供交流学习，请勿商用】
+
 
 3
 00:00:06,051 --> 00:00:07,683

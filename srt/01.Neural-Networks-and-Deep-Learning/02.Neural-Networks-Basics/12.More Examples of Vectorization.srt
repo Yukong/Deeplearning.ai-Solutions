@@ -3,7 +3,7 @@
 In the previous video, you saw
 a few examples of how vectorization
 从上节视频中，你知道了怎样矢量化
-【翻译/时间轴：舒正英 审核/校对：AcceptedDoge】
+
 
 2
 00:00:04,870 --> 00:00:08,140

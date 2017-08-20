@@ -2,572 +2,571 @@
 00:00:00,450 --> 00:00:04,786
 The ability of python to allow you
 to use broadcasting operations and
-PythonµÄÌØĞÔÔÊĞíÄãÊ¹ÓÃ¹ã²¥(broadcasting )¹¦ÄÜ
+Pythonçš„ç‰¹æ€§å…è®¸ä½ ä½¿ç”¨å¹¿æ’­(broadcasting )åŠŸèƒ½
 
 2
 00:00:04,786 --> 00:00:09,944
 more generally, the great flexibility of
 the python numpy program language is,
-ÕâÊÇpythonµÄnumpy³ÌĞòÓïÑÔ¿âÖĞ×îÁé»îµÄµØ·½
+è¿™æ˜¯pythonçš„numpyç¨‹åºè¯­è¨€åº“ä¸­æœ€çµæ´»çš„åœ°æ–¹
 
 3
 00:00:09,944 --> 00:00:14,748
 I think, both a strength as well as
 a weakness of the programming language.
-¶øÎÒÈÏÎªÕâÊÇ³ÌĞòÓïÑÔµÄÓÅµã Ò²ÊÇÈ±µã
+è€Œæˆ‘è®¤ä¸ºè¿™æ˜¯ç¨‹åºè¯­è¨€çš„ä¼˜ç‚¹ ä¹Ÿæ˜¯ç¼ºç‚¹
 
 4
 00:00:14,748 --> 00:00:18,393
 I think it's a strength because
 they create expressivity of the language.
-ÓÅµãµÄÔ­ÒòÔÚÓÚËüÃÇ´´Ôì³öÓïÑÔµÄ±í´ïĞÔ
+ä¼˜ç‚¹çš„åŸå› åœ¨äºå®ƒä»¬åˆ›é€ å‡ºè¯­è¨€çš„è¡¨è¾¾æ€§
 
 5
 00:00:18,393 --> 00:00:22,547
 A great flexibility of the language lets
 you get a lot done even with just a single
-pythonÓïÑÔ¾Ş´óµÄÁé»îĞÔ Ê¹µÃÄã½ö½öÍ¨¹ıÒ»ĞĞ´úÂë
+pythonè¯­è¨€å·¨å¤§çš„çµæ´»æ€§ ä½¿å¾—ä½ ä»…ä»…é€šè¿‡ä¸€è¡Œä»£ç 
 
 6
 00:00:22,547 --> 00:00:24,165
 line of code.
-¾ÍÄÜ×öºÜ¶àÊÂÇé
+å°±èƒ½åšå¾ˆå¤šäº‹æƒ…
 
 7
 00:00:24,165 --> 00:00:28,530
 But there's also weakness because with
 broadcasting and this great amount of
-µ«ÊÇÕâÒ²ÊÇÈ±µã ÓÉÓÚ¹ã²¥¾Ş´óµÄÁé»îĞÔ
+ä½†æ˜¯è¿™ä¹Ÿæ˜¯ç¼ºç‚¹ ç”±äºå¹¿æ’­å·¨å¤§çš„çµæ´»æ€§
 
 8
 00:00:28,530 --> 00:00:32,610
 flexibility, sometimes it's possible
 you can introduce very subtle bugs or
-ÓĞÊ±ºòÈç¹ûÄã¶ÔÓÚ¹ã²¥µÄÌØµã
+æœ‰æ—¶å€™å¦‚æœä½ å¯¹äºå¹¿æ’­çš„ç‰¹ç‚¹
 
 9
 00:00:32,610 --> 00:00:36,530
 very strange looking bugs, if you're not
 familiar with all of the intricacies of
-ÒÔ¼°¹ã²¥µÄ¹¤×÷Ô­ÀíÕâĞ©Ï¸½Ú²»ÊìÏ¤µÄ»°
+ä»¥åŠå¹¿æ’­çš„å·¥ä½œåŸç†è¿™äº›ç»†èŠ‚ä¸ç†Ÿæ‚‰çš„è¯
 
 10
 00:00:36,530 --> 00:00:39,800
 how broadcasting and how features like broadcasting work.
-Äã¿ÉÄÜ»á²úÉúºÜÏ¸Î¢»òÕß¿´ÆğÀ´ºÜÆæ¹ÖµÄbug
+ä½ å¯èƒ½ä¼šäº§ç”Ÿå¾ˆç»†å¾®æˆ–è€…çœ‹èµ·æ¥å¾ˆå¥‡æ€ªçš„bug
 
 11
 00:00:39,800 --> 00:00:44,500
 For example, if you take a column vector
 and add it to a row vector, you would
-ÀıÈç Èç¹ûÄã½«Ò»¸öÁĞÏòÁ¿Ìí¼Óµ½Ò»¸öĞĞÏòÁ¿µ±ÖĞ
+ä¾‹å¦‚ å¦‚æœä½ å°†ä¸€ä¸ªåˆ—å‘é‡æ·»åŠ åˆ°ä¸€ä¸ªè¡Œå‘é‡å½“ä¸­
 
 12
 00:00:44,500 --> 00:00:48,700
 expect it to throw up a dimension mismatch or type error or something.
-Äã»áÒÔÎªËü±¨³öÎ¬¶È²»Æ¥Åä»òÀàĞÍ´íÎóÖ®ÀàµÄ´íÎó
+ä½ ä¼šä»¥ä¸ºå®ƒæŠ¥å‡ºç»´åº¦ä¸åŒ¹é…æˆ–ç±»å‹é”™è¯¯ä¹‹ç±»çš„é”™è¯¯
 
 13
 00:00:48,700 --> 00:00:52,620
 But you might actually get back
 a matrix as a sum of a row vector and
-µ«ÊÇÊµ¼ÊÉÏÄã»áµÃµ½Ò»¸ö
+ä½†æ˜¯å®é™…ä¸Šä½ ä¼šå¾—åˆ°ä¸€ä¸ª
 
 14
 00:00:52,620 --> 00:00:54,030
 a column vector.
-ĞĞÏòÁ¿ºÍÁĞÏòÁ¿µÄÇóºÍ
+è¡Œå‘é‡å’Œåˆ—å‘é‡çš„æ±‚å’Œ
 
 15
 00:00:54,030 --> 00:00:58,370
 So there is an internal logic to these strange effects of Python.
-ÔÚpythonµÄÕâĞ©Ææ¹ÖµÄÓ°ÏìÖ®ÖĞ ÓĞÒ»¸öÄÚÔÚµÄÂß¼­¹ØÏµ
+åœ¨pythonçš„è¿™äº›å¥‡æ€ªçš„å½±å“ä¹‹ä¸­ æœ‰ä¸€ä¸ªå†…åœ¨çš„é€»è¾‘å…³ç³»
 
 16
 00:00:58,370 --> 00:01:03,370
 But if you're not familiar with Python,
 I've seen some students have very strange,
-µ«ÊÇÈç¹ûÄã¶Ôpython²»ÊìÏ¤ ÎÒÔø¾­¼û¹ıÒ»Ğ©Ñ§Éú
+ä½†æ˜¯å¦‚æœä½ å¯¹pythonä¸ç†Ÿæ‚‰ æˆ‘æ›¾ç»è§è¿‡ä¸€äº›å­¦ç”Ÿ
 
 17
 00:01:03,370 --> 00:01:05,680
 very hard to find bugs.
-·Ç³£ÉúÓ² ·Ç³£¼èÄÑµØÈ¥Ñ°ÕÒbug
+éå¸¸ç”Ÿç¡¬ éå¸¸è‰°éš¾åœ°å»å¯»æ‰¾bug
 
 18
 00:01:05,680 --> 00:01:09,380
 So what I want to do in this video is
 share with you some couple tips and
-ËùÒÔÎÒÔÚÕâÀïÏë×öµÄ¾ÍÊÇ·ÖÏí¸øÄãÃÇÒ»Ğ©¼¼ÇÉ
+æ‰€ä»¥æˆ‘åœ¨è¿™é‡Œæƒ³åšçš„å°±æ˜¯åˆ†äº«ç»™ä½ ä»¬ä¸€äº›æŠ€å·§
 
 19
 00:01:09,380 --> 00:01:12,800
 tricks that have been very
 useful for me to eliminate or
-ÕâĞ©¼¼ÇÉ¶ÔÎÒ·Ç³£ÓĞÓÃ ËüÃÇÄÜ
+è¿™äº›æŠ€å·§å¯¹æˆ‘éå¸¸æœ‰ç”¨ å®ƒä»¬èƒ½
 
 20
 00:01:12,800 --> 00:01:17,320
 simplify all the strange looking bugs in my own code.
-Ïû³ı»òÕß¼ò»¯ÔÚÎÒµÄ´úÂëÖĞËùÓĞ¿´ÆğÀ´ºÜÆæ¹ÖµÄbug
+æ¶ˆé™¤æˆ–è€…ç®€åŒ–åœ¨æˆ‘çš„ä»£ç ä¸­æ‰€æœ‰çœ‹èµ·æ¥å¾ˆå¥‡æ€ªçš„bug
 
 21
 00:01:17,320 --> 00:01:19,280
 And I hope that with these tips and tricks,
-Í¬Ê±ÎÒÒ²Ï£ÍûÍ¨¹ıÕâĞ©¼¼ÇÉ
+åŒæ—¶æˆ‘ä¹Ÿå¸Œæœ›é€šè¿‡è¿™äº›æŠ€å·§
 
 22
 00:01:19,280 --> 00:01:24,193
 you'll also be able to much more easily
 write bug-free, python and numpy code.
-ÄãÒ²ÄÜ¸üÈİÒ×µØĞ´Ã»ÓĞbugµÄpythonºÍnumpy´úÂë
+ä½ ä¹Ÿèƒ½æ›´å®¹æ˜“åœ°å†™æ²¡æœ‰bugçš„pythonå’Œnumpyä»£ç 
 
 23
 00:01:25,430 --> 00:01:30,200
 To illustrate one of the less intuitive effects of Python-Numpy,
-ÎªÁËÑİÊ¾Python-numpyµÄÒ»¸öÈİÒ×±»ºöÂÔµÄĞ§¹û
+ä¸ºäº†æ¼”ç¤ºPython-numpyçš„ä¸€ä¸ªå®¹æ˜“è¢«å¿½ç•¥çš„æ•ˆæœ
 
 24
 00:01:30,200 --> 00:01:34,990
 especially how you construct vectors in
 Python-Numpy, let me do a quick demo.
-ÌØ±ğÊÇÔõÑùÔÚPython-NumpyÖĞ¹¹ÔìÏòÁ¿ ÈÃÎÒÀ´×öÒ»¸ö¿ìËÙÊ¾·¶
+ç‰¹åˆ«æ˜¯æ€æ ·åœ¨Python-Numpyä¸­æ„é€ å‘é‡ è®©æˆ‘æ¥åšä¸€ä¸ªå¿«é€Ÿç¤ºèŒƒ
 
 25
 00:01:34,990 --> 00:01:40,817
 Let's set a = np.random.randn(5),
-Ê×ÏÈÉèÖÃ a = np.random.randn(5)
+é¦–å…ˆè®¾ç½® a = np.random.randn(5)
 
 26
 00:01:40,817 --> 00:01:45,699
 so this creates five random Gaussian
-ÕâÑù»áÉú³É´æ´¢ÔÚÊı×éaÖĞµÄ
+è¿™æ ·ä¼šç”Ÿæˆå­˜å‚¨åœ¨æ•°ç»„aä¸­çš„
 
 27
 00:01:45,699 --> 00:01:49,640
 variables stored in array a.
-5¸ö¸ßË¹Ëæ»úÊı±äÁ¿
+5ä¸ªé«˜æ–¯éšæœºæ•°å˜é‡
 
 28
 00:01:49,640 --> 00:01:55,420
 And so let's print(a) and now it turns out that
-Ö®ºóÊä³öa ´ÓÆÁÄ»ÉÏ¿ÉÒÔµÃÖª
+ä¹‹åè¾“å‡ºa ä»å±å¹•ä¸Šå¯ä»¥å¾—çŸ¥
 
 29
 00:01:55,420 --> 00:02:02,740
 the shape of a when you do this
 is this five comma structure.
-´ËÊ±aµÄshape(ĞÎ×´)ÊÇÒ»¸ö(5£¬)µÄ½á¹¹
+æ­¤æ—¶açš„shape(å½¢çŠ¶)æ˜¯ä¸€ä¸ª(5ï¼Œ)çš„ç»“æ„
 
 30
 00:02:02,740 --> 00:02:06,320
 And so this is called a rank one array in Python and
-ÕâÔÚpythonµ±ÖĞ±»³Æ×÷ Ò»¸öÒ»Î¬Êı×é
+è¿™åœ¨pythonå½“ä¸­è¢«ç§°ä½œ ä¸€ä¸ªä¸€ç»´æ•°ç»„
 
 31
 00:02:06,320 --> 00:02:09,750
 it's neither a row vector nor a column vector.
-Ëü¼È²»ÊÇÒ»¸öĞĞÏòÁ¿Ò²²»ÊÇÒ»¸öÁĞÏòÁ¿
+å®ƒæ—¢ä¸æ˜¯ä¸€ä¸ªè¡Œå‘é‡ä¹Ÿä¸æ˜¯ä¸€ä¸ªåˆ—å‘é‡
 
 32
 00:02:09,750 --> 00:02:12,570
 And this leads it to have some
 slightly non-intuitive effects.
-ÕâÒ²µ¼ÖÂËüÓĞÒ»Ğ©²»ÊÇºÜÖ±¹ÛµÄĞ§¹û
+è¿™ä¹Ÿå¯¼è‡´å®ƒæœ‰ä¸€äº›ä¸æ˜¯å¾ˆç›´è§‚çš„æ•ˆæœ
 
 33
 00:02:12,570 --> 00:02:17,180
 So for example, if I print a transpose,
 it ends up looking the same as a.
-¾Ù¸öÀı×Ó,Èç¹ûÎÒÊä³öÒ»¸ö×ªÖÃÕó ×îÖÕ½á¹ûËü»áºÍa¿´ÆğÀ´Ò»Ñù
+ä¸¾ä¸ªä¾‹å­,å¦‚æœæˆ‘è¾“å‡ºä¸€ä¸ªè½¬ç½®é˜µ æœ€ç»ˆç»“æœå®ƒä¼šå’Œaçœ‹èµ·æ¥ä¸€æ ·
 
 34
 00:02:17,180 --> 00:02:20,220
 So a and a transpose end up looking the same.
-ËùÒÔaºÍaµÄ×ªÖÃÕó×î½á¹û¿´ÆğÀ´Ò»Ñù
+æ‰€ä»¥aå’Œaçš„è½¬ç½®é˜µæœ€ç»“æœçœ‹èµ·æ¥ä¸€æ ·
 
 35
 00:02:20,220 --> 00:02:25,800
 And if I print the inner product between
 a and a transpose, you might think
-¶øÈç¹ûÎÒÊä³öaºÍaµÄ×ªÖÃÕóµÄÄÚ»ı Äã¿ÉÄÜ»áÏë
+è€Œå¦‚æœæˆ‘è¾“å‡ºaå’Œaçš„è½¬ç½®é˜µçš„å†…ç§¯ ä½ å¯èƒ½ä¼šæƒ³
 
 36
 00:02:25,800 --> 00:02:30,190
 a times a transpose is maybe the outer
 product should give you matrix maybe.
-a³ËÒÔaµÄ×ªÖÃ·µ»Ø¸øÄãµÄ¿ÉÄÜ»áÊÇÒ»¸ö¾ØÕó
+aä¹˜ä»¥açš„è½¬ç½®è¿”å›ç»™ä½ çš„å¯èƒ½ä¼šæ˜¯ä¸€ä¸ªçŸ©é˜µ
 
 37
 00:02:30,190 --> 00:02:34,170
 But if I do that,
 you instead get back a number.
-µ«ÊÇÈç¹ûÎÒÕâÑù×ö ÄãÖ»»áµÃµ½Ò»¸öÊı
+ä½†æ˜¯å¦‚æœæˆ‘è¿™æ ·åš ä½ åªä¼šå¾—åˆ°ä¸€ä¸ªæ•°
 
 38
 00:02:34,170 --> 00:02:39,612
 So what I would recommend is that
 when you're coding neural networks,
-ËùÒÔÎÒ½¨Òéµ±Äã±àĞ´Éñ¾­ÍøÂçÊ±
+æ‰€ä»¥æˆ‘å»ºè®®å½“ä½ ç¼–å†™ç¥ç»ç½‘ç»œæ—¶
 
 39
 00:02:39,612 --> 00:02:46,115
 that you just not use data structures
 where the shape is 5, or n, rank 1 array.
-²»ÒªÔÚËüµÄshapeÊÇ(5, )»¹ÊÇ(n, ) »òÕßÒ»Î¬Êı×éÊ±Ê¹ÓÃÊı¾İ½á¹¹
+ä¸è¦åœ¨å®ƒçš„shapeæ˜¯(5, )è¿˜æ˜¯(n, ) æˆ–è€…ä¸€ç»´æ•°ç»„æ—¶ä½¿ç”¨æ•°æ®ç»“æ„
 
 40
 00:02:46,115 --> 00:02:52,134
 Instead, if you set a to be this, (5,1),
-Ïà·´ Èç¹ûÄãÉèÖÃaÎª(5,1)
+ç›¸å å¦‚æœä½ è®¾ç½®aä¸º(5,1)
 
 41
 00:02:52,134 --> 00:02:58,764
 then this commits a to
 be (5,1) column vector.
-ÄÇÃ´Õâ¾Í½«aÖÃÓÚ5ĞĞ1ÁĞÏòÁ¿ÖĞ
+é‚£ä¹ˆè¿™å°±å°†aç½®äº5è¡Œ1åˆ—å‘é‡ä¸­
 
 42
 00:02:58,764 --> 00:03:02,399
 And whereas previously, a and
 a transpose looked the same,
-¶øÔÚÏÈÇ°µÄ²Ù×÷Àï aºÍaµÄ×ªÖÃ¿´ÆğÀ´Ò»Ñù
+è€Œåœ¨å…ˆå‰çš„æ“ä½œé‡Œ aå’Œaçš„è½¬ç½®çœ‹èµ·æ¥ä¸€æ ·
 
 43
 00:03:02,399 --> 00:03:06,590
 it becomes now a transpose,
 now a transpose is a row vector.
-¶øÏÖÔÚÕâÑùµÄa ±ä³ÉÒ»¸öĞÂµÄaµÄ×ªÖÃ ²¢ÇÒËüÊÇÒ»¸öĞĞÏòÁ¿
+è€Œç°åœ¨è¿™æ ·çš„a å˜æˆä¸€ä¸ªæ–°çš„açš„è½¬ç½® å¹¶ä¸”å®ƒæ˜¯ä¸€ä¸ªè¡Œå‘é‡
 
 44
 00:03:06,590 --> 00:03:08,437
 Notice one subtle difference.
-Çë×¢ÒâÒ»¸öÏ¸Î¢µÄ²î±ğ
+è¯·æ³¨æ„ä¸€ä¸ªç»†å¾®çš„å·®åˆ«
 
 45
 00:03:08,437 --> 00:03:12,213
 In this data structure, there are two
 square brackets when we print a transpose.
-ÔÚÕâÖÖÊı¾İ½á¹¹ÖĞ µ±ÎÒÃÇÊä³öaµÄ×ªÖÃÊ±ÓĞÁ½¶Ô·½À¨ºÅ
+åœ¨è¿™ç§æ•°æ®ç»“æ„ä¸­ å½“æˆ‘ä»¬è¾“å‡ºaçš„è½¬ç½®æ—¶æœ‰ä¸¤å¯¹æ–¹æ‹¬å·
 
 46
 00:03:12,213 --> 00:03:14,460
 Whereas previously,
 there was one square bracket.
-¶øÖ®Ç°Ö»ÓĞÒ»¶Ô·½À¨ºÅ
+è€Œä¹‹å‰åªæœ‰ä¸€å¯¹æ–¹æ‹¬å·
 
 47
 00:03:14,460 --> 00:03:19,393
 So that's the difference
 between this is really a 1 by
-ËùÒÔÕâ¾ÍÊÇ1ĞĞ5ÁĞµÄ¾ØÕó
+æ‰€ä»¥è¿™å°±æ˜¯1è¡Œ5åˆ—çš„çŸ©é˜µ
 
 48
 00:03:19,393 --> 00:03:23,481
 5 matrix versus one of
 these rank 1 arrays.
-ºÍÒ»Î¬Êı×éµÄ²î±ğ
+å’Œä¸€ç»´æ•°ç»„çš„å·®åˆ«
 
 49
 00:03:23,481 --> 00:03:28,129
 And if you print, say,
 the product between a and a transpose,
-Èç¹ûÄãÊä³öaºÍaµÄ×ªÖÃµÄ³Ë»ı
+å¦‚æœä½ è¾“å‡ºaå’Œaçš„è½¬ç½®çš„ä¹˜ç§¯
 
 50
 00:03:28,129 --> 00:03:32,444
 then this gives you the outer
 product of a vector, right?
-È»ºó·µ»Ø¸øÄãÒ»¸öÏòÁ¿µÄÍâ»ı ¶ÔÂğ?
+ç„¶åè¿”å›ç»™ä½ ä¸€ä¸ªå‘é‡çš„å¤–ç§¯ å¯¹å—?
 
 51
 00:03:32,444 --> 00:03:35,795
 And so, the outer product of
 a vector gives you a matrix.
-ËùÒÔÕâÁ½¸öÏòÁ¿µÄÍâ»ı·µ»Ø¸øÄãÒ»¸ö¾ØÕó
+æ‰€ä»¥è¿™ä¸¤ä¸ªå‘é‡çš„å¤–ç§¯è¿”å›ç»™ä½ ä¸€ä¸ªçŸ©é˜µ
 
 52
 00:03:35,795 --> 00:03:40,305
 So, let's look in greater detail
 at what we just saw here.
-¾ÍÎÒÃÇ¸Õ²Å¿´µ½µÄ ÔÙ½øÒ»²½ËµÃ÷
+å°±æˆ‘ä»¬åˆšæ‰çœ‹åˆ°çš„ å†è¿›ä¸€æ­¥è¯´æ˜
 
 53
 00:03:40,305 --> 00:03:43,185
 The first command that we ran,
 just now, was this.
-Ê×ÏÈÎÒÃÇ¸Õ¸ÕÔËĞĞµÄÃüÁîÊÇÕâ¸ö
+é¦–å…ˆæˆ‘ä»¬åˆšåˆšè¿è¡Œçš„å‘½ä»¤æ˜¯è¿™ä¸ª
 
 54
 00:03:43,185 --> 00:03:47,839
 And this created a data structure with
-¶øÇÒËüÉú³ÉÁËÒ»¸öÊı¾İ½á¹¹(a.shape)
+è€Œä¸”å®ƒç”Ÿæˆäº†ä¸€ä¸ªæ•°æ®ç»“æ„(a.shape)
 
 55
 00:03:47,839 --> 00:03:52,930
 a.shape was this funny thing (5,) so
-a.shapeÊÇ(5,) Ò»¸öÓĞÈ¤µÄ¶«Î÷
+a.shapeæ˜¯(5,) ä¸€ä¸ªæœ‰è¶£çš„ä¸œè¥¿
 
 56
 00:03:52,930 --> 00:03:57,270
 this is called a rank 1 array.
-Õâ±»³Æ×÷aµÄÒ»Î¬Êı×é
+è¿™è¢«ç§°ä½œaçš„ä¸€ç»´æ•°ç»„
 
 57
 00:03:57,270 --> 00:03:58,960
 And this is a very funny data structure.
-Í¬Ê±ÕâÒ²ÊÇÒ»¸ö·Ç³£ÓĞÈ¤µÄÊı¾İ½á¹¹
+åŒæ—¶è¿™ä¹Ÿæ˜¯ä¸€ä¸ªéå¸¸æœ‰è¶£çš„æ•°æ®ç»“æ„
 
 58
 00:03:58,960 --> 00:04:04,000
 It doesn't behave consistently as either
 a row vector nor a column vector,
-Ëü²»ÏñĞĞÏòÁ¿ºÍÁĞÏòÁ¿ÄÇÑù±íÏÖµØºÜÒ»ÖÂ
+å®ƒä¸åƒè¡Œå‘é‡å’Œåˆ—å‘é‡é‚£æ ·è¡¨ç°åœ°å¾ˆä¸€è‡´
 
 59
 00:04:04,000 --> 00:04:06,750
 which makes some of its effects nonintuitive.
-ÕâÒ²ÈÃËüµÄÒ»Ğ©Ó°Ïì²»ÄÇÃ´Ã÷ÏÔ
+è¿™ä¹Ÿè®©å®ƒçš„ä¸€äº›å½±å“ä¸é‚£ä¹ˆæ˜æ˜¾
 
 60
 00:04:06,750 --> 00:04:10,770
 So what I'm going to recommend is that
 when you're doing your programing
-ËùÒÔÎÒ½¨Òé µ±ÄãÔÚ
+æ‰€ä»¥æˆ‘å»ºè®® å½“ä½ åœ¨
 
 61
 00:04:10,770 --> 00:04:14,050
 exercises, or in fact when you're
 implementing logistic regression or
-±à³ÌÁ·Ï°»òÕßÔÚÖ´ĞĞÂß¼­»Ø¹éºÍ
+ç¼–ç¨‹ç»ƒä¹ æˆ–è€…åœ¨æ‰§è¡Œé€»è¾‘å›å½’å’Œ
 
 62
 00:04:14,050 --> 00:04:19,740
 neural networks that you just
 do not use these rank 1 arrays.
-Éñ¾­ÍøÂçÊ±Äã²»ĞèÒªÊ¹ÓÃÕâĞ©Ò»Î¬Êı×é
+ç¥ç»ç½‘ç»œæ—¶ä½ ä¸éœ€è¦ä½¿ç”¨è¿™äº›ä¸€ç»´æ•°ç»„
 
 63
 00:04:21,020 --> 00:04:24,098
 Instead, if every time
 you create an array,
-Ïà·´ Èç¹ûÄãÃ¿´Î´´½¨Ò»¸öÊı×é
+ç›¸å å¦‚æœä½ æ¯æ¬¡åˆ›å»ºä¸€ä¸ªæ•°ç»„
 
 64
 00:04:24,098 --> 00:04:27,500
 you commit to making it
 either a column vector, so
-Äã¶¼µÃÈÃËü³ÉÎªÒ»¸öÁĞÏòÁ¿
+ä½ éƒ½å¾—è®©å®ƒæˆä¸ºä¸€ä¸ªåˆ—å‘é‡
 
 65
 00:04:27,500 --> 00:04:32,360
 this creates a (5,1) vector, or
 commit to making it a row vector,
-²úÉúÒ»¸ö(5,1)ÏòÁ¿ »òÕßÄãÈÃËü³ÉÎªÒ»¸öĞĞÏòÁ¿
+äº§ç”Ÿä¸€ä¸ª(5,1)å‘é‡ æˆ–è€…ä½ è®©å®ƒæˆä¸ºä¸€ä¸ªè¡Œå‘é‡
 
 66
 00:04:32,360 --> 00:04:36,670
 then the behavior of your vectors
 may be easier to understand.
-ÄÇÃ´ÄãµÄÏòÁ¿µÄĞĞÎª¿ÉÄÜ»á¸üÈİÒ×±»Àí½â
+é‚£ä¹ˆä½ çš„å‘é‡çš„è¡Œä¸ºå¯èƒ½ä¼šæ›´å®¹æ˜“è¢«ç†è§£
 
 67
 00:04:36,670 --> 00:04:43,115
 So in this case,
 a.shape is going to be equal to 5,1.
-ËùÒÔÔÚÕâÖÖÇé¿öÏÂ a.shapeµÈÍ¬ÓÚ5,1
+æ‰€ä»¥åœ¨è¿™ç§æƒ…å†µä¸‹ a.shapeç­‰åŒäº5,1
 
 68
 00:04:43,115 --> 00:04:48,510
 And so this behaves a lot like a, but
 in fact, this is a column vector.
-ÕâÖÖ±íÏÖºÜÏña µ«ÊÇÊµ¼ÊÉÏÈ´ÊÇÒ»¸öÁĞÏòÁ¿
+è¿™ç§è¡¨ç°å¾ˆåƒa ä½†æ˜¯å®é™…ä¸Šå´æ˜¯ä¸€ä¸ªåˆ—å‘é‡
 
 69
 00:04:48,510 --> 00:04:53,233
 And that's why you can think of this as
 (5,1) matrix, where it's a column vector.
-Í¬Ê±ÕâÒ²ÊÇÎªÊ²Ã´µ±ËüÊÇÒ»¸öÁĞÏòÁ¿µÄÊ±ºòÄãÄÜÈÏÎªÕâÊÇ¾ØÕó(5,1)
+åŒæ—¶è¿™ä¹Ÿæ˜¯ä¸ºä»€ä¹ˆå½“å®ƒæ˜¯ä¸€ä¸ªåˆ—å‘é‡çš„æ—¶å€™ä½ èƒ½è®¤ä¸ºè¿™æ˜¯çŸ©é˜µ(5,1)
 
 70
 00:04:53,233 --> 00:04:56,880
 And here a.shape is going to be 1,5,
-Í¬Ê±ÕâÀïa.shape½«Òª±ä³É1,5
+åŒæ—¶è¿™é‡Œa.shapeå°†è¦å˜æˆ1,5
 
 71
 00:04:56,880 --> 00:05:01,000
 and this behaves consistently
 as a row vector.
-Õâ¾ÍÏñĞĞÏòÁ¿Ò»Ñù
+è¿™å°±åƒè¡Œå‘é‡ä¸€æ ·
 
 72
 00:05:02,150 --> 00:05:06,258
 So when you need a vector,
 I would say either use this or this, but
-ËùÒÔµ±ÄãĞèÒªÒ»¸öÏòÁ¿Ê± ÎÒ»áËµÓÃÕâ¸ö»òÄÇ¸ö
+æ‰€ä»¥å½“ä½ éœ€è¦ä¸€ä¸ªå‘é‡æ—¶ æˆ‘ä¼šè¯´ç”¨è¿™ä¸ªæˆ–é‚£ä¸ª
 
 73
 00:05:06,258 --> 00:05:07,538
 not a rank 1 array.
-µ«¾ø²»»áÊÇÒ»Î¬Êı×é
+ä½†ç»ä¸ä¼šæ˜¯ä¸€ç»´æ•°ç»„
 
 74
 00:05:07,538 --> 00:05:12,061
 One more thing that I do a lot in my
 code is if I'm not entirely sure what's
-ÎÒĞ´´úÂëÊ±»¹ÓĞÒ»¼ş¾­³£×öµÄÊÂ ÄÇ¾ÍÊÇÈç¹ûÎÒ²»ÍêÈ«È·¶¨
+æˆ‘å†™ä»£ç æ—¶è¿˜æœ‰ä¸€ä»¶ç»å¸¸åšçš„äº‹ é‚£å°±æ˜¯å¦‚æœæˆ‘ä¸å®Œå…¨ç¡®å®š
 
 75
 00:05:12,061 --> 00:05:17,029
 the dimension of one of my vectors,
 I'll often throw in an assertion statement
-Ò»¸öÏòÁ¿µÄÎ¬¶È(dimension) ÎÒ¾­³£»áÈÓ½øÒ»¸ö¶ÏÑÔÓï¾ä
+ä¸€ä¸ªå‘é‡çš„ç»´åº¦(dimension) æˆ‘ç»å¸¸ä¼šæ‰”è¿›ä¸€ä¸ªæ–­è¨€è¯­å¥
 
 76
 00:05:17,029 --> 00:05:21,720
 like this, to make sure, in this case,
 that this is a (5,1) vector.
-ÏñÕâÑù È¥È·±£ÔÚÕâÖÖÇé¿öÏÂÊÇÒ»¸ö(5,1)ÏòÁ¿
+åƒè¿™æ · å»ç¡®ä¿åœ¨è¿™ç§æƒ…å†µä¸‹æ˜¯ä¸€ä¸ª(5,1)å‘é‡
 
 77
 00:05:21,720 --> 00:05:23,730
 So this is a column vector.
-»òÕßËµÕâÊÇÒ»¸öÁĞÏòÁ¿
+æˆ–è€…è¯´è¿™æ˜¯ä¸€ä¸ªåˆ—å‘é‡
 
 78
 00:05:23,730 --> 00:05:26,900
 These assertions are really
 Set to execute, and
-ÕâĞ©¶ÏÑÔÓï¾äÊµ¼ÊÉÏÊÇÒªÈ¥Ö´ĞĞµÄ
+è¿™äº›æ–­è¨€è¯­å¥å®é™…ä¸Šæ˜¯è¦å»æ‰§è¡Œçš„
 
 79
 00:05:26,900 --> 00:05:30,250
 they also help to serve as
 documentation for your code.
-²¢ÇÒËüÃÇÒ²»áÓĞÖúÓÚÎªÄãµÄ´úÂëÌá¹©ĞÅÏ¢
+å¹¶ä¸”å®ƒä»¬ä¹Ÿä¼šæœ‰åŠ©äºä¸ºä½ çš„ä»£ç æä¾›ä¿¡æ¯
 
 80
 00:05:30,250 --> 00:05:34,160
 So don't hesitate to throw in assertion
 statements like this whenever you
-ËùÒÔ²»ÂÛÄãÒª×öÊ²Ã´ ²»ÒªÓÌÔ¥
+æ‰€ä»¥ä¸è®ºä½ è¦åšä»€ä¹ˆ ä¸è¦çŠ¹è±«
 
 81
 00:05:34,160 --> 00:05:35,320
 feel like.
-Ö±½Ó²åÈë¶ÏÑÔÓï¾ä
+ç›´æ¥æ’å…¥æ–­è¨€è¯­å¥
 
 82
 00:05:35,320 --> 00:05:39,510
 And then finally, if for some reason
 you do end up with a rank 1 array,
-Èç¹ûÄã²»Ğ¡ĞÄ ÒÔÒ»Î¬Êı×éÀ´Ö´ĞĞ
+å¦‚æœä½ ä¸å°å¿ƒ ä»¥ä¸€ç»´æ•°ç»„æ¥æ‰§è¡Œ
 
 83
 00:05:39,510 --> 00:05:43,960
 You can reshape this, a equals a.reshape
-ÄãÒ²ÄÜ¹»ÖØĞÂ¸Ä±äÊı×éÎ¬Êı a=a.reshape
+ä½ ä¹Ÿèƒ½å¤Ÿé‡æ–°æ”¹å˜æ•°ç»„ç»´æ•° a=a.reshape
 
 84
 00:05:43,960 --> 00:05:48,900
 into say a (5,1) array or a (1,5) array so
-±íÃ÷Ò»¸ö(5,1)Êı×é»òÕßÒ»¸ö(1,5)Êı×é
+è¡¨æ˜ä¸€ä¸ª(5,1)æ•°ç»„æˆ–è€…ä¸€ä¸ª(1,5)æ•°ç»„
 
 85
 00:05:48,900 --> 00:05:53,750
 that it behaves more consistently as
 either column vector or row vector.
-ÒÔÖÁÓÚËü±íÏÖ¸üÏñÁĞÏòÁ¿»òĞĞÏòÁ¿
+ä»¥è‡³äºå®ƒè¡¨ç°æ›´åƒåˆ—å‘é‡æˆ–è¡Œå‘é‡
 
 86
 00:05:53,750 --> 00:05:57,626
 So I've sometimes seen students
 end up with very hard to track
-Òò´ËÎÒÓĞÊ±ºò¿´¼ûÑ§ÉúÒòÎªÒ»Î¬Êı×é²»Ö±¹ÛµÄÓ°Ïì
+å› æ­¤æˆ‘æœ‰æ—¶å€™çœ‹è§å­¦ç”Ÿå› ä¸ºä¸€ç»´æ•°ç»„ä¸ç›´è§‚çš„å½±å“
 
 87
 00:05:57,626 --> 00:06:01,119
 because those are the nonintuitive
 effects of rank 1 arrays.
-ÒÔÄÑÒÔ¶¨Î»bug¸æÖÕ
+ä»¥éš¾ä»¥å®šä½bugå‘Šç»ˆ
 
 88
 00:06:01,119 --> 00:06:06,246
 By eliminating rank 1 arrays in my old
 code, I think my code became simpler.
-Í¨¹ıÔÚÔ­ÏÈµÄ´úÂëÀïÇå³ıÒ»Î¬Êı×é ÎÒµÄ´úÂë±äµÃ¸ü¼Ó¼ò½à
+é€šè¿‡åœ¨åŸå…ˆçš„ä»£ç é‡Œæ¸…é™¤ä¸€ç»´æ•°ç»„ æˆ‘çš„ä»£ç å˜å¾—æ›´åŠ ç®€æ´
 
 89
 00:06:06,246 --> 00:06:09,463
 And I did not actually find it
 restrictive in terms of things I could
-¶øÇÒÊµ¼ÊÉÏ¾ÍÎÒÔÚ´úÂëÖĞ±íÏÖµÄÊÂÇé¶øÑÔ
+è€Œä¸”å®é™…ä¸Šå°±æˆ‘åœ¨ä»£ç ä¸­è¡¨ç°çš„äº‹æƒ…è€Œè¨€
 
 90
 00:06:09,463 --> 00:06:10,335
 express in code.
-ÎÒ²¢Ã»ÓĞ·¢ÏÖËüÓĞÊ²Ã´ÏŞÖÆ
+æˆ‘å¹¶æ²¡æœ‰å‘ç°å®ƒæœ‰ä»€ä¹ˆé™åˆ¶
 
 91
 00:06:10,335 --> 00:06:12,469
 I just never used a rank 1 array.
-ÎÒ´ÓÀ´²»Ê¹ÓÃÒ»Î¬Êı×é
+æˆ‘ä»æ¥ä¸ä½¿ç”¨ä¸€ç»´æ•°ç»„
 
 92
 00:06:12,469 --> 00:06:17,090
 And so takeaways are to simplify
 your code, don't use rank 1 arrays.
-Òò´Ë ÒªÈ¥¼ò»¯ÄãµÄ´úÂë ¶øÇÒ²»ÒªÊ¹ÓÃÒ»Î¬Êı×é
+å› æ­¤ è¦å»ç®€åŒ–ä½ çš„ä»£ç  è€Œä¸”ä¸è¦ä½¿ç”¨ä¸€ç»´æ•°ç»„
 
 93
 00:06:17,090 --> 00:06:19,437
 Always use either n by one matrices,
-×ÜÊÇÊ¹ÓÃn*1Î¬¾ØÕó(»ù±¾ÉÏÊÇÁĞÏòÁ¿)
+æ€»æ˜¯ä½¿ç”¨n*1ç»´çŸ©é˜µ(åŸºæœ¬ä¸Šæ˜¯åˆ—å‘é‡)
 
 94
 00:06:19,437 --> 00:06:24,510
 basically column vectors, or one by
 n matrices, or basically row vectors.
-»òÕß1*nÎ¬¾ØÕó(»ù±¾ÊÇĞĞÏòÁ¿)
+æˆ–è€…1*nç»´çŸ©é˜µ(åŸºæœ¬æ˜¯è¡Œå‘é‡)
 
 95
 00:06:24,510 --> 00:06:26,599
 Feel free to toss a lot of
 insertion statements, so
-ÕâÑùÄã¿ÉÒÔ¼õÉÙºÜ¶àassertÓï¾ä
+è¿™æ ·ä½ å¯ä»¥å‡å°‘å¾ˆå¤šassertè¯­å¥
 
 96
 00:06:26,599 --> 00:06:29,590
 double-check the dimensions
 of your matrices and arrays.
-À´½ÚÊ¡¸´ºË¾ØÕóºÍÊı×éµÄÎ¬ÊıµÄÊ±¼ä
+æ¥èŠ‚çœå¤æ ¸çŸ©é˜µå’Œæ•°ç»„çš„ç»´æ•°çš„æ—¶é—´
 
 97
 00:06:29,590 --> 00:06:34,480
 And also, don't be shy about calling the
 reshape operation to make sure that your
-ÁíÍâ ÎªÁËÈ·±£ÄãµÄ¾ØÕó»òÏòÁ¿ÊÇÄãËùĞèÒªµÄÎ¬Êı
+å¦å¤– ä¸ºäº†ç¡®ä¿ä½ çš„çŸ©é˜µæˆ–å‘é‡æ˜¯ä½ æ‰€éœ€è¦çš„ç»´æ•°
 
 98
 00:06:34,480 --> 00:06:38,780
 matrices or your vectors
 are the dimension that you need it to be.
-²»ÒªĞßÓÚreshape²Ù×÷
+ä¸è¦ç¾äºreshapeæ“ä½œ
 
 99
 00:06:38,780 --> 00:06:39,420
 So that,
-×ÜÖ®
+æ€»ä¹‹
 
 100
 00:06:39,420 --> 00:06:44,770
 I hope that this set of suggestions
 helps you to eliminate a cause of bugs
-ÎÒÏ£ÍûÕâĞ©½¨ÒéÄÜ°ïÖúÄã ½â¾öÒ»¸öpythonÖĞµÄbug
+æˆ‘å¸Œæœ›è¿™äº›å»ºè®®èƒ½å¸®åŠ©ä½  è§£å†³ä¸€ä¸ªpythonä¸­çš„bug
 
 101
 00:06:44,770 --> 00:06:48,840
 from Python code, and makes the problem
 exercise easier for you to complete.
-´Ó¶øÊ¹Äã¸üÈİÒ×µØÍê³ÉÁ·Ï°
-
+ä»è€Œä½¿ä½ æ›´å®¹æ˜“åœ°å®Œæˆç»ƒä¹ 

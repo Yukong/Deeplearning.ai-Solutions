@@ -2,7 +2,7 @@
 00:00:00,590 --> 00:00:03,210
 You've seen the logistic regression model.
 在上个视频里 你看到了逻辑回归模型
-【翻译：曹越 happycaoyue.github.io】
+
 
 2
 00:00:03,210 --> 00:00:05,038

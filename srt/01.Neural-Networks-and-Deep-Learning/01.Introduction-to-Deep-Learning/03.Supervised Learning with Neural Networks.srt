@@ -2,13 +2,13 @@
 00:00:04,002 --> 00:00:06,532
 There's been a lot of type about neural networks.
 关于神经网络 也有很多的种类
-【翻译/字幕/时间轴：AcceptedDoge】
+
 
 2
 00:00:06,532 --> 00:00:10,852
 And perhaps some of that type is justified, given how well they're working.
 考虑到它们的使用效果 有些使用起来恰到好处 
-【仅供学习交流使用，请勿标价售卖】
+
 
 3
 00:00:10,852 --> 00:00:11,902

@@ -1,1113 +1,1368 @@
-
-
 1
-00:00:00.060 --> 00:00:01.949
-in the last video we work through an
+00:00:00,060 --> 00:00:01,380
+in the last video
+在上一个视频中
 
 2
-00:00:01.949 --> 00:00:04.380
-example of using a computation graph to
+00:00:01,949 --> 00:00:04,750
+we work through an example of using a computation graph
+我们讲解了一个使用计算图的例子
 
 3
-00:00:04.380 --> 00:00:06.750
-compute a function J now let's take a
+00:00:04,380 --> 00:00:06,580
+to compute a function J
+来计算代价函数J
 
 4
-00:00:06.750 --> 00:00:08.580
-cleaned up version at their computation
+00:00:06,750 --> 00:00:08,740
+now let's take a cleaned up version at their computation graph
+现在让我们来看一个空的计算图
 
 5
-00:00:08.580 --> 00:00:10.740
-graph and show how you can use it to
+00:00:08,580 --> 00:00:10,740
+and show how you can use it
+来演示你该怎样使用它
 
 6
-00:00:10.740 --> 00:00:13.740
-figure out derivative calculations for
+00:00:10,740 --> 00:00:14,320
+to figure out derivative calculations for that function J
+以便于弄清楚代价函数J的求导运算
 
 7
-00:00:13.740 --> 00:00:16.320
-that function J so here's a computation
+00:00:13,740 --> 00:00:17,289
+so here's a computation graph
+这是一个计算图
 
 8
-00:00:16.320 --> 00:00:19.289
-graph let's say you want to compute the
+00:00:17,320 --> 00:00:19,519
+let's say you want to compute
+比方说 你想要计算
 
 9
-00:00:19.289 --> 00:00:23.519
-derivative of J with respect to B so
+00:00:19,289 --> 00:00:22,920
+the derivative of J with respect to v
+代价函数J对v的导数
 
 10
-00:00:23.519 --> 00:00:25.920
-what is that well this says if we were
+00:00:22,519 --> 00:00:24,230
+so what is that   well
+那么
 
 11
-00:00:25.920 --> 00:00:28.230
-to take this value of B and change it a
+00:00:24,920 --> 00:00:28,019
+this says if we were to take this value of v and change it a little bit
+我的意思是说 如果我们把v的值改变一点点
 
 12
-00:00:28.230 --> 00:00:31.019
-little bit how would the value of J
+00:00:28,230 --> 00:00:32,809
+how would the value of J change
+代价函数J的值将会怎样变化
 
 13
-00:00:31.019 --> 00:00:36.809
-change well J is defined as um V times D
+00:00:32,019 --> 00:00:37,170
+well J is defined as  3 times v
+那么 J定义为3乘v
 
 14
-00:00:36.809 --> 00:00:43.170
-and right now B is equal to 11 so then
+00:00:37,809 --> 00:00:42,230
+and right now v is equal to 11
+现在v等于11
 
 15
-00:00:43.170 --> 00:00:46.230
-with the bump up B by a little bit to 11
+00:00:42,170 --> 00:00:45,250
+so then with the bump up v by a little bit
+那么我们把v提高一点点
 
 16
-00:00:46.230 --> 00:00:50.250
-point oo 1 then J which is currently 33
+00:00:45,230 --> 00:00:50,250
+to 11.001 then J which is currently 33
+达到11.001 那么现在值还是33的J
 
 17
-00:00:50.250 --> 00:00:53.250
-will end up being bumps up to V times a
+00:00:50,250 --> 00:00:53,690
+will end up being bumped up to 3 times
+将会是现在v的三倍
 
 18
-00:00:53.250 --> 00:00:57.690
-new value of V becomes 33 0.001 and so
+00:00:53,250 --> 00:00:58,329
+a new value of v becomes 33.001 (33.003) and so
+新值是33.001(Ng笔误 应是33.003)
 
 19
-00:00:57.690 --> 00:01:03.329
-if you bump up V by 0.001 um then J
+00:00:58,690 --> 00:01:02,110
+if you bump up v by 0.001  um..
+如果你给v增加0.001  呃
 
 20
-00:01:03.329 --> 00:01:07.110
-which is 3 D so currently 33 will get
+00:01:02,329 --> 00:01:04,970
+then J which is 3 v so currently 33
+那么J等于3v,之前还是33
 
 21
-00:01:07.110 --> 00:01:11.970
-bumped up to 33 point zero 3 so here
+00:01:04,110 --> 00:01:11,580
+will get bumped up to 33.003
+J就将会增加到33.003
 
 22
-00:01:11.970 --> 00:01:14.580
-we've increased V by 0.001 and the net
+00:01:11,970 --> 00:01:13,189
+so here we've increased v by 0.001
+我们已经给v增加0.001
 
 23
-00:01:14.580 --> 00:01:17.189
-result of that is that J goes up three
+00:01:13,580 --> 00:01:16,740
+and the net result of that is
+这个神经网络的结果是
 
 24
-00:01:17.189 --> 00:01:19.740
-times as much so the derivative of J of
+00:01:16,189 --> 00:01:18,590
+that J goes up three times as much
+J增加为三倍
 
 25
-00:01:19.740 --> 00:01:22.590
-respect to B is equal to three because
+00:01:18,740 --> 00:01:22,250
+so the derivative of J of respect to v is equal to three
+所以J对v的导数为3
 
 26
-00:01:22.590 --> 00:01:26.250
-the increase in J is three times the
+00:01:22,590 --> 00:01:27,100
+because the increase in J is three times the increase in v
+因为J的增加为3倍就是由于v增加为原本3倍
 
 27
-00:01:26.250 --> 00:01:29.100
-increase in V and in fact this is very
+00:01:27,250 --> 00:01:28,070
+and in fact
+事实上
 
 28
-00:01:29.100 --> 00:01:32.070
-analogous to the example we had in the
+00:01:28,100 --> 00:01:31,500
+this is very analogous to the example we had in the
+这和我们在之前视频中举的例子很相似
 
 29
-00:01:32.070 --> 00:01:36.500
-previous video where we had on F of a
+00:01:31,070 --> 00:01:38,619
+previous video where we had on f of a equals three a
+在那个例子中我们f(a)=3a
 
 30
-00:01:36.500 --> 00:01:40.619
-equals three a and so we then derive
+00:01:38,500 --> 00:01:43,009
+and so we then derive that df da
+那么接下来我们求df/da(f对a的导数)
 
 31
-00:01:40.619 --> 00:01:47.009
-that DF da which was slightly simplified
+00:01:43,619 --> 00:01:47,869
+which was slightly simplified
+，让我们简化一下,
 
 32
-00:01:47.009 --> 00:01:48.869
+00:01:47,009 --> 00:01:48,970
 letting sloppy notation you can read it
+比如写成你能容易理解的标记，
 
 33
-00:01:48.869 --> 00:01:50.970
-d FD a was equal to three
+00:01:48,869 --> 00:01:51,790
+df da was equal to three
+就是df/da=3
 
 34
-00:01:50.970 --> 00:01:53.790
-right so instead here we have um J
+00:01:51,970 --> 00:01:54,560
+right   so instead here we have  J equals 3v
+那么  我们这里有J=3v
 
 35
-00:01:53.790 --> 00:01:58.560
-equals BB and so DJ D V is equal to
+00:01:54,790 --> 00:01:59,930
+and so dj dv is equal to three
+和dj/dv =3
 
 36
-00:01:58.560 --> 00:02:06.930
-three with here J playing the role of F
+00:01:59,560 --> 00:02:07,959
+with here J playing the role of f
+这里的J起着上个例子中函数f的作用
 
 37
-00:02:06.930 --> 00:02:09.959
-and V playing the role of a in this
+00:02:07,930 --> 00:02:11,090
+and v playing the role of a in this previous example
+v起着上个例子中的a的作用
 
 38
-00:02:09.959 --> 00:02:12.090
-previous example that we had right from
+00:02:11,959 --> 00:02:13,410
+that we had right from  an earlier video
+右边这些标记来自于早先的视频
 
 39
-00:02:12.090 --> 00:02:15.410
-from an earlier video so indeed
+00:02:13,090 --> 00:02:15,330
+so indeed
+事实上
 
 40
-00:02:15.410 --> 00:02:18.330
+00:02:15,410 --> 00:02:18,709
 terminology of backpropagation what
+反向传播这个术语
 
 41
-00:02:18.330 --> 00:02:19.709
-we're seeing is that if you want to
+00:02:18,330 --> 00:02:20,890
+we're seeing is that if you want to compute
+我们现在看到的就是你是否想要计算
 
 42
-00:02:19.709 --> 00:02:22.890 
-compute the derivative of this final
+00:02:20,709 --> 00:02:23,900
+the derivative of this final output variable
+最终输出变量的导数
 
 43
-00:02:22.890 --> 00:02:24.900
-output variable which usually is a
+00:02:23,890 --> 00:02:26,810
+which usually is a variable  you care most about
+那通常是一个你最关心的变量
 
 44
-00:02:24.900 --> 00:02:27.810
-variable you care most about with
+00:02:26,810 --> 00:02:29,599
+with respect to v
+至于v
 
 45
-00:02:27.810 --> 00:02:30.720
-respect to B then we've done you know
+00:02:29,720 --> 00:02:33,670
+then we've done you know sort of one step of  backpropagation
+我们已经做了你有所了解的一个步骤 反向传播
 
 46
-00:02:30.720 --> 00:02:33.599
-sort of one step of back propagation so
+00:02:33,599 --> 00:02:36,700
+so we've gone one step backwards in this graph
+我们在这张图中已经进行了一步反向
 
 47
-00:02:33.599 --> 00:02:35.670
-we've gone one step backwards in this
+00:02:36,670 --> 00:02:37,950
+now let's look at another example
+现在让我们看下另一个例子
 
 48
-00:02:35.670 --> 00:02:38.700
-graph now let's look at another example
+00:02:37,700 --> 00:02:42,560
+what is dj da
+dj/da是什么
 
 49
-00:02:38.700 --> 00:02:43.950
-what is DJ da in other words if we bump
+00:02:42,950 --> 00:02:45,060
+in other words if we bump up the value of a
+换句话说 如果我们增大a的值
 
 50
-00:02:43.950 --> 00:02:46.560
-up the value of a how does that affect
+00:02:45,560 --> 00:02:48,700
+how does that affect the value of J
+那么J的值会受到什么样的影响
 
 51
-00:02:46.560 --> 00:02:51.060
-the value of J well let's go through the
+00:02:48,060 --> 00:02:51,090
+well let's go through the example right now
+让我们现在仔细看下这个例子
 
 52
-00:02:51.060 --> 00:02:53.700
-example right now a is equal to five so
+00:02:51,700 --> 00:02:57,360
+a is equal to five so let's bump it up to 5.001
+a等于5 让我们把它增大到5.001
 
 53
-00:02:53.700 --> 00:02:57.090
-let's bump it up to five point zero one
+00:02:57,090 --> 00:03:00,140
+the net impact of that is at v
+另外最终受影响是v
 
 54
-00:02:57.090 --> 00:03:00.360
-the net impact of that is at D which was
+00:03:00,360 --> 00:03:04,510
+which was a plus u so that was previous 11 that
+它是a加u 所以之前的值11
 
 55
-00:03:00.360 --> 00:03:04.140
-a plus u so that was previous 11 this we
+00:03:04,140 --> 00:03:06,060
+we can increase to 11.001
+我们可以增加到11.001
 
 56
-00:03:04.140 --> 00:03:06.510
-can increase the eleven point zero one
+00:03:06,510 --> 00:03:09,340
+and then we've already seen as above
+现在我们在上面已经看到
 
 57
-00:03:06.510 --> 00:03:09.060
-and then we've already seen as above
+00:03:09,060 --> 00:03:15,010
+that J now gets bump up to 33.003
+J现在的值是33.003
 
 58
-00:03:09.060 --> 00:03:14.340
-that J now gets bump up to thirty three
+00:03:15,340 --> 00:03:16,100
+so what we've seen is that
+现在我们已经看到
 
 59
-00:03:14.340 --> 00:03:17.010
-point zero zero three so what we've seen
+00:03:16,010 --> 00:03:19,340
+if you increase a by 0.001
+如果你把a增加了0.001
 
 60
-00:03:17.010 --> 00:03:20.100
-is that if you increase a by 0.001 J
+00:03:19,100 --> 00:03:22,200
+J increases by 0.003
+J增加了0.003
 
 61
-00:03:20.100 --> 00:03:23.340
-increases by point zero three and by
+00:03:22,340 --> 00:03:25,329
+and by increase a I mean maybe
+通过增大a的值 我的意思是说
 
 62
-00:03:23.340 --> 00:03:25.200
-increase a I mean maybe you were to take
+00:03:25,200 --> 00:03:27,120
+you were to take this value five and just plug in a new value
+你可以尝试拿这个值5 然后加上一个新的值
 
 63
-00:03:25.200 --> 00:03:27.329
-this value five and just plug in a new
+00:03:27,329 --> 00:03:30,500
+right then the change to a
+然后a的变化
 
 64
-00:03:27.329 --> 00:03:30.120
-value right then the change to a will
+00:03:30,120 --> 00:03:32,200
+will propagate to the right of the computation graph
+将会被传递到计算图的右边
 
 65
-00:03:30.120 --> 00:03:31.500 
-propagate to the rights of the
+00:03:32,500 --> 00:03:37,850
+so the J ends up being 33.003
+结果J变成了33.003
 
 66
-00:03:31.500 --> 00:03:34.200
-computation graph so the J ends up being
+00:03:37,850 --> 00:03:42,470
+and so the increase the J is three times the increase the a
+所以J增加的值是a增加值的3倍
 
 67
-00:03:34.200 --> 00:03:38.850
-thirty three point zero three and so the
+00:03:42,340 --> 00:03:46,190
+so that means this derivative is equal to three
+所以这意味着这里导数是3
 
 68
-00:03:38.850 --> 00:03:41.340
-increase the J is three times the
+00:03:46,470 --> 00:03:48,799
+and one way to break this down
+一种具体解析它原理的办法
 
 69
-00:03:41.340 --> 00:03:43.470
-increase to a so that means this
+00:03:48,190 --> 00:03:50,980
+is to say that if you have
+是说如果
 
 70
-00:03:43.470 --> 00:03:47.190
-derivative is equal to three and one way
+00:03:50,799 --> 00:03:52,549
+if you change a
+你改变a
 
 71
-00:03:47.190 --> 00:03:49.799
-to break this down is to say that if you
+00:03:52,980 --> 00:03:56,010
+then that will change v and through changing v that
+那么v就会被改变 通过改变v
 
 72
-00:03:49.799 --> 00:03:52.980
-have if you change a then that will
+00:03:56,549 --> 00:03:58,109
+will change J and
+就会改变J
 
 73
-00:03:52.980 --> 00:03:56.549
-change V and through changing B that
+00:03:58,010 --> 00:04:04,060
+so the net change to the value of J when you bump up the value
+所以当你增加值的时候 J的净值改变
 
 74
-00:03:56.549 --> 00:04:02.010
-will change a and so the net change to
+00:04:04,109 --> 00:04:07,340
+and when you nudge the value of a up a little  bit
+当将a的值提高一点的时候
 
 75
-00:04:02.010 --> 00:04:04.109
-the value of J when you bump up the
+00:04:07,060 --> 00:04:15,450
+is that    first by changing a
+（J的净值改变）首先是通过改变a
 
 76
-00:04:04.109 --> 00:04:06.060
-value and when you nudge the value of a
+00:04:15,340 --> 00:04:17,789
+you end up increasing v
+结果改变了v
 
 77
-00:04:06.060 --> 00:04:14.340
-up a little bit is that um first by
+00:04:17,450 --> 00:04:20,750
+well  how much does v increase right
+这样 v恰好增加多少
 
 78
-00:04:14.340 --> 00:04:18.450
-changing a you end up increasing B well
+00:04:20,789 --> 00:04:25,440
+it is increased by an amount determined by dv da
+是由dv/da的大小决定的
 
 79
-00:04:18.450 --> 00:04:20.789
-how much does D increase right it is
+00:04:25,440 --> 00:04:29,980
+and then the change in v will cause
+然后v的变化将导致
 
 80
-00:04:20.789 --> 00:04:25.440
-increased by an amount determined by DV da
+00:04:29,030 --> 00:04:34,930
+the value of J to also increase
+J的值同样增加
+
+81
+00:04:34,980 --> 00:04:37,650
+so in calculus is actually called the chain rule
+这个运算在微积分中事实上叫做链式法则
 
 82
-00:04:25.440 --> 00:04:30.030
-and then the change in V will cause the
+00:04:37,930 --> 00:04:43,590
+that is a affects v , affects J then the
+就是a影响v,影响J
 
 83
-00:04:30.030 --> 00:04:34.980
-value of J to also increase so in
+00:04:43,650 --> 00:04:46,480
+amount that J changes where you nudge a
+当增大a时，J的改变值等于
 
 84
-00:04:34.980 --> 00:04:36.930
-calculus is actually called the chain
+00:04:46,590 --> 00:04:50,480
+is the product of how much v changes
+基于v改变的一个乘积
 
 85
-00:04:36.930 --> 00:04:43.650
-rule that is a affects V of X J then the
+00:04:50,480 --> 00:04:56,570
+when you nudge a     times how much J changes when you nudge v
+这就是当你改变v时对应a的改变 乘以 J的改变
 
 86
-00:04:43.650 --> 00:04:46.590
-amount that J changes where you nudge a
+00:04:56,480 --> 00:04:58,370
+so in calculus
+在微积分中
 
 87
-00:04:46.590 --> 00:04:50.480
-is the product of how much V changes
+00:04:58,570 --> 00:05:00,410
+the gate is called the chain rule and
+这个被叫做链式法则
 
 88
-00:04:50.480 --> 00:04:54.480
-when you nudge a times how much J
+00:05:00,370 --> 00:05:05,260
+what we saw from this calculation is
+我们从这个计算中看到
 
 89
-00:04:54.480 --> 00:04:57.570
-changes when you nudge B so in calculus
+00:05:05,410 --> 00:05:07,630
+that if you increase a 0.001
+如果你增加a 0.001
 
 90
-00:04:57.570 --> 00:05:01.370
-um the gate is called the chain rule and
+00:05:07,260 --> 00:05:13,330
+v changes by the same amount so dv da is equal to one
+v就改变相同的量因为这时dv/da是1
 
 91
-00:05:01.370 --> 00:05:04.410
-what we saw from this calculation is
+00:05:13,630 --> 00:05:15,470
+so in fact if you plug in
+所以事实上如果你插入
 
 92
-00:05:04.410 --> 00:05:07.260
-that if you increase a by point zero one
+00:05:15,330 --> 00:05:17,290
+what we have worked out previously on
+我们之前算出的
 
 93
-00:05:07.260 --> 00:05:12.630
-V changes by the same amount so DV da is
+00:05:17,470 --> 00:05:26,600
+dv dJ is equal to three and dv da is equal to one
+dj/dv 等于3  并且dv/da=1
 
 94
-00:05:12.630 --> 00:05:15.330
-equal to one so in fact if you plug in
+00:05:26,290 --> 00:05:28,669
+so the product of these
+所以他们的积是
 
 95
-00:05:15.330 --> 00:05:18.470
-what we have worked our previously Oh
+00:05:28,600 --> 00:05:29,490
+three times one
+3乘以1
 
 96
-00:05:18.470 --> 00:05:25.290
-DVD J is equal to three and DVD a is
+00:05:29,669 --> 00:05:33,610
+then I should give you the correct value that dj da is equal to 3
+现在我告诉你   dj/da的正确的值是3
 
 97
-00:05:25.290 --> 00:05:27.600
-equal to one so the product of these
+00:05:33,490 --> 00:05:35,169
+so this illustration shows how
+这个解释展示了如何
 
 98
-00:05:27.600 --> 00:05:29.669
-three times one then I should give you
+00:05:35,610 --> 00:05:39,720
+by having computed dj dv
+通过计算dj/dv
 
 99
-00:05:29.669 --> 00:05:32.490
-the correct value that DJ da is equal to
+00:05:39,169 --> 00:05:42,200
+of this derivative respect to this variable
+来求这个变量的导数
 
 100
-00:05:32.490 --> 00:05:35.610
-3 so this illustration shows how by
+00:05:42,720 --> 00:05:49,240
+it can then help you to compute dj da and
+它可以帮助你计算dj/da
 
 101
-00:05:35.610 --> 00:05:40.169
-having computed DJ DV of this derivative
+00:05:49,200 --> 00:05:52,190
+so that's another step within some backward calculation
+这是反向运算中的另一步
 
 102
-00:05:40.169 --> 00:05:42.720
-respect to this variable it can then
+00:05:52,240 --> 00:05:56,570
+I'll just introduce one more
+我将会介绍另外一种
 
 103
-00:05:42.720 --> 00:05:49.200
-help you to compute DJ da and so that's
+00:05:56,190 --> 00:05:59,970
+new notational convention
+新的符号惯例
 
 104
-00:05:49.200 --> 00:05:51.240
-another step within some backward
+00:05:59,570 --> 00:06:03,850
+which is that in when you're writing code to implement
+当你编写代码实现
 
 105
-00:05:51.240 --> 00:05:56.190
-calculation I'll just introduce one more
+00:06:03,970 --> 00:06:06,340
+back-propagation they'll usually be some
+反向传播的时候 它们通常作为一些
 
 106
-00:05:56.190 --> 00:05:59.570
-new notational convention which is that
+00:06:06,850 --> 00:06:09,710
+final output variable that you really care about
+你所在意的最终的输出变量
 
 107
-00:05:59.570 --> 00:06:02.970
-in when you're writing code to implement
+00:06:09,340 --> 00:06:14,580
+right   so the final output variable that you really care about
+即你所在意的最终输出变量
 
 108
-00:06:02.970 --> 00:06:05.850
-back-propagation they'll usually be some
+00:06:14,710 --> 00:06:16,080
+whether you want to optimize
+无论你是否想要优化
 
 109
-00:06:05.850 --> 00:06:08.340
-final output variable that you really
+00:06:16,580 --> 00:06:17,690
+and in this case
+在这种情况下
 
 110
-00:06:08.340 --> 00:06:12.710
-care about right so the final output
+00:06:17,080 --> 00:06:18,280
+this final output variable is J
+最终的输出变量J
 
 111
-00:06:12.710 --> 00:06:14.580
-variable that you really care about
+00:06:18,690 --> 00:06:21,010
+is really the last node in your computation graph
+确实是你的计算图中的最后一个节点
 
 112
-00:06:14.580 --> 00:06:16.080
-whether you want to optimize and in this
+00:06:21,280 --> 00:06:24,260
+and so a lot of the computations will
+并且因此许多运算将会
 
 113
-00:06:16.080 --> 00:06:18.690
-case this final output variable is Jane
+00:06:24,010 --> 00:06:25,360
+be trying to compute
+被尝试计算
 
 114
-00:06:18.690 --> 00:06:20.280
-is really the last node in your
+00:06:25,260 --> 00:06:27,250
+the derivative of that you know final output variable
+最终输出变量的导数
 
 115
-00:06:20.280 --> 00:06:23.010
-computation graph and so a lot of the
+00:06:27,360 --> 00:06:30,650
+so d of this final output variable
+即这个 FinalOutputVar变量
 
 116
-00:06:23.010 --> 00:06:25.260
-computations will be trying to compute
+00:06:30,250 --> 00:06:32,610
+with respect to some other variable
+对其它的变量
 
 117
-00:06:25.260 --> 00:06:27.360 
-the derivative of that you know final
+00:06:32,650 --> 00:06:35,580
+and just call that d var
+或者称作dvar的变量的导数
 
 118
-00:06:27.360 --> 00:06:29.250
-output variable so D of this final
+00:06:35,610 --> 00:06:39,580
+right
 
 119
-00:06:29.250 --> 00:06:31.650
-output variable with respect to some
+00:06:39,580 --> 00:06:40,710
+so a lot of the computations
+有很多计算
 
 120
-00:06:31.650 --> 00:06:36.580
-other variable and just call that D fall right
+00:06:40,580 --> 00:06:42,930
+you have would be to compute the derivative of the final output variable
+你可能需要计算最终输出变量的导数
+
+121
+00:06:42,710 --> 00:06:44,000
+really J in this case
+在这个例子中是J
 
 122
-00:06:36.580 --> 00:06:39.580
-so a lot of the computations you have
+00:06:44,930 --> 00:06:46,720
+with various intermediate variables
+有着很多中间变量
 
 123
-00:06:39.580 --> 00:06:41.710
-would be to compute the derivative of
+00:06:46,000 --> 00:06:49,500
+such as a b c  u or v and when
+比如a b c u 和 v
 
 124
-00:06:41.710 --> 00:06:43.930
-the final output variable really J in
+00:06:49,720 --> 00:06:52,900
+you implement this in software
+你在软件中实现它们
 
 125
-00:06:43.930 --> 00:06:46.000
-this case with various intermediate
+00:06:52,500 --> 00:06:55,990
+you know what you call this variable name alright
+你知道这个变量的变量名叫什么
 
 126
-00:06:46.000 --> 00:06:49.720
-variables such as ABC U or V and when
+00:06:55,900 --> 00:06:59,820
+one thing you could do is in in python
+你在python中可以做的一件事是
 
 127
-00:06:49.720 --> 00:06:53.500
-you implement this in software you know
+00:06:59,990 --> 00:07:01,040
+you can write you give it a
+你可以给他一个
 
 128
-00:06:53.500 --> 00:06:55.900
-what you call this variable name alright
+00:07:01,820 --> 00:07:04,860
+very long variable name as dfinaloutputvar over  dvar
+非常长的变量名作为 dFinaleOutputVar 除以dvar
 
 129
-00:06:55.900 --> 00:06:58.990
-one thing you could do is in in Tison
+00:07:04,040 --> 00:07:06,420
+but that's a very long variable name
+但是这个非常长的变量名
 
 130
-00:06:58.990 --> 00:07:00.820
-you can write you know give us a very
+00:07:06,860 --> 00:07:07,380
+you could call these
+你也可以称作
 
 131
-00:07:00.820 --> 00:07:03.040
-long variable name ID final output of
+00:07:07,420 --> 00:07:10,530
+dJ dvar  but because
+dJ dvar  但是因为
 
 132
-00:07:03.040 --> 00:07:05.860
-all over a diva but that's a very long
+00:07:10,380 --> 00:07:13,420
+you're always taking derivatives respect to dJ
+你总是要对dJ求导
 
 133
-00:07:05.860 --> 00:07:07.420
-variable name you could call this a get
+00:07:13,530 --> 00:07:16,820
+respect to this final output variable
+对于这个最终的输出变量
 
 134
-00:07:07.420 --> 00:07:11.380
-DJ d bar but because you're always
+00:07:16,420 --> 00:07:19,610
+I'm going to introduce a new notation  we're in code
+我会介绍一些我们在代码中用到的新的符号
 
 135
-00:07:11.380 --> 00:07:14.530
-taking derivatives respect to DJ respect
+00:07:19,820 --> 00:07:24,120
+when you are computing this thing in the code you write
+当你在你在代码中计算这个东西的时候
 
 136
-00:07:14.530 --> 00:07:16.420
-to this final output variable I'm going
+00:07:24,120 --> 00:07:31,810
+we're just going to use the variable name dvar in order to represent that quantity
+我们就简单地使用变量名dvar来表示数量
 
 137
-00:07:16.420 --> 00:07:18.820
-to introduce a new notation we're in
+00:07:31,840 --> 00:07:32,870
+okay so
+那么
 
 138
-00:07:18.820 --> 00:07:21.610
-code when you are computing this thing
+00:07:32,810 --> 00:07:34,450
+dvar in the code you write
+你代码中写的dvar
 
 139
-00:07:21.610 --> 00:07:25.12
-um in the code you write we're just
+00:07:34,870 --> 00:07:38,310
+will represent the derivative of the final output variables you care  about
+将表示你所关心的最终输出变量的导数
 
 140
-00:07:25.120 --> 00:07:28.840
-going to use the variable name d VAR in
+00:07:38,450 --> 00:07:40,490
+such as J
+比如说J
 
 141
-00:07:28.840 --> 00:07:31.810
-order to represent that quantity okay so
+00:07:40,310 --> 00:07:43,710
+or sometimes the loss L with respect
+或者是损失函数 L
 
 142
-00:07:31.810 --> 00:07:34.870
-d VAR in the code you write will
+00:07:43,490 --> 00:07:45,500
+to the various intermediate quantities in computing in your code
+计算过程对应的你代码中的中间值
 
 143
-00:07:34.870 --> 00:07:37.450
-represent the derivative of the final
+00:07:44,710 --> 00:07:48,370
+so this thing
+所以
 
 144
-00:07:37.450 --> 00:07:39.310
-output variables you care about such as
+00:07:48,500 --> 00:07:51,160
+here in your codes you know you use the dv
+你代码中这里你使用 dv
 
 145
-00:07:39.310 --> 00:07:42.490
-J or sometimes the loss L with respect
+00:07:51,370 --> 00:07:52,290
+to denote this value
+来标记它的值
 
 146
-00:07:42.490 --> 00:07:44.710
-to the various intermediate quantities
+00:07:52,160 --> 00:07:56,660
+so dv would be equal to 3
+那么 dv将会等于3
 
 147
-00:07:44.710 --> 00:07:47.500
-in computing in your code so this thing
+00:07:56,290 --> 00:08:00,960
+and your code you represent as da
+在你的代码中表示da
 
 148
-00:07:47.500 --> 00:07:50.370
-here in your codes you know you use them
+00:08:00,660 --> 00:08:04,620
+right which is    we also figured out to be equal to 3
+我们得到的结果是3
 
 149
-00:07:50.370 --> 00:07:54.160
-DV to denote this value so DV would be
+00:08:04,960 --> 00:08:08,160
+okay so  with the backpropagation
+由于反向传播
 
 150
-00:07:54.160 --> 00:07:58.290
-equal to 3 and your cold you
+00:08:08,620 --> 00:08:12,620
+partially through this computation graph
+部分经过这个计算图
 
 151
-00:07:58.290 --> 00:08:01.660
-representatives as on da right which is
+00:08:12,160 --> 00:08:16,470
+let's go through the rest of this example  on the next slide
+让我们看下这个例子在另一侧剩下的部分
 
 152
-00:08:01.660 --> 00:08:03.960
-a we also figured out to be equal to 3
+00:08:16,620 --> 00:08:17,560
+so let's go to
+那么 让我们换个
 
 153
-00:08:03.960 --> 00:08:08.620
-okay so um with Sun back propagation
+00:08:17,470 --> 00:08:21,650
+a cleaned up copy of the computation graph
+一个这个计算图干净的版本
 
 154
-00:08:08.620 --> 00:08:12.160
-partially through this computation graph
+00:08:21,560 --> 00:08:23,680
+and just to recap what we've done
+然后回忆我们已经完成的部分
 
 155
-00:08:12.160 --> 00:08:14.620
-let's go through the rest of this
+00:08:23,650 --> 00:08:26,160
+so far is go backward here and
+到现在是反向进行运算
 
 156
-00:08:14.620 --> 00:08:17.470
-example on the next slide so let's go to
+00:08:26,680 --> 00:08:29,960
+figured out that dv is equal to 3
+发现了dv等于3
 
 157
-00:08:17.470 --> 00:08:20.560
-a cleaned up copy of the computation
+00:08:29,160 --> 00:08:31,090
+and again the definition of dv that's just the
+再复述一遍 这里的dv仅仅是
 
 158
-00:08:20.560 --> 00:08:23.650
-graph and just to recap what we've done
+00:08:31,960 --> 00:08:34,560
+variable name of the code
+代码里面的变量名
 
 159
-00:08:23.650 --> 00:08:26.680
-so far is go backward here and figured
+00:08:34,090 --> 00:08:35,410
+is really dj dv
+表示真正的dj/dv
 
 160
-00:08:26.680 --> 00:08:30.160
-out that DV is equal to 3 the gain the
+00:08:35,560 --> 00:08:39,090
+I will figured out that da is equal to 3
+我们将看到 da=3
 
 161
-00:08:30.160 --> 00:08:31.960
-definition of DV that's just the
+00:08:39,410 --> 00:08:42,040
+and again da is the variable name in your code
+再重复一遍 da在这里只是你的代买里面的变量的名字
 
 162
-00:08:31.960 --> 00:08:34.090
-variable name of the code is really DJ
+00:08:42,090 --> 00:08:45,020
+and that's really the value of dj da
+它是dj/da的真正的值
 
 163
-00:08:34.090 --> 00:08:38.560
-DV I will figured out that D a is equal
+00:08:45,040 --> 00:08:50,120
+and what sort of hand wave how   you know
+那么在这里
 
 164
-00:08:38.560 --> 00:08:41.410
-to 3 and again da is the variable name
+00:08:50,020 --> 00:08:53,360
+we've gone backwards  on these two edges like so
+我们怎样对两边进行反向传播的呢
 
 165
-00:08:41.410 --> 00:08:43.090 
-in your code and that's really the value
+00:08:53,120 --> 00:08:56,330
+now let's keep computing derivatives
+现在让我们计算导数
 
 166
-00:08:43.090 --> 00:08:44.040
-of DJ
+00:08:56,360 --> 00:08:58,610
+or let's look at the value u
+或者说 让我们看下这个值u
 
 167
-00:08:44.040 --> 00:08:50.020
-da and what sort of hand wave how you
+00:08:58,330 --> 00:09:03,380
+so what is dJ du   well
+那么dj/du是什么呢
 
 168
-00:08:50.020 --> 00:08:52.120
-know we've gone backwards on these two
+00:09:03,610 --> 00:09:06,550
+through a similar calculation is what we did before
+通过一次类似之前做过的运算
 
 169
-00:08:52.120 --> 00:08:55.360
-edges like so now let's keep computing
+00:09:06,380 --> 00:09:08,740
+and we start off with u equals 6
+我们从u=6开始
 
 170
-00:08:55.360 --> 00:08:57.330
-derivatives or let's look at the value
+00:09:08,550 --> 00:09:11,820
+if you bump up u to the 6.001
+如果你将u增加到6.001
 
 171
-00:08:57.330 --> 00:09:03.610
-you so what is DJ vu well through a
+00:09:11,740 --> 00:09:17,800
+then v which is previous 11 goes up to 11.001
+然后之前是11的v就增加到11.001
 
 172
-00:09:03.610 --> 00:09:05.380
-similar calculation is what we did
+00:09:17,820 --> 00:09:22,370
+and so J goes from 33 to 33.003
+J就从33增加到了33.003
 
 173
-00:09:05.380 --> 00:09:08.550
-before and we start off with u equals 6
+00:09:22,800 --> 00:09:24,940
+and so the increase in J is 3 X
+所以J是增加了3倍v所增加的值
 
 174
-00:09:08.550 --> 00:09:11.740
-if you bump up you to the 6.01
+00:09:24,370 --> 00:09:26,010
+so this is equal
+这是等价的
 
 175
-00:09:11.740 --> 00:09:15.820
-then V which is previous 11 goes up to
+00:09:26,940 --> 00:09:31,310
+and the analysis that u is very similar to the analysis we did for a
+关于u的分析和我们之前对a做的分析非常相似
 
 176
-00:09:15.820 --> 00:09:20.800
-11 point over 1 and so J goes from 33 -
+00:09:31,010 --> 00:09:33,430
+this is actually computed
+其实计算的是
 
 177
-00:09:20.800 --> 00:09:24.370
-33 point 0 3 and so the increase in J is
+00:09:33,310 --> 00:09:41,750
+as a dj dv times dv du
+dj/dv乘上dv/du
 
 178
-00:09:24.370 --> 00:09:27.940
-3 X so this is equal and the analysis
+00:09:41,430 --> 00:09:45,600
+where this we had already figured out was 3
+我们已经得出结果是3
 
 179
-00:09:27.940 --> 00:09:30.010
-that U is very similar to the analysis
+00:09:45,750 --> 00:09:48,089
+and this turns out to be equal to 1
+现在这次运算结果是1
 
 180
-00:09:30.010 --> 00:09:33.310
-we did for a this is actually computed
+00:09:48,600 --> 00:09:51,700
+so we've kind of one more step backpropagation
+那么 我们多了一步反向传播
 
 181
-00:09:33.310 --> 00:09:42.430
-as a DJ DV x DV d you wear this we had
+00:09:51,089 --> 00:09:58,020
+we end up computing that du is also equal to 3
+我们得出结果是du也等于3
 
 182
-00:09:42.430 --> 00:09:46.750
-already figured out was 3 and this turns
+00:09:58,700 --> 00:10:02,899
+and du is of course just as dj du now
+现在du当然也是和dj/du的值一样
 
 183
-00:09:46.750 --> 00:09:49.600
-out to be equal to 1 so we've kind of
+00:10:02,020 --> 00:10:05,190
+we just step through one last example in detail
+现在我们详细看下最后一个例子
 
 184
-00:09:49.600 --> 00:09:52.089
-one more step back application we end up
+00:10:05,899 --> 00:10:08,230
+so what is dj db   right
+那么 dJ/db 又是什么呢
 
 185
-00:09:52.089 --> 00:09:57.700
-computing that D U is also equal to 3
+00:10:08,190 --> 00:10:12,750
+so you imagine if you are allowed to change the value of b
+想象一下如果你被允许改变的值
 
 186
-00:09:57.700 --> 00:10:02.020
-and D U is of course just as DJ gu now
+00:10:12,230 --> 00:10:14,959
+and you want to tweak b a little bit
+你想要调整一点b的值
 
 187
-00:10:02.020 --> 00:10:04.899
-we just step through one last example in
+00:10:14,750 --> 00:10:16,149
+in order to minimize or
+来最小化
 
 188
-00:10:04.899 --> 00:10:09.190
-detail so what is DJ DP right so you
+00:10:16,959 --> 00:10:18,950
+maximize the value of J  right
+或者最大化J的值
 
 189
-00:10:09.190 --> 00:10:11.230
-imagine if you are allowed to change the
+00:10:18,149 --> 00:10:20,190
+so what is the derivative
+那么导数是什么
 
 190
-00:10:11.230 --> 00:10:13.750
-value of B and you want to tweak be a
+00:10:20,950 --> 00:10:22,160
+what's the slope of this function J
+函数J的梯度是什么
 
 191
-00:10:13.750 --> 00:10:16.959
-little bit in order to minimize or
+00:10:22,190 --> 00:10:26,950
+when you change the value of b a little bit
+在你改变b的值一点点的时候
 
 192
-00:10:16.959 --> 00:10:19.149
-maximize the value of J alright so what
+00:10:26,160 --> 00:10:30,800
+it turns out that using the chain rule for calculus
+结果是使用链式法则来计算
 
 193
-00:10:19.149 --> 00:10:20.950
-is the derivative what's the slope of
+00:10:30,950 --> 00:10:31,970
+this can be written as
+这个可以写作
 
 194
-00:10:20.950 --> 00:10:24.190
-this function J when you change the
+00:10:31,800 --> 00:10:39,850
+the product of two things is dj du times du db and
+dJ/du与du/db的积
 
 195
-00:10:24.190 --> 00:10:27.160
-value of B a little bit it turns out
+00:10:39,970 --> 00:10:43,170
+the reasoning is if you change b a little bit
+理由是如果你改变了b一点点
 
 196
-00:10:27.160 --> 00:10:29.950
-that using the chain rule for calculus
+00:10:43,850 --> 00:10:48,230
+so b goes from 3 to say 3.001
+比如b从3增加到3.001
 
 197
-00:10:29.950 --> 00:10:32.800
-this can be written as the product of
+00:10:48,170 --> 00:10:50,380
+the way of the affect J
+这样对J的影响是
 
 198
-00:10:32.800 --> 00:10:38.970
-two things is DG j vu times d u DB and
+00:10:50,230 --> 00:10:52,100
+is it will first affect u
+它会首先影响u
 
 199
-00:10:38.970 --> 00:10:42.850
-the reasoning is if you change be a
+00:10:52,380 --> 00:10:54,190
+so how much does it affect u   well
+那么 它对u产生了多大的影响
 
 200
-00:10:42.850 --> 00:10:47.170
-little bit so b goes from 3 to say the
+00:10:54,100 --> 00:10:59,290
+u is defined as b times c right
+u是b乘以c的积
 
 201
-00:10:47.170 --> 00:10:50.230
-point 0 1 um the way of no effect Jane
+00:10:59,190 --> 00:11:09,180
+so this will go from six when b is equal to 3  to now  6.002
+那么当b等于3的时候 u从6到增加到现在的6.002
 
 202
-00:10:50.230 --> 00:10:53.380
-is it will first affect you so how much
+00:11:09,290 --> 00:11:14,320
+right because c is equal to 2 in our example  here
+在我们现在这个例子中因为c等于2
 
 203
-00:10:53.380 --> 00:10:57.100
-does it affect you well U is defined as
+00:11:14,180 --> 00:11:16,800
+and so this tells us that
+这就告诉了我们du/db的值
 
 204
-00:10:57.100 --> 00:11:02.190
-B times C right so this will go from six
+00:11:16,320 --> 00:11:20,100
+du db is equal to 2
+du/db也等于2
 
 205
-00:11:02.190 --> 00:11:08.290
-when B is equal to 3/2 now our 6.00 to
+00:11:20,800 --> 00:11:22,690
+because when you pump up b by 0.001
+因为当你给b增加0.001的时候
 
 206
-00:11:08.290 --> 00:11:13.180
-right because C is equal to 2 in our
+00:11:22,100 --> 00:11:25,010
+you increase this twice as much
+你给u增加为原来的两倍
 
 207
-00:11:13.180 --> 00:11:16.320
-example here and so this tells us that
+00:11:25,690 --> 00:11:29,620
+so du db this is equal to 2
+所以du/db等于2
 
 208
-00:11:16.320 --> 00:11:20.800
-PUD B is equal to 2 because when you
+00:11:29,010 --> 00:11:35,880
+and now we know that u has gone up twice as much as b has gone up
+现在我们知道当b增加为2倍的时候 u也是这样增加
 
 209
-00:11:20.800 --> 00:11:24.100
-pump up B by point O 1 you increase this
+00:11:35,620 --> 00:11:40,850
+well once dj du you we've already figured out
+我们之前已经发现dj/du
 
 210
-00:11:24.100 --> 00:11:28.690
-twice as much so d UD b this is equal to
+00:11:40,880 --> 00:11:41,040
+that this is equal to 3
+是等于3的
 
 211
-00:11:28.690 --> 00:11:33.010
-2 and now we know that U has gone up
+00:11:41,850 --> 00:11:44,520
+and so by multiplying these two out
+所以通过把它们两个乘起来
 
 212
-00:11:33.010 --> 00:11:35.620
-twice as much as B has gone up
+00:11:44,040 --> 00:11:47,320
+we find that dj db is equal to 6
+我们发现dj/db等于6
 
 213
-00:11:35.620 --> 00:11:39.880
-well once DJ D you we've already figured
+00:11:47,520 --> 00:11:51,480
+and again here's the reasoning for the second part of the argument
+我们为什么再次思考这个参数的第二部分
 
 214
-00:11:39.880 --> 00:11:42.850
-out that this is equal to 3 and so by
+00:11:51,320 --> 00:11:52,570
+which is we want to know
+因为我们想要知道
 
 215
-00:11:42.850 --> 00:11:45.040
-multiplying these two out we find that
+00:11:52,480 --> 00:11:54,190
+when you goes up by 0.002
+当你把b提高了0.002的时候
 
 216
-00:11:45.040 --> 00:11:48.520 
-DJ DB is equal to 6 and again
+00:11:54,570 --> 00:11:59,250
+how does that affect J the fact that
+J受到了什么影响 事实上
 
 217
-00:11:48.520 --> 00:11:50.320
-here's the reasoning for the second part
+00:11:59,190 --> 00:12:03,120
+dj du is equal to 3 that tells us that
+dJ/du等于3 这告诉了我们
 
 218
-00:11:50.320 --> 00:11:52.480
-of the argument which is we want to know
+00:12:03,250 --> 00:12:05,460
+when you goes up by 0.002
+当你把b提高0.002
 
 219
-00:11:52.480 --> 00:11:55.570
-when you goes up by point over to how
+00:12:05,120 --> 00:12:09,360
+J goes up three times as much
+J则提高这个数值的3倍
 
 220
-00:11:55.570 --> 00:12:00.190
-does that affect J the fact that DJ D U
+00:12:09,460 --> 00:12:13,390
+so J should go up by 0.006 right
+所以J应当提高0.006
 
 221
-00:12:00.190 --> 00:12:03.250
-is equal to 3 that tells us that when
+00:12:13,360 --> 00:12:19,240
+that's comes from in fact that dj du is equal to three
+事实上这是因为dj/du等于3
 
 222
-00:12:03.250 --> 00:12:07.120
-you goes up by point zero two J goes up
+00:12:19,390 --> 00:12:22,810
+and if you check the map in detail
+如果你仔细检查了这张图
 
 223
-00:12:07.120 --> 00:12:11.460
-three times as much so J should go up by
+00:12:22,240 --> 00:12:26,060
+you will find that if b becomes 3.001
+你会发现如果b变为3.001
 
 224
-00:12:11.460 --> 00:12:16.360
-0.06 right so so bill that's comes from
+00:12:26,810 --> 00:12:28,380
+then u become 6.002
+那么u的值成了6.002
 
 225
-00:12:16.360 --> 00:12:19.390
-in fact that DJ d u is equal to three
+00:12:28,060 --> 00:12:35,330
+v becomes 11.002  all right
+v变成了11.002
 
 226
-00:12:19.390 --> 00:12:22.240
-and if you check the map in detail you
+00:12:35,380 --> 00:12:38,790
+so that's a plus u so this 5 Plus u and
+所以a 加 u 就是 5加 u
 
 227
-00:12:22.240 --> 00:12:25.810
-will find that if B becomes three point
+00:12:38,330 --> 00:12:42,080
+then J which is equal to 3 times v then
+那么J等于3乘以v
 
 228
-00:12:25.810 --> 00:12:28.060
-zero one then you become six point zero
+00:12:42,790 --> 00:12:48,960
+ends up being equal to 33.006  right
+结果成了33.006
 
 229
-00:12:28.060 --> 00:12:35.380
-two V becomes 11.0 - all right so that's
+00:12:48,080 --> 00:12:52,740
+and so that's how you get that dj db is equal to 6
+所以你计算dj/db得到的值是6
 
 230
-00:12:35.380 --> 00:12:39.330
-a plus u so this 5 Plus u and then J
+00:12:52,960 --> 00:12:54,130
+and to fill that in
+并把这个填充进来
 
 231
-00:12:39.330 --> 00:12:42.790
-which is equal to 3 times V then ends up
+00:12:54,740 --> 00:12:55,970
+this is if we go backwards
+如果我们反向传播
 
 232
-00:12:42.790 --> 00:12:47.080
-being equal to 33 point zero zero six
+00:12:55,130 --> 00:12:59,830
+so this is db is equal to 6 and db really is
+那么db就等于6  这里db指的是
 
 233
-00:12:47.080 --> 00:12:49.960
-right and so that's how you get that DK
+00:12:59,970 --> 00:13:02,209
+the Python code variable name
+python代码里面的变量名
 
 234
-00:12:49.960 --> 00:12:53.740
-DB is equal to 6 and to fill that in
+00:13:02,830 --> 00:13:04,949
+for you know dj db
+你所知晓的那个真正的dj db
 
 235
-00:12:53.740 --> 00:12:57.130 
-this is if we go backwards so this is DB
+00:13:04,209 --> 00:13:08,929
+and  I won't go through the last example in great detail
+我并不打算仔细过一遍最后这个例子
 
 236
-00:12:57.130 --> 00:12:59.970
-is equal to 6 and DD really is the
+00:13:08,929 --> 00:13:13,470
+but it turns out that if you also computes out dj da
+但是事实证明 如果你计算dJ/da
 
 237
-00:12:59.970 --> 00:13:02.830
-Python code variable name for you know
+00:13:13,939 --> 00:13:22,720
+this turns out to be dj du times du da and
+答案就是dj/du乘上du/da
 
 238
-00:13:02.830 --> 00:13:05.209
-DJ dB
+00:13:22,470 --> 00:13:23,720
+this turns out to be 9
+这个式子中的结果是9
 
 239
-00:13:05.209 --> 00:13:06.949
-and I won't I won't go through the last
+00:13:23,720 --> 00:13:25,339
+it turns out to be three times three
+就是3乘以3
 
 240
-00:13:06.949 --> 00:13:08.929
-example in great detail but it turns out
+00:13:25,720 --> 00:13:28,559
+I won't go through that example in detail
+这一点我不会再详细讲述
 
 241
-00:13:08.929 --> 00:13:13.939
-that if you also computes out DJ da this
+00:13:28,339 --> 00:13:30,379
+but through this last step
+但是通过这最后一步
 
 242
-00:13:13.939 --> 00:13:21.470
-turns out to be DJ b u times d u da and
+00:13:30,559 --> 00:13:35,569
+you know it is possible to derive that dc is equal to
+你可以看到这是可以导出dc的值的
 
 243
-00:13:21.470 --> 00:13:23.720
-this turns out to be ninth it turns out
+00:13:35,379 --> 00:13:38,519
+so the key take away from this video
+所以视频中这个例子的关键是
 
 244
-00:13:23.720 --> 00:13:26.720
-these three times three I won't go
+00:13:38,569 --> 00:13:40,110
+from this example is that when computing
+当计算
 
 245
-00:13:26.720 --> 00:13:28.339
-through that example in detail Pacelle
+00:13:40,519 --> 00:13:43,959
+derivatives in computing all of these derivatives
+导数的时候   通过计算所有这些导数
 
 246
-00:13:28.339 --> 00:13:30.559
-through this last step you know it is
+00:13:43,110 --> 00:13:45,510
+the most efficient way to do so
+最有效的办法是
 
 247
-00:13:30.559 --> 00:13:35.379
-possible to derive that B C is equal to
+00:13:45,959 --> 00:13:48,579
+is through a right-to-left computation
+通过从右至左计算
 
 248
-00:13:35.379 --> 00:13:38.569
-so the key takeaway from this video from
+00:13:48,110 --> 00:13:50,740
+following the direction of the event arrows
+按照这个箭头事件所指的方向
 
 249
-00:13:38.569 --> 00:13:40.519
-this example is that when computing
+00:13:50,579 --> 00:13:51,689
+and in particular
+尤其是
 
 250
-00:13:40.519 --> 00:13:42.110
-derivatives in computing all of these
+00:13:51,740 --> 00:13:54,720
+we'll first compute the derivative respect to v
+我们先计算对v的导数
 
 251
-00:13:42.110 --> 00:13:44.959
-derivatives the most efficient way to do
+00:13:54,689 --> 00:13:55,579
+and then that
+然后
 
 252
-00:13:44.959 --> 00:13:47.110
-so is through a right-to-left
+00:13:55,720 --> 00:13:58,040
+becomes useful for computing the derivative respect to a
+计算对a的导数变得很有用了
 
 253
-00:13:47.110 --> 00:13:49.579
-computation following the direction of
+00:13:58,579 --> 00:14:01,459
+and the derivative with respect to u and
+对u的导数也是这样
 
 254
-00:13:49.579 --> 00:13:51.740
-the event arrows and in particular we'll
+00:14:01,040 --> 00:14:04,139
+then the derivative respect to u   for example
+然后对u的导数  举个例子
 
 255
-00:13:51.740 --> 00:13:53.689
-first compute the derivative respect to
+00:14:04,459 --> 00:14:07,269
+this term for example this term over here
+这个式子 还有这里这个式子
 
 256
-00:13:53.689 --> 00:13:56.720
-B and then that becomes useful for
+00:14:07,139 --> 00:14:08,139
+and this term over here
+还有这里这个式子
 
 257
-00:13:56.720 --> 00:13:58.579
-computing the derivative respect to a
+00:14:08,269 --> 00:14:10,629
+those in turn become useful for computing
+这些结果都变得对于计算它们
 
 258
-00:13:58.579 --> 00:14:01.040
-and the derivative with respect to U and
+00:14:10,020 --> 00:14:12,329
+their derivative of respact to b
+对b的偏导数很有用 和
 
 259
-00:14:01.040 --> 00:14:04.459
-then the derivative respect to u for
+00:14:12,629 --> 00:14:13,730
+and in the derivative of respect to c
+对c的偏导数很有用
 
 260
-00:14:04.459 --> 00:14:09.139
-example this term for example this term
+00:14:13,329 --> 00:14:15,339
+so those computation driven
+所以这些计算驱动
 
 261
-00:14:09.139 --> 00:14:11.269
-over here and this term over here those
+00:14:15,730 --> 00:14:19,189
+how there's a forward or left to right calculation
+前向或者说从左至右计算
 
 262
-00:14:11.269 --> 00:14:13.220
-in turn become useful for computing to
+00:14:19,939 --> 00:14:22,799
+to compute the cost function such as J
+来算出代价函数如J
 
 263
-00:14:13.220 --> 00:14:14.629
-their servers going to be in the
+00:14:22,189 --> 00:14:25,709
+you might want to optimize and a backward
+你或许想要选择一个反向
 
 264
-00:14:14.629 --> 00:14:17.329
-director of respect to C so that was a
+00:14:25,799 --> 00:14:27,259
+or a right to left calculation to
+或者说从右至左的运算来
 
 265
-00:14:17.329 --> 00:14:19.730
-computation drop and how there's a
+00:14:27,709 --> 00:14:30,509
+derivatives   if you're not familiar with
+计算导数    这是在你不熟悉
 
 266
-00:14:19.730 --> 00:14:22.339
-forward or left to right calculation to
+00:14:30,259 --> 00:14:32,799
+compute calculus or the chain rule
+计算微积分 或者说链式法则时候所做的
 
 267
-00:14:22.339 --> 00:14:25.189
-compute the cost function such as JD you
+00:14:32,509 --> 00:14:35,990
+I know some of those details would have gone by really quickly
+我知道这些细节可能过的有些快
 
 268
-00:14:25.189 --> 00:14:27.799
-might want to optimize and a backward or
+00:14:35,799 --> 00:14:37,790
+but you didn't follow all the details
+但是你不必太过关注这里的细节
 
 269
-00:14:27.799 --> 00:14:30.709
-a right to left calculation to compute
+00:14:37,990 --> 00:14:38,579
+don't worry about it
+不必担心这个
 
 270
-00:14:30.709 --> 00:14:33.259
-derivatives if you're not familiar with
+00:14:38,790 --> 00:14:40,350
+in the next video we'll go for this again
+在下一个视频中  我们还会再次做这个
 
 271
-00:14:33.259 --> 00:14:35.509
-calculus or the chain rule I know some
+00:14:40,579 --> 00:14:43,569
+in the context of logistic regression and
+在逻辑回归的上下文并
 
 272
-00:14:35.509 --> 00:14:36.799
-of those details would have gone by
+00:14:43,350 --> 00:14:45,819
+show you exactly what you need to do
+教给你需要学什么
 
 273
-00:14:36.799 --> 00:14:38.990
-really quickly but you didn't follow all
+00:14:45,569 --> 00:14:46,649
+in order to implement the computations
+来实现这个计算
 
 274
-00:14:38.990 --> 00:14:40.790
-the details don't worry about it in the
-
-275
-00:14:40.790 --> 00:14:43.579
-next video we'll go for this again in
-
-276
-00:14:43.579 --> 00:14:45.350
-the context of logistic regression and
-
-277
-00:14:45.350 --> 00:14:47.569
-show you exactly what you need to do in
-
-278
-00:14:47.569 --> 00:14:49.819
-order to implement the computations you
-
-279
-00:14:49.819 --> 00:14:51.649
-need to compute the derivatives of the
-
-280
-00:14:51.649 --> 00:14:54.910
-logistic regression model
+00:14:46,819 --> 00:14:50,910
+you need to compute the derivatives of the logistic regression model
+你需要计算逻辑回归模型中的导数
