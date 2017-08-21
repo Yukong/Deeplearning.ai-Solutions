@@ -45,3 +45,5 @@
 
 - [@wetstreet](https://github.com/wetstreet) fixed some grammatical and translation errors #1
 - [@lzwhard](https://github.com/lzwhard) 2.14向量化逻辑回归梯度下降 #2
+- [@Ldream](https://github.com/Ldream) 建议统一下编码. #4
+- [@Ldream](https://github.com/Ldream) 现有编码转换和编码转换工具添加 #6
