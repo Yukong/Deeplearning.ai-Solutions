@@ -1,4 +1,4 @@
-﻿1
+1
 00:00:00,860 --> 00:00:03,000
 We have talked about how vectorization
 我们已经讨论过向量化

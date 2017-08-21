@@ -1,4 +1,4 @@
-﻿1
+1
 00:00:00,060 --> 00:00:02,330
 welcome back, in this video we'll talk
 欢迎回来 在本节我们将讨论

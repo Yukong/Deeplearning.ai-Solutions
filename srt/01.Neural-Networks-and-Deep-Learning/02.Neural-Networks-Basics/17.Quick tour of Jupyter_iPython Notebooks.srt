@@ -1,487 +1,487 @@
 1
 00:00:00,000 --> 00:00:01,553
 With everything you've learned,
-Ñ§µ½ÏÖÔÚ
+å­¦åˆ°ç°åœ¨
 
 
 2
 00:00:01,553 --> 00:00:02,727
 you're just about ready to
-ÄãÕı×¼±¸
+ä½ æ­£å‡†å¤‡
 
 3
 00:00:02,727 --> 00:00:04,810
 tackle your first programming assignment.
-Ìá½»ÄãµÄµÚÒ»¸ö±à³Ì×÷Òµ
+æäº¤ä½ çš„ç¬¬ä¸€ä¸ªç¼–ç¨‹ä½œä¸š
 
 4
 00:00:04,810 --> 00:00:05,914
 Before you do that,
-ÔÚÕâ×öÖ®Ç°
+åœ¨è¿™åšä¹‹å‰
 
 5
 00:00:05,914 --> 00:00:07,070
 let me just give you a quick tour
-ÈÃÎÒ¿ìËÙ¸øÄã½éÉÜ
+è®©æˆ‘å¿«é€Ÿç»™ä½ ä»‹ç»
 
 6
 00:00:07,070 --> 00:00:10,396
 of ipython notebooks in Coursera.
-CourseraĞèÒªµÄipython notebooks¹¤¾ß
+Courseraéœ€è¦çš„ipython notebookså·¥å…·
 
 7
 00:00:10,396 --> 00:00:13,275
 Here you see,Jupiter iphython notebooks
-Õâ¾ÍÊÇJupiter ipython½çÃæ
+è¿™å°±æ˜¯Jupiter ipythonç•Œé¢
 
 8
 00:00:13,275 --> 00:00:14,847
 that you can get to in Coursera.
-ÕâÀïÄã¿ÉÒÔÁ¬½Óµ½Coursera
+è¿™é‡Œä½ å¯ä»¥è¿æ¥åˆ°Coursera
 
 9
 00:00:14,847 --> 00:00:17,416
 Let me just quickly show you a few features of this.
-ÈÃÎÒ¿ìËÙ¸æËßÄãÕâÀïÃæµÄÒ»Ğ©ĞÂÌØĞÔ
+è®©æˆ‘å¿«é€Ÿå‘Šè¯‰ä½ è¿™é‡Œé¢çš„ä¸€äº›æ–°ç‰¹æ€§
 
 10
 00:00:17,416 --> 00:00:21,222
 The instructions are written into this notebook
-ÕâĞ©ËµÃ÷Ğ´ÔÚÁËnotebook
+è¿™äº›è¯´æ˜å†™åœ¨äº†notebook
 
 11
 00:00:21,222 --> 00:00:24,491
 and there'll be a few code blocks right here
-ÕâÀïÒ²ÓĞ¿Õ°×ÇøÓòµÄ´úÂë¿é
+è¿™é‡Œä¹Ÿæœ‰ç©ºç™½åŒºåŸŸçš„ä»£ç å—
 
 12
 00:00:24,491 --> 00:00:26,562
 that you can write code into.
-Äã¿ÉÒÔÔÚÕâÀïĞ´´úÂë
+ä½ å¯ä»¥åœ¨è¿™é‡Œå†™ä»£ç 
 
 13
 00:00:26,562 --> 00:00:29,351
 So occasionally, you see in functions
-ÓĞÊ±£¬ ÓĞĞ©º¯Êı¿é
+æœ‰æ—¶ï¼Œ æœ‰äº›å‡½æ•°å—
 
 14
 00:00:29,351 --> 00:00:31,064
 blocks that looks like this.
-±ÈÈçÏñÕâÑù
+æ¯”å¦‚åƒè¿™æ ·
 
 15
 00:00:31,064 --> 00:00:34,333
 The instructions are right here in the text,
-ÕâĞ©ËµÃ÷¾ÍÔÚÎÄ±¾ÖĞ
+è¿™äº›è¯´æ˜å°±åœ¨æ–‡æœ¬ä¸­
 
 16
 00:00:34,333 --> 00:00:36,032
 in the ipython notebook.
-ÔÚipython notebookÀï
+åœ¨ipython notebooké‡Œ
 
 17
 00:00:36,032 --> 00:00:37,542
 And these long, you know,
-ÕâĞ©½Ï³¤
+è¿™äº›è¾ƒé•¿
 
 18
 00:00:37,542 --> 00:00:39,489
 like gray blocks are blocks of code.
-»ÒÉ«µÄÇøÓò´úÂë
+ç°è‰²çš„åŒºåŸŸä»£ç 
 
 19
 00:00:39,489 --> 00:00:41,895
 So occasionally, you see in these blocks
-ÓĞÊ±£¬ Äã¿´µ½ÕâĞ©´úÂë
+æœ‰æ—¶ï¼Œ ä½ çœ‹åˆ°è¿™äº›ä»£ç 
 
 20
 00:00:41,895 --> 00:00:43,363
 sometimes they'll say this is
-ÓĞÊ±»áÕâÑù
+æœ‰æ—¶ä¼šè¿™æ ·
 
 21
 00:00:43,363 --> 00:00:45,290
 their style code here and end code here.
-ËûµÄ´úÂë¸ñÊ½ºÍ½áÊø´úÂë
+ä»–çš„ä»£ç æ ¼å¼å’Œç»“æŸä»£ç 
 
 22
 00:00:45,290 --> 00:00:46,805
 To do their programing exercise,
-È¥Íê³É±à³ÌÁ·Ï°
+å»å®Œæˆç¼–ç¨‹ç»ƒä¹ 
 
 23
 00:00:46,805 --> 00:00:48,506
 please make sure to write your code
-ÇëÈ·±£ÄãµÄ´úÂë
+è¯·ç¡®ä¿ä½ çš„ä»£ç 
 
 24
 00:00:48,506 --> 00:00:50,976
 between the start code here and end code here.
-Ğ´ÔÚÕâ¿ªÊ¼ºÍ½áÊø´úÂëÖ®¼ä
+å†™åœ¨è¿™å¼€å§‹å’Œç»“æŸä»£ç ä¹‹é—´
 
 25
 00:00:50,976 --> 00:00:54,796
 So for example, print Hello World.
-±ÈÈç£¬ ´òÓ¡Êä³öHello World
+æ¯”å¦‚ï¼Œ æ‰“å°è¾“å‡ºHello World
 
 26
 00:00:54,796 --> 00:00:58,117
 Right. And, then to execute a code block,
-ºÃ£¬ ÏÂÃæÖ´ĞĞÕâ¿é´úÂë
+å¥½ï¼Œ ä¸‹é¢æ‰§è¡Œè¿™å—ä»£ç 
 
 27
 00:00:58,117 --> 00:01:02,034
 you can hit shift enter and then
-Äã¿ÉÒÔ°´shift + enter Ö´ĞĞ
+ä½ å¯ä»¥æŒ‰shift + enter æ‰§è¡Œ
 
 28
 00:01:02,034 --> 00:01:03,314
 they execute this code block,
-Ëû»áÔËĞĞÕâ¿é´úÂë
+ä»–ä¼šè¿è¡Œè¿™å—ä»£ç 
 
 29
 00:01:03,314 --> 00:01:05,290
 which I guess we just wrote print Hello World.
-Ëû¾Í»áÊä³öÎÒÃÇÏëÒªµÄhello world
+ä»–å°±ä¼šè¾“å‡ºæˆ‘ä»¬æƒ³è¦çš„hello world
 
 30
 00:01:05,290 --> 00:01:07,210
 So that printed Hello World.
-ËùÒÔÊä³öhello world
+æ‰€ä»¥è¾“å‡ºhello world
 
 31
 00:01:07,210 --> 00:01:09,923
 To run a cell, you can also,
-È¥ÔËĞĞÕâÇøÓò£¬ÄãÒ²¿ÉÒÔ
+å»è¿è¡Œè¿™åŒºåŸŸï¼Œä½ ä¹Ÿå¯ä»¥
 
 32
 00:01:09,923 --> 00:01:11,889
 to run one of these code blocks in cell,
-ÔËĞĞÆäÖĞµÄÒ»¿é´úÂëÇøÓò
+è¿è¡Œå…¶ä¸­çš„ä¸€å—ä»£ç åŒºåŸŸ
 
 33
 00:01:11,889 --> 00:01:14,259
 you can also click cell and then run cell.
-ÄãÒ²¿ÉÒÔµã»÷cell²Ëµ¥µÄrun cell
+ä½ ä¹Ÿå¯ä»¥ç‚¹å‡»cellèœå•çš„run cell
 
 34
 00:01:14,259 --> 00:01:18,437
 So to execute this
-Ö´ĞĞÕâ²¿·Ö´úÂë
+æ‰§è¡Œè¿™éƒ¨åˆ†ä»£ç 
 
 35
 00:01:18,437 --> 00:01:20,793
 Is possible that on your computer the keyboard shortcut
-ÓĞ¿ÉÄÜµçÄÔµÄ¿ì½İ¼ü
+æœ‰å¯èƒ½ç”µè„‘çš„å¿«æ·é”®
 
 36
 00:01:20,793 --> 00:01:23,841
 for cell runs cell might be different than shift enter but
-È¥ÔËĞĞcell´úÂë¿é»á²»Í¬
+å»è¿è¡Œcellä»£ç å—ä¼šä¸åŒ
 
 37
 00:01:24,058 --> 00:01:27,943
 on both my Mac as well as on my PC,
-ÔÚMac»òÕßPCµçÄÔÉÏ
+åœ¨Macæˆ–è€…PCç”µè„‘ä¸Š
 
 38
 00:01:27,943 --> 00:01:30,271
 a shift enter so might be the same for you as well.
-²»¹ıshift + enter¹¦ÄÜÓ¦¸ÃÊÇÒ»ÑùµÄ
+ä¸è¿‡shift + enteråŠŸèƒ½åº”è¯¥æ˜¯ä¸€æ ·çš„
 
 39
 00:01:30,485 --> 00:01:33,650
 Now, when you're reading the instructions if you know,
-µ±ÄãÕıÔÚÔÄ¶ÁÖ¸ÄÏÊ±ºò
+å½“ä½ æ­£åœ¨é˜…è¯»æŒ‡å—æ—¶å€™
 
 40
 00:01:33,650 --> 00:01:35,298
 accidentally double click on it,
-²»Ğ¡ĞÄË«»÷ÁËËü
+ä¸å°å¿ƒåŒå‡»äº†å®ƒ
 
 41
 00:01:35,298 --> 00:01:38,124
 you might end up with this markdown language.
-ÓïÑÔ¿ò»á½øĞĞÊÕËõ
+è¯­è¨€æ¡†ä¼šè¿›è¡Œæ”¶ç¼©
 
 42
 00:01:38,124 --> 00:01:40,697
 If you end up with this funny looking text,
-Èç¹ûÄãÊÕËõÁËÕâÎÄ±¾¿ò
+å¦‚æœä½ æ”¶ç¼©äº†è¿™æ–‡æœ¬æ¡†
 
 43
 00:01:40,697 --> 00:01:44,501
 to convert it back to the nice looking text just run the cell.
-È¥Ö´ĞĞÊÕËõÁËµÄÎÄ±¾¿òµ¥Ôª
+å»æ‰§è¡Œæ”¶ç¼©äº†çš„æ–‡æœ¬æ¡†å•å…ƒ
 
 44
 00:01:44,501 --> 00:01:48,141
 So click on the cell runs cell or I'm going to hit shift enter
-µã»÷cell²Ëµ¥µÄruns cell»òÕßÊ¹ÓÃshift + enter
+ç‚¹å‡»cellèœå•çš„runs cellæˆ–è€…ä½¿ç”¨shift + enter
 
 45
 00:01:48,141 --> 00:01:51,104
 and that basically executes the markdown
-»áÖ´ĞĞÊÕËõµÄÎÄ±¾¿ò
+ä¼šæ‰§è¡Œæ”¶ç¼©çš„æ–‡æœ¬æ¡†
 
 46
 00:01:51,104 --> 00:01:53,076
 and turns it back into this nice looking code.
-Ëû»á±ä»ØÔ­À´Ò×¶ÁµÄ´úÂë
+ä»–ä¼šå˜å›åŸæ¥æ˜“è¯»çš„ä»£ç 
 
 47
 00:01:53,174 --> 00:01:55,477
 Just a couple of more tips,
-¸ü¶àĞ¡¼¼ÇÉ
+æ›´å¤šå°æŠ€å·§
 
 48
 00:01:55,477 --> 00:01:57,768
 when you execute code like this,
-µ±ÄãÏñÕâÑùÖ´ĞĞ´úÂë
+å½“ä½ åƒè¿™æ ·æ‰§è¡Œä»£ç 
 
 49
 00:01:57,768 --> 00:02:03,175
 it actually runs on a kernel
-ËüÊµ¼Ê»áÔËĞĞÔÚÄÚºË
+å®ƒå®é™…ä¼šè¿è¡Œåœ¨å†…æ ¸
 
 50
 00:02:03,175 --> 00:02:04,875
 on a piece of code that runs on the server.
-ÔÚ·şÎñÆ÷ÉÏÔËĞĞÒ»¶Î´úÂë
+åœ¨æœåŠ¡å™¨ä¸Šè¿è¡Œä¸€æ®µä»£ç 
 
 51
 00:02:04,875 --> 00:02:09,475
 If you're running an excessively large job or if you're,
-Èç¹ûÄãÕıÔÚÔËĞĞ³¬¸ººÉµÄ½ø³Ì»òÕß
+å¦‚æœä½ æ­£åœ¨è¿è¡Œè¶…è´Ÿè·çš„è¿›ç¨‹æˆ–è€…
 
 52
 00:02:09,475 --> 00:02:11,952
 you leave a computer for a very long
-µçÄÔÔËĞĞÁËºÜ³¤Ò»¶ÎÊ±¼ä
+ç”µè„‘è¿è¡Œäº†å¾ˆé•¿ä¸€æ®µæ—¶é—´
 
 53
 00:02:11,952 --> 00:02:13,318
 time or something goes wrong,
-ÔËĞĞÖĞ³öÁË´í
+è¿è¡Œä¸­å‡ºäº†é”™
 
 54
 00:02:13,318 --> 00:02:14,199
 your internet connection is off,
-ÄãµÄÍøÂçÁ¬½ÓÊ§°Ü
+ä½ çš„ç½‘ç»œè¿æ¥å¤±è´¥
 
 55
 00:02:14,199 --> 00:02:16,049
 there is a small chance of the kernel
-ÕâÀïÈÔÓĞ»ú»á
+è¿™é‡Œä»æœ‰æœºä¼š
 
 56
 00:02:16,049 --> 00:02:17,599
 on the back end might die,
-ÈÃkernel»Ö¸´µ½³ö´í×´Ì¬
+è®©kernelæ¢å¤åˆ°å‡ºé”™çŠ¶æ€
 
 57
 00:02:17,599 --> 00:02:19,178
 which is just click kernel.
-µã»÷kernel
+ç‚¹å‡»kernel
 
 58
 00:02:19,178 --> 00:02:21,571
 And then restart kernel and hopefully
-Ñ¡Ôñrestart
+é€‰æ‹©restart
 
 59
 00:02:21,571 --> 00:02:24,667
 that will reboot the kernel and make it work again.
-Ëû»áÖØĞÂÔËĞĞkernelÊ¹³ÌĞò¼ÌĞø¹¤×÷
+ä»–ä¼šé‡æ–°è¿è¡Œkernelä½¿ç¨‹åºç»§ç»­å·¥ä½œ
 
 60
 00:02:24,667 --> 00:02:27,486
 So that shouldn't happen if you're just running
-ÕâÖÖÇé¿ö²»»á·¢Éú Èç¹ûÄãÔËĞĞ
+è¿™ç§æƒ…å†µä¸ä¼šå‘ç”Ÿ å¦‚æœä½ è¿è¡Œ
 
 61
 00:02:27,486 --> 00:02:29,033
 relatively small jobs and you're
-Ïà¶Ô½ÏĞ¡µÄÈÎÎñ
+ç›¸å¯¹è¾ƒå°çš„ä»»åŠ¡
 
 62
 00:02:29,033 --> 00:02:30,665
 just starting up your ipad or notebook.
-µ±ÕıÔÚÆô¶¯ÄãµÄipad»òÕßnotebookµÄÊ±ºò
+å½“æ­£åœ¨å¯åŠ¨ä½ çš„ipadæˆ–è€…notebookçš„æ—¶å€™
 
 63
 00:02:30,665 --> 00:02:32,788
 But if you see an error message
-Èç¹ûÄã¿´¼û´íÎóĞÅÏ¢
+å¦‚æœä½ çœ‹è§é”™è¯¯ä¿¡æ¯
 
 64
 00:02:32,788 --> 00:02:34,263
 that the kernel has died or something,
-±ÈÈçkernelÒÑ¾­ÖĞ¶Ï»òÕßÆäËûĞÅÏ¢
+æ¯”å¦‚kernelå·²ç»ä¸­æ–­æˆ–è€…å…¶ä»–ä¿¡æ¯
 
 65
 00:02:34,263 --> 00:02:36,519
 you can try kernel restart.
-Äã¿ÉÒÔÊÔ×ÅÖØÆôkernel
+ä½ å¯ä»¥è¯•ç€é‡å¯kernel
 
 66
 00:02:36,680 --> 00:02:39,769
 Finally, and I apply to ipython notebook like this
-×îºó£¬µ±ÎÒÊ¹ÓÃipython notebook
+æœ€åï¼Œå½“æˆ‘ä½¿ç”¨ipython notebook
 
 67
 00:02:39,769 --> 00:02:41,951
 there may be multiple blocks of code.
-¶¼»áÓĞ¶à¸ö´úÂëÇøÓò¿é
+éƒ½ä¼šæœ‰å¤šä¸ªä»£ç åŒºåŸŸå—
 
 68
 00:02:41,951 --> 00:02:45,062
 So, even if an earlier block of code
-¾¡¹ÜÇ°ÃæµÄ´úÂë¿é
+å°½ç®¡å‰é¢çš„ä»£ç å—
 
 69
 00:02:45,062 --> 00:02:47,155
 doesn't have any grading code,
-Ã»ÓĞÈÎºÎ¼¶±ğ»ò²ã´ÎµÄ´úÂë
+æ²¡æœ‰ä»»ä½•çº§åˆ«æˆ–å±‚æ¬¡çš„ä»£ç 
 
 70
 00:02:47,155 --> 00:02:49,068
 be sure to execute this block of code
-ÇëÈ·±£ÏÈÖ´ĞĞÕâ¿é´úÂë
+è¯·ç¡®ä¿å…ˆæ‰§è¡Œè¿™å—ä»£ç 
 
 71
 00:02:49,068 --> 00:02:50,472
 because in this example,
-ÒòÎªÔÚÕâ¸öÀı×Ó
+å› ä¸ºåœ¨è¿™ä¸ªä¾‹å­
 
 72
 00:02:50,472 --> 00:02:53,589
 it imposed numpy as np and so on.
-Ëüµ¼ÈëÁËnumpy°ü²¢±ğÃûÎªnpµÈ
+å®ƒå¯¼å…¥äº†numpyåŒ…å¹¶åˆ«åä¸ºnpç­‰
 
 73
 00:02:53,589 --> 00:02:55,370
 And said so some of the variables that you might
-²¢ÉùÃ÷ÁËÒ»Ğ©ÄãĞèÒªµÄ±äÁ¿
+å¹¶å£°æ˜äº†ä¸€äº›ä½ éœ€è¦çš„å˜é‡
 
 74
 00:02:55,370 --> 00:02:58,396
 need in order to execute the lowdown
-È¥Ö´ĞĞÏÂÃæµÄ²¿·Ö
+å»æ‰§è¡Œä¸‹é¢çš„éƒ¨åˆ†
 
 75
 00:02:58,396 --> 00:03:01,151
 on blocks of code so be sure to execute the ones on top
-ËùÒÔÈ·±£ÏÈÖ´ĞĞÉÏÃæ´úÂë
+æ‰€ä»¥ç¡®ä¿å…ˆæ‰§è¡Œä¸Šé¢ä»£ç 
 
 76
 00:03:01,151 --> 00:03:04,462
 even if you aren't asked to write any code in them.
-¼´Ê¹²»ÒªÇóÄãÈ¥Ğ´ÆäËûµÄ´úÂë
+å³ä½¿ä¸è¦æ±‚ä½ å»å†™å…¶ä»–çš„ä»£ç 
 
 77
 00:03:04,462 --> 00:03:07,258
 And finally, when you're done implementing
-×îºó£¬µ±ÄãÍê³É×÷Òµ
+æœ€åï¼Œå½“ä½ å®Œæˆä½œä¸š
 
 78
 00:03:07,258 --> 00:03:10,097
 your solutions as this blue submit assignment button
-ÕâÀïÓĞÀ¶É«µÄsubmit assignment°´Å¥
+è¿™é‡Œæœ‰è“è‰²çš„submit assignmentæŒ‰é’®
 
 79
 00:03:10,097 --> 00:03:12,588
 here on the right and we click that
-ÔÚÓÒÉÏ·½£¬µã»÷Ëü
+åœ¨å³ä¸Šæ–¹ï¼Œç‚¹å‡»å®ƒ
 
 80
 00:03:12,588 --> 00:03:14,745
 it will submit your solutions for grading.
-±ã»áÌá½»ÄãµÄ×÷Òµ
+ä¾¿ä¼šæäº¤ä½ çš„ä½œä¸š
 
 81
 00:03:14,745 --> 00:03:19,549
 I found out the interactive command shell nature
-ÎÒ·¢ÏÖÕâÖÖ½»»¥Ê½µÄshellÃüÁî
+æˆ‘å‘ç°è¿™ç§äº¤äº’å¼çš„shellå‘½ä»¤
 
 82
 00:03:19,549 --> 00:03:22,369
 of ipython notebooks to be very useful
-ÔÚipython notebookÊÇ·Ç³£ÓĞÓÃµÄ
+åœ¨ipython notebookæ˜¯éå¸¸æœ‰ç”¨çš„
 
 83
 00:03:22,369 --> 00:03:24,632
 for letting you quickly implement a few lines of code,
-ÄÜÊ¹Äã¿ìËÙÓÃ´úÂëÊµÏÖ
+èƒ½ä½¿ä½ å¿«é€Ÿç”¨ä»£ç å®ç°
 
 84
 00:03:24,632 --> 00:03:27,489
 see an outcome, learn it very quickly.
-²¢ÇÒ²é¿´Êä³ö½á¹û£¬±ãÓÚÑ§Ï°
+å¹¶ä¸”æŸ¥çœ‹è¾“å‡ºç»“æœï¼Œä¾¿äºå­¦ä¹ 
 
 85
 00:03:27,489 --> 00:03:30,627
 And so I hope that the approach exercises and
-ËùÒÔÎÒÏ£ÍûÍ¨¹ıÁ·Ï°
+æ‰€ä»¥æˆ‘å¸Œæœ›é€šè¿‡ç»ƒä¹ 
 
 86
 00:03:30,782 --> 00:03:34,505
 Coursera in Jupyter ipython notebooks will help you quickly
-ÔÚJupyter ipython notebooks»á°ïÖúÄã
+åœ¨Jupyter ipython notebooksä¼šå¸®åŠ©ä½ 
 
 87
 00:03:34,505 --> 00:03:36,119
 learn and experiment and see
-Ñ§Ï°ºÍÊµÑé
+å­¦ä¹ å’Œå®éªŒ
 
 88
 00:03:36,119 --> 00:03:38,284
 how to implement these learning algorithms.
-È¥Ö´ĞĞÉñ¾­ÍøÂçËã·¨
+å»æ‰§è¡Œç¥ç»ç½‘ç»œç®—æ³•
 
 89
 00:03:38,284 --> 00:03:40,335
 There's one more video after this.
-ÔÚºóÃæÒ»¸öÊÓÆµ
+åœ¨åé¢ä¸€ä¸ªè§†é¢‘
 
 90
 00:03:40,335 --> 00:03:42,203
 This is an optional video that
-ÊÇÒ»¸öÑ¡Ñ§ÊÓÆµ
+æ˜¯ä¸€ä¸ªé€‰å­¦è§†é¢‘
 
 91
 00:03:42,203 --> 00:03:45,164
 talks about the cost function for logistic regression.
-½²½âÂß¼­»Ø¹éÖĞµÄ´ú¼Ûº¯Êı
+è®²è§£é€»è¾‘å›å½’ä¸­çš„ä»£ä»·å‡½æ•°
 
 92
 00:03:45,164 --> 00:03:46,562
 You can watch that or not,
-Äã¿ÉÒÔÑ¡ÔñµÄ¿´
+ä½ å¯ä»¥é€‰æ‹©çš„çœ‹
 
 
 93
 00:03:46,562 --> 00:03:47,664
 either way is perfectly fine.
-ÎŞÂÛÊ²Ã´·½Ê½¶¼¿ÉÒÔ
+æ— è®ºä»€ä¹ˆæ–¹å¼éƒ½å¯ä»¥
 
 94
 00:03:47,664 --> 00:03:48,724
 But either way,
-²»¹ÜÄÄÖÖÇé¿ö
+ä¸ç®¡å“ªç§æƒ…å†µ
 
 95
 00:03:48,724 --> 00:03:52,310
 best of luck with the week two programing assignments.
-×£Ô¸ÄãÃÇÍ¨¹ıÁ½´ÎµÄ±à³Ì×÷Òµ
+ç¥æ„¿ä½ ä»¬é€šè¿‡ä¸¤æ¬¡çš„ç¼–ç¨‹ä½œä¸š
 
 96
 00:03:52,310 --> 00:03:54,664
 And I also look forward to seeing you
-ÎÒ»áÔÚĞÂÒ»ÖÜµÄ¿Î³ÌÀï
+æˆ‘ä¼šåœ¨æ–°ä¸€å‘¨çš„è¯¾ç¨‹é‡Œ
 
 97
 00:03:54,664 --> 00:03:56,886
 at the start of the week. The materials.
-µÈ´ı×ÅÄã
+ç­‰å¾…ç€ä½ 
 

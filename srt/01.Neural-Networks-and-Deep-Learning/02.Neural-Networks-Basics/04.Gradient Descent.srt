@@ -1,907 +1,907 @@
 1
 00:00:00,590 --> 00:00:03,210
 You've seen the logistic regression model.
-ÔÚÉÏ¸öÊÓÆµÀï Äã¿´µ½ÁËÂß¼­»Ø¹éÄ£ĞÍ
+åœ¨ä¸Šä¸ªè§†é¢‘é‡Œ ä½ çœ‹åˆ°äº†é€»è¾‘å›å½’æ¨¡å‹
 
 
 2
 00:00:03,210 --> 00:00:05,038
 You've seen the loss function
-Äã¿´µ½ÁËËğÊ§º¯Êı
+ä½ çœ‹åˆ°äº†æŸå¤±å‡½æ•°
 
 3
 00:00:05,038 --> 00:00:08,558
 that measures how well you're doing on the single training example.
-ËğÊ§º¯Êı¿ÉÒÔÔÚµ¥Ò»ÑµÁ·ÑùÀıÉÏºâÁ¿Ğ§¹û
+æŸå¤±å‡½æ•°å¯ä»¥åœ¨å•ä¸€è®­ç»ƒæ ·ä¾‹ä¸Šè¡¡é‡æ•ˆæœ
 
 4
 00:00:08,558 --> 00:00:10,587
 You've also seen the cost function
-ÄãÒ²¿´µ½ÁË³É±¾º¯Êı£¨Í¬´ú¼Ûº¯Êı£©
+ä½ ä¹Ÿçœ‹åˆ°äº†æˆæœ¬å‡½æ•°ï¼ˆåŒä»£ä»·å‡½æ•°ï¼‰
 
 5
 00:00:10,587 --> 00:00:16,031
 that measures how well your parameters w and b are doing on your entire training set.
-³É±¾º¯Êı¿ÉÒÔÔÚÄãµÄÈ«²¿ÑµÁ·¼¯ÉÏºâÁ¿²ÎÊıwºÍbµÄĞ§¹û
+æˆæœ¬å‡½æ•°å¯ä»¥åœ¨ä½ çš„å…¨éƒ¨è®­ç»ƒé›†ä¸Šè¡¡é‡å‚æ•°wå’Œbçš„æ•ˆæœ
 
 6
 00:00:16,031 --> 00:00:20,700
 Now let's talk about how you can use the gradient descent algorithm
-ÏÖÔÚÎÒÃÇÌÖÂÛÈçºÎÊ¹ÓÃÌİ¶ÈÏÂ½µ·¨£¨gradient descent£©
+ç°åœ¨æˆ‘ä»¬è®¨è®ºå¦‚ä½•ä½¿ç”¨æ¢¯åº¦ä¸‹é™æ³•ï¼ˆgradient descentï¼‰
 
 7
 00:00:20,700 --> 00:00:22,181
 to train or to learn
-À´ÑµÁ·»òÕßÑ§Ï°
+æ¥è®­ç»ƒæˆ–è€…å­¦ä¹ 
 
 8
 00:00:22,181 --> 00:00:24,992
 the parameters w and b on your training set.
-ÔÚÄã²âÊÔ¼¯ÉÏµÄ²ÎÊıwºÍb
+åœ¨ä½ æµ‹è¯•é›†ä¸Šçš„å‚æ•°wå’Œb
 
 9
 00:00:24,992 --> 00:00:26,447
 To recap
-×ÜµÄÀ´Ëµ
+æ€»çš„æ¥è¯´
 
 10
 00:00:26,447 --> 00:00:30,230
 here is the familiar logistic regression algorithm
-ÕâÀïÓĞÒ»¸öÎÒÃÇÒÑ¾­ÊìÏ¤µÄÂß¼­»Ø¹éËã·¨
+è¿™é‡Œæœ‰ä¸€ä¸ªæˆ‘ä»¬å·²ç»ç†Ÿæ‚‰çš„é€»è¾‘å›å½’ç®—æ³•
 
 11
 00:00:30,230 --> 00:00:34,822
 And we have on the second line the cost function  J
-ÔÚµÚ¶şĞĞÎÒÃÇ¿´µ½ÁË³É±¾º¯Êı J
+åœ¨ç¬¬äºŒè¡Œæˆ‘ä»¬çœ‹åˆ°äº†æˆæœ¬å‡½æ•° J
 
 12
 00:00:34,822 --> 00:00:37,381
 which is a function of your parameters w and b
-³É±¾º¯ÊıJÓĞ²ÎÊıwºÍb
+æˆæœ¬å‡½æ•°Jæœ‰å‚æ•°wå’Œb
 
 13
 00:00:37,381 --> 00:00:39,552
 And that's defined as the average.
-²¢ÇÒ¶¨ÒåÎªÆ½¾ùÖµ
+å¹¶ä¸”å®šä¹‰ä¸ºå¹³å‡å€¼
 
 14
 00:00:39,552 --> 00:00:43,325
 So it's 1 over m times the sum of this loss function
-Òò´Ë¼ÆËã´Ó1µ½mµÄËğÊ§º¯ÊıÖ®ºÍ
+å› æ­¤è®¡ç®—ä»1åˆ°mçš„æŸå¤±å‡½æ•°ä¹‹å’Œ
 
 15
 00:00:43,325 --> 00:00:48,101
 And so the loss function measures how well your algorithms
-ËğÊ§º¯Êı¿ÉÒÔºâÁ¿ÄãµÄËã·¨µÄĞ§¹û
+æŸå¤±å‡½æ•°å¯ä»¥è¡¡é‡ä½ çš„ç®—æ³•çš„æ•ˆæœ
 
 16
 00:00:48,101 --> 00:00:51,444
 outputs y-hat(i) on each of the training examples
-ÔÚÃ¿Ò»¸öÑµÁ·ÑùÀı¶¼Êä³öy^(i)
+åœ¨æ¯ä¸€ä¸ªè®­ç»ƒæ ·ä¾‹éƒ½è¾“å‡ºy^(i)
 
 17
 00:00:51,444 --> 00:00:57,508
 stacks up or compares to the ground true label y(i) on each of the training examples.
-ÔÚÃ¿Ò»¸öÑµÁ·ÑùÀıÉÏÓëÕæÊµµÄ±êÇ©y(i)½øĞĞ±È½Ï
+åœ¨æ¯ä¸€ä¸ªè®­ç»ƒæ ·ä¾‹ä¸Šä¸çœŸå®çš„æ ‡ç­¾y(i)è¿›è¡Œæ¯”è¾ƒ
 
 18
 00:00:57,508 --> 00:01:00,457
 And the full formula is expanded out on the right
-ÍêÕûµÄ¹«Ê½ÔÚµÈºÅÓÒ±ßÕ¹¿ª
+å®Œæ•´çš„å…¬å¼åœ¨ç­‰å·å³è¾¹å±•å¼€
 
 19
 00:01:00,457 --> 00:01:06,253
 So the cost function measures how well your parameters w and b are doing on the training set
-Òò´Ë³É±¾º¯Êı¿ÉÒÔºâÁ¿ÄãµÄ²ÎÊıwºÍbÔÚÑµÁ·¼¯ÉÏµÄĞ§¹û
+å› æ­¤æˆæœ¬å‡½æ•°å¯ä»¥è¡¡é‡ä½ çš„å‚æ•°wå’Œbåœ¨è®­ç»ƒé›†ä¸Šçš„æ•ˆæœ
 
 20
 00:01:06,253 --> 00:01:09,709
 So in order to learn the set of parameters w and b
-ÒªÊ¹µÃ²ÎÊıwºÍbµÄÉèÖÃ±äµÄºÏÀí
+è¦ä½¿å¾—å‚æ•°wå’Œbçš„è®¾ç½®å˜çš„åˆç†
 
 21
 00:01:09,709 --> 00:01:17,632
 it seems natural that we want to find w and b that
 make the cost function J(w, b) as small as possible
-×ÔÈ»µØÏëµ½ÒªÈ¥ÕÒµ½Ê¹µÃ³É±¾º¯Êı J(w, b)¾¡¿ÉÄÜĞ¡Ëù¶ÔÓ¦µÄwºÍb
+è‡ªç„¶åœ°æƒ³åˆ°è¦å»æ‰¾åˆ°ä½¿å¾—æˆæœ¬å‡½æ•° J(w, b)å°½å¯èƒ½å°æ‰€å¯¹åº”çš„wå’Œb
 
 22
 00:01:17,632 --> 00:01:20,535
 So here's an illustration of gradient descent
-½ÓÏÂÀ´¸ø³öÌİ¶ÈÏÂ½µ·¨(gradient descent)µÄËµÃ÷
+æ¥ä¸‹æ¥ç»™å‡ºæ¢¯åº¦ä¸‹é™æ³•(gradient descent)çš„è¯´æ˜
 
 23
 00:01:20,535 --> 00:01:28,169
 In this diagram the horizontal axes represent your spatial parameters w and b
-ÔÚÕâ¸öÍ¼ÖĞºáÖá±íÊ¾ÄãµÄ¿Õ¼ä²ÎÊıwºÍb
+åœ¨è¿™ä¸ªå›¾ä¸­æ¨ªè½´è¡¨ç¤ºä½ çš„ç©ºé—´å‚æ•°wå’Œb
 
 24
 00:01:28,169 --> 00:01:31,166
 In practice w can be much higher dimensional
-ÔÚÊµ¼ùÖĞw¿ÉÒÔÊÇ¸ü¸ßµÄÎ¬¶È
+åœ¨å®è·µä¸­wå¯ä»¥æ˜¯æ›´é«˜çš„ç»´åº¦
 
 25
 00:01:31,166 --> 00:01:32,737
 but for the purposes of plotting,
-µ«ÊÇÎªÁË¸üºÃµØ»æÍ¼
+ä½†æ˜¯ä¸ºäº†æ›´å¥½åœ°ç»˜å›¾
 
 26
 00:01:32,737 --> 00:01:37,858
 let's illustrate w as a single real number and b as a single real number
-ÎÒÃÇ¶¨ÒåwºÍb¶¼ÊÇµ¥Ò»ÊµÊı
+æˆ‘ä»¬å®šä¹‰wå’Œbéƒ½æ˜¯å•ä¸€å®æ•°
 
 27
 00:01:37,858 --> 00:01:44,854
 The cost function J(w,b) is then some surface above these horizontal axes w and b
-³É±¾º¯ÊıJ(w,b)ÊÇÔÚË®Æ½ÖáwºÍbÉÏµÄÇúÃæ
+æˆæœ¬å‡½æ•°J(w,b)æ˜¯åœ¨æ°´å¹³è½´wå’Œbä¸Šçš„æ›²é¢
 
 28
 00:01:44,854 --> 00:01:50,283
 So the height of the surface represents the value of J(w,b) at a certain point
-Òò´ËÇúÃæµÄ¸ß¶È¾ÍÊÇ J(w,b)ÔÚÄ³Ò»µãµÄÖµ
+å› æ­¤æ›²é¢çš„é«˜åº¦å°±æ˜¯ J(w,b)åœ¨æŸä¸€ç‚¹çš„å€¼
 
 29
 00:01:50,283 --> 00:01:54,220
 And what we want to do is really to find the value of w and b
-ÎÒÃÇËùÏëÒª×öµÄ¾ÍÊÇÕÒµ½ÕâÑùµÄwºÍb
+æˆ‘ä»¬æ‰€æƒ³è¦åšçš„å°±æ˜¯æ‰¾åˆ°è¿™æ ·çš„wå’Œb
 
 30
 00:01:54,220 --> 00:01:59,821
 that corresponds to the minimum of the cost function J
-Ê¹µÃ¶ÔÓ¦µÄ³É±¾º¯ÊıJÖµÊÇ×îĞ¡Öµ
+ä½¿å¾—å¯¹åº”çš„æˆæœ¬å‡½æ•°Jå€¼æ˜¯æœ€å°å€¼
 
 31
 00:01:59,821 --> 00:02:05,436
 It turns out that this cost function J is a convex function
-ÎÒÃÇ¿ÉÒÔ¿´µ½ ³É±¾º¯ÊıJÊÇÒ»¸öÍ¹º¯Êı(convex function)
+æˆ‘ä»¬å¯ä»¥çœ‹åˆ° æˆæœ¬å‡½æ•°Jæ˜¯ä¸€ä¸ªå‡¸å‡½æ•°(convex function)
 
 32
 00:02:05,436 --> 00:02:07,866
 So it's just a single big bowl
-ÏñÕâÑùµÄÒ»¸ö´óÍë
+åƒè¿™æ ·çš„ä¸€ä¸ªå¤§ç¢—
 
 33
 00:02:07,866 --> 00:02:09,771
 so this is a convex function
-Òò´ËÕâÊÇÒ»¸öÍ¹º¯Êı
+å› æ­¤è¿™æ˜¯ä¸€ä¸ªå‡¸å‡½æ•°
 
 34
 00:02:09,771 --> 00:02:13,422
 and this is opposed to functions that look like this
-²¢ÇÒÕâÓë¿´ÆğÀ´ÏñÕâÑùµÄº¯ÊıÏà·´
+å¹¶ä¸”è¿™ä¸çœ‹èµ·æ¥åƒè¿™æ ·çš„å‡½æ•°ç›¸å
 
 35
 00:02:13,422 --> 00:02:14,260
 which are non-convex
-ËüÊÇ·ÇÍ¹µÄ
+å®ƒæ˜¯éå‡¸çš„
 
 36
 00:02:14,260 --> 00:02:16,804
 and has lots of different local optimum
-²¢ÇÒÓĞºÜ¶à²»Í¬µÄ¾Ö²¿×îÓÅ
+å¹¶ä¸”æœ‰å¾ˆå¤šä¸åŒçš„å±€éƒ¨æœ€ä¼˜
 
 37
 00:02:16,804 --> 00:02:21,416
 So the fact that our cost function J(w,b)
-Òò´ËÎÒÃÇµÄ³É±¾º¯ÊıJ(w,b)
+å› æ­¤æˆ‘ä»¬çš„æˆæœ¬å‡½æ•°J(w,b)
 
 38
 00:02:21,416 --> 00:02:23,099
 as defined here is convex
-Ö®ËùÒÔ¶¨ÒåÎªÍ¹º¯Êı
+ä¹‹æ‰€ä»¥å®šä¹‰ä¸ºå‡¸å‡½æ•°
 
 39
 00:02:23,099 --> 00:02:28,721
 is one of the huge reasons why we use this particular cost function J for logistic regression
-Ò»¸öÖØÒªÔ­ÒòÊÇÎÒÃÇÊ¹ÓÃ¶ÔÓÚÂß¼­»Ø¹éÕâ¸öÌØÊâ³É±¾º¯ÊıJÔì³ÉµÄ
+ä¸€ä¸ªé‡è¦åŸå› æ˜¯æˆ‘ä»¬ä½¿ç”¨å¯¹äºé€»è¾‘å›å½’è¿™ä¸ªç‰¹æ®Šæˆæœ¬å‡½æ•°Jé€ æˆçš„
 
 40
 00:02:28,721 --> 00:02:33,383
 So to find a good value for the parameters
-ÎªÁËÈ¥ÕÒµ½²ÎÊı¸üºÃµÄÖµ
+ä¸ºäº†å»æ‰¾åˆ°å‚æ•°æ›´å¥½çš„å€¼
 
 41
 00:02:33,383 --> 00:02:38,896
 what we'll do is initialize w and b to some initial value
-ÎÒÃÇ½«»á×öµÃ¾ÍÊÇÓÃÒ»Ğ©³õÊ¼ÖµÀ´³õÊ¼»¯wºÍb
+æˆ‘ä»¬å°†ä¼šåšå¾—å°±æ˜¯ç”¨ä¸€äº›åˆå§‹å€¼æ¥åˆå§‹åŒ–wå’Œb
 
 42
 00:02:38,896 --> 00:02:41,774
 maybe denoted by that little red dot
-¿ÉÄÜÊÇÓÃÄÇ¸öĞ¡ºìµã±íÊ¾µÄ
+å¯èƒ½æ˜¯ç”¨é‚£ä¸ªå°çº¢ç‚¹è¡¨ç¤ºçš„
 
 43
 00:02:41,774 --> 00:02:47,779
 And for logistic regression almost any initialization method works
-¶ÔÓÚÂß¼­»Ø¹é¼¸ºõËùÓĞµÄ³õÊ¼»¯·½·¨¶¼ÓĞĞ§
+å¯¹äºé€»è¾‘å›å½’å‡ ä¹æ‰€æœ‰çš„åˆå§‹åŒ–æ–¹æ³•éƒ½æœ‰æ•ˆ
 
 44
 00:02:47,779 --> 00:02:50,690
 usually you initialize the value to zero
-Í¨³£ÓÃ0À´½øĞĞ³õÊ¼»¯
+é€šå¸¸ç”¨0æ¥è¿›è¡Œåˆå§‹åŒ–
 
 45
 00:02:50,690 --> 00:02:52,910
 Random initialization also works
-Ëæ»ú³õÊ¼»¯Ò²ÓĞĞ§
+éšæœºåˆå§‹åŒ–ä¹Ÿæœ‰æ•ˆ
 
 46
 00:02:52,910 --> 00:02:55,630
 but people don't usually do that for logistic regression
-µ«ÊÇ¶ÔÓÚÂß¼­»Ø¹éÎÒÃÇÍ¨³£²»ÕâÃ´×ö
+ä½†æ˜¯å¯¹äºé€»è¾‘å›å½’æˆ‘ä»¬é€šå¸¸ä¸è¿™ä¹ˆåš
 
 47
 00:02:55,630 --> 00:02:57,589
 But because this function is convex
-µ«ÊÇÒòÎªº¯ÊıÊÇÍ¹º¯Êı
+ä½†æ˜¯å› ä¸ºå‡½æ•°æ˜¯å‡¸å‡½æ•°
 
 48
 00:02:57,589 --> 00:02:59,196
 no matter where you initialize
-ÎŞÂÛÔÚÄÄÀï³õÊ¼»¯
+æ— è®ºåœ¨å“ªé‡Œåˆå§‹åŒ–
 
 49
 00:02:59,196 --> 00:03:02,180
 you should get to the same point or roughly the same point.
-ÄãÓ¦¸Ã´ïµ½Í¬Ò»µã»ò´óÖÂÏàÍ¬µÄµã
+ä½ åº”è¯¥è¾¾åˆ°åŒä¸€ç‚¹æˆ–å¤§è‡´ç›¸åŒçš„ç‚¹
 
 50
 00:03:02,180 --> 00:03:06,450
 And what gradient descent does is it starts at that initial point
-Ìİ¶ÈÏÂ½µ·¨ÒÔ³õÊ¼µã¿ªÊ¼
+æ¢¯åº¦ä¸‹é™æ³•ä»¥åˆå§‹ç‚¹å¼€å§‹
 
 51
 00:03:06,450 --> 00:03:10,310
 and then takes a step in the steepest downhill direction
-È»ºó³¯×î¶¸µÄÏÂÆÂ·½Ïò×ßÒ»²½
+ç„¶åæœæœ€é™¡çš„ä¸‹å¡æ–¹å‘èµ°ä¸€æ­¥
 
 52
 00:03:10,310 --> 00:03:12,855
 So after one step of gradient descent
-Òò´ËÔÚÌİ¶ÈÏÂ½µ·¨Ò»²½ºó
+å› æ­¤åœ¨æ¢¯åº¦ä¸‹é™æ³•ä¸€æ­¥å
 
 53
 00:03:12,855 --> 00:03:14,515
 you might end up there
-Äã»òĞíÔÚÄÇÀïÍ£Ö¹
+ä½ æˆ–è®¸åœ¨é‚£é‡Œåœæ­¢
 
 54
 00:03:14,515 --> 00:03:19,320
 because it's trying to take a step downhill in the direction of steepest descent
-ÒòÎªËüÕıÊÔÍ¼ÑØ×Å×î¶¸ÏÂ½µµÄ·½Ïò×ßÏÂÆÂÂ·
+å› ä¸ºå®ƒæ­£è¯•å›¾æ²¿ç€æœ€é™¡ä¸‹é™çš„æ–¹å‘èµ°ä¸‹å¡è·¯
 
 55
 00:03:19,320 --> 00:03:21,250
 or as quickly downhill as possible.
-»òÕß¾¡¿ÉÄÜ¿ìµØÏÂÆÂ
+æˆ–è€…å°½å¯èƒ½å¿«åœ°ä¸‹å¡
 
 56
 00:03:21,250 --> 00:03:23,600
 So that's one iteration of gradient descent
-ÕâÊÇÌİ¶ÈÏÂ½µµÄÒ»´Îµü´ú
+è¿™æ˜¯æ¢¯åº¦ä¸‹é™çš„ä¸€æ¬¡è¿­ä»£
 
 57
 00:03:23,600 --> 00:03:27,084
 And after two iterations of gradient descent you might step there
-Á½´Îµü´ú»òĞí»áµ½´ïÄÇÀï
+ä¸¤æ¬¡è¿­ä»£æˆ–è®¸ä¼šåˆ°è¾¾é‚£é‡Œ
 
 58
 00:03:27,084 --> 00:03:28,830
 three iterations and so on.
-Èı´ÎµÈµÈ
+ä¸‰æ¬¡ç­‰ç­‰
 
 59
 00:03:28,830 --> 00:03:32,640
 I guess this is now hidden by the back of the plot until eventually
-ÎÒ²ÂÏëÕâÊÇÒş²ØÔÚÇúÏßºóÃæ
+æˆ‘çŒœæƒ³è¿™æ˜¯éšè—åœ¨æ›²çº¿åé¢
 
 60
 00:03:32,640 --> 00:03:38,880
 hopefully you converge to this global optimum or get to something close to the global optimum
-Ï£ÍûÄãÊÕÁ²µ½Õâ¸öÈ«¾Ö×îÓÅÖµ»ò½Ó½üÈ«¾Ö×îÓÅÖµ
+å¸Œæœ›ä½ æ”¶æ•›åˆ°è¿™ä¸ªå…¨å±€æœ€ä¼˜å€¼æˆ–æ¥è¿‘å…¨å±€æœ€ä¼˜å€¼
 
 61
 00:03:38,880 --> 00:03:42,300
 So this picture illustrates the gradient descent algorithm
-ËùÒÔÕâÕÅÍ¼Æ¬ËµÃ÷ÁËÌİ¶ÈÏÂ½µ·¨
+æ‰€ä»¥è¿™å¼ å›¾ç‰‡è¯´æ˜äº†æ¢¯åº¦ä¸‹é™æ³•
 
 62
 00:03:42,300 --> 00:03:44,310
 Let's write a bit more of the details
-ÈÃÎÒÃÇ¶àĞ´Ò»µãÏ¸½Ú
+è®©æˆ‘ä»¬å¤šå†™ä¸€ç‚¹ç»†èŠ‚
 
 63
 00:03:44,310 --> 00:03:45,616
 For the purpose of illustration
-ÎªÁË¸üºÃµØËµÃ÷
+ä¸ºäº†æ›´å¥½åœ°è¯´æ˜
 
 64
 00:03:45,616 --> 00:03:47,522
 let's say that there's some function
-ÈÃÎÒÃÇÀ´¿´Ò»Ğ©º¯Êı
+è®©æˆ‘ä»¬æ¥çœ‹ä¸€äº›å‡½æ•°
 
 65
 00:03:47,522 --> 00:03:49,447
 J(w) that you want to minimize,
-J(w)ÊÇÄãÏëÒªÕÒµ½Æä×îĞ¡Öµ
+J(w)æ˜¯ä½ æƒ³è¦æ‰¾åˆ°å…¶æœ€å°å€¼
 
 66
 00:03:49,447 --> 00:03:51,700
 and maybe that function looks like this
-¿ÉÄÜº¯Êı»á¿´ÆğÀ´ÏñÕâÑù
+å¯èƒ½å‡½æ•°ä¼šçœ‹èµ·æ¥åƒè¿™æ ·
 
 67
 00:03:51,700 --> 00:03:53,075
 To make this easier to draw
-ÎªÁË¸üÈİÒ×È¥»­
+ä¸ºäº†æ›´å®¹æ˜“å»ç”»
 
 68
 00:03:53,075 --> 00:03:54,893
 I'm going to ignore b for now
-ÎÒÏÖÔÚºöÂÔb
+æˆ‘ç°åœ¨å¿½ç•¥b
 
 69
 00:03:54,893 --> 00:03:59,210
 just to make this a one-dimensional plot instead of a high-dimensional plot
-½ö½öÊÇÓÃÒ»Î¬ÇúÏß´úÌæ¶àÎ¬ÇúÏß
+ä»…ä»…æ˜¯ç”¨ä¸€ç»´æ›²çº¿ä»£æ›¿å¤šç»´æ›²çº¿
 
 70
 00:03:59,210 --> 00:04:01,240
 So gradient descent does this
-Ìİ¶ÈÏÂ½µ·¨ÊÇÕâÑù×öµÄ
+æ¢¯åº¦ä¸‹é™æ³•æ˜¯è¿™æ ·åšçš„
 
 71
 00:04:01,240 --> 00:04:06,740
 we're going to repeatedly carry out the following update
-ÎÒÃÇ½«ÖØ¸´Ö´ĞĞÒÔÏÂ¸üĞÂµÄ²Ù×÷
+æˆ‘ä»¬å°†é‡å¤æ‰§è¡Œä»¥ä¸‹æ›´æ–°çš„æ“ä½œ
 
 72
 00:04:06,740 --> 00:04:09,467
 We're going to take the value of w and update it
-ÎÒÃÇ¸üĞÂwµÄÖµ
+æˆ‘ä»¬æ›´æ–°wçš„å€¼
 
 73
 00:04:09,467 --> 00:04:12,508
 going to use colon equals to represent updating w
-Ê¹ÓÃ£º=±íÊ¾¸üĞÂw
+ä½¿ç”¨ï¼š=è¡¨ç¤ºæ›´æ–°w
 
 74
 00:04:12,508 --> 00:04:22,351
-So set w to w minus ¦Á times and this is a derivative dJ(w)/dw.
-ÉèÖÃwÎªw-¦Á dJ(w)/dw(¹«Ê½ÈçÍ¼)
-£¨dJ(w)/dw±íÊ¾º¯ÊıJ(w)¶ÔwÇóµ¼£©
+So set w to w minus Î± times and this is a derivative dJ(w)/dw.
+è®¾ç½®wä¸ºw-Î± dJ(w)/dw(å…¬å¼å¦‚å›¾)
+ï¼ˆdJ(w)/dwè¡¨ç¤ºå‡½æ•°J(w)å¯¹wæ±‚å¯¼ï¼‰
 
 75
 00:04:22,351 --> 00:04:26,230
 I will repeatedly do that until the algorithm converges
-ÔÚËã·¨ÊÕÁ²Ö®Ç°ÎÒ»áÖØ¸´ÕâÑù×ö¡£
+åœ¨ç®—æ³•æ”¶æ•›ä¹‹å‰æˆ‘ä¼šé‡å¤è¿™æ ·åšã€‚
 
 76
 00:04:26,230 --> 00:04:27,592
 So couple of points in the notation
-ÎÒÒªËµÃ÷¹«Ê½ÖĞµÄÁ½µã
+æˆ‘è¦è¯´æ˜å…¬å¼ä¸­çš„ä¸¤ç‚¹
 
 77
 00:04:27,592 --> 00:04:30,032
-¦Á here is the learning rate
-Ê×ÏÈÔÚÕâÀïµÄ¦Á±íÊ¾Ñ§Ï°ÂÊ(learning rate)
+Î± here is the learning rate
+é¦–å…ˆåœ¨è¿™é‡Œçš„Î±è¡¨ç¤ºå­¦ä¹ ç‡(learning rate)
 
 78
 00:04:30,032 --> 00:04:36,820
 and controls how big a step we take on each iteration or gradient descent
-Ñ§Ï°ÂÊ¿ÉÒÔ¿ØÖÆÎÒÃÇÔÚÃ¿Ò»´Îµü´ú»òÕßÌİ¶ÈÏÂ½µ·¨ÖĞ²½³¤´óĞ¡
+å­¦ä¹ ç‡å¯ä»¥æ§åˆ¶æˆ‘ä»¬åœ¨æ¯ä¸€æ¬¡è¿­ä»£æˆ–è€…æ¢¯åº¦ä¸‹é™æ³•ä¸­æ­¥é•¿å¤§å°
 
 79
 00:04:36,820 --> 00:04:41,200
-We'll talk later about some ways by choosing the learning rate ¦Á
-ÎÒÃÇÖ®ºóÌÖÂÛÈçºÎÑ¡ÔñÑ§Ï°ÂÊ¦Á
+We'll talk later about some ways by choosing the learning rate Î±
+æˆ‘ä»¬ä¹‹åè®¨è®ºå¦‚ä½•é€‰æ‹©å­¦ä¹ ç‡Î±
 
 80
 00:04:41,200 --> 00:04:44,490
 And second this quantity here this is a derivative
-Æä´ÎÔÚÕâÀïµÄÕâ¸öÊıÊÇµ¼Êı
+å…¶æ¬¡åœ¨è¿™é‡Œçš„è¿™ä¸ªæ•°æ˜¯å¯¼æ•°
 
 81
 00:04:44,490 --> 00:04:48,010
 This is basically the update or the change you want to make to the parameters w
-Õâ¾ÍÊÇ¶Ô²ÎÊıwµÄ»ù±¾¸üĞÂ»òÕß¸Ä±ä
+è¿™å°±æ˜¯å¯¹å‚æ•°wçš„åŸºæœ¬æ›´æ–°æˆ–è€…æ”¹å˜
 
 82
 00:04:48,010 --> 00:04:52,700
 When we start to write code to implement gradient descent
-µ±ÎÒÃÇ¿ªÊ¼±àĞ´´úÂëÀ´ÊµÏÖÌİ¶ÈÏÂ½µ
+å½“æˆ‘ä»¬å¼€å§‹ç¼–å†™ä»£ç æ¥å®ç°æ¢¯åº¦ä¸‹é™
 
 83
 00:04:52,700 --> 00:04:57,380
 we're going to use the convention that the variable name in our code
-ÎÒÃÇ½«Ê¹ÓÃ´úÂëÖĞ±äÁ¿ÃûµÄÔ¼¶¨
+æˆ‘ä»¬å°†ä½¿ç”¨ä»£ç ä¸­å˜é‡åçš„çº¦å®š
 
 84
 00:04:58,620 --> 00:05:02,300
 dw will be used to represent this derivative term
-dw±íÊ¾µ¼Êı
+dwè¡¨ç¤ºå¯¼æ•°
 
 85
 00:05:02,300 --> 00:05:06,551
 So when you write code you write something like
-Òò´ËÄã»áÏñÕâÑù±àĞ´´úÂë
+å› æ­¤ä½ ä¼šåƒè¿™æ ·ç¼–å†™ä»£ç 
 
 86
 00:05:06,551 --> 00:05:10,046
 w colon equals w minus alpha times dw
-w£º=w-¦Á dw(¹«Ê½ÈçÍ¼)
+wï¼š=w-Î± dw(å…¬å¼å¦‚å›¾)
 
 87
 00:05:10,046 --> 00:05:14,750
 And so we use dw to be the variable name to represent this derivative term.
-ÎÒÃÇÓÃdw×÷Îªµ¼ÊıµÄ±äÁ¿Ãû
+æˆ‘ä»¬ç”¨dwä½œä¸ºå¯¼æ•°çš„å˜é‡å
 
 88
 00:05:14,750 --> 00:05:19,330
 Now let's just make sure that this gradient descent update makes sense
-ÏÖÔÚÎÒÃÇÈ·±£Ìİ¶ÈÏÂ½µ·¨¸üĞÂÊÇÓĞÒâÒåµÄ
+ç°åœ¨æˆ‘ä»¬ç¡®ä¿æ¢¯åº¦ä¸‹é™æ³•æ›´æ–°æ˜¯æœ‰æ„ä¹‰çš„
 
 89
 00:05:19,330 --> 00:05:21,880
 Let's say that w was over here
-ÎÒÃÇ¿´wÔÚÕâ
+æˆ‘ä»¬çœ‹wåœ¨è¿™
 
 90
 00:05:21,880 --> 00:05:26,060
 So you're at this point on the cost function J(w)
-¶ÔÓ¦µÄ³É±¾º¯ÊıJ(w)ÔÚÇúÏßÉÏµÄÕâÒ»µã
+å¯¹åº”çš„æˆæœ¬å‡½æ•°J(w)åœ¨æ›²çº¿ä¸Šçš„è¿™ä¸€ç‚¹
 
 91
 00:05:26,060 --> 00:05:29,270
 Remember that the definition of a derivative
-¼Ç×¡µ¼ÊıµÄ¶¨Òå
+è®°ä½å¯¼æ•°çš„å®šä¹‰
 
 92
 00:05:29,270 --> 00:05:31,420
 is the slope of a function at the point
-ÊÇº¯ÊıÔÚÕâ¸öµãÉÏµÄĞ±ÂÊ
+æ˜¯å‡½æ•°åœ¨è¿™ä¸ªç‚¹ä¸Šçš„æ–œç‡
 
 93
 00:05:31,420 --> 00:05:36,190
 So the slope of the function is really the height divided by the width
-¶øº¯ÊıµÄĞ±ÂÊÊÇ¸ß³ı¿í
+è€Œå‡½æ•°çš„æ–œç‡æ˜¯é«˜é™¤å®½
 
 94
 00:05:36,190 --> 00:05:40,290
 of a low triangle here at this tangent to J(w) at that point
-ÔÚÕâ¸öµãÏàÇĞÓÚ J(w)µÄÒ»¸öĞ¡Èı½ÇĞÎ
+åœ¨è¿™ä¸ªç‚¹ç›¸åˆ‡äº J(w)çš„ä¸€ä¸ªå°ä¸‰è§’å½¢
 
 95
 00:05:40,290 --> 00:05:43,900
 And so, here the derivative is positive.
-ÔÚÕâÀïµ¼ÊıÊÇÕıµÄ
+åœ¨è¿™é‡Œå¯¼æ•°æ˜¯æ­£çš„
 
 96
 00:05:43,900 --> 00:05:48,830
 w gets updated as w minus a learning rate times the derivative
-wÍ¨¹ıw×ÔÉí¼õÈ¥Ñ§Ï°ÂÊ³Ëµ¼ÊıÀ´¸üĞÂ
+wé€šè¿‡wè‡ªèº«å‡å»å­¦ä¹ ç‡ä¹˜å¯¼æ•°æ¥æ›´æ–°
 
 97
 00:05:48,830 --> 00:05:53,310
 The derivative is positive and so you end up subtracting from w
-µ¼ÊıÊÇÕıµÄËùÒÔÄãÃ¿Ò»´Î´ÓwÖĞ¼õÈ¥Õâ¸ö³Ë»ı
+å¯¼æ•°æ˜¯æ­£çš„æ‰€ä»¥ä½ æ¯ä¸€æ¬¡ä»wä¸­å‡å»è¿™ä¸ªä¹˜ç§¯
 
 98
 00:05:53,310 --> 00:05:55,260
 you end up taking a step to the left
-½Ó×ÅÃ¿Ò»´Î¶¼Ïò×ó±ß×ßÒ»²½
+æ¥ç€æ¯ä¸€æ¬¡éƒ½å‘å·¦è¾¹èµ°ä¸€æ­¥
 
 99
 00:05:55,260 --> 00:05:59,380
 And so gradient descent will make your algorithm slowly
-ÏñÕâÑùÌİ¶ÈÏÂ½µ·¨»áÊ¹ÄãµÄËã·¨½¥½¥µØ
+åƒè¿™æ ·æ¢¯åº¦ä¸‹é™æ³•ä¼šä½¿ä½ çš„ç®—æ³•æ¸æ¸åœ°
 
 100
 00:05:59,380 --> 00:06:04,450
 decrease the parameter if you have started off with this large value of w
-¼õĞ¡Õâ¸ö²ÎÊıw Èç¹ûÔÚÒ»¿ªÊ¼Äã²ÎÊıwµÄÖµ¾Í·Ç³£µÄ´óµÄ»°
+å‡å°è¿™ä¸ªå‚æ•°w å¦‚æœåœ¨ä¸€å¼€å§‹ä½ å‚æ•°wçš„å€¼å°±éå¸¸çš„å¤§çš„è¯
 
 101
 00:06:04,450 --> 00:06:08,545
 As another example if w was over here
-ÁíÒ»¸öÀı×Ó Èç¹ûwµÄÎ»ÖÃÊÇÔÚÕâÀï
+å¦ä¸€ä¸ªä¾‹å­ å¦‚æœwçš„ä½ç½®æ˜¯åœ¨è¿™é‡Œ
 
 102
 00:06:08,545 --> 00:06:15,050
 then at this point the slope here of dJ/dw will be negative
-Õâ¸öµã´¦µÄĞ±ÂÊ½«»áÊÇ¸ºµÄ
+è¿™ä¸ªç‚¹å¤„çš„æ–œç‡å°†ä¼šæ˜¯è´Ÿçš„
 
 103
 00:06:15,050 --> 00:06:22,771
-and so the gradient descent update would subtract ¦Á times a negative number
-²¢ÇÒÌİ¶ÈÏÂ½µ·¨ÔÚ¸üĞÂ²ÎÊıÊ± w½«»á¼õÈ¥ ¦Á³ËÉÏÒ»¸ö¸ºÊı
+and so the gradient descent update would subtract Î± times a negative number
+å¹¶ä¸”æ¢¯åº¦ä¸‹é™æ³•åœ¨æ›´æ–°å‚æ•°æ—¶ wå°†ä¼šå‡å» Î±ä¹˜ä¸Šä¸€ä¸ªè´Ÿæ•°
 
 104
 00:06:22,771 --> 00:06:25,216
 And so end up slowly increasing w
-²¢ÂıÂıµØÊ¹µÃ²ÎÊıwÔö¼Ó
+å¹¶æ…¢æ…¢åœ°ä½¿å¾—å‚æ•°wå¢åŠ 
 
 105
 00:06:25,216 --> 00:06:31,530
 so you end up making w bigger and bigger with successive iterations and gradient descent
-Òò´ËÄã»áÓÃÒ»¸ö³É¹¦µÄµü´úºÍÌİ¶ÈÏÂ½µ·¨À´ Ê¹µÃ²ÎÊıwÔ½À´Ô½´ó
+å› æ­¤ä½ ä¼šç”¨ä¸€ä¸ªæˆåŠŸçš„è¿­ä»£å’Œæ¢¯åº¦ä¸‹é™æ³•æ¥ ä½¿å¾—å‚æ•°wè¶Šæ¥è¶Šå¤§
 
 106
 00:06:31,530 --> 00:06:34,568
 So that hopefully whether you initialize on the left or on the right
-ÎŞÂÛÄã³õÊ¼»¯µÄÎ»ÖÃÊÇÔÚ×ó±ß»¹ÊÇÓÒ±ß
+æ— è®ºä½ åˆå§‹åŒ–çš„ä½ç½®æ˜¯åœ¨å·¦è¾¹è¿˜æ˜¯å³è¾¹
 
 107
 00:06:34,568 --> 00:06:39,000
 gradient descent will move you towards this global minimum here
-Ìİ¶ÈÏÂ½µ·¨»á³¯×ÅÈ«¾Ö×îĞ¡Öµ·½ÏòÒÆ¶¯
+æ¢¯åº¦ä¸‹é™æ³•ä¼šæœç€å…¨å±€æœ€å°å€¼æ–¹å‘ç§»åŠ¨
 
 108
 00:06:39,000 --> 00:06:43,100
 If you're not familiar with derivates or with calculus
-Èç¹ûÄã²»ÊìÏ¤µ¼Êı»òÕßÎ¢»ı·Ö
+å¦‚æœä½ ä¸ç†Ÿæ‚‰å¯¼æ•°æˆ–è€…å¾®ç§¯åˆ†
 
 109
 00:06:43,100 --> 00:06:47,459
 and what this term dJ(w)/dw means
-ÄãÒ²²»ÊìÏ¤dJ(w)/dwµÄº¬Òå
+ä½ ä¹Ÿä¸ç†Ÿæ‚‰dJ(w)/dwçš„å«ä¹‰
 
 110
 00:06:47,459 --> 00:06:49,564
 don't worry too much about it
-²»Òª×Å¼±
+ä¸è¦ç€æ€¥
 
 111
 00:06:49,564 --> 00:06:53,770
 We'll talk some more about derivatives in the next video
-ÔÚÏÂÒ»¸öÊÓÆµÎÒÃÇ»áÌÖÂÛ¸ü¶àµÄÖªÊ¶¹ØÓÚµ¼Êı
+åœ¨ä¸‹ä¸€ä¸ªè§†é¢‘æˆ‘ä»¬ä¼šè®¨è®ºæ›´å¤šçš„çŸ¥è¯†å…³äºå¯¼æ•°
 
 112
 00:06:53,770 --> 00:06:56,761
 If you have a deep knowledge of calculus
-Èç¹ûÄãÉîÈëÁË½â¹ıÎ¢»ı·Ö
+å¦‚æœä½ æ·±å…¥äº†è§£è¿‡å¾®ç§¯åˆ†
 
 113
 00:06:56,761 --> 00:07:02,321
 you might be able to have a deeper intuitions about how neural networks work
-ÄãÓ¦¸Ã¿ÉÒÔ¶ÔÉñ¾­ÍøÂçÈçºÎ¹¤×÷ÓĞ¸üÉî¿Ì¸üÖ±¹ÛµÄÈÏÊ¶
+ä½ åº”è¯¥å¯ä»¥å¯¹ç¥ç»ç½‘ç»œå¦‚ä½•å·¥ä½œæœ‰æ›´æ·±åˆ»æ›´ç›´è§‚çš„è®¤è¯†
 
 114
 00:07:02,321 --> 00:07:05,471
 But even if you're not that familiar with calculus
-µ«ÊÇ¼´Ê¹Äã²¢²»ÊìÏ¤Î¢»ı·Ö
+ä½†æ˜¯å³ä½¿ä½ å¹¶ä¸ç†Ÿæ‚‰å¾®ç§¯åˆ†
 
 115
 00:07:05,471 --> 00:07:10,525
 in the next few videos we'll give you enough intuitions about derivatives and about calculus
-Í¨¹ıÏÂÃæµÄ¼¸¸öÊÓÆµ ÎÒÃÇÒ²»á¶Ôµ¼ÊıºÍÎ¢»ı·ÖÓĞ×ã¹»Ö±½ÓµÄÈÏÊ¶
+é€šè¿‡ä¸‹é¢çš„å‡ ä¸ªè§†é¢‘ æˆ‘ä»¬ä¹Ÿä¼šå¯¹å¯¼æ•°å’Œå¾®ç§¯åˆ†æœ‰è¶³å¤Ÿç›´æ¥çš„è®¤è¯†
 
 116
 00:07:10,525 --> 00:07:14,980
 that you'll be able to effectively use neural networks
-Äã½«ÄÜ¹»ÓĞĞ§µÄÊ¹ÓÃÉñ¾­ÍøÂç
+ä½ å°†èƒ½å¤Ÿæœ‰æ•ˆçš„ä½¿ç”¨ç¥ç»ç½‘ç»œ
 
 117
 00:07:14,980 --> 00:07:16,410
 But the overall intuition for now
-µ«ÊÇÏÖÔÚËùÓĞµÄÖ±¹ÛÈÏÊ¶
+ä½†æ˜¯ç°åœ¨æ‰€æœ‰çš„ç›´è§‚è®¤è¯†
 
 118
 00:07:16,410 --> 00:07:21,520
 is that this term represents the slope of the function
-±ãÊÇÕâ¸öÊõÓï ±íÊ¾µÄÊÇº¯ÊıµÄĞ±ÂÊ
+ä¾¿æ˜¯è¿™ä¸ªæœ¯è¯­ è¡¨ç¤ºçš„æ˜¯å‡½æ•°çš„æ–œç‡
 
 119
 00:07:21,520 --> 00:07:26,760
 and we want to know the slope of the function at the current setting of the parameters
-²¢ÇÒÎÒÃÇÖªµÀ º¯ÊıµÄĞ±ÂÊÓÃÔÚµ±Ç°µÄ²ÎÊıÉèÖÃ´¦
+å¹¶ä¸”æˆ‘ä»¬çŸ¥é“ å‡½æ•°çš„æ–œç‡ç”¨åœ¨å½“å‰çš„å‚æ•°è®¾ç½®å¤„
 
 120
 00:07:26,760 --> 00:07:30,156
 so that we can take these steps of steepest descent
-¾İ´ËÎÒÃÇ¿ÉÒÔ²ÉÓÃÏÂ½µËÙ¶È×î¿ìµÄ²½³¤
+æ®æ­¤æˆ‘ä»¬å¯ä»¥é‡‡ç”¨ä¸‹é™é€Ÿåº¦æœ€å¿«çš„æ­¥é•¿
 
 121
 00:07:30,156 --> 00:07:32,205
 so that we know what direction to step in
-ÎÒÃÇÒ²¿ÉÒÔÖªµÀ ÏÂÒ»²½¸üĞÂµÄ·½Ïò
+æˆ‘ä»¬ä¹Ÿå¯ä»¥çŸ¥é“ ä¸‹ä¸€æ­¥æ›´æ–°çš„æ–¹å‘
 
 122
 00:07:32,205 --> 00:07:35,465
 in order to go downhill on the cost function J
-ÎªÁË¿ÉÒÔÔÚ³É±¾º¯ÊıJÉÏ×ßÏÂÆÂÂ·
+ä¸ºäº†å¯ä»¥åœ¨æˆæœ¬å‡½æ•°Jä¸Šèµ°ä¸‹å¡è·¯
 
 123
 00:07:35,465 --> 00:07:39,384
 So we wrote our gradient descent for J
-Òò´ËÄ¿Ç°¶ÔÓÚJµÄÌİ¶ÈÏÂ½µ·¨ ÎÒÃÇĞ´³öÀ´µÄ
+å› æ­¤ç›®å‰å¯¹äºJçš„æ¢¯åº¦ä¸‹é™æ³• æˆ‘ä»¬å†™å‡ºæ¥çš„
 
 124
 00:07:39,384 --> 00:07:42,014
 if only w was your parameter
-Ö»ĞèÒªwÊÇÄãµÄ²ÎÊı¾ÍºÃÁË
+åªéœ€è¦wæ˜¯ä½ çš„å‚æ•°å°±å¥½äº†
 
 125
 00:07:42,520 --> 00:07:47,150
 In logistic regression, your cost function is a function of both w and b.
-ÔÚÂß¼­»Ø¹éÖĞÄãµÄ³É±¾º¯ÊıÊÇÒ»¸öº¬ÓĞwºÍbµÄº¯Êı
+åœ¨é€»è¾‘å›å½’ä¸­ä½ çš„æˆæœ¬å‡½æ•°æ˜¯ä¸€ä¸ªå«æœ‰wå’Œbçš„å‡½æ•°
 
 126
 00:07:47,150 --> 00:07:50,894
 So in that case, the inner loop of gradient descent, that is this thing here
-ÔÚÕâÖÖÇé¿öÏÂ Ìİ¶ÈÏÂ½µµÄÄÚ²¿Ñ­»· ¾ÍÊÇÕâÀïµÄÕâ¸ö¶«Î÷
+åœ¨è¿™ç§æƒ…å†µä¸‹ æ¢¯åº¦ä¸‹é™çš„å†…éƒ¨å¾ªç¯ å°±æ˜¯è¿™é‡Œçš„è¿™ä¸ªä¸œè¥¿
 
 127
 00:07:50,894 --> 00:07:53,302
 this thing you have to repeat becomes as follows
-Äã²»µÃ²»ÏñÕâÑùÖØ¸´
+ä½ ä¸å¾—ä¸åƒè¿™æ ·é‡å¤
 
 128
 00:07:53,302 --> 00:08:02,274
-w:=w-¦Á dJ(w,b)/dw
+w:=w-Î± dJ(w,b)/dw
 
 129
 00:08:02,274 --> 00:08:11,720
-b:=b-¦Á dJ(w,b)/db
+b:=b-Î± dJ(w,b)/db
 
 130
 00:08:11,720 --> 00:08:17,300
 So these two equations at the bottom are the actual update you implement
-ÕâÁ½¸öµÈÊ½ÊÇÄãÊµ¼Ê¸üĞÂ²ÎÊıÊ±½øĞĞµÄ²Ù×÷
+è¿™ä¸¤ä¸ªç­‰å¼æ˜¯ä½ å®é™…æ›´æ–°å‚æ•°æ—¶è¿›è¡Œçš„æ“ä½œ
 
 131
 00:08:17,300 --> 00:08:22,320
 As an aside I just want to mention one notational convention in calculus that
-ÁíÍâÎÒÏëÌáµ½µÄÊÇ ÔÚÎ¢»ı·ÖµÄ·ûºÅÔ¼¶¨ÖĞ
+å¦å¤–æˆ‘æƒ³æåˆ°çš„æ˜¯ åœ¨å¾®ç§¯åˆ†çš„ç¬¦å·çº¦å®šä¸­
 
 132
 00:08:22,320 --> 00:08:24,560
 is a bit confusing to some people
-¶ÔÒ»Ğ©ÈËÀ´ËµÊÇÓĞµãÀ§»óµÄ
+å¯¹ä¸€äº›äººæ¥è¯´æ˜¯æœ‰ç‚¹å›°æƒ‘çš„
 
 133
 00:08:24,560 --> 00:08:28,387
 I don't think it's super important that you understand calculus
-ÎÒ²»ÈÏÎªÄ¿Ç°Àí½âÎ¢»ı·Ö£¨·ûºÅÔ¼¶¨£©ÊÇ·Ç³£ÖØÒªµÄ
+æˆ‘ä¸è®¤ä¸ºç›®å‰ç†è§£å¾®ç§¯åˆ†ï¼ˆç¬¦å·çº¦å®šï¼‰æ˜¯éå¸¸é‡è¦çš„
 
 134
 00:08:28,387 --> 00:08:32,411
 but in case you see this I want to make sure that you don't think too much of this
-Èç¹ûÄã¿´µ½ÕâĞ© Ï£ÍûÄã²»ÒªÏëÌ«¶à
+å¦‚æœä½ çœ‹åˆ°è¿™äº› å¸Œæœ›ä½ ä¸è¦æƒ³å¤ªå¤š
 
 135
 00:08:32,411 --> 00:08:35,519
 Which is that in calculus this term here
-ÔÚÎ¢»ı·ÖÖĞÔÚÕâµÄÊõÓï
+åœ¨å¾®ç§¯åˆ†ä¸­åœ¨è¿™çš„æœ¯è¯­
 
 136
 00:08:35,519 --> 00:08:40,730
 we actually write as fallows of that funny squiggle symbol
-×÷ÎªÕâÒ»ÓĞÈ¤µÄ»¨Ìå±êÖ¾ÎÒÃÇÊµ¼ÊÉÏÕâÃ´Ğ´
-£¨ÈçÍ¼ËùĞ´µÄÊÇÆ«Î¢·Ö·ûºÅ,¶Á×÷round£©
+ä½œä¸ºè¿™ä¸€æœ‰è¶£çš„èŠ±ä½“æ ‡å¿—æˆ‘ä»¬å®é™…ä¸Šè¿™ä¹ˆå†™
+ï¼ˆå¦‚å›¾æ‰€å†™çš„æ˜¯åå¾®åˆ†ç¬¦å·,è¯»ä½œroundï¼‰
 
 137
 00:08:40,730 --> 00:08:46,160
 So this symbol this is actually just a lower case d
-ËùÒÔÕâ¸ö·ûºÅÕâÊµ¼ÊÉÏÖ»ÊÇÒ»¸öĞ¡Ğ´d(¼´dÊÇÆ«Î¢·Ö·ûµÄĞ¡Ğ´)
+æ‰€ä»¥è¿™ä¸ªç¬¦å·è¿™å®é™…ä¸Šåªæ˜¯ä¸€ä¸ªå°å†™d(å³dæ˜¯åå¾®åˆ†ç¬¦çš„å°å†™)
 
 138
 00:08:46,160 --> 00:08:50,734
 in a fancy font in a stylized font for when you see this expression
-µ±Äã¿´µ½Õâ¸ö±í´ïÊ½µÄÊ±ºò ÓÃÒ»¸ö»¨ÉÚµÄ¡¢ÑùÊ½»¯µÄ×ÖÌå
+å½“ä½ çœ‹åˆ°è¿™ä¸ªè¡¨è¾¾å¼çš„æ—¶å€™ ç”¨ä¸€ä¸ªèŠ±å“¨çš„ã€æ ·å¼åŒ–çš„å­—ä½“
 
 139
 00:08:50,734 --> 00:08:56,145
 all this means is derivative J(w,b) or really the slope of the function J(w,b)
-ËùÓĞµÄº¬Òå¶¼ÊÇJ(w,b)µÄµ¼Êı»òÕßº¯ÊıJ(w,b)µÄĞ±ÂÊ
+æ‰€æœ‰çš„å«ä¹‰éƒ½æ˜¯J(w,b)çš„å¯¼æ•°æˆ–è€…å‡½æ•°J(w,b)çš„æ–œç‡
 
 140
 00:08:56,145 --> 00:09:01,580
 how much that function slopes in the w direction
-Ò²¼´ÊÇº¯ÊıÔÚwÕâÒ»µãµÄĞ±ÂÊÊÇ¶àÉÙ
+ä¹Ÿå³æ˜¯å‡½æ•°åœ¨wè¿™ä¸€ç‚¹çš„æ–œç‡æ˜¯å¤šå°‘
 
 141
 00:09:01,580 --> 00:09:04,466
 And the rule of the notation in calculus
-ÔÚÎ¢»ı·ÖÖĞÕâ¸ö·ûºÅµÄ¹æÔò
+åœ¨å¾®ç§¯åˆ†ä¸­è¿™ä¸ªç¬¦å·çš„è§„åˆ™
 
 142
 00:09:04,466 --> 00:09:06,390
 which I think isn't totally logical
-ÎÒÈÏÎª²¢²»ÊÇÍêÈ«·ûºÏÂß¼­µÄ
+æˆ‘è®¤ä¸ºå¹¶ä¸æ˜¯å®Œå…¨ç¬¦åˆé€»è¾‘çš„
 
 143
 00:09:06,390 --> 00:09:09,747
 but the rule in the notation for calculus
-Í¬Ê±¶ÔÓÚÎ¢»ı·ÖÖĞÕâ¸ö·ûºÅµÄ¹æÔò
+åŒæ—¶å¯¹äºå¾®ç§¯åˆ†ä¸­è¿™ä¸ªç¬¦å·çš„è§„åˆ™
 
 144
 00:09:09,747 --> 00:09:13,598
 which I think just makes things much more complicated than you need to be
-ÎÒÈÏÎªÕâÑù¹æÔò»áµ¼ÖÂ¸ü¼ÓµÄ¸´ÔÓ
+æˆ‘è®¤ä¸ºè¿™æ ·è§„åˆ™ä¼šå¯¼è‡´æ›´åŠ çš„å¤æ‚
 
 145
 00:09:13,598 --> 00:09:18,205
 is that if J is a function of two or more variables
-Ò²¾ÍÊÇÖ¸ ÊÇµ±º¯ÊıJÓĞÁ½¸öÒÔÉÏµÄ±äÁ¿£¨Ê¹ÓÃÆ«µ¼Êı·ûºÅ£©
+ä¹Ÿå°±æ˜¯æŒ‡ æ˜¯å½“å‡½æ•°Jæœ‰ä¸¤ä¸ªä»¥ä¸Šçš„å˜é‡ï¼ˆä½¿ç”¨åå¯¼æ•°ç¬¦å·ï¼‰
 
 146
 00:09:18,205 --> 00:09:21,952
 then instead of using lowercase d you use this funny symbol
-ÎÒÃÇ²»Ê¹ÓÃĞ¡Ğ´×ÖÄ¸d ¶øÊ¹ÓÃ¸ü¼Ó»¨ÉÚµÄ·ûºÅ
+æˆ‘ä»¬ä¸ä½¿ç”¨å°å†™å­—æ¯d è€Œä½¿ç”¨æ›´åŠ èŠ±å“¨çš„ç¬¦å·
 
 147
 00:09:21,952 --> 00:09:24,380
 This is called a partial derivative symbol
-Õâ¸ö¾Í³Æ×÷Æ«µ¼Êı·ûºÅ
+è¿™ä¸ªå°±ç§°ä½œåå¯¼æ•°ç¬¦å·
 
 148
 00:09:24,380 --> 00:09:26,120
 But don't worry about this
-µ«ÊÇ±ğµ£ĞÄ
+ä½†æ˜¯åˆ«æ‹…å¿ƒ
 
 149
 00:09:26,120 --> 00:09:31,090
 and if J is a function of only one variable, then you use lowercase d
-Èç¹ûJÖ»ÓĞÒ»¸ö±äÁ¿¾ÍÊÇÓÃĞ¡Ğ´×ÖÄ¸d
+å¦‚æœJåªæœ‰ä¸€ä¸ªå˜é‡å°±æ˜¯ç”¨å°å†™å­—æ¯d
 
 150
 00:09:31,090 --> 00:09:35,465
 So the only difference between whether you use this funny partial derivative symbol
-Î¨Ò»µÄÇø±ğ¾ÍÊÇÄãÊÇÓÃÆ«µ¼Êı·ûºÅ
+å”¯ä¸€çš„åŒºåˆ«å°±æ˜¯ä½ æ˜¯ç”¨åå¯¼æ•°ç¬¦å·
 
 151
 00:09:35,465 --> 00:09:38,040
 or lowercase d as we did on top
-»¹ÊÇĞ¡Ğ´×ÖÄ¸d
+è¿˜æ˜¯å°å†™å­—æ¯d
 
 152
 00:09:38,040 --> 00:09:41,570
 is whether J is a function of two or more variables
-ÊÇÈ¡¾öÓÚÄãµÄº¯ÊıJÊÇ·ñº¬ÓĞÁ½¸öÒÔÉÏµÄ±äÁ¿
+æ˜¯å–å†³äºä½ çš„å‡½æ•°Jæ˜¯å¦å«æœ‰ä¸¤ä¸ªä»¥ä¸Šçš„å˜é‡
 
 153
 00:09:41,570 --> 00:09:45,900
 In which case, you use this symbol,the partial derivative symbol
-±äÁ¿³¬¹ıÁ½¸ö ÄãÊ¹ÓÃÆ«µ¼Êı·ûºÅ
+å˜é‡è¶…è¿‡ä¸¤ä¸ª ä½ ä½¿ç”¨åå¯¼æ•°ç¬¦å·
 
 154
 00:09:45,900 --> 00:09:51,480
 or if J is only a function of one variable then you use lowercase d
-Èç¹ûÄãµÄº¯ÊıÖ»ÓĞÒ»¸ö±äÁ¿Äã¾ÍÊ¹ÓÃĞ¡Ğ´×ÖÄ¸d
+å¦‚æœä½ çš„å‡½æ•°åªæœ‰ä¸€ä¸ªå˜é‡ä½ å°±ä½¿ç”¨å°å†™å­—æ¯d
 
 155
 00:09:51,480 --> 00:09:55,410
 This is one of those funny rules of notation in calculus that
-ÕâÊÇÔÚÎ¢»ı·ÖÉÏÒ»¸öÓĞÈ¤µÄ·ûºÅ¹æÔò
+è¿™æ˜¯åœ¨å¾®ç§¯åˆ†ä¸Šä¸€ä¸ªæœ‰è¶£çš„ç¬¦å·è§„åˆ™
 
 156
 00:09:55,410 --> 00:09:58,540
 I think just make things more complicated than they need to be
-ÎÒÈÏÎªËüÊ¹ÊÂÇé±äµÃ¸ü¼Ó¸´ÔÓÁË
+æˆ‘è®¤ä¸ºå®ƒä½¿äº‹æƒ…å˜å¾—æ›´åŠ å¤æ‚äº†
 
 157
 00:09:58,540 --> 00:10:01,231
 But if you see this partial derivative symbol
-µ«ÊÇÈç¹ûÄã¿´µ½ÁËÆ«µ¼Êı·ûºÅ
+ä½†æ˜¯å¦‚æœä½ çœ‹åˆ°äº†åå¯¼æ•°ç¬¦å·
 
 158
 00:10:01,231 --> 00:10:04,698
 all it means is you're measure the slope of the function
-Æäº¬Òå¾ÍÊÇ¼ÆËãº¯Êı¹ØÓÚÆäÖĞÒ»¸ö±äÁ¿
+å…¶å«ä¹‰å°±æ˜¯è®¡ç®—å‡½æ•°å…³äºå…¶ä¸­ä¸€ä¸ªå˜é‡
 
 159
 00:10:04,698 --> 00:10:07,398
 with respect to one of the variables
-ÔÚ¶ÔÓ¦µã´¦ Ëù¶ÔÓ¦µÄĞ±ÂÊ
+åœ¨å¯¹åº”ç‚¹å¤„ æ‰€å¯¹åº”çš„æ–œç‡
 
 160
 00:10:07,398 --> 00:10:14,043
 And similarly to add here to the formerly correct mathematical notation in calculus
-ÀàËÆÔÚÕâÀï ÕâÀïµÄÎ¢»ı·Ö·ûºÅÕıÊ½µØĞ´µÄ»° Ó¦¸Ã¸ÄÓÃÁíÒ»¸öÊıÑ§·ûºÅ
+ç±»ä¼¼åœ¨è¿™é‡Œ è¿™é‡Œçš„å¾®ç§¯åˆ†ç¬¦å·æ­£å¼åœ°å†™çš„è¯ åº”è¯¥æ”¹ç”¨å¦ä¸€ä¸ªæ•°å­¦ç¬¦å·
 
 161
 00:10:14,043 --> 00:10:18,070
 because here J has two inputs not just one
-ÒòÎªÔÚÕâÀïJÓĞÁ½¸öÊäÈë²ÎÊı¶ø²»ÊÇÒ»¸ö
+å› ä¸ºåœ¨è¿™é‡ŒJæœ‰ä¸¤ä¸ªè¾“å…¥å‚æ•°è€Œä¸æ˜¯ä¸€ä¸ª
 
 162
 00:10:18,070 --> 00:10:22,540
 This thing at the bottom should be written with this partial derivative simple
-ÆÁÄ»µ×²¿µÄÕâ¸ö¶«Î÷Ó¦¸ÃÓÃÕâ¸öÆ«µ¼ÊıÀ´Ğ´
+å±å¹•åº•éƒ¨çš„è¿™ä¸ªä¸œè¥¿åº”è¯¥ç”¨è¿™ä¸ªåå¯¼æ•°æ¥å†™
 
 163
 00:10:22,540 --> 00:10:28,290
 But it really means the same thing as almost the same thing as lower case d
-µ«ÊÇÕâÕæµÄ±í´ïÁËºÍĞ¡Ğ´×ÖÄ¸dÍ¬ÑùµÄÊÂÇé
+ä½†æ˜¯è¿™çœŸçš„è¡¨è¾¾äº†å’Œå°å†™å­—æ¯dåŒæ ·çš„äº‹æƒ…
 
 164
 00:10:28,290 --> 00:10:31,360
 Finally when you implement this in code
-×îºóµ±Äã±àĞ´´úÂëÏëÒªÊµÏÖ
+æœ€åå½“ä½ ç¼–å†™ä»£ç æƒ³è¦å®ç°
 
 165
 00:10:31,360 --> 00:10:34,635
 we're going to use the convention that this quantity
-ÎÒÃÇÆÁÄ»Ğ´³öµÄÕâ¸öÊ½×ÓÊ±
+æˆ‘ä»¬å±å¹•å†™å‡ºçš„è¿™ä¸ªå¼å­æ—¶
 
 166
 00:10:34,635 --> 00:10:37,377
 really the amount by which you update w
-Í¨³£ÔÚ¸üĞÂwµÄÖµµÄÊ±ºò
+é€šå¸¸åœ¨æ›´æ–°wçš„å€¼çš„æ—¶å€™
 
 167
 00:10:37,377 --> 00:10:41,718
 will denote as the variable dw in your code
-ÎÒÃÇ»áÓÃdwÕâ¸ö±äÁ¿À´´úÌæÕâ¸öÊ½×Ó
+æˆ‘ä»¬ä¼šç”¨dwè¿™ä¸ªå˜é‡æ¥ä»£æ›¿è¿™ä¸ªå¼å­
 
 168
 00:10:41,718 --> 00:10:44,220
 And this quantity, right?
-Í¬ÑùÒ²ÓĞÏÂÃæÕâ¸öÊ½×Ó
+åŒæ ·ä¹Ÿæœ‰ä¸‹é¢è¿™ä¸ªå¼å­
 
 169
 00:10:44,220 --> 00:10:47,230
 The amount by which you want to update b
-µ±ÄãÏëÈ¥¸üĞÂbµÄÊıÖµ
+å½“ä½ æƒ³å»æ›´æ–°bçš„æ•°å€¼
 
 170
 00:10:47,230 --> 00:10:50,740
 will denote by the variable db in your code
-ÎÒÃÇ½«»áÓÃdbÕâ¸ö±äÁ¿À´±íÃ÷ÏÂÃæÕâ¸öÊ½×Ó
+æˆ‘ä»¬å°†ä¼šç”¨dbè¿™ä¸ªå˜é‡æ¥è¡¨æ˜ä¸‹é¢è¿™ä¸ªå¼å­
 
 171
 00:10:50,740 --> 00:10:55,580
 All right, so, that's how you can implement gradient descent
-×ÛÉÏ Õâ¾ÍÊÇÌİ¶ÈÏÂ½µ·¨µÄÊµÏÖ·½·¨
+ç»¼ä¸Š è¿™å°±æ˜¯æ¢¯åº¦ä¸‹é™æ³•çš„å®ç°æ–¹æ³•
 
 172
 00:10:55,580 --> 00:10:58,388
 Now if you haven't seen calculus for a few years
-Èç¹ûÏÖÔÚÄãÒÑ¾­ºÜ¶àÄê²»¿´Î¢»ı·ÖÁË
+å¦‚æœç°åœ¨ä½ å·²ç»å¾ˆå¤šå¹´ä¸çœ‹å¾®ç§¯åˆ†äº†
 
 173
 00:10:58,388 --> 00:11:01,852
 I know that that might seem like a lot more derivatives in calculus
-ÎÒÖªµÀÓĞºÜ¶àµÄµ¼ÊıÔÚÎ¢»ı·ÖÖĞ
+æˆ‘çŸ¥é“æœ‰å¾ˆå¤šçš„å¯¼æ•°åœ¨å¾®ç§¯åˆ†ä¸­
 
 174
 00:11:01,852 --> 00:11:03,770
 than you might be comfortable with so far
-±ÈÏÖÔÚ½²µÄ¿´ÆğÀ´Êæ·şµÃ¶à
+æ¯”ç°åœ¨è®²çš„çœ‹èµ·æ¥èˆ’æœå¾—å¤š
 
 175
 00:11:03,770 --> 00:11:06,330
 But if you're feeling that waydon't worry about it
-Èç¹ûÄãÓĞÕâÖÖ¸Ğ¾õ Ò²²»Òªµ£ĞÄ
+å¦‚æœä½ æœ‰è¿™ç§æ„Ÿè§‰ ä¹Ÿä¸è¦æ‹…å¿ƒ
 
 176
 00:11:06,330 --> 00:11:10,150
 In the next video, we'll give you better intuition about derivatives
-ÎÒÃÇ»áÔÚÏÂÒ»¸öÊÓÆµÖĞ ¸øÄã¸ü¶à¹ØÓÚµ¼ÊıµÄ½âÊÍ
+æˆ‘ä»¬ä¼šåœ¨ä¸‹ä¸€ä¸ªè§†é¢‘ä¸­ ç»™ä½ æ›´å¤šå…³äºå¯¼æ•°çš„è§£é‡Š
 
 177
 00:11:10,150 --> 00:11:13,560
 And even without the deep mathematical understanding of calculus
-ÉõÖÁ²»Í¨¹ıÉî¶ÈÊıÑ§ÖªÊ¶À´Àí½âÎ¢»ı·Ö
+ç”šè‡³ä¸é€šè¿‡æ·±åº¦æ•°å­¦çŸ¥è¯†æ¥ç†è§£å¾®ç§¯åˆ†
 
 178
 00:11:13,560 --> 00:11:16,310
 with just an intuitive understanding of calculus
-¶øÊÇÍ¨¹ıÖ±¹ÛÀ´Àí½âÎ¢»ı·Ö
+è€Œæ˜¯é€šè¿‡ç›´è§‚æ¥ç†è§£å¾®ç§¯åˆ†
 
 179
 00:11:16,310 --> 00:11:19,130
 you will be able to make neural networks work effectively
-Äã¿ÉÒÔÊÇÉñ¾­ÍøÂç±äµÃ¸ü¼ÓÓĞĞ§
+ä½ å¯ä»¥æ˜¯ç¥ç»ç½‘ç»œå˜å¾—æ›´åŠ æœ‰æ•ˆ
 
 180
 00:11:19,130 --> 00:11:21,391
 So that, let's go onto the next video
-ÈÃÎÒÃÇ½øÈëÏÂÒ»¸öÊÓÆµ
+è®©æˆ‘ä»¬è¿›å…¥ä¸‹ä¸€ä¸ªè§†é¢‘
 
 181
 00:11:21,391 --> 00:11:23,685
 where we'll talk a little bit more about derivatives
-À´ÌÖÂÛµ¼Êı
+æ¥è®¨è®ºå¯¼æ•°
 
