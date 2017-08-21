@@ -554,8 +554,8 @@ and so we stack these four numbers vertically to form the vectors Z1
 
 110
 00:05:34,702 --> 00:05:36,963
-and to use one more piece of notation（英文错了，翻译是猜的）
-再说下这个标记
+and to use one more piece of notation
+如果用另一种符号惯例来表示
 
 111
 00:05:37,183 --> 00:05:39,911
@@ -565,7 +565,7 @@ this 4 by 3 matrix here which we obtained by
 112
 00:05:40,122 --> 00:05:44,404
 stacking the lower case you know W11 W12 and so on
-堆积小写的你懂的 w[1]1 w[1]2 等等 形成的
+堆积小写的 w[1]1 w[1]2 等等 形成的
 
 113
 00:05:44,623 --> 00:05:47,869
