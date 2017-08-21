@@ -1,470 +1,470 @@
 1
 00:00:00,030 --> 00:00:02,639
 welcome back in this week's you learn to
-»¶Ó­»ØÀ´ ±¾ÖÜµÄÊÓÆµÄã½«Ñ§Ï°
+æ¬¢è¿å›æ¥ æœ¬å‘¨çš„è§†é¢‘ä½ å°†å­¦ä¹ 
 
 2
 00:00:02,639 --> 00:00:05,279
 implement a neural network before diving
-ÈçºÎÊµÏÖÒ»¸öÉñ¾­ÍøÂç
+å¦‚ä½•å®ç°ä¸€ä¸ªç¥ç»ç½‘ç»œ
 
 3
 00:00:05,279 --> 00:00:07,440
 into the technical details I wanted in
-ÔÚÎÒÃÇÉîÈëÑ§Ï°¾ßÌå¼¼ÊõÖ®Ç°
+åœ¨æˆ‘ä»¬æ·±å…¥å­¦ä¹ å…·ä½“æŠ€æœ¯ä¹‹å‰
 
 4
 00:00:07,440 --> 00:00:09,059
 this video to give you a quick overview
-ÎÒÏ£Íû¿ìËÙµÄ´øÄãÔ¤ÀÀÒ»ÏÂ
+æˆ‘å¸Œæœ›å¿«é€Ÿçš„å¸¦ä½ é¢„è§ˆä¸€ä¸‹
 
 5
 00:00:09,059 --> 00:00:10,889
 of what you'll be seeing in this week's
-±¾ÖÜÄã½«»áÑ§µ½µÄ¶«Î÷
+æœ¬å‘¨ä½ å°†ä¼šå­¦åˆ°çš„ä¸œè¥¿
 
 6
 00:00:10,889 --> 00:00:13,679
 videos so if you don't follow all the
-Èç¹ûÕâ¸öÊÓÆµÖĞµÄÄ³Ğ©Ï¸½Ú
+å¦‚æœè¿™ä¸ªè§†é¢‘ä¸­çš„æŸäº›ç»†èŠ‚
 
 7
 00:00:13,679 --> 00:00:15,389
 details in this video don't worry about
-ÄãÃ»ÓĞ¿´¶® ²»ÓÃµ£ĞÄ
+ä½ æ²¡æœ‰çœ‹æ‡‚ ä¸ç”¨æ‹…å¿ƒ
 
 8
 00:00:15,389 --> 00:00:17,100
 it we'll delve in the technical details
-ÎÒÃÇ½«ÔÚºóÃæµÄ¼¸¸öÊÓÆµÖĞ
+æˆ‘ä»¬å°†åœ¨åé¢çš„å‡ ä¸ªè§†é¢‘ä¸­
 
 9
 00:00:17,100 --> 00:00:19,680
 in the next few videos but for now let's
-ÉîÈëÌÖÂÛ¼¼ÊõÏ¸½Ú ÏÖÔÚÎÒÃÇ
+æ·±å…¥è®¨è®ºæŠ€æœ¯ç»†èŠ‚ ç°åœ¨æˆ‘ä»¬
 
 10
 00:00:19,680 --> 00:00:21,660
 give a quick overview of how you
-¿ªÊ¼¿ìËÙä¯ÀÀÒ»ÏÂÈçºÎ
+å¼€å§‹å¿«é€Ÿæµè§ˆä¸€ä¸‹å¦‚ä½•
 
 11
 00:00:21,660 --> 00:00:24,269
 implement in your network last week we
-ÊµÏÖÉñ¾­ÍøÂç
+å®ç°ç¥ç»ç½‘ç»œ
 
 12
 00:00:24,269 --> 00:00:26,250
 had talked about logistic regression and
-ÉÏÖÜÎÒÃÇÌÖÂÛÁËlogistic»Ø¹é
+ä¸Šå‘¨æˆ‘ä»¬è®¨è®ºäº†logisticå›å½’
 
 13
 00:00:26,250 --> 00:00:30,300
 we saw how this model corresponds to the
-ÎÒÃÇÁË½âÁËÕâ¸öÄ£ĞÍÈçºÎ
+æˆ‘ä»¬äº†è§£äº†è¿™ä¸ªæ¨¡å‹å¦‚ä½•
 
 14
 00:00:30,300 --> 00:00:32,430
 following computation graph where you
-ÓëÏÂÃæÕâ¸ö¼ÆËãÍ¼½¨Á¢ÁªÏµ
+ä¸ä¸‹é¢è¿™ä¸ªè®¡ç®—å›¾å»ºç«‹è”ç³»
 
 15
 00:00:32,430 --> 00:00:35,520
 need to put the features X and parameters
-ÄãĞèÒªÊäÈëÌØÕ÷X
+ä½ éœ€è¦è¾“å…¥ç‰¹å¾X
 
 16
 00:00:35,520 --> 00:00:38,370
 w and b that allows you to compute z which
-²ÎÊıwºÍb È»ºóÄã¾Í¿ÉÒÔ¼ÆËã³öz
+å‚æ•°wå’Œb ç„¶åä½ å°±å¯ä»¥è®¡ç®—å‡ºz
 
 17
 00:00:38,370 --> 00:00:40,620
 is then used to compute a and we were
-½ÓÏÂÀ´Ê¹ÓÃz¼ÆËã³öa
+æ¥ä¸‹æ¥ä½¿ç”¨zè®¡ç®—å‡ºa
 
 18
 00:00:40,620 --> 00:00:44,219
 using a interchangeably with this output
-ÎÒÃÇ½«aµÄ·ûºÅ»»Îª±íÊ¾Êä³öµÄy^
+æˆ‘ä»¬å°†açš„ç¬¦å·æ¢ä¸ºè¡¨ç¤ºè¾“å‡ºçš„y^
 
 19
 00:00:44,219 --> 00:00:47,190
 Y hat and then you can compute the loss
-½ÓÏÂÀ´¼ÆËãËğÊ§º¯Êıl
+æ¥ä¸‹æ¥è®¡ç®—æŸå¤±å‡½æ•°l
 
 20
 00:00:47,190 --> 00:00:51,059
 function l a neural network looks like this
-Éñ¾­ÍøÂç¾ÍÊÇÕâ¸öÑù×Ó
+ç¥ç»ç½‘ç»œå°±æ˜¯è¿™ä¸ªæ ·å­
 
 21
 00:00:51,059 --> 00:00:52,920
 and as I'd already previously alluded
-ÎÒÖ®Ç°ÒÑ¾­Ìáµ½¹ıÁË
+æˆ‘ä¹‹å‰å·²ç»æåˆ°è¿‡äº†
 
 22
 00:00:52,920 --> 00:00:54,930
 you can form a neural network by
-Äã¿ÉÒÔ°Ñ
+ä½ å¯ä»¥æŠŠ
 
 23
 00:00:54,930 --> 00:00:57,239
 stacking together a lot of little
-Ğí¶àsigmoidµ¥Ôª¶ÑµşÆğÀ´
+è®¸å¤šsigmoidå•å…ƒå †å èµ·æ¥
 
 24
 00:00:57,239 --> 00:01:00,420
 sigmoid units whereas previously this
-ĞÎ³ÉÒ»¸öÉñ¾­ÍøÂç
+å½¢æˆä¸€ä¸ªç¥ç»ç½‘ç»œ
 
 25
 00:01:00,420 --> 00:01:02,969
 node corresponds to two steps of
-Õâ¸ö½Úµã°üº¬ÁËÖ®Ç°½²µÄ¼ÆËãµÄÁ½¸ö²½Öè
+è¿™ä¸ªèŠ‚ç‚¹åŒ…å«äº†ä¹‹å‰è®²çš„è®¡ç®—çš„ä¸¤ä¸ªæ­¥éª¤
 
 26
 00:01:02,969 --> 00:01:04,920
 calculations the first three compute the
-Ê×ÏÈ ¼ÆËã³özÖµ
+é¦–å…ˆ è®¡ç®—å‡ºzå€¼
 
 27
 00:01:04,920 --> 00:01:07,680
 z value second is it computes this a
-È»ºó¼ÆËãaÖµ
+ç„¶åè®¡ç®—aå€¼
 
 28
 00:01:07,680 --> 00:01:11,640
 value in this neural network this stack of
-Õâ¸öÉñ¾­ÍøÂçÖĞ
+è¿™ä¸ªç¥ç»ç½‘ç»œä¸­
 
 29
 00:01:11,640 --> 00:01:14,549
 notes will correspond to a Z like
-ÕâĞ©½ÚµãÊ×ÏÈ
+è¿™äº›èŠ‚ç‚¹é¦–å…ˆ
 
 30
 00:01:14,549 --> 00:01:17,880
 calculation like this as well as an a
-ÏñÕâÑù¼ÆËãz
+åƒè¿™æ ·è®¡ç®—z
 
 31
 00:01:17,880 --> 00:01:21,720
 like calculation like that and then that
-½Ó×ÅÏñÕâÑù¼ÆËãa
+æ¥ç€åƒè¿™æ ·è®¡ç®—a
 
 32
 00:01:21,720 --> 00:01:24,090
 node will correspond to another Z and
-Õâ¸ö½ÚµãÍ¬Ñù
+è¿™ä¸ªèŠ‚ç‚¹åŒæ ·
 
 33
 00:01:24,090 --> 00:01:26,790
 another a like calculation so the
-¼ÆËãÁËzºÍa
+è®¡ç®—äº†zå’Œa
 
 34
 00:01:26,790 --> 00:01:29,040
 notation which we should use later will
-Òò´Ë ÎÒÃÇÉÔºó»áÊ¹ÓÃ
+å› æ­¤ æˆ‘ä»¬ç¨åä¼šä½¿ç”¨
 
 35
 00:01:29,040 --> 00:01:30,000
 look like this
-ÏÂÃæÕâĞ©¼ÇºÅ
+ä¸‹é¢è¿™äº›è®°å·
 
 36
 00:01:30,000 --> 00:01:32,759
 first what inputs the features X
-Ê×ÏÈ X±íÊ¾ÊäÈëÌØÕ÷
+é¦–å…ˆ Xè¡¨ç¤ºè¾“å…¥ç‰¹å¾
 
 37
 00:01:32,759 --> 00:01:35,430
 together with some parameters W and b
-WºÍbÊÇ²ÎÊı
+Wå’Œbæ˜¯å‚æ•°
 
 38
 00:01:35,430 --> 00:01:40,320
 and this will allow you to compute z1 so
-Í¨¹ıÕâĞ©¼ÆËã³öz1
+é€šè¿‡è¿™äº›è®¡ç®—å‡ºz1
 
 39
 00:01:40,320 --> 00:01:42,930
 new notation that one should use is that
-ÎÒÃÇ»áÊ¹ÓÃĞÂµÄ·ûºÅ
+æˆ‘ä»¬ä¼šä½¿ç”¨æ–°çš„ç¬¦å·
 
 40
 00:01:42,930 --> 00:01:45,600
 we'll use a superscript square bracket 1
-ÉÏ±ê ·½À¨ºÅ 1
+ä¸Šæ ‡ æ–¹æ‹¬å· 1
 
 41
 00:01:45,600 --> 00:01:48,689
 to refer to quantities associated with
-±íÊ¾ÓëÕâĞ©½ÚµãÏà¹ØµÄÊı
+è¡¨ç¤ºä¸è¿™äº›èŠ‚ç‚¹ç›¸å…³çš„æ•°
 
 42
 00:01:48,689 --> 00:01:50,759
 this stack of nodes called a layer and
-ÕâĞ©½Úµã±»³ÆÎªÒ»²ã
+è¿™äº›èŠ‚ç‚¹è¢«ç§°ä¸ºä¸€å±‚
 
 43
 00:01:50,759 --> 00:01:53,579
 then later we'll use superscript square
-ÎÒÃÇÓÃÉÏ±ê
+æˆ‘ä»¬ç”¨ä¸Šæ ‡
 
 44
 00:01:53,579 --> 00:01:56,280
 bracket 2 to refer to quantities
-·½À¨ºÅ 2 ±íÊ¾
+æ–¹æ‹¬å· 2 è¡¨ç¤º
 
 45
 00:01:56,280 --> 00:01:58,920
 associated with that really that's
-ºÍÕâ¸ö½ÚµãÏà¹ØµÄÊı
+å’Œè¿™ä¸ªèŠ‚ç‚¹ç›¸å…³çš„æ•°
 
 46
 00:01:58,920 --> 00:02:01,200
 called another layer of the network and
-ÕâÊÇÍøÂçµÄÁíÒ»¸ö²ã
+è¿™æ˜¯ç½‘ç»œçš„å¦ä¸€ä¸ªå±‚
 
 47
 00:02:01,200 --> 00:02:04,140
 the superscript square brackets like we
-ÎÒÃÇÕâÀïÊ¹ÓÃµÄÉÏ±ê·½À¨ºÅ
+æˆ‘ä»¬è¿™é‡Œä½¿ç”¨çš„ä¸Šæ ‡æ–¹æ‹¬å·
 
 48
 00:02:04,140 --> 00:02:06,719
 have here are not to be confused with
-²»»áºÍÎÒÃÇÖ®Ç°ÓÃÀ´±íÊ¾
+ä¸ä¼šå’Œæˆ‘ä»¬ä¹‹å‰ç”¨æ¥è¡¨ç¤º
 
 49
 00:02:06,719 --> 00:02:10,319
 the superscript round brackets which we
-µ¥¸öµÄÑµÁ·Ñù±¾µÄ
+å•ä¸ªçš„è®­ç»ƒæ ·æœ¬çš„
 
 50
 00:02:10,319 --> 00:02:12,390
 used to refer to individual training
-ÉÏ±êÔ²À¨ºÅ»ìÏı
+ä¸Šæ ‡åœ†æ‹¬å·æ··æ·†
 
 51
 00:02:12,390 --> 00:02:14,080
 examples so whereas X
-¾ÍÊÇËµÎÒÊ¹ÓÃ
+å°±æ˜¯è¯´æˆ‘ä½¿ç”¨
 
 52
 00:02:14,080 --> 00:02:16,300
 supersu round bracket I referred to the
-XÉÏ±êÔ²À¨ºÅ±íÊ¾
+Xä¸Šæ ‡åœ†æ‹¬å·è¡¨ç¤º
 
 53
 00:02:16,300 --> 00:02:19,030
 Ith trained example superscript square
-µÚi¸öÑµÁ·Ñù±¾
+ç¬¬iä¸ªè®­ç»ƒæ ·æœ¬
 
 54
 00:02:19,030 --> 00:02:21,340
 bracket 1 and 2 refers to these
-ÉÏ±ê·½À¨ºÅ1 2
+ä¸Šæ ‡æ–¹æ‹¬å·1 2
 
 55
 00:02:21,340 --> 00:02:25,570
 different layers layer 1 and layer 2
-±íÊ¾²»Í¬µÄ²ã ÕâÊÇÍøÂçµÄµÚÒ»²ã
+è¡¨ç¤ºä¸åŒçš„å±‚ è¿™æ˜¯ç½‘ç»œçš„ç¬¬ä¸€å±‚
 
 56
 00:02:25,570 --> 00:02:28,600
 in this network but they're going on
-ÕâÊÇµÚ¶ş²ã
+è¿™æ˜¯ç¬¬äºŒå±‚
 
 57
 00:02:28,600 --> 00:02:32,860
 after computing z1 similar to logistic
-ÀàËÆlogistic»Ø¹é
+ç±»ä¼¼logisticå›å½’
 
 58
 00:02:32,860 --> 00:02:35,350
 regression there will be a computation
-ÔÚ¼ÆËãÁËz1ºó
+åœ¨è®¡ç®—äº†z1å
 
 59
 00:02:35,350 --> 00:02:39,000
 to compute a1 and that's just some
-ĞèÒªÊ¹ÓÃsigmoid(z1)¼ÆËãa1
+éœ€è¦ä½¿ç”¨sigmoid(z1)è®¡ç®—a1
 
 60
 00:02:39,000 --> 00:02:44,550
 sigmoid of z1 and then you compute z2
-½ÓÏÂÀ´ÄãĞèÒªÊ¹ÓÃ
+æ¥ä¸‹æ¥ä½ éœ€è¦ä½¿ç”¨
 
 61
 00:02:44,550 --> 00:02:49,270
 using another linear equation and then
-ÁíÍâÒ»¸öÏßĞÔ·½³Ì¼ÆËãz2
+å¦å¤–ä¸€ä¸ªçº¿æ€§æ–¹ç¨‹è®¡ç®—z2
 
 62
 00:02:49,270 --> 00:02:54,610
 compute a2 and a2 is the final output
-½Ó×Å¼ÆËãa2 a2¾ÍÊÇÕû¸öÉñ¾­ÍøÂç
+æ¥ç€è®¡ç®—a2 a2å°±æ˜¯æ•´ä¸ªç¥ç»ç½‘ç»œ
 
 63
 00:02:54,610 --> 00:02:57,370
 of the neural network and will also be
-×îÖÕµÄÊä³ö
+æœ€ç»ˆçš„è¾“å‡º
 
 64
 00:02:57,370 --> 00:02:59,890
 used interchangeably with Y hat so I
-ÎÒÓÃy^±íÊ¾ÍøÂçµÄÊä³ö
+æˆ‘ç”¨y^è¡¨ç¤ºç½‘ç»œçš„è¾“å‡º
 
 65
 00:02:59,890 --> 00:03:01,390
 know there was a lot of details but the
-ÎÒÖªµÀÆäÖĞÓĞºÜ¶àÏ¸½Ú
+æˆ‘çŸ¥é“å…¶ä¸­æœ‰å¾ˆå¤šç»†èŠ‚
 
 66
 00:03:01,390 --> 00:03:03,730
 key intuition to take away is that
-ÓĞÒ»µã·Ç³£ÄÑÒÔÀí½â
+æœ‰ä¸€ç‚¹éå¸¸éš¾ä»¥ç†è§£
 
 67
 00:03:03,730 --> 00:03:06,460
 whereas for logistic regression we had
-logistic»Ø¹éÖĞ
+logisticå›å½’ä¸­
 
 68
 00:03:06,460 --> 00:03:09,220
 this z followed by a calculation and
-zºóÃæÖ±½Ó¼ÆËãa
+zåé¢ç›´æ¥è®¡ç®—a
 
 69
 00:03:09,220 --> 00:03:11,590
 this neural network here we just do it
-¶øÕâ¸öÉñ¾­ÍøÂçÖĞ
+è€Œè¿™ä¸ªç¥ç»ç½‘ç»œä¸­
 
 70
 00:03:11,590 --> 00:03:13,780
 multiple times as a z followed by a
-ÎÒÃÇÖ»ÊÇ·´¸´µÄ¼ÆËãz
+æˆ‘ä»¬åªæ˜¯åå¤çš„è®¡ç®—z
 
 71
 00:03:13,780 --> 00:03:16,390
 calculation and a z followed by a
-È»ºó¼ÆËãa È»ºóÓÖ¼ÆËãz È»ºóÓÖ¼ÆËãa
+ç„¶åè®¡ç®—a ç„¶ååˆè®¡ç®—z ç„¶ååˆè®¡ç®—a
 
 72
 00:03:16,390 --> 00:03:19,959
 calculation and then you finally compute
-×îºóÄãµÃµ½ÁË×îÖÕµÄÊä³ö
+æœ€åä½ å¾—åˆ°äº†æœ€ç»ˆçš„è¾“å‡º
 
 73
 00:03:19,959 --> 00:03:22,600
 the loss at the end and you remember
-ÄãÓ¦¸Ã¼ÇµÃ
+ä½ åº”è¯¥è®°å¾—
 
 74
 00:03:22,600 --> 00:03:24,670
 that for the logistic regression we had in
-ÔÚlogisticÖĞ
+åœ¨logisticä¸­
 
 75
 00:03:24,670 --> 00:03:27,959
 some backward calculation in order to
-ÓĞÒ»Ğ©´ÓºóÏòÇ°µÄ¼ÆËã
+æœ‰ä¸€äº›ä»åå‘å‰çš„è®¡ç®—
 
 76
 00:03:27,959 --> 00:03:30,970
 compute derivatives they computing
-ÓÃÀ´¼ÆËãµ¼Êı
+ç”¨æ¥è®¡ç®—å¯¼æ•°
 
 77
 00:03:30,970 --> 00:03:34,750
 da dz and so on so in the same way in
-da dzµÈ Í¬Ñù
+da dzç­‰ åŒæ ·
 
 78
 00:03:34,750 --> 00:03:36,580
 a neural network we'll end up doing a
-ÔÚÉñ¾­ÍøÂçÖĞ
+åœ¨ç¥ç»ç½‘ç»œä¸­
 
 79
 00:03:36,580 --> 00:03:38,860
 backward calculation that looks like
-ÎÒÃÇÒ²ÓĞ´ÓºóÏòÇ°µÄ¼ÆËã
+æˆ‘ä»¬ä¹Ÿæœ‰ä»åå‘å‰çš„è®¡ç®—
 
 80
 00:03:38,860 --> 00:03:44,910
 this and we jump you end up computing
-¿´ÆğÀ´¾ÍÏñÕâÑù
+çœ‹èµ·æ¥å°±åƒè¿™æ ·
 
 81
 00:03:44,910 --> 00:03:50,890
 da2 dz2 that allows you to compute so
-Äã°Ñda2 dz2¼ÆËã³öÀ´Ö®ºó
+ä½ æŠŠda2 dz2è®¡ç®—å‡ºæ¥ä¹‹å
 
 82
 00:03:50,890 --> 00:03:57,850
 dw2 db2 and so on in this order the right
-²ÅÄÜ¼ÆËãdw2 db2µÈ
+æ‰èƒ½è®¡ç®—dw2 db2ç­‰
 
 83
 00:03:57,850 --> 00:04:01,090
 to left backward calculation that is
-°´ºìÉ«¼ıÍ·±íÊ¾µÄÄÇÑù
+æŒ‰çº¢è‰²ç®­å¤´è¡¨ç¤ºçš„é‚£æ ·
 
 84
 00:04:01,090 --> 00:04:05,020
 denoting with the red arrows
-´ÓÓÒµ½×ó·´Ïò¼ÆËã
+ä»å³åˆ°å·¦åå‘è®¡ç®—
 
 85
 00:04:05,020 --> 00:04:07,970
 So that's quick overview of what a neural network
-¸Õ²ÅÖ»ÊÇ´øÄã´ó¸ÅÁË½âÁËÒ»ÏÂÉñ¾­ÍøÂç
+åˆšæ‰åªæ˜¯å¸¦ä½ å¤§æ¦‚äº†è§£äº†ä¸€ä¸‹ç¥ç»ç½‘ç»œ
 
 86
 00:04:07,970 --> 00:04:09,770
 looks like but we take the logistic
-´ó¸ÅÊÇÊ²Ã´Ñù×ÓµÄ ÎÒÃÇ°Ñlogistic»Ø¹é
+å¤§æ¦‚æ˜¯ä»€ä¹ˆæ ·å­çš„ æˆ‘ä»¬æŠŠlogisticå›å½’
 
 87
 00:04:09,770 --> 00:04:12,950
 regression and repeating it twice I know
-ÖØ¸´Á½´Î
+é‡å¤ä¸¤æ¬¡
 
 88
 00:04:12,950 --> 00:04:14,630
 there was a lot of new notation lot of
-ÎÒÇå³ş¶àÁËºÜ¶àĞÂµÄ·ûºÅ
+æˆ‘æ¸…æ¥šå¤šäº†å¾ˆå¤šæ–°çš„ç¬¦å·
 
 89
 00:04:14,630 --> 00:04:16,880
 new details don't worry about to get and
-ĞÂµÄÏ¸½Ú ²»ÓÃµ£ĞÄÈç¹ûÄãÃ»ÓĞÀí½â
+æ–°çš„ç»†èŠ‚ ä¸ç”¨æ‹…å¿ƒå¦‚æœä½ æ²¡æœ‰ç†è§£
 
 90
 00:04:16,880 --> 00:04:18,980
 follow everything we'll go into the
-ÔÚ½ÓÏÂÀ´µÄÊÓÆµÖĞ
+åœ¨æ¥ä¸‹æ¥çš„è§†é¢‘ä¸­
 
 91
 00:04:18,980 --> 00:04:20,900
 details most slowly in the next few
-ÎÒÃÇ»á×ĞÏ¸µÄÌÖÂÛ¾ßÌåÏ¸½Ú
+æˆ‘ä»¬ä¼šä»”ç»†çš„è®¨è®ºå…·ä½“ç»†èŠ‚
 
 92
 00:04:20,900 --> 00:04:22,820
 videos so let's go on to the next video
-¼ÌĞø¿´ÏÂÒ»¸öÊÓÆµ°É
+ç»§ç»­çœ‹ä¸‹ä¸€ä¸ªè§†é¢‘å§
 
 93
 00:04:22,820 --> 00:04:24,620
 we'll stop to talk about the neural
-ÎÒÃÇ½«»á¿ªÊ¼ÌÖÂÛ
+æˆ‘ä»¬å°†ä¼šå¼€å§‹è®¨è®º
 
 94
 00:04:24,620 --> 00:04:27,850
 network representation
-Éñ¾­ÍøÂçµÄ±íÊ¾
+ç¥ç»ç½‘ç»œçš„è¡¨ç¤º
 
