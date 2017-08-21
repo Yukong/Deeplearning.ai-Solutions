@@ -1,0 +1,916 @@
+1
+00:00:00.030 --> 00:00:02,959
+in the last video you saw what a single
+在上一期的视频中我们已经见过
+
+1
+00:00:02,959 --> 00:00:04,919
+hidden layer neural network looks like
+只有一个隐含层的神经网络
+
+2
+00:00:05,117 --> 00:00:06,463
+in this video let's go through the
+在这期的视频中让我们了解
+
+3
+00:00:06,678 --> 00:00:08,714
+details of exactly how this neural
+神经网络的输出
+
+4
+00:00:08,879 --> 00:00:10,443
+network computers outputs
+究竟是如何计算出来的
+
+5
+00:00:10,640 --> 00:00:13,764
+what you see is that is like logistic regression
+你所看到的是像逻辑回归（那样的运算过程）
+
+6
+00:00:13,951 --> 00:00:15,543
+but repeat of all the times
+但整个运算过程会重复很多遍
+
+7
+00:00:15,720 --> 00:00:19,803
+let's take a look so this is what's a two layer neural network
+看一下 这是一个两层的神经网络
+
+8
+00:00:20,024 --> 00:00:22,421
+let's go more deeply into exactly what
+让我们更深入地了解到底
+
+9
+00:00:22,636 --> 00:00:24,059
+this neural network compute
+神经网络是怎么计算的
+
+10
+00:00:24,276 --> 00:00:28,320
+now was said before that logistic regression the circle images（感觉这里英文错了）
+这是我们之前提及的逻辑回归 用圆圈表示
+
+11
+00:00:28,519 --> 00:00:31,507
+the regression really represents two steps of computation
+这个回归代表了计算的两个步骤
+
+12
+00:00:31,716 --> 00:00:33,238
+first you compute Z as follows
+首先你按步骤计算出Z
+
+13
+00:00:33,410 --> 00:00:37,725
+and in second you compute the activation as a sigmoid function of Z
+然后在第二步中你以sigmoid函数为激活函数计算Z（得出a）
+
+14
+00:00:37,945 --> 00:00:40,395
+so a neural network just does this a lot more times
+所以一个神经网络只是这样子做了好多次
+
+15
+00:00:40,592 --> 00:00:44,839
+let's start by focusing on just one of the nodes in the hidden layer
+让我们从关注隐含层的第一个神经元开始
+
+16
+00:00:45,023 --> 00:00:46,524
+and this look at the first node in the hidden layer
+看看这个隐含层的第一个神经元
+
+17
+00:00:46,718 --> 00:00:48,219
+so I've grayed out the other nodes for now
+我暂时先隐去其他的神经元
+
+18
+00:00:48,437 --> 00:00:50,981
+so similar to logistic regression on the left
+左边看上去和逻辑回归很相似
+
+19
+00:00:51,195 --> 00:00:54,444
+this node in a hidden layer does two steps of computation
+隐含层的这个神经元进行两步计算
+
+20
+00:00:54,648 --> 00:00:58,142
+right the first step we think it's as the left half of this node
+第一步 我们认为神经元的左半边
+
+00:00:58,142 --> 00:01:02,869
+it computes Z equals W transpose X plus B
+计算z = wTx + b
+
+21
+00:01:02,869 --> 00:01:06,096
+and the notation we'll use is um these
+这些我们会用到的标记
+
+22
+00:01:06,274 --> 00:01:08,580
+are all quantities associated with the first hidden layer
+都与第一隐含层数量相关
+
+23
+00:01:08,751 --> 00:01:10,777
+so that's why we have a bunch of square brackets there
+所以这就是我们为什么在那用了一组方括号
+
+24
+00:01:10,982 --> 00:01:13,775
+and this is the first node in the hidden layer
+这是隐含层的第一个神经元
+
+25
+00:01:13,988 --> 00:01:16,861
+so that's why we have the subscript one over there
+所以这就是为什么我们有一个下标1在那
+
+26
+00:01:17,041 --> 00:01:18,358
+so first it does that
+第一步就是这样
+
+27
+00:01:18,576 --> 00:01:20,331
+and then a second step is it computes
+然后第二步是计算
+
+28
+00:01:20,526 --> 00:01:25,000
+a11 equals sigmoid of z11 like so
+a[1]1 = sigmoid(z[1]1) 就像这样
+
+29
+00:01:25,000 --> 00:01:26,628
+so for both Z and a the
+所以对于z和a
+
+30
+00:01:26,846 --> 00:01:30,842
+notational convention is that a Li the L
+按惯例记号是a[l]i
+
+31
+00:01:31,045 --> 00:01:34,023
+here in superscript square brackets refers to layer number
+这里上标方括号表示层数
+
+32
+00:01:34,247 --> 00:01:37,813
+and the i subscript here refers to the nodes in that layer
+而下标i则表示层中的第几个神经元
+
+33
+00:01:38,013 --> 00:01:41,230
+so then we will be looking at is layer 1 that is a hidden layer
+然后接下来我们看这是第一层 即隐含层
+
+34
+00:01:41,480 --> 00:01:44,325
+node 1 so that's why the superscript and
+它的第一个神经元 这就是为什么上标和
+
+35
+00:01:44,527 --> 00:01:46,102
+subscript were on both 1 1
+和下标都是1 1
+
+36
+00:01:46,319 --> 00:01:49,566
+so that little circle that first node in neural network
+所以这个小圆圈 即神经网络的第一个神经元
+
+37
+00:01:49,789 --> 00:01:52,514
+represents carrying out these two steps of computation
+表示着执行计算的两个步骤
+
+38
+00:01:52,710 --> 00:01:55,509
+now let's look at the second node in neural network the
+现在让我们看看神经网络的第二个神经元
+
+39
+00:01:55,700 --> 00:01:58,317
+second node in the hidden layer of in neural network
+即神经网络中隐含层的第二个神经元
+
+40
+00:01:58,525 --> 00:02:01,223
+similar to the logistic regression unit on the left
+与左边的逻辑回归单元类似
+
+41
+00:02:01,455 --> 00:02:04,917
+this little circle represents two steps of computation
+这个小圆圈代表了计算的两个步骤
+
+42
+00:02:05,125 --> 00:02:06,701
+the first step is compute Z
+第一步是计算Z
+
+43
+00:02:06,907 --> 00:02:10,253
+this is still layer 1 but now the second node
+这还是在第一层 但是是第二个神经元
+
+44
+00:02:10,480 --> 00:02:13,483
+equals W transpose X plus B
+= wT x + b
+
+45
+00:02:13,661 --> 00:02:18,865
+and then a 12 equals Sigma z12 and
+然后a[1]2 = sigmoid(z[1]2)
+
+46
+00:02:19,100 --> 00:02:21,578
+again feel free to pause the video if you want
+再次 你可以选择暂停视频如果你想
+
+47
+00:02:21,758 --> 00:02:25,134
+but you can double check that the superscript and subscript notation
+这样你就可以再次查看标记的上标和下标
+
+48
+00:02:25,335 --> 00:02:28,785
+is consistent with what we have written here above in purple
+和我们上面所写的是保持一致的
+
+49
+00:02:28,983 --> 00:02:31,780
+so we've talk through the first two hidden units
+所以我们已经讨论了隐含层的前两个神经元
+
+50
+00:02:32,004 --> 00:02:34,824
+in the neural network on hidden units three and four
+在神经网络中 第三四个
+
+51
+00:02:35,026 --> 00:02:36,927
+also represents some computations
+也是表示同样的计算
+
+52
+00:02:37,117 --> 00:02:40,111
+so now let me take this pair of equations
+现在让我们把这对等式
+
+53
+00:02:40,307 --> 00:02:42,546
+and this pair of equations
+还有这对等式
+
+54
+00:02:42,748 --> 00:02:44,417
+and let's copy them to the next slide
+把他们复制到下一个幻灯片中
+
+55
+00:02:44,605 --> 00:02:45,868
+so here's our network and
+这是我们的神经网络
+
+56
+00:02:46,088 --> 00:02:48,908
+here's the first and there's a second equations
+这是第一个等式 这是第二个等式
+
+57
+00:02:49,118 --> 00:02:54,386
+they were worked on previously for the first and the second hidden units
+他们之前已经在隐含层的第一二个神经元中被计算过了
+
+58
+00:02:54,386 --> 00:02:58,035
+if you then go through and write out the corresponding equations
+如果你接下去看并且写出相应的等式
+
+59
+00:02:58,130 --> 00:03:00,281
+for the third and fourth hidden units
+对应于第三 第四个隐含层单元
+
+60
+00:03:00,481 --> 00:03:01,405
+you get the following
+你就会得到下面的这些（等式）
+
+61
+00:03:01,615 --> 00:03:03,791
+and let's make sure this notation is clear
+让我们确认下这个记号
+
+62
+00:03:04,002 --> 00:03:09,222
+this is the vector W 11 this is a vector transpose x ok
+这是向量w[1]1 这个向量的转置 x
+
+63
+00:03:09,429 --> 00:03:11,514
+so that's what the superscript T there
+那上面的上标T
+
+64
+00:03:11,739 --> 00:03:13,347
+represents this is a vector transpose
+表示这是一个向量的转置
+
+65
+00:03:13,629 --> 00:03:14,705
+now as you might have guessed
+现在就像你可能所猜想的那样
+
+66
+00:03:14,893 --> 00:03:16,997
+if you're actually implementing in neural network
+如果你确实在神经网络中执行
+
+67
+00:03:17,189 --> 00:03:19,993
+doing this with a for loop seems really inefficient
+用for循环来做这些看起来真的很低效
+
+68
+00:03:20,178 --> 00:03:21,631
+so what we're going to do is
+所以接下来我们要做的就是
+
+69
+00:03:21,812 --> 00:03:24,628
+take these four equations and vectorize
+把这四个等式向量化
+
+70
+00:03:24,819 --> 00:03:28,744
+so I'm going to start by showing how to compute Z as a vector
+我将从展示如何把Z当做一个向量计算开始
+
+71
+00:03:28,975 --> 00:03:30,665
+it turns out you could do it as follows
+结果显示 你可以按接下来的（方法）做
+
+72
+00:03:30,859 --> 00:03:34,549
+let me take these WS and stack them into a matrix
+让我们把这些w们堆积起来形成一个矩阵
+
+73
+00:03:34,748 --> 00:03:37,730
+then you have W 1 1 transpose
+然后你就有w[1]1转置
+
+74
+00:03:37,779 --> 00:03:40,913
+so that say a row vector oh that's a column vector transpose
+所以这是这个行向量（口误） 这是一个列向量的转置
+
+75
+00:03:41,316 --> 00:03:42,082
+gives you a row vector
+变为一个行向量
+
+76
+00:03:42,176 --> 00:03:48,681
+then W 1 2 transpose W 1 3 transpose and W 1 4 transpose
+然后 w[1]2转置 w[1]3转置以及w[1]4的转置
+
+77
+00:03:48,731 --> 00:03:52,707
+and so this by stacking those four W vectors together
+把这四个w向量堆积在一起
+
+78
+00:03:52,896 --> 00:03:54,344
+you end up with a matrix
+你会得出一个矩阵
+
+79
+00:03:54,543 --> 00:03:56,266
+so another way to think of this is that
+另一个看待这个的方法是
+
+80
+00:03:56,484 --> 00:03:58,743
+we have for logistic regression unions there
+我们有四个逻辑回归单元
+
+81
+00:03:58,958 --> 00:04:00,896
+and each of the logistic regression unions
+且每一个逻辑回归单元
+
+82
+00:04:01,089 --> 00:04:03,145
+have a corresponding parameter vector W
+都有相对应的参数 向量w
+
+83
+00:04:03,355 --> 00:04:05,626
+and by stacking those four vectors together
+把这四个向量堆积在一起
+
+84
+00:04:05,846 --> 00:04:08,579
+you end up with this four by three matrix
+你会得出这个4 × 3 的矩阵
+
+85
+00:04:09,180 --> 00:04:11,293
+so if you then take this matrix and
+然后如果你把这个矩阵
+
+86
+00:04:11,487 --> 00:04:16,252
+multiply it by your input features x1 x2 x3 you end up with
+乘以你的输入 特征 x1 x2 x3 你会得出
+
+87
+00:04:16,347 --> 00:04:19,247
+by our matrix multiplication works you end up with
+从我们的矩阵乘法中你会得出
+
+88
+00:04:19,448 --> 00:04:28,449
+W11 transpose x W21 transpose X of W31 transpose X W41 transpose X
+w[1]1转置x w[1]2转置x w[1]3转置x w[1]4转置x
+
+89
+00:04:28,628 --> 00:04:30,742
+and then let's not forget the bs
+然后别忘记了b们
+
+90
+00:04:30,951 --> 00:04:33,129
+so we now add to this a vector
+让我们现在加上一个向量
+
+91
+00:04:33,410 --> 00:04:40,476
+b[1]1 b[1]2 b[1]3 b[1]4 so that they see this
+b[1]1 b[1]2 b[1]3 b[1]4 所以他们看起来这样
+
+92
+00:04:40,686 --> 00:04:45,999
+then this is b[1]1 b[1]2 b[1]3 b[1]4
+然后 b[1]1 b[1]2 b[1]3 b[1]4
+
+93
+00:04:46,217 --> 00:04:49,605
+and so you see that each of the four rows of this outcome
+然后你会看到这四行的结果
+
+94
+00:04:49,814 --> 00:04:52,692
+correspond exactly to each of these four rows
+恰好对应于这四行（口误）
+
+95
+00:04:52,890 --> 00:04:55,031
+of each these four quantities that we had above
+对应于上面的这四个等式
+
+96
+00:04:55,079 --> 00:04:57,655
+so in other words we've just shown that
+换句话说 我们刚刚展示了
+
+97
+00:04:57,877 --> 00:05:04,020
+this thing is therefore equal to Z11 Z12 Z13 Z14
+这个东西是等于z[1]1 z[1]2 z[1]3 z[1]4
+
+98
+00:05:04,247 --> 00:05:05,422
+right as defined here
+就如之前在这定义的
+
+99
+00:05:05,645 --> 00:05:07,288
+and maybe not surprisingly we're going to
+这可能并不奇怪 我们将
+
+100
+00:05:07,460 --> 00:05:09,485
+call this whole thing the vector Z1
+把这整个东西称作向量Z[1]
+
+101
+00:05:09,681 --> 00:05:12,996
+which is taken by stacking up these um individuals of z
+Z[1]是通过堆积这些单独的z
+
+102
+00:05:13,211 --> 00:05:14,917
+into a column vector
+放进一个列向量中
+
+103
+00:05:15,129 --> 00:05:17,629
+when we're vectorizing one of the rules of thumb
+当我们向量化时一条经验法则
+
+104
+00:05:17,831 --> 00:05:19,922
+that might help you navigate
+可能帮助你找到方向
+
+105
+00:05:19,972 --> 00:05:22,209
+this is that when we have different nodes in a layer
+就是当我们在一层中有不同的神经元
+
+106
+00:05:22,399 --> 00:05:23,754
+we stack them vertically
+那就纵向地堆积他们
+
+107
+00:05:23,956 --> 00:05:26,936
+so that's why when you have Z11 to Z14
+这就是为什么当你有Z[1]1~Z[1]4
+
+108
+00:05:27,129 --> 00:05:30,212
+those correspond to four different nodes in the hidden layer
+对应隐含层4个不同的神经元
+
+109
+00:05:30,421 --> 00:05:34,473
+and so we stack these four numbers vertically to form the vectors Z1
+我们把这四个数纵向堆积以形成向量Z[1]
+
+110
+00:05:34,702 --> 00:05:36,963
+and to use one more piece of notation（英文错了，翻译是猜的）
+再说下这个标记
+
+111
+00:05:37,183 --> 00:05:39,911
+this 4 by 3 matrix here which we obtained by
+这个4×3的矩阵是我们通过
+
+112
+00:05:40,122 --> 00:05:44,404
+stacking the lower case you know W11 W12 and so on
+堆积小写的你懂的 w[1]1 w[1]2 等等 形成的
+
+113
+00:05:44,623 --> 00:05:47,869
+we're going to call this matrix W capital 1
+我们将称呼这个矩阵为大写的W[1]
+
+114
+00:05:48,073 --> 00:05:52,461
+and similarly this vector we going to call B superscript 1 square bracket
+类似的这个矩阵被称为B上标[1]
+
+115
+00:05:52,500 --> 00:05:54,418
+and so this is a 4 by 1 vector
+所以这是个4×1的向量
+
+116
+00:05:54,465 --> 00:05:59,193
+so now we've computed Z using this vector matrix notation
+所以现在我们计算Z通过运用向量或矩阵标记
+
+117
+00:05:59,405 --> 00:06:02,656
+the last thing we need to do is also compute these values of a
+最后一件需要做的事是计算这些a的值
+
+118
+00:06:02,887 --> 00:06:06,867
+and so probably won't surprise you to see that we're going to define a1
+所以你应该不会惊讶 我们要把a[1]定义为
+
+119
+00:06:07,148 --> 00:06:13,092
+as just stacking together those activation values a11 to a14
+a[1]1~a[1]4这些激活后的值的堆积
+
+120
+00:06:13,293 --> 00:06:17,772
+so just take these 4 values and stack them together in a vector called a1
+所以把这四个值堆积在一个向量里就形成a[1]
+
+121
+00:06:17,991 --> 00:06:20,676
+and this is going to be sigmoid of z1
+这里就会有sigmoid(z[1])
+
+122
+00:06:20,893 --> 00:06:23,060
+where there's been implementation of the
+这里面，它应用
+
+123
+00:06:23,281 --> 00:06:25,638
+sigmoid function that takes in the four elements of Z
+sigmoid函数于Z的四个元素
+124
+00:06:25,849 --> 00:06:27,974
+ and applies the sigmoid
+也就相当于把sigmoid函数
+
+125
+00:06:28,186 --> 00:06:30,361
+function element wise to it
+作用于z[1]
+
+126
+00:06:30,564 --> 00:06:32,775
+so just a recap we figured out
+概括一下 我们发现
+
+127
+00:06:32,982 --> 00:06:38,299
+that z1 is equal to W 1 times the vector X plus the vector B1
+Z[1] = W[1] × X + b[1]
+
+128
+00:06:38,485 --> 00:06:41,995
+and a 1 is sigmoid of(吴说的是乘以) z 1
+而a[1] = sigmoid(z[1])
+
+129
+00:06:42,203 --> 00:06:45,177
+let's just copy this to the next slide and what we see is that
+让我们把这些复制到下一个幻灯片 可以看到
+
+130
+00:06:45,389 --> 00:06:47,986
+for the first layer of the neural network given an input X
+对于神经网络的第一层 给予一个输入X
+
+131
+00:06:48,184 --> 00:06:51,871
+we have that z1 is equal to w1 times X plus B 1
+我们得出z[1] = W[1] × X + b[1]
+
+132
+00:06:52,081 --> 00:06:58,006
+and a 1is sigmoid of z1 and the dimensions of this are 4 by 1
+而a[1] = sigmoid(Z1) 而它的维度是4×1
+
+133
+00:06:58,215 --> 00:07:02,634
+equals this is a 4 by 3 matrix times a 3 by 1 vector
+等于 这是一个4×3的矩阵乘以1一个3×1的向量
+
+134
+00:07:02,834 --> 00:07:07,688
+plus a 4by 1 vector B and this is 4 by 1 same dimensions
+加上一个4×1的向量b  这个同样是4×1的维度
+
+135
+00:07:07,916 --> 00:07:12,090
+and remember that we said X is equal to a 0
+记得我们曾说过X是等于a[0]
+
+136
+00:07:12,269 --> 00:07:15,925
+right just like Y hat is also equal to a 2
+就像y^等于a[2]
+
+137
+00:07:16,136 --> 00:07:20,699
+so if you want you can actually take this X and replace it with a 0
+如果你确实想把X用a[0]代替
+
+138
+00:07:20,885 --> 00:07:25,380
+since a 0 is if you want as an alias for the vector of input futures X
+因为a[0]可以作为输入特征x这个向量的别名
+
+139
+00:07:25,594 --> 00:07:28,375
+now through a similar derivation you can figure out
+通过相似的衍生你会发现
+
+140
+00:07:28,578 --> 00:07:33,382
+that the representation for the next layer can also be written similarly
+后一层的表示同样可以写成类似的形式
+
+141
+00:07:33,428 --> 00:07:38,248
+well what the output layer does is it has associated with it
+而最后一层所做的事是与
+
+142
+00:07:38,296 --> 00:07:40,541
+so the parameters W 2 and B 2
+参数W[2] b[2]相关
+
+143
+00:07:40,748 --> 00:07:44,286
+so W 2 in this case is going to be a 1 by 4 matrix
+这样W[1]就是一个1×4的矩阵
+
+144
+00:07:44,519 --> 00:07:47,097
+and B 2 is just a real number as 1 by 1 and
+而B[2]就是一个实数 即1×1（的矩阵）
+
+145
+00:07:47,190 --> 00:07:51,914
+so Z2 is going to be a real numbers right as a 1 by 1 matrix
+所以Z[2]是一个实数 即一个1×1的矩阵
+
+146
+00:07:52,102 --> 00:07:57,439
+is going to be a 1 by 4 thing times a was 4 by 1 plus B2 is 1 by 1
+这里就是一个 1×4的矩阵乘以一个4乘1的加上b[2] 1×1
+
+147
+00:07:57,648 --> 00:07:59,543
+and so this gives you just a real number
+这最后得出了一个实数
+
+148
+00:07:59,749 --> 00:08:01,883
+and if you think of this last output unit
+如果你把这最后的输出单元
+
+149
+00:08:02,110 --> 00:08:04,552
+as just being analogous to logistic regression
+看作是逻辑回归的类似物
+
+150
+00:08:04,644 --> 00:08:06,330
+which had parameters W and b
+它有着参数W和b
+
+151
+00:08:06,514 --> 00:08:10,681
+on W really plays analogous role to
+W实际上是和
+
+152
+00:08:10,882 --> 00:08:16,064
+W 2 transpose or W 2's really W transpose and B is equal to B 2
+W2相似，也就是W转置就是W[2] b则等于b[2]
+
+153
+00:08:16,281 --> 00:08:18,269
+right similar to you know
+就像你所知道的
+
+154
+00:08:18,468 --> 00:08:21,586
+cover up the left of this network and ignore all that for now
+把网络左边部分盖住 先忽略这些
+
+155
+00:08:21,781 --> 00:08:25,845
+then this is just this last output unit there's a lot like logistic regression
+那么最后的输出单元就想逻辑回归一样
+
+156
+00:08:25,893 --> 00:08:29,401
+except that instead of writing the parameters as WMV
+除了把参数W和B
+
+157
+00:08:29,448 --> 00:08:35,269
+we're writing them as W 2 and B 2 with dimensions one by four and one by one so
+写成W[2] 和 b[2] 其维度分别为1×4和1×1
+
+158
+00:08:35,469 --> 00:08:38,523
+just a recap for logistic regression
+归纳一下 对于逻辑回归
+
+159
+00:08:38,717 --> 00:08:41,610
+to implement the output or implement prediction
+为了执行输出或者执行预测
+
+160
+00:08:41,059 --> 00:08:44,725
+you compute Z equals W transpose X plus B
+你要计算Z = W转置 X + b
+
+161
+00:08:44,924 --> 00:08:50,110
+and a y hat equals a equals sigmoid of z
+和 a y^ = a = sigmo(z)
+
+162
+00:08:50,335 --> 00:08:54,460
+when you have a neural network who have one hidden layer
+当你有一个有一层隐含层的神经网络
+
+163
+00:08:54,675 --> 00:08:58,627
+what you need to implement to computers output is just the four equations
+你需要去施行以得到输出的是这四个等式
+
+164
+00:08:58,819 --> 00:09:00,544
+and you can think of this as
+且你可以把这看成是
+
+165
+00:09:00,728 --> 00:09:02,994
+a vectorized implementation of computing
+一个向量化的计算过程
+
+166
+00:09:03,201 --> 00:09:07,814
+the output of first these four logistical regression units and hidden layer
+计算出这四个逻辑回归单元和隐含层的结果
+
+
+168
+00:09:07,814 --> 00:09:08,361
+that's what this does 
+这就是这（两个等式）做的 
+169
+00:09:08,361 --> 00:09:12,888
+and then this which is regression in the output layer 
+而这个输出层的回归结果
+170
+00:09:12,888 --> 00:09:13,666
+which is what this does
+是这（两个等式做的）
+171
+00:09:13,883 --> 00:09:15,726
+I hope this description made sense
+我希望这些描述易于理解
+
+172
+00:09:15,820 --> 00:09:19,000
+but takeaway is to compute the output of this neural network
+但总的说来要想计算出输出
+
+173
+00:09:19,094 --> 00:09:21,529
+all you need is those four lines of code
+你所需要的只是这四行代码
+
+174
+00:09:21,727 --> 00:09:25,693
+so now you've seen how given a single input feature vector at
+现在 你已经讲过见过如何给出一个单独的输入特征向量
+
+175
+00:09:25,888 --> 00:09:29,531
+you can with four lines of code compute the outputs of this neural Network
+你可以运用四行代码计算出这个神经网络的输出
+
+176
+00:09:29,737 --> 00:09:33,555
+um similar to what we did for logistic regression will also want to
+类似的 我们对逻辑回归所做的一样也想
+
+177
+00:09:33,770 --> 00:09:36,083
+vectorize across multiple training examples
+把整个训练样本都向量化
+
+178
+00:09:36,129 --> 00:09:41,333
+and we'll see that by stacking up training examples in different column in the matrix
+我们会发现通过在矩阵的不同列堆积训练样本
+
+179
+00:09:41,421 --> 00:09:43,425
+or just slight modification to this
+或者只是稍微的修改
+
+180
+00:09:43,619 --> 00:09:46,183
+you also similar to what you saw in which is regression
+类似于在逻辑回归中看到的那样
+
+181
+00:09:46,378 --> 00:09:51,751
+be able to compute the output of this neural network not just on one example at a time
+一次能够计算出不止一个样本的神经网络输出
+
+182
+00:09:51,916 --> 00:09:54,277
+but to your say your entire training set at a time
+而是能一次性计算你的整个训练集
+
+183
+00:09:54,475 --> 00:09:57,507
+so let's see the details of that in the next video
+让我们在下一期中了解这些细节
+

@@ -1,0 +1,470 @@
+1
+00:00:00,030 --> 00:00:02,639
+welcome back in this week's you learn to
+欢迎回来 本周的视频你将学习
+
+2
+00:00:02,639 --> 00:00:05,279
+implement a neural network before diving
+如何实现一个神经网络
+
+3
+00:00:05,279 --> 00:00:07,440
+into the technical details I wanted in
+在我们深入学习具体技术之前
+
+4
+00:00:07,440 --> 00:00:09,059
+this video to give you a quick overview
+我希望快速的带你预览一下
+
+5
+00:00:09,059 --> 00:00:10,889
+of what you'll be seeing in this week's
+本周你将会学到的东西
+
+6
+00:00:10,889 --> 00:00:13,679
+videos so if you don't follow all the
+如果这个视频中的某些细节
+
+7
+00:00:13,679 --> 00:00:15,389
+details in this video don't worry about
+你没有看懂 不用担心
+
+8
+00:00:15,389 --> 00:00:17,100
+it we'll delve in the technical details
+我们将在后面的几个视频中
+
+9
+00:00:17,100 --> 00:00:19,680
+in the next few videos but for now let's
+深入讨论技术细节 现在我们
+
+10
+00:00:19,680 --> 00:00:21,660
+give a quick overview of how you
+开始快速浏览一下如何
+
+11
+00:00:21,660 --> 00:00:24,269
+implement in your network last week we
+实现神经网络
+
+12
+00:00:24,269 --> 00:00:26,250
+had talked about logistic regression and
+上周我们讨论了logistic回归
+
+13
+00:00:26,250 --> 00:00:30,300
+we saw how this model corresponds to the
+我们了解了这个模型如何
+
+14
+00:00:30,300 --> 00:00:32,430
+following computation graph where you
+与下面这个计算图建立联系
+
+15
+00:00:32,430 --> 00:00:35,520
+need to put the features X and parameters
+你需要输入特征X
+
+16
+00:00:35,520 --> 00:00:38,370
+w and b that allows you to compute z which
+参数w和b 然后你就可以计算出z
+
+17
+00:00:38,370 --> 00:00:40,620
+is then used to compute a and we were
+接下来使用z计算出a
+
+18
+00:00:40,620 --> 00:00:44,219
+using a interchangeably with this output
+我们将a的符号换为表示输出的y^
+
+19
+00:00:44,219 --> 00:00:47,190
+Y hat and then you can compute the loss
+接下来计算损失函数l
+
+20
+00:00:47,190 --> 00:00:51,059
+function l a neural network looks like this
+神经网络就是这个样子
+
+21
+00:00:51,059 --> 00:00:52,920
+and as I'd already previously alluded
+我之前已经提到过了
+
+22
+00:00:52,920 --> 00:00:54,930
+you can form a neural network by
+你可以把
+
+23
+00:00:54,930 --> 00:00:57,239
+stacking together a lot of little
+许多sigmoid单元堆叠起来
+
+24
+00:00:57,239 --> 00:01:00,420
+sigmoid units whereas previously this
+形成一个神经网络
+
+25
+00:01:00,420 --> 00:01:02,969
+node corresponds to two steps of
+这个节点包含了之前讲的计算的两个步骤
+
+26
+00:01:02,969 --> 00:01:04,920
+calculations the first three compute the
+首先 计算出z值
+
+27
+00:01:04,920 --> 00:01:07,680
+z value second is it computes this a
+然后计算a值
+
+28
+00:01:07,680 --> 00:01:11,640
+value in this neural network this stack of
+这个神经网络中
+
+29
+00:01:11,640 --> 00:01:14,549
+notes will correspond to a Z like
+这些节点首先
+
+30
+00:01:14,549 --> 00:01:17,880
+calculation like this as well as an a
+像这样计算z
+
+31
+00:01:17,880 --> 00:01:21,720
+like calculation like that and then that
+接着像这样计算a
+
+32
+00:01:21,720 --> 00:01:24,090
+node will correspond to another Z and
+这个节点同样
+
+33
+00:01:24,090 --> 00:01:26,790
+another a like calculation so the
+计算了z和a
+
+34
+00:01:26,790 --> 00:01:29,040
+notation which we should use later will
+因此 我们稍后会使用
+
+35
+00:01:29,040 --> 00:01:30,000
+look like this
+下面这些记号
+
+36
+00:01:30,000 --> 00:01:32,759
+first what inputs the features X
+首先 X表示输入特征
+
+37
+00:01:32,759 --> 00:01:35,430
+together with some parameters W and b
+W和b是参数
+
+38
+00:01:35,430 --> 00:01:40,320
+and this will allow you to compute z1 so
+通过这些计算出z1
+
+39
+00:01:40,320 --> 00:01:42,930
+new notation that one should use is that
+我们会使用新的符号
+
+40
+00:01:42,930 --> 00:01:45,600
+we'll use a superscript square bracket 1
+上标 方括号 1
+
+41
+00:01:45,600 --> 00:01:48,689
+to refer to quantities associated with
+表示与这些节点相关的数
+
+42
+00:01:48,689 --> 00:01:50,759
+this stack of nodes called a layer and
+这些节点被称为一层
+
+43
+00:01:50,759 --> 00:01:53,579
+then later we'll use superscript square
+我们用上标
+
+44
+00:01:53,579 --> 00:01:56,280
+bracket 2 to refer to quantities
+方括号 2 表示
+
+45
+00:01:56,280 --> 00:01:58,920
+associated with that really that's
+和这个节点相关的数
+
+46
+00:01:58,920 --> 00:02:01,200
+called another layer of the network and
+这是网络的另一个层
+
+47
+00:02:01,200 --> 00:02:04,140
+the superscript square brackets like we
+我们这里使用的上标方括号
+
+48
+00:02:04,140 --> 00:02:06,719
+have here are not to be confused with
+不会和我们之前用来表示
+
+49
+00:02:06,719 --> 00:02:10,319
+the superscript round brackets which we
+单个的训练样本的
+
+50
+00:02:10,319 --> 00:02:12,390
+used to refer to individual training
+上标圆括号混淆
+
+51
+00:02:12,390 --> 00:02:14,080
+examples so whereas X
+就是说我使用
+
+52
+00:02:14,080 --> 00:02:16,300
+supersu round bracket I referred to the
+X上标圆括号表示
+
+53
+00:02:16,300 --> 00:02:19,030
+Ith trained example superscript square
+第i个训练样本
+
+54
+00:02:19,030 --> 00:02:21,340
+bracket 1 and 2 refers to these
+上标方括号1 2
+
+55
+00:02:21,340 --> 00:02:25,570
+different layers layer 1 and layer 2
+表示不同的层 这是网络的第一层
+
+56
+00:02:25,570 --> 00:02:28,600
+in this network but they're going on
+这是第二层
+
+57
+00:02:28,600 --> 00:02:32,860
+after computing z1 similar to logistic
+类似logistic回归
+
+58
+00:02:32,860 --> 00:02:35,350
+regression there will be a computation
+在计算了z1后
+
+59
+00:02:35,350 --> 00:02:39,000
+to compute a1 and that's just some
+需要使用sigmoid(z1)计算a1
+
+60
+00:02:39,000 --> 00:02:44,550
+sigmoid of z1 and then you compute z2
+接下来你需要使用
+
+61
+00:02:44,550 --> 00:02:49,270
+using another linear equation and then
+另外一个线性方程计算z2
+
+62
+00:02:49,270 --> 00:02:54,610
+compute a2 and a2 is the final output
+接着计算a2 a2就是整个神经网络
+
+63
+00:02:54,610 --> 00:02:57,370
+of the neural network and will also be
+最终的输出
+
+64
+00:02:57,370 --> 00:02:59,890
+used interchangeably with Y hat so I
+我用y^表示网络的输出
+
+65
+00:02:59,890 --> 00:03:01,390
+know there was a lot of details but the
+我知道其中有很多细节
+
+66
+00:03:01,390 --> 00:03:03,730
+key intuition to take away is that
+有一点非常难以理解
+
+67
+00:03:03,730 --> 00:03:06,460
+whereas for logistic regression we had
+logistic回归中
+
+68
+00:03:06,460 --> 00:03:09,220
+this z followed by a calculation and
+z后面直接计算a
+
+69
+00:03:09,220 --> 00:03:11,590
+this neural network here we just do it
+而这个神经网络中
+
+70
+00:03:11,590 --> 00:03:13,780
+multiple times as a z followed by a
+我们只是反复的计算z
+
+71
+00:03:13,780 --> 00:03:16,390
+calculation and a z followed by a
+然后计算a 然后又计算z 然后又计算a
+
+72
+00:03:16,390 --> 00:03:19,959
+calculation and then you finally compute
+最后你得到了最终的输出
+
+73
+00:03:19,959 --> 00:03:22,600
+the loss at the end and you remember
+你应该记得
+
+74
+00:03:22,600 --> 00:03:24,670
+that for the logistic regression we had in
+在logistic中
+
+75
+00:03:24,670 --> 00:03:27,959
+some backward calculation in order to
+有一些从后向前的计算
+
+76
+00:03:27,959 --> 00:03:30,970
+compute derivatives they computing
+用来计算导数
+
+77
+00:03:30,970 --> 00:03:34,750
+da dz and so on so in the same way in
+da dz等 同样
+
+78
+00:03:34,750 --> 00:03:36,580
+a neural network we'll end up doing a
+在神经网络中
+
+79
+00:03:36,580 --> 00:03:38,860
+backward calculation that looks like
+我们也有从后向前的计算
+
+80
+00:03:38,860 --> 00:03:44,910
+this and we jump you end up computing
+看起来就像这样
+
+81
+00:03:44,910 --> 00:03:50,890
+da2 dz2 that allows you to compute so
+你把da2 dz2计算出来之后
+
+82
+00:03:50,890 --> 00:03:57,850
+dw2 db2 and so on in this order the right
+才能计算dw2 db2等
+
+83
+00:03:57,850 --> 00:04:01,090
+to left backward calculation that is
+按红色箭头表示的那样
+
+84
+00:04:01,090 --> 00:04:05,020
+denoting with the red arrows
+从右到左反向计算
+
+85
+00:04:05,020 --> 00:04:07,970
+So that's quick overview of what a neural network
+刚才只是带你大概了解了一下神经网络
+
+86
+00:04:07,970 --> 00:04:09,770
+looks like but we take the logistic
+大概是什么样子的 我们把logistic回归
+
+87
+00:04:09,770 --> 00:04:12,950
+regression and repeating it twice I know
+重复两次
+
+88
+00:04:12,950 --> 00:04:14,630
+there was a lot of new notation lot of
+我清楚多了很多新的符号
+
+89
+00:04:14,630 --> 00:04:16,880
+new details don't worry about to get and
+新的细节 不用担心如果你没有理解
+
+90
+00:04:16,880 --> 00:04:18,980
+follow everything we'll go into the
+在接下来的视频中
+
+91
+00:04:18,980 --> 00:04:20,900
+details most slowly in the next few
+我们会仔细的讨论具体细节
+
+92
+00:04:20,900 --> 00:04:22,820
+videos so let's go on to the next video
+继续看下一个视频吧
+
+93
+00:04:22,820 --> 00:04:24,620
+we'll stop to talk about the neural
+我们将会开始讨论
+
+94
+00:04:24,620 --> 00:04:27,850
+network representation
+神经网络的表示
+

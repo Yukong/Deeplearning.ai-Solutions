@@ -31,12 +31,15 @@
 |02.10    | Gradient Descent on m Examples                | 庞伟                     | 庞伟                | AcceptedDoge |
 |02.11    | Vectorization                                 | 杨先圣                   | 杨先圣               | 李智锋       |
 |02.12    | More Examples of Vectorization                | 舒正英                   | 舒正英              | AcceptedDoge |
-|02.13    | Vectorizing Logistic Regression               | 张乐亨                   | 张乐亨              | AcceptedDoge |
+|02.13    | Vectorizing Logistic Regression               | hengC-137               | hengC-137          | AcceptedDoge |
 |02.14    | Vectorizing Logistic Regression's Gradient Output| 李晶                  | 李晶                | AcceptedDoge |
 |02.15    | Broadcasting in Python                        | 李晶                     | 李晶                | AcceptedDoge |
 |02.16    | A note on python/numpy vectors                | 张雲飞                   | 张雲飞              | AcceptedDoge |
 |02.17    | Quick tour of Jupyter/iPython Notebooks       | 庞伟                     | 舒正英              | AcceptedDoge |
 |02.18    | Explanation of logistic regression cost function (optional) | 彭世锦     | 彭世锦              | AcceptedDoge |
+|03.01    | Neural Networks Overview                      | 李晶                     | 李晶                | AcceptedDoge |
+|03.02    | Neural Network Representation                 | 谢小彬                   | 谢小彬              | 黄海广        |
+|03.03    | Computing a Neural Network's Output           | hengC-137               | hengC-137           | 李智锋        |
 
 
 
