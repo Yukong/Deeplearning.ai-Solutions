@@ -1,13 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
-    <file url="file://$PROJECT_DIR$/srt/01.Neural-Networks-and-Deep-Learning/02.Neural-Networks-Basics/04.Gradient Descent.srt" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/srt/01.Neural-Networks-and-Deep-Learning/02.Neural-Networks-Basics/05.Derivatives.srt" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/srt/01.Neural-Networks-and-Deep-Learning/02.Neural-Networks-Basics/06.More Derivative Examples.srt" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/srt/01.Neural-Networks-and-Deep-Learning/02.Neural-Networks-Basics/12.More Examples of Vectorization.srt" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/srt/01.Neural-Networks-and-Deep-Learning/02.Neural-Networks-Basics/14.Vectorizing Logistic Regression's Gradient Output.srt" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/srt/01.Neural-Networks-and-Deep-Learning/02.Neural-Networks-Basics/15.Broadcasting in Python.srt" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/srt/01.Neural-Networks-and-Deep-Learning/02.Neural-Networks-Basics/16.A note on python_numpy vectors.srt" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/srt/01.Neural-Networks-and-Deep-Learning/02.Neural-Networks-Basics/17.Quick tour of Jupyter_iPython Notebooks.srt" charset="GBK" />
+    
   </component>
 </project>
