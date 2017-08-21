@@ -783,8 +783,8 @@ then this is just this last output unit there's a lot like logistic regression
 
 156
 00:08:25,893 --> 00:08:29,401
-except that instead of writing the parameters as WMV
-除了把参数W和B
+except that instead of writing the parameters as W and b
+除了把参数W和b
 
 157
 00:08:29,448 --> 00:08:35,269
