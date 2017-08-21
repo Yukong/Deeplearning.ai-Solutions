@@ -2,76 +2,76 @@
 00:00:00,670 --> 00:00:04,870
 In the previous video, you saw
 a few examples of how vectorization
-´ÓÉÏ½ÚÊÓÆµÖĞ£¬ÄãÖªµÀÁËÔõÑùÊ¸Á¿»¯
+ä»ä¸ŠèŠ‚è§†é¢‘ä¸­ï¼Œä½ çŸ¥é“äº†æ€æ ·çŸ¢é‡åŒ–
 
 
 2
 00:00:04,870 --> 00:00:08,140
 by using built-in functions and
 by avoiding explicit for
-Í¨¹ınumpyÄÚÖÃº¯ÊıÒÔ¼°±Ü¿ªÑ­»·loop·½Ê½
+é€šè¿‡numpyå†…ç½®å‡½æ•°ä»¥åŠé¿å¼€å¾ªç¯loopæ–¹å¼
 
 3
 00:00:08,140 --> 00:00:11,210
 loops allows you to speed
 up your code significantly.
-ÓĞĞ§µÄÌá¸ß´úÂëËÙ¶È
+æœ‰æ•ˆçš„æé«˜ä»£ç é€Ÿåº¦
 
 4
 00:00:11,210 --> 00:00:12,870
 Let's take a look at a few more examples.
-ÏÂÃæ¿´¿´ÁíÍâµÄÒ»Ğ©Àı×Ó
+ä¸‹é¢çœ‹çœ‹å¦å¤–çš„ä¸€äº›ä¾‹å­
 
 5
 00:00:13,960 --> 00:00:17,950
 The rule of thumb to keep in mind is when
 you're programming your neural networks or
-¾­ÑéÌáĞÑÎÒ£¬µ±ÎÒÃÇÔÚĞ´Éñ¾­ÍøÂç³ÌĞòÊ±
+ç»éªŒæé†’æˆ‘ï¼Œå½“æˆ‘ä»¬åœ¨å†™ç¥ç»ç½‘ç»œç¨‹åºæ—¶
 
 6
 00:00:17,950 --> 00:00:21,240
 when you're programming logistic
 regression, whenever possible,
-»òÕßÔÚĞ´Âß¼­(logistic)»Ø¹é£¬»òÕßÆäËûÉñ¾­ÍøÂçÄ£ĞÍÊ±
+æˆ–è€…åœ¨å†™é€»è¾‘(logistic)å›å½’ï¼Œæˆ–è€…å…¶ä»–ç¥ç»ç½‘ç»œæ¨¡å‹æ—¶
 
 7
 00:00:21,240 --> 00:00:22,540
 avoid explicit for loops.
-Ó¦¸Ã±ÜÃâĞ´Ñ­»·(loop)Óï¾ä
+åº”è¯¥é¿å…å†™å¾ªç¯(loop)è¯­å¥
 
 8
 00:00:23,680 --> 00:00:27,470
 And it's not always possible
 to never use a for loop.
-ËäÈ»ÓĞÊ±Ğ´Ñ­»·(loop)ÊÇ²»¿É±ÜÃâµÄ
+è™½ç„¶æœ‰æ—¶å†™å¾ªç¯(loop)æ˜¯ä¸å¯é¿å…çš„
 
 9
 00:00:27,470 --> 00:00:31,670
 But when you can use a built-in function,
 or find some other way to compute
-µ«ÊÇÎÒÃÇ¿ÉÒÔÊ¹ÓÃ±ÈÈçnumpyÄÚÖÃº¯ÊıÈ¥¼ÆËã
+ä½†æ˜¯æˆ‘ä»¬å¯ä»¥ä½¿ç”¨æ¯”å¦‚numpyå†…ç½®å‡½æ•°å»è®¡ç®—
 
 10
 00:00:31,670 --> 00:00:37,120
 whatever you need, it'll often go faster
 than if you had an explicit for loop.
-µ±ÄãÕâÑùÊ¹ÓÃºó£¬³ÌĞòĞ§ÂÊ×ÜÊÇ¿ìÓÚÑ­»·(loop)
+å½“ä½ è¿™æ ·ä½¿ç”¨åï¼Œç¨‹åºæ•ˆç‡æ€»æ˜¯å¿«äºå¾ªç¯(loop)
 
 11
 00:00:37,120 --> 00:00:38,640
 Let's look at another example.
-ÈÃÎÒÃÇ¿´ÁíÍâÒ»¸öÀı×Ó
+è®©æˆ‘ä»¬çœ‹å¦å¤–ä¸€ä¸ªä¾‹å­
 
 12
 00:00:38,640 --> 00:00:45,735
 If ever you want to compute a vector
 u as the product of a matrix A and
-Èç¹ûÄãÏë¼ÆËãÏòÁ¿u = ¾ØÕóA³ËÒÔv (u=Av)
+å¦‚æœä½ æƒ³è®¡ç®—å‘é‡u = çŸ©é˜µAä¹˜ä»¥v (u=Av)
 
 13
 00:00:45,735 --> 00:00:50,251
 another vector v, then the definition of
-ÕâÊ±¾ØÕó³Ë·¨¶¨ÒåÎª
+è¿™æ—¶çŸ©é˜µä¹˜æ³•å®šä¹‰ä¸º
 
 14
 00:00:50,251 --> 00:00:55,283
@@ -83,313 +83,313 @@ Ui = sum_i sum_j A(ij) V(j)
 00:00:55,283 --> 00:01:00,202
 sum over j Aij VJ,
 that's how you define UI.
-£¨ÈçÍ¼ËùÊ¾£©ÕâÈ¡¾öÓÚÄãÔõÃ´¶¨ÒåU(i)Öµ
+ï¼ˆå¦‚å›¾æ‰€ç¤ºï¼‰è¿™å–å†³äºä½ æ€ä¹ˆå®šä¹‰U(i)å€¼
 
 16
 00:01:00,202 --> 00:01:05,511
 And so the non vectorization
 implementation of this
-Í¬ÑùÊ¹ÓÃ·ÇÊ¸Á¿»¯ÊµÏÖ
+åŒæ ·ä½¿ç”¨éçŸ¢é‡åŒ–å®ç°
 
 17
 00:01:05,511 --> 00:01:10,817
 would be to set U = np.zeros( n, 1), and
-U µÈÓÚ np.zeros(n,1) ²¢ÇÒ
+U ç­‰äº np.zeros(n,1) å¹¶ä¸”
 
 18
 00:01:10,817 --> 00:01:16,001
 then for i and so on,
 for j and so on, right.
-Í¨¹ıÁ½²ãÑ­»· for i :  for j:
+é€šè¿‡ä¸¤å±‚å¾ªç¯ for i :  for j:
 
 19
 00:01:16,001 --> 00:01:24,309
 And then u[i] += A[i][j] * v[j].
-µÃµ½ u[i] += A[i][j] * v[j].
+å¾—åˆ° u[i] += A[i][j] * v[j].
 
 20
 00:01:24,309 --> 00:01:29,053
 So now this has two for
 loops looping over both i and j.
-ÏÖÔÚ¾ÍÓĞÁËiºÍjµÄÁ½²ãÑ­»·
+ç°åœ¨å°±æœ‰äº†iå’Œjçš„ä¸¤å±‚å¾ªç¯
 
 21
 00:01:29,053 --> 00:01:30,680
 So that's a non vectorization.
-Õâ¾ÍÊÇ·ÇÊ¸Á¿»¯
+è¿™å°±æ˜¯éçŸ¢é‡åŒ–
 
 22
 00:01:30,680 --> 00:01:38,980
 The vectorized implementation
 would say u = np.A, v.
-Ê¸Á¿»¯·½Ê½¾Í¿ÉÒÔÓÃ u = np.dot(A,v)
+çŸ¢é‡åŒ–æ–¹å¼å°±å¯ä»¥ç”¨ u = np.dot(A,v)
 
 23
 00:01:38,980 --> 00:01:41,680
 And the implementation on
 the right the vectorized
-ÓÒ±ßÕâÖÖÊ¸Á¿»¯ÊµÏÖ·½Ê½
+å³è¾¹è¿™ç§çŸ¢é‡åŒ–å®ç°æ–¹å¼
 
 24
 00:01:41,680 --> 00:01:46,430
 version now eliminates two different for
 loops and it's going to be way faster.
-Ïû³ıÁËÁ½²ãÑ­»·Ê¹µÃ´úÂëÔËĞĞËÙ¶È¸ü¿ì
+æ¶ˆé™¤äº†ä¸¤å±‚å¾ªç¯ä½¿å¾—ä»£ç è¿è¡Œé€Ÿåº¦æ›´å¿«
 
 25
 00:01:46,430 --> 00:01:48,180
 Let's go through one more example.
-ÏÂÃæÍ¨¹ıÁíÒ»¸öÀı×Ó
+ä¸‹é¢é€šè¿‡å¦ä¸€ä¸ªä¾‹å­
 
 26
 00:01:48,180 --> 00:01:53,160
 Let's say you already have a vector
 v in memory and you want to
-Èç¹ûÄãÒÑ¾­ÓĞÒ»¸öÏòÁ¿ v
+å¦‚æœä½ å·²ç»æœ‰ä¸€ä¸ªå‘é‡ v
 
 27
 00:01:53,160 --> 00:01:57,430
 apply the exponential operation on
 every element of say it is vector v.
-²¢ÇÒÏëÒª¶ÔÏòÁ¿vµÄÃ¿¸öÔªËØ×öÖ¸Êı²Ù×÷
+å¹¶ä¸”æƒ³è¦å¯¹å‘é‡vçš„æ¯ä¸ªå…ƒç´ åšæŒ‡æ•°æ“ä½œ
 
 28
 00:01:57,430 --> 00:02:02,296
 So you compute u = vector,
 that's e to v1, e to the v2,
-µÃµ½ÏòÁ¿u µÈÓÚ eµÄv1 £¬ eµÄv2
+å¾—åˆ°å‘é‡u ç­‰äº eçš„v1 ï¼Œ eçš„v2
 
 29
 00:02:02,296 --> 00:02:07,090
 and so on down to e to the Vn.
-Ò»Ö±µ½eµÄvn ´Î·½
+ä¸€ç›´åˆ°eçš„vn æ¬¡æ–¹
 
 30
 00:02:07,090 --> 00:02:11,650
 So this would be a non-vectorized
 implementation, which is that first,
-ÕâÀïÊÇ·ÇÏòÁ¿»¯µÄÊµÏÖ·½Ê½
+è¿™é‡Œæ˜¯éå‘é‡åŒ–çš„å®ç°æ–¹å¼
 
 31
 00:02:11,650 --> 00:02:14,710
 you initialize u to a vector of zeroes.
-Ê×ÏÈÄã³õÊ¼»¯ÁËÏòÁ¿u = np.zeros(n,1)
+é¦–å…ˆä½ åˆå§‹åŒ–äº†å‘é‡u = np.zeros(n,1)
 
 32
 00:02:14,710 --> 00:02:19,760
 And then you have a for loop that
 computes the elements one at a time.
-²¢ÇÒÍ¨¹ıÑ­»·ÒÀ´Î¼ÆËãÃ¿¸öÔªËØ
+å¹¶ä¸”é€šè¿‡å¾ªç¯ä¾æ¬¡è®¡ç®—æ¯ä¸ªå…ƒç´ 
 
 33
 00:02:19,760 --> 00:02:26,240
 But it turns out that Python NumPy have
 many built in functions that allow you to
-µ«ÊÂÊµÖ¤Ã÷¿ÉÒÔÍ¨¹ıpythonµÄnumpyÄÚÖÃº¯Êı
+ä½†äº‹å®è¯æ˜å¯ä»¥é€šè¿‡pythonçš„numpyå†…ç½®å‡½æ•°
 
 34
 00:02:26,240 --> 00:02:32,660
 compute these vectors with just
 a single call to a single function.
-°ïÖúÄã¼ÆËãÕâÑùµÄµ¥¸öº¯Êı
+å¸®åŠ©ä½ è®¡ç®—è¿™æ ·çš„å•ä¸ªå‡½æ•°
 
 35
 00:02:32,660 --> 00:02:41,200
 So what I would do to implement
 this is import NumPy as np.
-ËùÒÔÎÒ»áÒıÈë(import) numpy È¡±ğÃûÎª(as) np
+æ‰€ä»¥æˆ‘ä¼šå¼•å…¥(import) numpy å–åˆ«åä¸º(as) np
 
 36
 00:02:41,200 --> 00:02:48,106
 And then what you just call
 u equals np.e to the (v).
-Ö´ĞĞ u = np.exp(v) ÃüÁî
+æ‰§è¡Œ u = np.exp(v) å‘½ä»¤
 
 37
 00:02:48,106 --> 00:02:54,095
 And so notice that whereas previously
 you had a explicit for loop,
-×¢Òâµ½  ÔÚÖ®Ç°ÓĞÑ­»·µÄ´úÂëÖĞ
+æ³¨æ„åˆ°  åœ¨ä¹‹å‰æœ‰å¾ªç¯çš„ä»£ç ä¸­
 
 38
 00:02:54,095 --> 00:03:00,375
 with just one line of code here, does V
 as an input vector use an output vector?
-ÕâÀï½öÓÃÁËÒ»ĞĞ´úÂë£¬ ÏòÁ¿v×÷ÎªÊäÈë£¬ u×÷ÎªÊä³ö
+è¿™é‡Œä»…ç”¨äº†ä¸€è¡Œä»£ç ï¼Œ å‘é‡vä½œä¸ºè¾“å…¥ï¼Œ uä½œä¸ºè¾“å‡º
 
 39
 00:03:00,375 --> 00:03:04,555
 You've got to rail up the explicit for
 loop, and the implementation on the right
-ÄãÒÑ¾­ÖªµÀÎªÊ²Ã´ĞèÒªÑ­»·£¬²¢ÇÒÍ¨¹ıÓÒ±ß´úÂëÊµÏÖ
+ä½ å·²ç»çŸ¥é“ä¸ºä»€ä¹ˆéœ€è¦å¾ªç¯ï¼Œå¹¶ä¸”é€šè¿‡å³è¾¹ä»£ç å®ç°
 
 40
 00:03:04,555 --> 00:03:07,581
 will be much faster than the one
 medium explicit for loop.
-Ğ§ÂÊ»áÃ÷ÏÔµÄ¿ìÓÚÑ­»··½Ê½
+æ•ˆç‡ä¼šæ˜æ˜¾çš„å¿«äºå¾ªç¯æ–¹å¼
 
 41
 00:03:07,581 --> 00:03:11,760
 In fact, the NumPy library has many
 of the vector value functions.
-ÊÂÊµÉÏ£¬numpy¿âÓĞºÜ¶àÏòÁ¿º¯Êı
+äº‹å®ä¸Šï¼Œnumpyåº“æœ‰å¾ˆå¤šå‘é‡å‡½æ•°
 
 42
 00:03:11,760 --> 00:03:16,445
 So np.log of v will compute
 the element wise log,
-±ÈÈçnp.log ÊÇ¼ÆËã¶ÔÊıº¯Êı(log)
+æ¯”å¦‚np.log æ˜¯è®¡ç®—å¯¹æ•°å‡½æ•°(log)
 
 43
 00:03:16,445 --> 00:03:20,405
 np.abs computes the absolute value,
-np.absÊÇ¼ÆËãÊı¾İµÄ¾ø¶ÔÖµ
+np.absæ˜¯è®¡ç®—æ•°æ®çš„ç»å¯¹å€¼
 
 44
 00:03:20,405 --> 00:03:26,350
 np.maximum computes
 the element y's maximum.
-np.maximum¼ÆËãÔªËØyÖĞµÄ×î´óÖµ
+np.maximumè®¡ç®—å…ƒç´ yä¸­çš„æœ€å¤§å€¼
 
 45
 00:03:26,350 --> 00:03:31,650
 So you take the max of
 every element of v with 0.
-ÄãÒ²¿ÉÒÔnp.maximum(v,0)
+ä½ ä¹Ÿå¯ä»¥np.maximum(v,0)
 
 46
 00:03:31,650 --> 00:03:39,386
 v**2 just takes the element y's
 square of each element of v.
-v**2´ú±í»ñµÃÔªËØyÃ¿¸öÖµµÃÆ½·½
+v**2ä»£è¡¨è·å¾—å…ƒç´ yæ¯ä¸ªå€¼å¾—å¹³æ–¹
 
 47
 00:03:39,386 --> 00:03:44,350
 1/v takes the element y's inverse and so on.
-1/v »ñÈ¡ÔªËØyµÄÄæ µÈµÈ
+1/v è·å–å…ƒç´ yçš„é€† ç­‰ç­‰
 
 48
 00:03:44,350 --> 00:03:48,800
 So whenever you are tempted to write the
 for loop, take a look and see if there's
-ËùÒÔµ±ÄãÏëĞ´Ñ­»·Ê±ºò
+æ‰€ä»¥å½“ä½ æƒ³å†™å¾ªç¯æ—¶å€™
 
 49
 00:03:48,800 --> 00:03:53,420
 a way to call a NumPy built in function
 to do it without that for loop.
-¼ì²énumpyÊÇ·ñ´æÔÚÀàËÆµÄÄÚÖÃº¯Êı ´Ó¶ø±ÜÃâÊ¹ÓÃÑ­»·(loop)·½Ê½
+æ£€æŸ¥numpyæ˜¯å¦å­˜åœ¨ç±»ä¼¼çš„å†…ç½®å‡½æ•° ä»è€Œé¿å…ä½¿ç”¨å¾ªç¯(loop)æ–¹å¼
 
 50
 00:03:54,580 --> 00:03:56,340
 So, let's take all of these learnings and
-ÄÇÃ´ ½«¸Õ²ÅËùÑ§µ½µÄÄÚÈİ
+é‚£ä¹ˆ å°†åˆšæ‰æ‰€å­¦åˆ°çš„å†…å®¹
 
 51
 00:03:56,340 --> 00:04:00,950
 apply it to our logistic regression
 gradient descent implementation and
-ÔËÓÃÔÚÂß¼­»Ø¹éµÄÌİ¶ÈÏÂ½µÉÏ
+è¿ç”¨åœ¨é€»è¾‘å›å½’çš„æ¢¯åº¦ä¸‹é™ä¸Š
 
 52
 00:04:00,950 --> 00:04:04,950
 see if we can at least get rid of
 one of the two folders that we had.
-¿´¿´ÎÒÃÇÊÇ·ñÄÜ¼ò»¯Á½¸ö¼ÆËã¹ı³ÌÖĞµÄÄ³Ò»²½
+çœ‹çœ‹æˆ‘ä»¬æ˜¯å¦èƒ½ç®€åŒ–ä¸¤ä¸ªè®¡ç®—è¿‡ç¨‹ä¸­çš„æŸä¸€æ­¥
 
 53
 00:04:04,950 --> 00:04:09,620
 So here's our code for computing
 the derivatives for logistic regression.
-ÕâÊÇÎÒÃÇÂß¼­»Ø¹éµÄÇóµ¼´úÂë
+è¿™æ˜¯æˆ‘ä»¬é€»è¾‘å›å½’çš„æ±‚å¯¼ä»£ç 
 
 54
 00:04:09,620 --> 00:04:10,890
 And we had two for loops.
-ÓĞÁ½²ãÑ­»·
+æœ‰ä¸¤å±‚å¾ªç¯
 
 55
 00:04:10,890 --> 00:04:12,530
 One was this one up here.
-ÕâÊÇÒ»¸öÑ­»·
+è¿™æ˜¯ä¸€ä¸ªå¾ªç¯
 
 56
 00:04:12,530 --> 00:04:14,730
 And the second one was this one, right?
-Õâ¶ùÊÇµÚ¶ş¸öÑ­»·
+è¿™å„¿æ˜¯ç¬¬äºŒä¸ªå¾ªç¯
 
 57
 00:04:14,730 --> 00:04:19,177
 So in our example we had n or nx = 2.
-ÔÚÕâÀı×ÓÎÒÃÇÓĞn »òÕßnx =2 ÌØÕ÷Öµ
+åœ¨è¿™ä¾‹å­æˆ‘ä»¬æœ‰n æˆ–è€…nx =2 ç‰¹å¾å€¼
 
 58
 00:04:19,177 --> 00:04:24,182
 But if you had more features than just
 two features then you need to have a for
-Èç¹ûÄãÓĞ³¬¹ıÁ½¸öÌØÕ÷Ê±
+å¦‚æœä½ æœ‰è¶…è¿‡ä¸¤ä¸ªç‰¹å¾æ—¶
 
 59
 00:04:24,182 --> 00:04:26,978
 loop over dw1, dw2, dw3, and so on.
-ĞèÒªÑ­»·dw1 dw2 dw3 µÈµÈ
+éœ€è¦å¾ªç¯dw1 dw2 dw3 ç­‰ç­‰
 
 60
 00:04:26,978 --> 00:04:32,370
 So it's as if there's actually a for
 j = 1, 2 and x.
-ËùÒÔjµÄÊµ¼ÊÖµÊÇ1 £¬2 ºÍ x
+æ‰€ä»¥jçš„å®é™…å€¼æ˜¯1 ï¼Œ2 å’Œ x
 
 61
 00:04:32,370 --> 00:04:39,030
 dwj, dwj your guest updated, right.
-dwj¾ÍÊÇÄãÏëÒª¸üĞÂµÄÖµ
+dwjå°±æ˜¯ä½ æƒ³è¦æ›´æ–°çš„å€¼
 
 62
 00:04:39,030 --> 00:04:45,490
 So we'd like to eliminate this second
 volume, that's what we'll do on this line.
-ËùÒÔÎÒÃÇÏëÒªÏû³ıµÚ¶şÑ­»·£¬ÔÚÕâÒ»ĞĞ
+æ‰€ä»¥æˆ‘ä»¬æƒ³è¦æ¶ˆé™¤ç¬¬äºŒå¾ªç¯ï¼Œåœ¨è¿™ä¸€è¡Œ
 
 63
 00:04:45,490 --> 00:04:50,670
 So the way we'll do so is that instead
 of explicitly initializing dw1,
-ÕâÑùÎÒÃÇ¾Í²»ÓÃ³õÊ¼»¯dw1
+è¿™æ ·æˆ‘ä»¬å°±ä¸ç”¨åˆå§‹åŒ–dw1
 
 64
 00:04:50,670 --> 00:04:56,350
 dw2 and so on to 0s,
 we're going to get rid of this.
-dw2 ¶¼µÈÓÚ0£¬È¥µôÕâĞ©
+dw2 éƒ½ç­‰äº0ï¼Œå»æ‰è¿™äº›
 
 65
 00:04:56,350 --> 00:04:59,760
 And instead make dw a vector.
-¶øÊÇ¶¨ÒådwÎªÒ»¸öÏòÁ¿
+è€Œæ˜¯å®šä¹‰dwä¸ºä¸€ä¸ªå‘é‡
 
 66
 00:04:59,760 --> 00:05:05,188
 So I'm going to set dw = np.zeros and
-ÉèÖÃdw = np.zeros((n(x),1))
+è®¾ç½®dw = np.zeros((n(x),1))
 
 67
 00:05:05,188 --> 00:05:12,560
 let's make this an x but
 one dimensional vector.
-¶¨ÒåÁËÒ»¸öxĞĞ£¬1Î¬µÄÏòÁ¿
+å®šä¹‰äº†ä¸€ä¸ªxè¡Œï¼Œ1ç»´çš„å‘é‡
 
 68
 00:05:12,560 --> 00:05:17,500
 Then here instead of this full loop
 over the individual components,
-´Ó¶øÌæ´úÁËÑ­»·Ã¿¸ö×é³É
+ä»è€Œæ›¿ä»£äº†å¾ªç¯æ¯ä¸ªç»„æˆ
 
 69
 00:05:17,500 --> 00:05:19,883
 we just use this vector value operation.
-ÎÒÃÇ½ö½öÊ¹ÓÃÁËÒ»¸öÏòÁ¿²Ù×÷
+æˆ‘ä»¬ä»…ä»…ä½¿ç”¨äº†ä¸€ä¸ªå‘é‡æ“ä½œ
 
 70
 00:05:19,883 --> 00:05:24,503
@@ -397,78 +397,78 @@ dw += x(i)
 
 71
 00:05:24,503 --> 00:05:29,894
-times£¨³ËÒÔ£© dz(i).
+timesï¼ˆä¹˜ä»¥ï¼‰ dz(i).
 
 72
 00:05:29,894 --> 00:05:35,287
 And then finally and so that this
-×îºó
+æœ€å
 
 73
 00:05:35,287 --> 00:05:40,700
 we will just have dw div = m.
-ÎÒÃÇµÃµ½dw = dw/m
+æˆ‘ä»¬å¾—åˆ°dw = dw/m
 
 74
 00:05:40,700 --> 00:05:44,130
 So now we've gone from having two for
 loops to just one for loop.
-ÏÖÔÚÎÒÃÇÍ¨¹ı½«Á½²ãÑ­»·×ª³ÉÒ»²ãÑ­»·
+ç°åœ¨æˆ‘ä»¬é€šè¿‡å°†ä¸¤å±‚å¾ªç¯è½¬æˆä¸€å±‚å¾ªç¯
 
 75
 00:05:44,130 --> 00:05:48,822
 We still have this one for loop that loops
 over the individual training examples.
-ÎÒÃÇÈÔÈ»»¹ÓĞÕâ¸öÑ­»·ÑµÁ·Ñù±¾
+æˆ‘ä»¬ä»ç„¶è¿˜æœ‰è¿™ä¸ªå¾ªç¯è®­ç»ƒæ ·æœ¬
 
 76
 00:05:50,491 --> 00:05:53,720
 So I hope this video gave you
 a sense of vectorization.
-Ï£ÍûÕâ¸öÊÓÆµ¸øÁËÄãÒ»µãÏòÁ¿»¯¸Ğ¾õ
+å¸Œæœ›è¿™ä¸ªè§†é¢‘ç»™äº†ä½ ä¸€ç‚¹å‘é‡åŒ–æ„Ÿè§‰
 
 77
 00:05:53,720 --> 00:05:57,880
 And by getting rid of one for loop,
 your code will already run faster.
-¼õÉÙÒ»²ãÑ­»·Ê¹Äã´úÂë¸ü¿ì
+å‡å°‘ä¸€å±‚å¾ªç¯ä½¿ä½ ä»£ç æ›´å¿«
 
 78
 00:05:57,880 --> 00:06:01,220
 But it turns out we could do even better,
 so the next video,
-µ«ÊÂÊµÖ¤Ã÷ÎÒÃÇÄÜ×öµÃ¸üºÃ ËùÒÔÔÚÏÂ¸öÊÓÆµ
+ä½†äº‹å®è¯æ˜æˆ‘ä»¬èƒ½åšå¾—æ›´å¥½ æ‰€ä»¥åœ¨ä¸‹ä¸ªè§†é¢‘
 
 79
 00:06:01,220 --> 00:06:05,060
 we'll talk about how to vectorize
 logistic regression even further, and
-½øÒ»²½µÄ½²½âÂß¼­»Ø¹é
+è¿›ä¸€æ­¥çš„è®²è§£é€»è¾‘å›å½’
 
 80
 00:06:05,060 --> 00:06:06,820
 you see a pretty surprising result.
-µÃµ½¸üºÃµÄ¼à¶½½á¹û
+å¾—åˆ°æ›´å¥½çš„ç›‘ç£ç»“æœ
 
 81
 00:06:06,820 --> 00:06:11,490
 That, without using any for loops, without
 needing a for loop over the training
-µ½´Ë£¬Í¨¹ıÔÚÑµÁ·ÖĞÃ»ÓĞÈÎºÎÑ­»·
+åˆ°æ­¤ï¼Œé€šè¿‡åœ¨è®­ç»ƒä¸­æ²¡æœ‰ä»»ä½•å¾ªç¯
 
 82
 00:06:11,490 --> 00:06:16,390
 examples, you could write code to
 process the entire training set.
-Ğ´³ö´úÂëÈ¥ÔËĞĞÕû¸öÑµÁ·¼¯
+å†™å‡ºä»£ç å»è¿è¡Œæ•´ä¸ªè®­ç»ƒé›†
 
 83
 00:06:16,390 --> 00:06:18,700
 So pretty much all at the same time.
-µ½´ËÎªÖ¹Ò»ÇĞ¶¼ºÃ
+åˆ°æ­¤ä¸ºæ­¢ä¸€åˆ‡éƒ½å¥½
 
 84
 00:06:18,700 --> 00:06:20,440
 So let's see that in the next video.
-ÈÃÎÒÃÇ¿´ÏÂÒ»¸öÊÓÆµ
+è®©æˆ‘ä»¬çœ‹ä¸‹ä¸€ä¸ªè§†é¢‘
 

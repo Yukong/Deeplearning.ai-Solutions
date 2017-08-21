@@ -1,4 +1,4 @@
-﻿1
+1
 00:00:00,060 --> 00:00:01,941
 in the previous video you saw how to
 在之前的视频中你已经看到如何
