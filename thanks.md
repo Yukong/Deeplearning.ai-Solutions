@@ -37,6 +37,7 @@
 |02.16    | A note on python/numpy vectors                | 张雲飞                   | 张雲飞              | AcceptedDoge |
 |02.17    | Quick tour of Jupyter/iPython Notebooks       | 庞伟                     | 舒正英              | AcceptedDoge |
 |02.18    | Explanation of logistic regression cost function (optional) | 彭世锦     | 彭世锦              | AcceptedDoge |
+|02.19    | Heroes of Deep Learning (Optional) Pieter Abeel interview | ihollywhy     | ihollywhy              | AcceptedDoge |
 |03.01    | Neural Networks Overview                      | 李晶                     | 李晶                | AcceptedDoge |
 |03.02    | Neural Network Representation                 | 谢小彬                   | 谢小彬              | 黄海广        |
 |03.03    | Computing a Neural Network's Output           | hengC-137               | hengC-137           | 李智锋        |
@@ -51,3 +52,5 @@
 - [@Ldream](https://github.com/Ldream) 建议统一下编码. #4
 - [@Ldream](https://github.com/Ldream) 现有编码转换和编码转换工具添加 #6
 - [@athemeroy](https://github.com/athemeroy) 关于2.2Logistic Regression的疑惑 #7
+- [@grsgth](https://github.com/grsgth) 部分语句修正 #9 #10
+- [ihollywhy](https://github.com/ihollywhy) add Pieter Abeel interview #11
