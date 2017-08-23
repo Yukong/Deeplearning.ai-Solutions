@@ -53,4 +53,4 @@
 - [@Ldream](https://github.com/Ldream) 现有编码转换和编码转换工具添加 #6
 - [@athemeroy](https://github.com/athemeroy) 关于2.2Logistic Regression的疑惑 #7
 - [@grsgth](https://github.com/grsgth) 部分语句修正 #9 #10
-- [ihollywhy](https://github.com/ihollywhy) add Pieter Abeel interview #11
+- [@ihollywhy](https://github.com/ihollywhy) add Pieter Abeel interview #11
