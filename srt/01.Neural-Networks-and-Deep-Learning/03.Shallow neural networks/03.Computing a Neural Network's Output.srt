@@ -779,7 +779,7 @@ cover up the left of this network and ignore all that for now
 155
 00:08:21,781 --> 00:08:25,845
 then this is just this last output unit there's a lot like logistic regression
-那么最后的输出单元就想逻辑回归一样
+那么最后的输出单元就像逻辑回归一样
 
 156
 00:08:25,893 --> 00:08:29,401
