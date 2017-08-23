@@ -53,7 +53,7 @@ GTC 在 Smartling 平台进行的中文翻译，是根据 Coursera 提供的英�
 | 02.16    | A note on python/numpy vectors                 | 完成     |
 | 02.17    | Quick tour of Jupyter/iPython Notebooks        | 完成     |
 | 02.18    | Explanation of logistic regression cost function (optional) | 完成     |
-| 02.19    | Pieter Abbeel interview                        | 未完成   |
+| 02.19    | Pieter Abbeel interview                        | 完成   |
 | 第三周   | Shallow neural networks                         |          |
 | 03.01   | Neural Networks Overview                        | 完成     |
 | 03.02   | Neural Network Representation                   | 完成     |
