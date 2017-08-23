@@ -1,0 +1,1575 @@
+﻿1
+00:00:02,420 --> 00:00:04,575
+So, thanks a lot, Pieter,
+感谢Pieter
+
+2
+00:00:04,575 --> 00:00:06,690
+for joining me today.
+今天来参加访谈
+
+3
+00:00:06,690 --> 00:00:08,560
+I think a lot of people know you as
+我认为很多人觉得你是一个
+
+4
+00:00:08,560 --> 00:00:12,150
+a well-known machine learning and deep learning and robotics researcher.
+知名的机器学习 深度学习和机器人方面的研究者
+
+5
+00:00:12,150 --> 00:00:15,550
+I'd like to have people hear a bit about your story.
+我想让大家听一听你的故事
+
+6
+00:00:15,550 --> 00:00:18,220
+How did you end up doing the work that you do?
+你是如何做到现在你所做的一切的?
+
+7
+00:00:18,220 --> 00:00:22,300
+That's a good question and actually if you would have asked me as a 14-year-old,
+这是一个好问题 事实上如果你问14岁的我这个问题
+
+8
+00:00:22,300 --> 00:00:24,775
+what I was aspiring to do,
+我要励志做什么
+
+9
+00:00:24,775 --> 00:00:26,775
+it probably would not have been this.
+它可能就不会是这样了
+
+10
+00:00:26,775 --> 00:00:28,285
+In fact, at the time,
+事实上 在那个时候
+
+11
+00:00:28,285 --> 00:00:32,565
+I thought being a professional basketball player would be the right way to go.
+我想着成为一个职业的篮球运动员应该不错
+
+12
+00:00:32,565 --> 00:00:34,680
+I don't think I was able to achieve it.
+但是我不认为我有能力实现它
+
+13
+00:00:34,680 --> 00:00:36,430
+I feel the machine learning lucked out,
+我感觉这对于机器学习领域来说很幸运
+
+14
+00:00:36,430 --> 00:00:38,250
+that the basketball thing didn't work out.
+因为关于篮球的打算行不通
+
+15
+00:00:38,250 --> 00:00:39,510
+Yes, that didn't work out.
+是的 行不通
+
+16
+00:00:39,510 --> 00:00:41,890
+It was a lot of fun playing basketball but it didn't work
+打篮球很有趣
+
+17
+00:00:41,890 --> 00:00:44,885
+out to try to make it into a career.
+但是想把它当做是职业却行不通
+
+18
+00:00:44,885 --> 00:00:48,530
+So, what I really liked in school was physics and math.
+所以实际上我在学校喜欢的是物理和数学
+
+19
+00:00:48,530 --> 00:00:50,005
+And so, from there,
+而且从那时起
+
+20
+00:00:50,005 --> 00:00:52,120
+it seemed pretty natural to study engineering which
+学习如何将物理和数学应用于现实世界的工程学
+
+21
+00:00:52,120 --> 00:00:55,735
+is applying physics and math in the real world.
+就显得很自然了
+
+22
+00:00:55,735 --> 00:00:58,150
+And actually then, after my undergrad in electrical engineering,
+而且当我拿到电子工程学的本科学位之后
+
+23
+00:00:58,150 --> 00:01:00,355
+I actually wasn't so sure what to do because,
+我事实上不是很确定接下来做什么
+
+24
+00:01:00,355 --> 00:01:03,981
+literally, anything engineering seemed interesting to me.
+因为事实上 我觉得任何关于工程学的事情都很有趣
+
+25
+00:01:03,981 --> 00:01:07,680
+Understanding how anything works seems interesting.
+像是理解万物是如何工作的就很有趣
+
+26
+00:01:07,680 --> 00:01:09,595
+Trying to build anything is interesting.
+尝试去实现一些事情也很有趣
+
+27
+00:01:09,595 --> 00:01:11,470
+And in some sense,
+不过从某种程度上来说
+
+28
+00:01:11,470 --> 00:01:13,690
+artificial intelligence won out because it seemed like it
+人工智能胜出了
+
+29
+00:01:13,690 --> 00:01:18,280
+could somehow help all disciplines in some way.
+因为它似乎在所有学科中都能或多或少的起到一定的作用
+
+30
+00:01:18,280 --> 00:01:22,370
+And also, it seemed somehow a little more at the core of everything.
+而且它似乎更加接近一点万物的核心
+
+31
+00:01:22,370 --> 00:01:24,575
+You think about how a machine can think,
+你思考机器如何能够思考
+
+32
+00:01:24,575 --> 00:01:30,160
+then maybe that's more the core of everything else than picking any specific discipline.
+这个可能比选择一个特定的学科更加接近于万物的核心
+
+33
+00:01:30,160 --> 00:01:33,260
+I've been saying AI is the new electricity,
+我之前经常说人工智能(AI)是一个新的电子领域
+
+34
+00:01:33,260 --> 00:01:35,020
+sounds like the 14-year-old version of you;
+就像是14岁的你
+
+35
+00:01:35,020 --> 00:01:37,923
+had an earlier version of that even.
+甚至更早之前的你
+
+36
+00:01:37,923 --> 00:01:44,465
+You know, in the past few years you've done a lot of work in deep reinforcement learning.
+你知道 在过去的几年里你做了很多关于深度强化学习的工作
+
+37
+00:01:44,465 --> 00:01:49,315
+What's happening? Why is deep reinforcement learning suddenly taking off?
+中间发生了什么?为什么深度强化学习突然火了?
+
+38
+00:01:49,315 --> 00:01:51,030
+Before I worked in deep reinforcement learning,
+在我做深度强化学习之前
+
+39
+00:01:51,030 --> 00:01:52,765
+I worked a lot in reinforcement learning;
+我做了很多强化学习的工作
+
+40
+00:01:52,765 --> 00:01:56,115
+actually with you and Durant at Stanford, of course.
+当然 是在斯坦福的时候和你还有Durant一起做的
+
+41
+00:01:56,115 --> 00:01:59,863
+And so, we worked on autonomous helicopter flight,
+我研究无人直升飞机的飞行
+
+42
+00:01:59,863 --> 00:02:02,440
+then later at Berkeley with some of my students who worked
+之后我到伯克利
+
+43
+00:02:02,440 --> 00:02:05,440
+on getting a robot to learn to fold laundry.
+我和一些学生研究如何让一个机器学习叠衣服
+
+44
+00:02:05,440 --> 00:02:09,340
+And kind of what characterized the work was a combination
+这个工作可以描述为
+
+45
+00:02:09,340 --> 00:02:13,015
+of learning that enabled things that would not be possible without learning,
+结合学习算法使得之前没有学习算法时不能完成的事情成为可能
+
+46
+00:02:13,015 --> 00:02:18,120
+but also a lot of domain expertise in combination with the learning to get this to work.
+但是想让它工作还必须结合很多领域内专家知识(domain expertise)
+
+47
+00:02:18,120 --> 00:02:20,975
+And it was very
+而且它非常有意思
+
+48
+00:02:20,975 --> 00:02:22,600
+interesting because you needed domain expertise which
+因为你需要的专家知识收集的时候很有趣
+
+49
+00:02:22,600 --> 00:02:24,310
+was fun to acquire but, at the same time,
+但是同时
+
+50
+00:02:24,310 --> 00:02:28,234
+was very time-consuming for every new application you wanted to succeed of;
+如果你想在新的应用上取得不错的效果 这一步骤就会非常耗时
+
+51
+00:02:28,234 --> 00:02:31,060
+you needed domain expertise plus machine learning expertise.
+你需要领域内专家的知识加上机器学习专家的知识
+
+52
+00:02:31,060 --> 00:02:34,240
+And for me it was in 2012 with
+对我来说是在2012年
+
+53
+00:02:34,240 --> 00:02:39,910
+the ImageNet breakthrough results from Geoff Hinton's group in Toronto,
+多伦多大学的Geoff Hinton组在ImageNet上取得了突破性进展
+
+54
+00:02:39,910 --> 00:02:42,880
+AlexNet showing that supervised learning, all of a sudden,
+突然之间 AlexNet展示出监督学习
+
+55
+00:02:42,880 --> 00:02:48,220
+could be done with far less engineering for the domain at hand.
+可以在某个领域内依靠少得多的工程知识完成
+
+56
+00:02:48,220 --> 00:02:50,410
+There was very little engineering by vision in AlexNet.
+在AlexNet里面只有很少的视觉方面的工程技巧
+
+57
+00:02:50,410 --> 00:02:53,075
+It made me think we really should revisit
+这使我想到我们应该从相同的视角出发
+
+58
+00:02:53,075 --> 00:02:57,610
+reinforcement learning under the same kind of viewpoint and see if we can
+重新审视强化学习
+
+59
+00:02:57,610 --> 00:03:01,075
+get the diversion of reinforcement learning to work and do
+看看我们能不能得到一个新的强化学习算法
+
+60
+00:03:01,075 --> 00:03:05,950
+equally interesting things as had just happened in the supervised learning.
+实现已经在监督学习中发生了的有趣事情
+
+61
+00:03:05,950 --> 00:03:08,565
+It sounds like you saw earlier than
+听起来你比大多数人都早的看到了
+
+62
+00:03:08,565 --> 00:03:12,250
+most people the potential of deep reinforcement learning.
+深度强化学习的潜能
+
+63
+00:03:12,250 --> 00:03:14,365
+So now looking in to the future,
+所以现在展望一下未来
+
+64
+00:03:14,365 --> 00:03:16,180
+what do you see next?
+你觉得接下来会怎么样?
+
+65
+00:03:16,180 --> 00:03:17,260
+What are your predictions for the
+你对于实现深度强化学习的几种方法作何预测?
+
+66
+00:03:17,260 --> 00:03:20,440
+next several ways to come in deep reinforcement learning?
+你对于实现深度强化学习的几种方法作何预测?
+
+67
+00:03:20,440 --> 00:03:23,270
+So, I think what's interesting about deep reinforcement learning is that,
+我认为深度强化学习的有趣的地方在于
+
+68
+00:03:23,270 --> 00:03:26,795
+in some sense, there is many more questions than in supervised learning.
+在某种程度上 它比监督学习存在更多的问题
+
+69
+00:03:26,795 --> 00:03:29,817
+In supervised learning, it's about learning an input output mapping.
+在监督学习中 我们需要学习的是输入和输出的映射
+
+70
+00:03:29,817 --> 00:03:34,505
+In reinforcement learning there is the notion of: Where does the data even come from?
+而在强化学习中 有一个观念是:数据要从哪里来?
+
+71
+00:03:34,505 --> 00:03:36,580
+So that's the exploration problem.
+这是一个探索(exploration)问题
+
+72
+00:03:36,580 --> 00:03:38,470
+When you have data, how do you do credit assignment?
+当你有了数据 你要如何做分值分配(credit assignment)
+
+73
+00:03:38,470 --> 00:03:43,315
+How do you understand what actions you took early on got you the reward later?
+你如何理解采取什么样的行动来获取延迟的回报
+
+74
+00:03:43,315 --> 00:03:44,830
+And then, there is issues of safety.
+而且 这里有一个安全性问题
+
+75
+00:03:44,830 --> 00:03:47,335
+When you have a system autonomously collecting data,
+当你有一个自动收集数据的系统
+
+76
+00:03:47,335 --> 00:03:50,140
+it's actually rather dangerous in most situations.
+实际上它在很多时候是处于不危险状态的
+
+77
+00:03:50,140 --> 00:03:51,880
+Imagine a self-driving car company that says,
+想象一下一个汽车自动驾驶公司说
+
+78
+00:03:51,880 --> 00:03:53,825
+we're just going to run deep reinforcement learning.
+我们打算运行深度强化学习算法
+
+79
+00:03:53,825 --> 00:03:55,690
+It's pretty likely that car would get into a lot of
+这就像是说汽车在没有采取任何有用措施之前会出很多事故一样
+
+80
+00:03:55,690 --> 00:03:57,985
+accidents before it does anything useful.
+这就像是说汽车在没有采取任何有用措施之前会出很多事故一样
+
+81
+00:03:57,985 --> 00:03:59,650
+You needed negative examples of that, right?
+你需要一个这方面的反面例子 是吧?
+
+82
+00:03:59,650 --> 00:04:02,000
+You do need some negative examples somehow, yes;
+是的 不管怎么说 你确实需要一些反面的例子
+
+83
+00:04:02,000 --> 00:04:04,930
+and positive ones, hopefully.
+还有正面例子 希望如此
+
+84
+00:04:04,930 --> 00:04:07,540
+So, I think there is still a lot of challenges in
+所以 我认为深度强化学习还有很多挑战
+
+85
+00:04:07,540 --> 00:04:09,760
+deep reinforcement learning in terms of
+所以 我认为深度强化学习还有很多挑战
+
+86
+00:04:09,760 --> 00:04:12,635
+working out some of the specifics of how to get these things to work.
+特别是考虑到要在一些特殊的情况下工作
+
+87
+00:04:12,635 --> 00:04:14,520
+So, the deep part is the representation,
+所以 深度学习部分用来做表达(representation)
+
+88
+00:04:14,520 --> 00:04:18,455
+but then the reinforcement learning itself still has a lot of questions.
+但是强化学习本身依然有很多问题
+
+89
+00:04:18,455 --> 00:04:20,485
+And what I feel is that,
+我的感觉是
+
+90
+00:04:20,485 --> 00:04:22,810
+with the advances in deep learning,
+随着深度学习的发展
+
+91
+00:04:22,810 --> 00:04:27,430
+somehow one part of the puzzle in reinforcement learning has been largely addressed,
+强化学习问题中的一部分不管怎么说还是得到了很大程度上的解决
+
+92
+00:04:27,430 --> 00:04:29,075
+which is the representation part.
+也就是表达部分
+
+93
+00:04:29,075 --> 00:04:31,540
+So, if there is a pattern we can
+所以 如果有一个模式
+
+94
+00:04:31,540 --> 00:04:34,795
+probably represent it with a deep network and capture that pattern.
+我们能通过深度网络表达它并且捕捉到这个模式
+
+95
+00:04:34,795 --> 00:04:39,400
+And how to tease apart the pattern is still a big challenge in reinforcement learning.
+但如何梳理这个模式依然是强化学习中的一个大的挑战
+
+96
+00:04:39,400 --> 00:04:41,740
+So I think big challenges are,
+所以我认为很大的挑战在于
+
+97
+00:04:41,740 --> 00:04:45,695
+how to get systems to reason over long time horizons.
+如何得到一个系统可以在很长的时间视野(horizon)上做推理
+
+98
+00:04:45,695 --> 00:04:47,770
+So right now, a lot of the successes
+现在 很多成功的深度学习算法都是短时间视野(horizon)的
+
+99
+00:04:47,770 --> 00:04:50,650
+in deep reinforcement learning are a very short horizon.
+现在 很多成功的深度学习算法都是短时间视野(horizon)的
+
+100
+00:04:50,650 --> 00:04:52,000
+There are problems where,
+如果你能在5秒的时间视野下表现的很好
+
+101
+00:04:52,000 --> 00:04:54,445
+if you act well over a five second horizon,
+你就在整个问题下表现的很好
+
+102
+00:04:54,445 --> 00:04:57,815
+you act well over the entire problem.
+这种情况是有问题的
+
+103
+00:04:57,815 --> 00:05:02,599
+And so a five second scale is something very different from a day long scale,
+而且5秒的尺度和一天的尺度
+
+104
+00:05:02,599 --> 00:05:06,930
+or the ability to live a life as a robot or some software agent.
+或者是作为机器人或软件主体生存一生的能力是有非常大差别的
+
+105
+00:05:06,930 --> 00:05:09,240
+So, I think there's a lot of challenges there.
+所以我认为依然存在很多的问题
+
+106
+00:05:09,240 --> 00:05:12,790
+I think safety has a lot of challenges in terms of,
+当你考虑到如何安全的学习
+
+107
+00:05:12,790 --> 00:05:14,920
+how do you learn safely and also how do
+以及如何在已经学习的很好的情况下继续学习时
+
+108
+00:05:14,920 --> 00:05:17,785
+you keep learning once you're already pretty good?
+安全性还是有很多挑战的
+
+109
+00:05:17,785 --> 00:05:20,305
+So, to give an example again that
+再举一个很多人都熟悉的例子 自动驾驶汽车
+
+110
+00:05:20,305 --> 00:05:23,070
+a lot of people would be familiar with, self-driving cars,
+再举一个很多人都熟悉的例子 自动驾驶汽车
+
+111
+00:05:23,070 --> 00:05:26,375
+for a self-driving car to be better than a human driver,
+对于一个想要比人类驾驶员驾驶的更好的自动驾驶汽车
+
+112
+00:05:26,375 --> 00:05:31,990
+should human drivers maybe get into bad accidents every three million miles or something.
+人类驾驶员或许在行驶大约300万英里时才会出一次事故
+
+113
+00:05:31,990 --> 00:05:35,763
+And so, that takes a long time to see the negative data;
+所以 一旦你和人类驾驶员一样好的时候
+
+114
+00:05:35,763 --> 00:05:37,510
+once you're as good as a human driver.
+就需要花费很长时间才能看到负样本
+
+115
+00:05:37,510 --> 00:05:40,835
+But you want your self-driving car to be better than a human driver.
+但是你希望你的自动驾驶汽车比人类要好
+
+116
+00:05:40,835 --> 00:05:43,930
+And so, at that point the data collection becomes really really difficult to get
+所以 从这一点来看
+
+117
+00:05:43,930 --> 00:05:48,175
+that interesting data that makes your system improve.
+收集能让你的系统得到提升的感兴趣数据将会变得非常非常困难
+
+118
+00:05:48,175 --> 00:05:52,420
+So, it's a lot of challenges related to exploration, that tie into that.
+所以 探索(exploration)存在很多挑战以及与之有关的问题
+
+119
+00:05:52,420 --> 00:05:57,190
+But one of the things I'm actually most excited about right now is seeing
+但是目前最让我感到兴奋的事情之一是
+
+120
+00:05:57,190 --> 00:06:02,720
+if we can actually take a step back and also learn the reinforcement learning algorithm.
+看看我们是否能退一步地学习强化学习算法
+
+121
+00:06:02,720 --> 00:06:05,030
+So, reinforcement is very complex,
+所以 强化是很复杂的
+
+122
+00:06:05,030 --> 00:06:07,450
+credit assignment is very complex, exploration is very complex.
+分值分配(credit assignment)是很复杂的,探索(exploration)也是很复杂的
+
+123
+00:06:07,450 --> 00:06:08,905
+And so maybe, just like
+而且可能就像是在监督学习中
+
+124
+00:06:08,905 --> 00:06:13,795
+how deep learning for supervised learning was able to replace a lot of domain expertise,
+深度学习如何能够代替很多领域专家的知识
+
+125
+00:06:13,795 --> 00:06:17,320
+maybe we can have programs that are learned,
+也许我们能找到一个学习得到的程序
+
+126
+00:06:17,320 --> 00:06:20,140
+that are reinforcement learning programs that do all this,
+一个强化学习得到的程序 一个可以完成所有工作的程序
+
+127
+00:06:20,140 --> 00:06:22,510
+instead of us designing the details.
+而不是所有的细节都需要设计
+
+128
+00:06:22,510 --> 00:06:25,560
+During the reward function or during the whole program?
+通过奖励函数还是通过整个程序来实现呢?
+
+129
+00:06:25,560 --> 00:06:28,150
+So, this would be learning the entire reinforcement learning program.
+它将会是 学习完全的强化学习程序
+
+130
+00:06:28,150 --> 00:06:30,430
+So, it would be, imagine,
+所以 想象一下如果有可能
+
+131
+00:06:30,430 --> 00:06:34,255
+you have a reinforcement learning program, whatever it is,
+你有一个强化学习程序,不管它是什么
+
+132
+00:06:34,255 --> 00:06:38,320
+and you throw it out some problem and then you see how long it takes to learn.
+你扔给它一些问题之后观察看它花费多长时间去学习
+
+133
+00:06:38,320 --> 00:06:41,020
+And then you say, well, that took a while.
+之后你说 好吧 这确实花费了一段时间
+
+134
+00:06:41,020 --> 00:06:44,950
+Now, let another program modify this reinforcement learning program.
+现在 让其它程序修改这个强化学习程序
+
+135
+00:06:44,950 --> 00:06:48,045
+After the modification, see how fast it learns.
+修改后 观察它学习的有多快
+
+136
+00:06:48,045 --> 00:06:49,641
+If it learns more quickly,
+如果它学习的更快了
+
+137
+00:06:49,641 --> 00:06:54,380
+that was a good modification and maybe keep it and improve from there.
+那说明这是一个好的修改而且也许可以保持这样然后从这里开始继续提升
+
+138
+00:06:54,380 --> 00:06:57,630
+Well, I see, right. Yes, and pace the direction.
+好吧 我看到了 可以 是的 朝这个方向走就行
+
+139
+00:06:57,630 --> 00:06:59,290
+I think it has a lot to do with, maybe,
+我认为可用计算机资源的数量让我们有很多工作可以做
+
+140
+00:06:59,290 --> 00:07:01,510
+the amount of compute that's becoming available.
+我认为可用计算机资源的数量让我们有很多工作可以做
+
+141
+00:07:01,510 --> 00:07:05,860
+So, this would be running reinforcement learning in the inner loop.
+所以 也许可以在内循环中运行强化学习算法
+
+142
+00:07:05,860 --> 00:07:08,975
+For us right now, we run reinforcement learning as the final thing.
+而对于现在的我们来说 我们以最终目标运行强化学习算法
+
+143
+00:07:08,975 --> 00:07:11,260
+And so, the more compute we get,
+所以 当我们拥有越多的计算能力
+
+144
+00:07:11,260 --> 00:07:14,545
+the more it becomes possible to maybe run something
+我们就越可能在大算法中的内循环中运行一些东西
+
+145
+00:07:14,545 --> 00:07:19,160
+like reinforcement learning in the inner loop of a bigger algorithm.
+比如强化学习算法
+
+146
+00:07:19,160 --> 00:07:22,080
+Starting from the 14-year-old,
+从14岁开始
+
+147
+00:07:22,080 --> 00:07:25,355
+you've worked in AI for some 20 plus years now.
+你已经在人工智能(AI)方面工作的20多年了
+
+148
+00:07:25,355 --> 00:07:32,795
+So, tell me a bit about how your understanding of AI has evolved over this time.
+所以,告诉我一些你对于人工智能这段时间发展的理解
+
+149
+00:07:32,795 --> 00:07:35,280
+When I started looking at AI,
+当我开始接触人工智能的时候，非常有趣
+
+150
+00:07:35,280 --> 00:07:38,230
+it's very interesting because it really
+因为它真的是很偶然的作为我在斯坦福大学的硕士课题
+
+151
+00:07:38,230 --> 00:07:41,445
+coincided with coming to Stanford to do my master's degree there,
+因为它真的是很偶然的作为我在斯坦福大学的硕士课题
+
+152
+00:07:41,445 --> 00:07:46,998
+and there were some icons there like John McCarthy who I got to talk with,
+还有一些很巧合的事情比如我和John McCarthy聊天
+
+153
+00:07:46,998 --> 00:07:49,300
+but who had a very different approach to,
+对于2000年主流的人群的做法
+
+154
+00:07:49,300 --> 00:07:50,460
+and in the year 2000,
+他有很不同的方法
+
+155
+00:07:50,460 --> 00:07:52,115
+for what most people were doing at the time.
+他有很不同的方法
+
+156
+00:07:52,115 --> 00:07:54,958
+And also talking with Daphne Koller.
+我还和Daphne Koller聊过
+
+157
+00:07:54,958 --> 00:07:59,320
+And I think a lot of my initial thinking of AI was shaped by Daphne's thinking.
+而且我认为我关于人工智能的很多初期想法是受到她的思想影响的
+
+158
+00:07:59,320 --> 00:08:04,300
+Her AI class, her probabilistic graphical models class,
+她的人工智能课程 她的概率图模型课程
+
+159
+00:08:04,300 --> 00:08:06,820
+and kind of really being intrigued by
+她使用很多随机变量的分布计算在某些变量子集上的条件分布
+
+160
+00:08:06,820 --> 00:08:11,450
+how simply a distribution of her many random variables and then being able to condition
+然后用来对其他变量做出推断
+
+161
+00:08:11,450 --> 00:08:14,950
+on some subsets variables and draw on conclusions about others could
+这是多么的令人着迷
+
+162
+00:08:14,950 --> 00:08:19,015
+actually give you so much if you can somehow make it computationally attractable,
+而且如果你能够怎么着把他们变得易于计算 你将收获更大
+
+163
+00:08:19,015 --> 00:08:23,170
+which was definitely the challenge to make it computable.
+而让它变得可以计算无疑是很有挑战性的
+
+164
+00:08:23,170 --> 00:08:25,090
+And then from there,
+从那之后
+
+165
+00:08:25,090 --> 00:08:28,335
+when I started my Ph.D. And you arrived at Stanford,
+当我开始我的博士生涯 而且当时你到了斯坦福
+
+166
+00:08:28,335 --> 00:08:30,910
+and I think you give me a really good reality check,
+我认为你给了我一个很好的实际的检验
+
+167
+00:08:30,910 --> 00:08:35,350
+that that's not the right metric to evaluate your work by,
+这不是评价你工作的正确方法
+
+168
+00:08:35,350 --> 00:08:38,470
+and to really try to see the connection from what
+去真正尝试观察
+
+169
+00:08:38,470 --> 00:08:41,710
+you're working on to what impact they can really have,
+你要努力做的和你可以产生什么影响之间的联系
+
+170
+00:08:41,710 --> 00:08:46,660
+what change it can make rather than what's the math that happened to be in your work.
+去观察它能带来多大改变而不是你的工作中恰巧出现了哪些数学
+
+171
+00:08:46,660 --> 00:08:48,425
+Right. That's amazing.
+对 这很让人震惊
+
+172
+00:08:48,425 --> 00:08:50,685
+I did not realize, I've forgotten that.
+我没有意识到 我给忘了
+
+173
+00:08:50,685 --> 00:08:54,267
+Yes, it's actually one of the things, aside most often that people asking,
+是 它实际上只是人们经常问的的问题中的其中一个
+
+174
+00:08:54,267 --> 00:09:01,090
+if you going to cite only one thing that has stuck with you from Andrew's advice,
+如果你打算只引用一件你无法摆脱的Andrew的建议
+
+175
+00:09:01,090 --> 00:09:05,995
+it's making sure you can see the connection to where it's actually going to do something.
+你一定可以看到它和你实际要做的什么事情之间的关系
+
+176
+00:09:05,995 --> 00:09:11,332
+You've had and you're continuing to have an amazing career in AI.
+你已经而且将继续在人工智能领域做出一番惊人的事业
+
+177
+00:09:11,332 --> 00:09:14,750
+So, for some of the people listening to you on video now,
+所以 对那些现在在看这个视频的人
+
+178
+00:09:14,750 --> 00:09:18,815
+if they want to also enter or pursue a career in AI,
+如果他们也想将人工智能作为自己的职业
+
+179
+00:09:18,815 --> 00:09:20,985
+what advice do you have for them?
+你对他们有什么建议?
+
+180
+00:09:20,985 --> 00:09:25,185
+I think it's a really good time to get into artificial intelligence.
+我认为这是一个很好的进入人工智能领域的时期
+
+181
+00:09:25,185 --> 00:09:28,965
+If you look at the demand for people, it's so high,
+如果你观察一下对人才的需求 是非常大的
+
+182
+00:09:28,965 --> 00:09:30,741
+there is so many job opportunities,
+有非常多的工作机会
+
+183
+00:09:30,741 --> 00:09:32,365
+so many things you can do, researchwise,
+你有很多可以做的事情 有很多研究可以做
+
+184
+00:09:32,365 --> 00:09:34,735
+build new companies and so forth.
+建立新的公司等等
+
+185
+00:09:34,735 --> 00:09:39,240
+So, I'd say yes, it's definitely a smart decision in terms of actually getting going.
+所以 我会说是的 从现在着手开始绝对是一个明智的决定
+
+186
+00:09:39,240 --> 00:09:41,140
+A lot of it, you can self-study,
+很多关于人工智能的东西 你都可以自学
+
+187
+00:09:41,140 --> 00:09:42,635
+whether you're in school or not.
+不管你在不在学校
+
+188
+00:09:42,635 --> 00:09:44,150
+There is a lot of online courses, for instance,
+有很多的在线课程
+
+189
+00:09:44,150 --> 00:09:45,585
+your machine learning course,
+比如你的机器学习课程
+
+190
+00:09:45,585 --> 00:09:48,400
+there is also, for example,
+还有比如Andrej Karpath的深度学习课程
+
+191
+00:09:48,400 --> 00:09:52,030
+Andrej Karpathy's deep learning course which has videos online,
+网上有视频可以看
+
+192
+00:09:52,030 --> 00:09:54,280
+which is a great way to get started,
+以此开始学习是个很好的方法
+
+193
+00:09:54,280 --> 00:09:57,460
+Berkeley who has a deep reinforcement learning course
+伯克利也有深度强化学习的课程
+
+194
+00:09:57,460 --> 00:09:59,260
+which has all of the lectures online.
+课程所有的课件都放在了网上
+
+195
+00:09:59,260 --> 00:10:01,235
+So, those are all good places to get started.
+所以 这些都是很好的开始学习的地方
+
+196
+00:10:01,235 --> 00:10:06,470
+I think a big part of what's important is to make sure you try things yourself.
+我认为一个很重要的部分是确保你自己去尝试
+
+197
+00:10:06,470 --> 00:10:10,055
+So, not just read things or watch videos but try things out.
+不仅仅是读一些东西或者看视频 而是去尝试
+
+198
+00:10:10,055 --> 00:10:14,347
+With frameworks like TensorFlow,
+比如使用像是TenserFlow
+
+199
+00:10:14,347 --> 00:10:16,040
+Chainer, Theano, PyTorch and so forth,
+Chainer, Theano, PyTorch等等的框架去实现
+
+200
+00:10:16,040 --> 00:10:17,350
+I mean whatever is your favorite,
+我的意思是不管你喜欢什么
+
+201
+00:10:17,350 --> 00:10:21,980
+it's very easy to get going and get something up and running very quickly.
+开始并实现它们让它们快速的运行都是非常容易的
+
+202
+00:10:21,980 --> 00:10:24,669
+To get to practice yourself, right?
+开始自己练习 对吧?
+
+203
+00:10:24,669 --> 00:10:27,105
+With implementing and seeing what does and seeing what doesn't work.
+实现它们然后观察看哪些是有效的哪些是行不通的
+
+204
+00:10:27,105 --> 00:10:29,360
+So, this past week there was an article in
+上周有一篇Mashable上的文章
+
+205
+00:10:29,360 --> 00:10:31,715
+Mashable about a 16-year-old in United Kingdom,
+说一个英国16岁的孩子
+
+206
+00:10:31,715 --> 00:10:34,580
+who is one of the leaders on Kaggle competitions.
+是在Kaggle竞赛上的佼佼者
+
+207
+00:10:34,580 --> 00:10:36,690
+And it just said,
+这篇文章说
+
+208
+00:10:36,690 --> 00:10:39,290
+he just went out and learned things,
+他就只是自己学习
+
+209
+00:10:39,290 --> 00:10:41,510
+found things online, learned everything himself and
+找在线的资源自己学习所有的事情
+
+210
+00:10:41,510 --> 00:10:44,915
+never actually took any formal course per se.
+而且实际上从来没有参加过正式的课程
+
+211
+00:10:44,915 --> 00:10:49,180
+And there is a 16-year-old just being very competitive in Kaggle competition,
+一个16岁的孩子就可以在Kaggle竞赛上非常有竞争力
+
+212
+00:10:49,180 --> 00:10:50,990
+so it's definitely possible.
+所以自学绝对是可能的
+
+213
+00:10:50,990 --> 00:10:53,120
+We live in good times.
+我们生活在一个好的时代
+
+214
+00:10:53,120 --> 00:10:54,560
+If people want to learn.
+人们想学习就可以学习
+
+215
+00:10:54,560 --> 00:10:55,940
+Absolutely.
+没错
+
+216
+00:10:55,940 --> 00:10:57,980
+One question I bet you get all sometimes
+有一个问题我猜你经常被问到
+
+217
+00:10:57,980 --> 00:11:00,160
+is if someone wants to enter AI machine learning and deep learning,
+如果有人想进入人工智能 机器学习 深度学习领域
+
+218
+00:11:00,160 --> 00:11:06,885
+should they apply for a Ph.D. program or should they get the job with a big company?
+他们需要去申请博士还是找一个大公司的工作?
+
+219
+00:11:06,885 --> 00:11:12,395
+I think a lot of it has to do with maybe how much mentoring you can get.
+我认为这很大程度上和你可以得到多大的指导有关
+
+220
+00:11:12,395 --> 00:11:14,780
+So, in a Ph.D. program,
+在博士项目中
+
+221
+00:11:14,780 --> 00:11:16,400
+you're such a guaranteed,
+你的指导是得到保证的
+
+222
+00:11:16,400 --> 00:11:17,787
+the job of the professor,
+这是教授的工作
+
+223
+00:11:17,787 --> 00:11:18,830
+who is your adviser,
+也就是你的导师会细心观察你
+
+224
+00:11:18,830 --> 00:11:20,800
+is to look out for you.
+也就是你的导师会细心观察你
+
+225
+00:11:20,800 --> 00:11:21,950
+Try to do everything they can to,
+力所能及的做他们能做的
+
+226
+00:11:21,950 --> 00:11:23,565
+kind of, shape you,
+比如去塑造你
+
+227
+00:11:23,565 --> 00:11:28,720
+help you become stronger at whatever you want to do, for example, AI.
+帮助你在你想做的事情上变强 比如在人工智能方面
+
+228
+00:11:28,720 --> 00:11:32,060
+And so, there is a very clear dedicated person, sometimes you have two advisers.
+所以总是会有一个很专注的人 而且有时你会有两个导师
+
+229
+00:11:32,060 --> 00:11:34,955
+And that's literally their job and that's why they are professors,
+而且这就是他们的工作 这就是他们之所以是教授的原因
+
+230
+00:11:34,955 --> 00:11:37,755
+most of what they like about being professors often is helping
+他们作为教授想的很多事情就是
+
+231
+00:11:37,755 --> 00:11:41,200
+shape students to become more capable at things.
+帮助塑造学生 让他们对一些事情更擅长
+
+232
+00:11:41,200 --> 00:11:43,250
+Now, it doesn't mean it's not possible at companies,
+但这不意味着在公司就没有这种可能
+
+233
+00:11:43,250 --> 00:11:46,730
+and many companies have really good mentors and have people who love
+很多公司也有很好的指导者
+
+234
+00:11:46,730 --> 00:11:51,110
+to help educate people who come in and strengthen them, and so forth.
+也有人喜欢帮助新来的人让他们变强等等
+
+235
+00:11:51,110 --> 00:11:55,515
+It's just, it might not be as much of a guarantee and a given,
+只是 相比于博士项目没有太多的保证
+
+236
+00:11:55,515 --> 00:12:00,540
+compared to actually enrolling in a Ph.D. program or that's the crooks of
+博士项目的好处就在于
+
+237
+00:12:00,540 --> 00:12:06,020
+the program is that you're going to learn and somebody is there to help you learn.
+你想要去学习而且就有某人帮助你去学习
+
+238
+00:12:06,020 --> 00:12:09,675
+So it really depends on the company and depends on the Ph.D. program.
+所以得到的指导量取决于公司和博士项目
+
+239
+00:12:09,675 --> 00:12:14,130
+Absolutely, yes. But I think it is key that you can learn a lot on your own.
+是的 没错 但是我想你自己可以进行大量学习才是关键所在
+
+240
+00:12:14,130 --> 00:12:17,910
+But I think you can learn a lot faster if you have somebody who's more experienced,
+但是我认为如果你身边有一些更有经验的人
+
+241
+00:12:17,910 --> 00:12:20,469
+who is actually taking it up as
+他们以花费时间与你共度并且加速你的学习为自己的责任
+
+242
+00:12:20,469 --> 00:12:24,945
+their responsibility to spend time with you and help accelerate your progress.
+你可以学习的更快
+
+243
+00:12:24,945 --> 00:12:28,780
+So, you've been one of the most visible leaders in deep reinforcement learning.
+你已经成为深度强化学习领域最知名的领导者之一
+
+244
+00:12:28,780 --> 00:12:30,720
+So, what are the things that
+所以 哪些事情
+
+245
+00:12:30,720 --> 00:12:32,930
+deep reinforcement learning is already working really well at?
+是深度强化学习已经做得很好的了?
+
+246
+00:12:32,930 --> 00:12:37,450
+I think, if you look at some deep reinforcement learning successes,
+我认为 如果你看一些深度强化学习的成功案例
+
+247
+00:12:37,450 --> 00:12:39,000
+it's very, very intriguing.
+它非常非常吸引人
+
+248
+00:12:39,000 --> 00:12:42,810
+For example, learning to play Atari games from pixels,
+比如 从像素开始学习如何去玩Atari游戏
+
+249
+00:12:42,810 --> 00:12:45,540
+processing this pixels which is just numbers that are being
+处理那些仅仅是一些数字的像素
+
+250
+00:12:45,540 --> 00:12:49,150
+processed somehow and turned into joystick actions.
+然后转化为控制杆的动作
+
+251
+00:12:49,150 --> 00:12:52,605
+Then, for example, some of the work we did at Berkeley was,
+然后再比如 我们在伯克利做的一些工作
+
+252
+00:12:52,605 --> 00:12:57,105
+we have a simulated robot inventing walking and the reward
+我们做了一个模拟机器人来学习走路
+
+253
+00:12:57,105 --> 00:12:59,340
+that it's given is as simple as the further you go north the
+而回报仅仅设置为你往北走的越远越好
+
+254
+00:12:59,340 --> 00:13:02,170
+better and the less hard you impact with the ground the better.
+你对地面的施力越小越好
+
+255
+00:13:02,170 --> 00:13:06,949
+And somehow it decides that walking slash running is the thing to invent whereas,
+然后它创造出了神奇的走和跑
+
+256
+00:13:06,949 --> 00:13:10,095
+nobody showed it, what walking is or running is.
+没人演示给它什么是走什么是跑
+
+257
+00:13:10,095 --> 00:13:14,220
+Or robot playing with children's stories and learn to kind of put them together,
+或者机器人与儿童故事互动然后学习把它们拼在一起
+
+258
+00:13:14,220 --> 00:13:16,935
+put a block into matching opening, and so forth.
+或者是把一块东西放进与之匹配的缺口中等等
+
+259
+00:13:16,935 --> 00:13:20,280
+And so, I think it's really interesting that in all of these it's possible to learn
+因此 这非常有趣
+
+260
+00:13:20,280 --> 00:13:24,510
+from raw sensory inputs all the way to raw controls,
+你从原始的传感器数据学习出原始的控制信息是有可能的
+
+261
+00:13:24,510 --> 00:13:27,990
+for example, torques at the motors.
+例如电机中的扭矩
+
+262
+00:13:27,990 --> 00:13:29,225
+But at the same time.
+但同时
+
+263
+00:13:29,225 --> 00:13:32,460
+So it is very interesting that you can have a single algorithm.
+非常有趣的是你可以设计一个单一的算法
+
+264
+00:13:32,460 --> 00:13:35,310
+For example, you know thrust is impulsive and you can learn,
+例如你知道推力是脉冲 然后你就可以学习
+
+265
+00:13:35,310 --> 00:13:36,745
+can have a robot learn to run,
+可以让一个机器人学习跑动
+
+266
+00:13:36,745 --> 00:13:38,135
+can have a robot learn to stand up,
+可以让一个机器人学习站立
+
+267
+00:13:38,135 --> 00:13:40,395
+can have instead of a two legged robot,
+现在你可以替换掉两足机器人
+
+268
+00:13:40,395 --> 00:13:42,445
+now you're swapping a four legged robot.
+换成四足机器人
+
+269
+00:13:42,445 --> 00:13:46,465
+You run the same reinforcement algorithm and it still learns to run.
+你运行相同的强化学习算法然后它依然可以学习如何跑动
+
+270
+00:13:46,465 --> 00:13:49,280
+And so, there is no change in the reinforcement algorithm.
+然而强化算法没有任何改变
+
+271
+00:13:49,280 --> 00:13:51,615
+It's very, very general. Same for the Atari games.
+它非常非常的通用 就像在Atari游戏中一样
+
+272
+00:13:51,615 --> 00:13:54,565
+DQN was the same DQN for every one of the games.
+每个游戏都使用相同的DQN
+
+273
+00:13:54,565 --> 00:13:56,640
+But then, when it actually starts hitting
+但是当触及到前沿的研究时
+
+274
+00:13:56,640 --> 00:14:00,060
+the frontiers of what's not yet possible as well,
+还是有一些东西现在不能实现
+
+275
+00:14:00,060 --> 00:14:03,490
+it's nice it learns from scratch for each one of
+比如对于每个任务从头学起还算不错
+
+276
+00:14:03,490 --> 00:14:07,405
+these tasks but would be even nicer if it could reuse things it's learned in the past;
+但是更好的做法是可以重复利用之前的学习结果
+
+277
+00:14:07,405 --> 00:14:09,640
+to learn even more quickly for the next task.
+这样对下一个任务就可以学习的更快
+
+278
+00:14:09,640 --> 00:14:13,100
+And that's something that's still on the frontier and not yet possible.
+这是还在前沿上的东西 还不能实现
+
+279
+00:14:13,100 --> 00:14:16,490
+It always starts from scratch, essentially.
+本质上它们都是从头开始学习的
+
+280
+00:14:16,490 --> 00:14:19,390
+How quickly, do you think, you see deep
+你认为多快
+
+281
+00:14:19,390 --> 00:14:22,420
+reinforcement learning get deployed in the robots around us,
+深度强化学习可以部署到我们周围的机器人上
+
+282
+00:14:22,420 --> 00:14:25,935
+the robots they're getting deployed in the world today.
+那些今天已经部署了的机器人上
+
+283
+00:14:25,935 --> 00:14:29,380
+I think in practice the realistic scenario is one
+我认为 在实际应用中
+
+284
+00:14:29,380 --> 00:14:32,770
+where it starts with supervised learning,
+现实场景是 用监督学习方式开始
+
+285
+00:14:32,770 --> 00:14:35,960
+behavioral cloning; humans do the work.
+做行为模仿 由人类做这个工作
+
+286
+00:14:35,960 --> 00:14:38,530
+And I think a lot of businesses will be built
+而且我认为很多的商业化部署会是这样的
+
+287
+00:14:38,530 --> 00:14:41,790
+that way where it's a human behind the scenes doing a lot of the work.
+在一个场景下 人类做很多的工作
+
+288
+00:14:41,790 --> 00:14:44,980
+Imagine Facebook Messenger assistant.
+想像一下Facebook信息助手
+
+289
+00:14:44,980 --> 00:14:47,980
+Assistant like that could be built with a human behind
+像这样的助手
+
+290
+00:14:47,980 --> 00:14:51,310
+the curtains doing a lot of the work; machine learning,
+需要有人在后台做很多工作
+
+291
+00:14:51,310 --> 00:14:54,380
+matches up with what the human does and starts making suggestions to
+然后机器会和人的做法匹配 然后开始给人提建议
+
+292
+00:14:54,380 --> 00:14:58,130
+human so the humans has a small number of options that we can just click and select.
+所以人就只有少量的选择 可以仅通过点击和选择完成
+
+293
+00:14:58,130 --> 00:14:59,640
+And then over time,
+然后经过一段时间
+
+294
+00:14:59,640 --> 00:15:01,130
+as it gets pretty good,
+当它变的相当不错的时候
+
+295
+00:15:01,130 --> 00:15:04,465
+you're starting fusing some reinforcement learning where you give it actual objectives,
+你开始融合一些强化学习算法 给它一个真正的目标
+
+296
+00:15:04,465 --> 00:15:06,565
+not just matching the human behind the curtains
+不仅仅是和后台人类的行为匹配
+
+297
+00:15:06,565 --> 00:15:09,040
+but giving objectives of achievement like,
+而是给出一些目标
+
+298
+00:15:09,040 --> 00:15:14,110
+maybe, how fast were these two people able to plan their meeting?
+比如有可能是 这两个人多快能计划他们的会面?
+
+299
+00:15:14,110 --> 00:15:16,385
+Or how fast were they able to book their flight?
+或者是他们多快能预定飞机?
+
+300
+00:15:16,385 --> 00:15:18,340
+Or things like that. How long did it take?
+或者是像这样的问题 它会花费多久?
+
+301
+00:15:18,340 --> 00:15:20,065
+How happy were they with it?
+有了它他们有多高兴?
+
+302
+00:15:20,065 --> 00:15:22,815
+But it would probably have to be bootstrap of a lot of
+但是它可能需要很多来自人类的行为模仿的自举学习
+
+303
+00:15:22,815 --> 00:15:27,605
+behavioral cloning of humans showing how this could be done.
+来展示如何完成任务
+
+304
+00:15:27,605 --> 00:15:30,690
+So it sounds behavioral cloning just supervise learning to
+所以听起来行为模仿就只是学习
+
+305
+00:15:30,690 --> 00:15:33,580
+mimic whatever the person is doing and then gradually later on,
+模仿人类做的任何事情 然后在之后逐渐地
+
+306
+00:15:33,580 --> 00:15:37,434
+the reinforcement learning to have it think about longer time horizons?
+让强化学习使它可以在长时间的视野下思考
+
+307
+00:15:37,434 --> 00:15:38,500
+Is that a fair summary?
+这样的总结合适么?
+
+308
+00:15:38,500 --> 00:15:39,715
+I'd say so, yes.
+我觉得是可以的
+
+309
+00:15:39,715 --> 00:15:43,540
+Just because straight up reinforcement learning from scratch is really fun to watch.
+仅仅是因为直接观察使用强化学习从头开始学习是很有趣的
+
+310
+00:15:43,540 --> 00:15:46,780
+It's super intriguing and very few things more fun to watch
+它非常的吸引人
+
+311
+00:15:46,780 --> 00:15:50,440
+than a reinforcement learning robot starting from nothing and inventing things.
+很少有什么东西比观察强化学习机器人从无到发明一些事情有趣了
+
+312
+00:15:50,440 --> 00:15:54,280
+But it's just time consuming and it's not always safe.
+但是它很耗时而且不总是安全的
+
+313
+00:15:54,280 --> 00:15:56,200
+Thank you very much. That was fascinating.
+非常感谢 这太吸引人了
+
+314
+00:15:56,200 --> 00:15:58,005
+I'm really glad we had the chance to chat.
+我非常高兴我们有机会聊天
+
+315
+00:15:58,005 --> 00:16:02,670
+Well, Andrew thank you for having me. Very much appreciate it.
+是的 Andrew 感谢你邀请我 非常感谢
+
