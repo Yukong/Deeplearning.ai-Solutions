@@ -22,6 +22,8 @@ GTC 在 Smartling 平台进行的中文翻译，是根据 Coursera 提供的英�
 ## 翻译进度
 字幕文件统一在仓库根目录srt文件夹中提供。
 
+管理人员 AcceptedDoge 因为时间原因停止参与项目翻译，字幕审核与更新速度可能会受到一定程度影响。
+
 此处更新的进度未必是最新进度，Smartling进度不会在此公开，一切以内部协作表格为准。
 
 | 编号     | 课程名                                          | srt进度  |
@@ -58,7 +60,8 @@ GTC 在 Smartling 平台进行的中文翻译，是根据 Coursera 提供的英�
 | 03.01   | Neural Networks Overview                        | 完成     |
 | 03.02   | Neural Network Representation                   | 完成     |
 | 03.03   | Computing a Neural Network's Output             | 完成     |
-
+| 03.06   | Activation functions                             | 完成     |
+| 03.09   | Gradient descent for Neural Networks           | 完成     |
 
 
 ## 版权声明

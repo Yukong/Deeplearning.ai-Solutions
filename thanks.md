@@ -41,7 +41,8 @@
 |03.01    | Neural Networks Overview                      | 李晶                     | 李晶                | AcceptedDoge |
 |03.02    | Neural Network Representation                 | 谢小彬                   | 谢小彬              | 黄海广        |
 |03.03    | Computing a Neural Network's Output           | hengC-137               | hengC-137           | 李智锋        |
-
+|03.06    | Activation functions                          | 潘哲                          | 潘哲                 | 谢小彬        |
+|03.09    | Gradient descent for Neural Networks          | 李晶                          | 李晶                 | 谢小彬        |
 
 
 
