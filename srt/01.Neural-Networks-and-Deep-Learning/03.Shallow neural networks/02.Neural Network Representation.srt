@@ -446,7 +446,7 @@ we're calling the input layer layer 0 so
 90
 00:03:34,580 --> 00:03:36,470
 technically maybe there are three layers
-所以在技术上 这任是一个三层的
+所以在技术上 这仍是一个三层的
 
 91
 00:03:36,470 --> 00:03:38,420
