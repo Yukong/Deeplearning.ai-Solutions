@@ -367,7 +367,7 @@ But because y-hat is you know,
 73
 00:04:35,170 --> 00:04:38,440
 the sigmoid function, it can never be bigger than one.
-simoid函数 它永远不会比1大
+sigmoid函数 它永远不会比1大
 
 74
 00:04:38,440 --> 00:04:41,850

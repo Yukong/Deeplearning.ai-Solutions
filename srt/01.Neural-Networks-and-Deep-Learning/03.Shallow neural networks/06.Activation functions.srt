@@ -1,0 +1,1212 @@
+﻿1
+00:00:00,390 --> 00:00:02,580
+when you boost a neural network one of
+当你在使用一个神经网络的时候
+
+2
+00:00:02,580 --> 00:00:04,350
+the choices you get to make is what
+你需要做一个选择 来决定
+
+3
+00:00:04,350 --> 00:00:06,720
+activation functions to use in the hidden
+哪一种激活函数用在你的神经网络的
+
+4
+00:00:06,720 --> 00:00:09,599
+layers as well as at the output unit of
+隐藏层上 哪一种用在输出节点上
+
+5
+00:00:09,599 --> 00:00:11,490
+your neural network so far we've just
+到目前为止 我们只
+
+6
+00:00:11,490 --> 00:00:13,139
+been using the sigmoid activation
+用过sigmoid激活函数
+
+7
+00:00:13,139 --> 00:00:16,080
+function but sometimes other choices can
+但是 其他的激活函数有时
+
+8
+00:00:16,080 --> 00:00:18,720
+work much better let's take a look at
+效果会更好 让我们来看一下
+
+9
+00:00:18,720 --> 00:00:22,279
+some of the options in the forward
+一些可选的激活函数 在神经网路的
+
+10
+00:00:22,380 --> 00:00:24,303
+propagation steps for the neural network
+前向传播中
+
+11
+00:00:24,303 --> 00:00:26,914
+we have these two steps where we use the
+我们执行这两步 在这里我们会使用
+
+12
+00:00:26,914 --> 00:00:29,814
+sigmoid function here so that sigmoid is
+sigmoid函数
+
+13
+00:00:29,814 --> 00:00:33,794
+called an activation function and here is
+sigmoid函数被称为激活函数 这里
+
+14
+00:00:33,794 --> 00:00:38,884
+the familiar sigmoid function a equals 1
+是熟悉的sigmoid函数 a 等于 1 除以
+
+15
+00:00:38,884 --> 00:00:40,804
+over 1 plus e to negative z so in the
+1 加上 e 的 -z 次 所以在
+
+16
+00:00:40,804 --> 00:00:45,943
+more general case we can have a
+更通常的情况下 我们可以使用
+
+17
+00:00:45,943 --> 00:00:51,513
+different function g of Z which I gonna write
+不同的函数 g（Z) 我写在这
+
+18
+00:00:51,513 --> 00:00:54,214
+here where G could be a nonlinear
+这里，g可以是一个非线性函数
+
+19
+00:00:54,214 --> 00:00:57,454
+function that may not be the sigmoid
+可能不是sigmoid函数
+
+20
+00:00:57,454 --> 00:01:00,083
+function so for example the sigmoid
+比如说 sigmoid函数
+
+21
+00:01:00,083 --> 00:01:02,494
+function goes between 0 & 1 an
+的值在0和1之间
+
+22
+00:01:02,494 --> 00:01:05,104
+activation function that almost always
+一个总体上都优于sigmoid函数的
+
+23
+00:01:05,104 --> 00:01:08,524
+works better than the sigmoid function
+激活函数
+
+24
+00:01:08,524 --> 00:01:12,393
+is the tanh function or the hyperbolic
+是tanh函数 或者双曲正切函数
+
+25
+00:01:12,393 --> 00:01:14,522
+tangent function so this is Z this is a
+这是Z 这是a
+
+26
+00:01:18,183 --> 00:01:18,183
+
+
+27
+00:01:14,522 --> 00:01:20,253
+this is a equals tanh of Z and this goes
+a 等于tanh(Z)
+
+28
+00:01:20,253 --> 00:01:22,622
+between plus 1 and minus 1 the formula
+函数的值 位于+1和-1之间
+
+29
+00:01:24,213 --> 00:01:33,933
+for the tanh function is e to the Z minus
+tanh函数的公式是 e的z次 减去
+
+30
+00:01:33,933 --> 00:01:36,274
+e to negative z over there sum and it's
+e的-z次 除以两者的和
+
+31
+00:01:36,274 --> 00:01:40,262 
+actually mathematically a shifted
+tanh函数事实上是sigmoid的
+
+32
+00:01:40,262 --> 00:01:44,012
+version of the sigmoid function so as a
+一个数学变换形式
+
+33
+00:01:44,450 --> 00:01:46,910
+you know sigmoid function just like that
+sigmoid函数的图像就是这样
+
+34
+00:01:46,910 --> 00:01:50,420
+but shift it so that it now crosses a
+但是对它进行了变换 现在穿过了
+
+35
+00:01:50,420 --> 00:01:52,639
+zero zero point and rescale so it goes
+(0,0)点 再重新缩放之后 它的值
+
+36
+00:01:52,639 --> 00:01:55,130
+to between minus one and plus one and it turns
+介于+1 和 -1之间
+
+37
+00:01:55,130 --> 00:01:59,090
+out that for hidden units if you let the
+结果表明 如果你在隐藏层上
+
+38
+00:01:59,090 --> 00:02:07,900
+function G of Z be equal to
+使用函数g(z)=tanh(z)
+
+39
+00:02:07,900 --> 00:02:10,470
+tenh（z） this almost always works better
+效果总是优于
+
+40
+00:02:10,470 --> 00:02:14,050
+than the sigmoid function because with
+sigmoid函数 因为
+
+41
+00:02:14,050 --> 00:02:15,580
+values between plus one and minus one
+函数值在-1 和 +1 这个区间
+
+42
+00:02:15,580 --> 00:02:17,490
+the mean of the activations that come
+你的脑海中马上就可以想到
+
+43
+00:02:17,490 --> 00:02:19,560
+out of your head in there are closer to
+激活函数的均值是更接近
+
+44
+00:02:19,560 --> 00:02:22,110
+having a zero mean and so just as
+零均值的 也就像有时候
+
+45
+00:02:22,110 --> 00:02:23,580
+sometimes when you train a learning
+当你在训练一个
+
+46
+00:02:23,580 --> 00:02:24,150
+algorithm
+算法
+
+47
+00:02:24,150 --> 00:02:26,250
+you might Center the data and have your
+你或许会中心化你的数据 使你的数据
+
+48
+00:02:26,250 --> 00:02:30,269
+data have zero mean using a tanh instead
+零均值 使用tanh函数而不是
+
+49
+00:02:30,269 --> 00:02:32,070
+of a sigmoid function kind of has the
+sigmoid函数 某种程度上
+
+50
+00:02:32,070 --> 00:02:35,310
+effect of centering your data so that
+对你中心化数据有影响
+
+51
+00:02:35,310 --> 00:02:37,440
+the mean of the data is close to the
+使得数据的平均值更接近0
+
+52
+00:02:37,440 --> 00:02:40,170
+zero rather than maybe a 0.5 and this
+而不是0.5
+
+53
+00:02:40,170 --> 00:02:41,970
+actually makes learning for the next
+这样的话 会使下一层学习
+
+54
+00:02:41,970 --> 00:02:44,070
+layer a little bit easier we'll say more
+简单一点 我们会在
+
+55
+00:02:44,070 --> 00:02:46,380
+about this in the second course when we
+第二门课中将更多 当我们在
+
+56
+00:02:46,380 --> 00:02:47,940
+talk about optimization algorithms as
+讨论优化算法的时候
+
+57
+00:02:47,940 --> 00:02:51,299
+well but one takeaway is that I pretty
+但是有一点要说明
+
+58
+00:02:51,299 --> 00:02:53,040
+much never use the sigmoid activation
+我基本已经不用sigmoid激活函数了
+
+59
+00:02:53,040 --> 00:02:54,810
+function anymore
+
+60
+00:02:54,810 --> 00:02:56,970
+the tanh function is almost always
+tanh函数总是
+
+61
+00:02:56,970 --> 00:03:00,120
+strictly superior the one exception is
+严格优秀于sigmoid函数 一个例外是
+
+62
+00:03:00,120 --> 00:03:04,110
+for the output layer because if Y is
+对于输出层 因为Y的值
+
+63
+00:03:04,110 --> 00:03:07,980
+either 0 or 1 then it makes sense for y
+是 0 或 1 所以你想让y(hat)
+
+64
+00:03:07,980 --> 00:03:11,130
+hat to be a number that you want to
+的数值
+
+65
+00:03:11,130 --> 00:03:14,549
+output that between 0 and 1 rather than
+介于0和1之间
+
+66
+00:03:14,549 --> 00:03:17,130
+between minus 1 and 1 so the one
+而不是在-1和+1之间 所以
+
+67
+00:03:17,130 --> 00:03:19,920
+exception where I would use the sigmoid
+我会使用sigmoid激活函数的
+
+68
+00:03:19,920 --> 00:03:21,990
+activation function is when you're using
+一个例外是 当你在做
+
+69
+00:03:21,990 --> 00:03:25,230
+binary classification in which case you
+二分类的问题 这个情况下
+
+70
+00:03:25,230 --> 00:03:26,910
+might use the sigmoid activation
+可能会对输出层使用sigmoid激活函数
+
+71
+00:03:26,910 --> 00:03:30,269
+function for the output layer so g of Z
+所以 在这里的
+
+72
+00:03:30,269 --> 00:03:35,730
+2 here is equal to Sigma of Z 2 and so
+g(Z2) 是等于 sigmoid（Z2）
+
+73
+00:03:35,730 --> 00:03:37,740
+what you see in this example is where
+你在这个例子里看到的是
+
+74
+00:03:37,740 --> 00:03:40,859
+you might have a tenh activation
+你可能会对隐藏层使用
+
+75
+00:03:40,859 --> 00:03:44,480
+function for the hidden layer and
+tanh激活函数
+
+76
+00:03:44,480 --> 00:03:48,329
+sigmoid for the output layer so the
+输出层使用sigmoid函数
+
+77
+00:03:48,329 --> 00:03:49,859
+activation functions can be different
+所以在不同的神经网络层中
+
+78
+00:03:49,859 --> 00:03:52,230
+for different layers and sometimes to
+激活函数可以不同 有时候
+
+79
+00:03:52,230 --> 00:03:54,269
+denote that the activation functions are
+为了表示不同的激活函数
+
+80
+00:03:54,269 --> 00:03:56,250
+different for different layers we might
+使用在不同的层中 我们可能会用
+
+81
+00:03:56,250 --> 00:03:59,070
+use these square brackets super scripts
+方括号上标
+
+82
+00:03:59,070 --> 00:04:02,790
+as well to indicate that G of square
+来指出g上标为[1]的激活函数
+
+83
+00:04:02,790 --> 00:04:05,100
+bracket 1 may be different than G square
+可能会跟g上标为[2]
+
+84
+00:04:05,100 --> 00:04:07,500
+bracket 2 right again square bracket 1
+不同 方括号上标[1]
+
+85
+00:04:07,500 --> 00:04:09,900
+superscript refers to this layer and
+代表这一层
+
+86
+00:04:09,900 --> 00:04:12,030
+superscript square bracket 2 refers to
+方括号上标[2]
+
+87
+00:04:12,030 --> 00:04:13,439
+the output layer
+表示输出层
+
+88
+00:04:13,439 --> 00:04:16,240
+now one of the downsides of both the
+sigmoid函数和tanh函数两者
+
+89
+00:04:16,240 --> 00:04:18,669
+sigmoid function and the tanh function is
+共同的缺点是
+
+90
+00:04:18,669 --> 00:04:21,340
+that if Z is either very large or very
+在Z特别大
+
+91
+00:04:21,340 --> 00:04:23,470
+small then the gradient of the
+或者特别小的情况下 导数的梯度
+
+92
+00:04:23,470 --> 00:04:25,020
+derivative or the slope of this function
+或者函数的斜率
+
+93
+00:04:25,020 --> 00:04:28,120
+becomes very small so Z is very large or
+会变得特别小 所以在Z特别大或者
+
+94
+00:04:28,120 --> 00:04:30,699
+Z is very small the slope of the
+特别小的情况下 函数的斜率
+
+95
+00:04:30,699 --> 00:04:33,729
+function you know ends up being close to
+最后就会接近于0
+
+96
+00:04:33,729 --> 00:04:35,830
+zero and so this can slow down gradient
+这样会降低梯度下降的速度
+
+97
+00:04:35,830 --> 00:04:38,920
+descent so one of the chooses that is very
+在机器学习另一个很流行的
+
+98
+00:04:38,920 --> 00:04:42,370
+popular in machine learning is what's
+函数 是一种被称为
+
+99
+00:04:42,370 --> 00:04:45,460
+called the rectified linear unit so the
+修正线性单元的函数
+
+100
+00:04:45,460 --> 00:04:51,280
+ReLu function looks like this and the
+ReLu函数图像是这个样子
+
+101
+00:04:51,280 --> 00:04:57,670
+formula is a equals max of 0 comma Z so
+公式是a=max(0,Z)
+
+102
+00:04:57,670 --> 00:05:01,060
+the derivative is 1 so long as Z is
+所以 只要Z是正值的情况下
+
+103
+00:05:01,060 --> 00:05:04,090
+positive and derivative or the slope is
+导数是1 当Z是负值的时候
+
+104
+00:05:04,090 --> 00:05:06,550
+0 when Z is negative if you're
+导数或者梯度是0
+
+105
+00:05:06,550 --> 00:05:08,140
+implementing this technically the
+从技术上来说 当你在使用
+
+106
+00:05:08,140 --> 00:05:10,750
+derivative when Z is exactly 0 is not
+Z的导数时，Z=0的导数
+
+107
+00:05:10,750 --> 00:05:12,909
+well-defined but when you implement is
+并很好的定义 但是当你在电脑上
+
+108
+00:05:12,909 --> 00:05:14,770
+in the computer the often you get
+使用它的时候，通常情况下
+
+109
+00:05:14,770 --> 00:05:19,330
+exactly the equals 0 0 0 0 0 0 0 0 0 0
+都会取到等于0.0000000的值
+
+110
+00:05:19,330 --> 00:05:21,789
+it is very small so you don't need to
+这个值相当小 所以你不需要担心这个值
+
+111
+00:05:21,789 --> 00:05:23,500
+worry about it in practice you could
+在实践中 你可以在
+
+112
+00:05:23,500 --> 00:05:26,170
+pretend a derivative when Z is equal to
+Z是等于0的时候 假设一个导数
+
+113
+00:05:26,170 --> 00:05:30,219
+0 you can pretend is either 1 or 0 and
+你可以假设导数是1或者0
+
+114
+00:05:30,219 --> 00:05:32,830
+you can work just fine so the fact that
+效果都可以
+
+115
+00:05:32,830 --> 00:05:36,039
+is not differentiable the fact that so
+事实是两者并没有什么区别
+
+116
+00:05:36,039 --> 00:05:37,990
+here are some rules of thumb for
+这有一些选择激活函数的
+
+117
+00:05:37,990 --> 00:05:40,570
+choosing activation functions if your
+经验法则
+
+118
+00:05:40,570 --> 00:05:43,840
+output is 0 1 value if you're I'm using
+如果你的输出是0 1值 如果你在解决
+
+119
+00:05:43,840 --> 00:05:46,180
+binary classification then the sigmoid
+二分类问题 所以 输出层选择sigmoid函数
+
+120
+00:05:46,180 --> 00:05:48,099
+activation function is very natural for
+输出层很自然的选择sigmoid函数
+
+121
+00:05:48,099 --> 00:05:51,039
+the output layer and then for all other
+选择sigmoid函数 然后其它的所有单元
+
+122
+00:05:51,039 --> 00:05:59,979
+units on ReLu or the rectified linear
+都选择Relu函数
+
+123
+00:05:59,979 --> 00:06:05,020
+unit is increasingly the default choice
+这是很多激活函数
+
+124
+00:06:05,020 --> 00:06:07,750
+of activation function so if you're not
+的默认选择 所以 如果你并不确定
+
+125
+00:06:07,750 --> 00:06:10,840
+sure what to use for your hidden layer
+在隐藏层上 使用哪个激活函数
+
+126
+00:06:10,840 --> 00:06:14,409
+I would just use the relu activation
+我通常会使用Relu激活函数
+
+127
+00:06:14,409 --> 00:06:15,849
+function that's what you see most people
+这也是现在 大多数人
+
+128
+00:06:15,849 --> 00:06:18,130
+using these days although sometimes
+都会使用的函数
+
+129
+00:06:18,130 --> 00:06:20,680
+people also use the tanh activation
+有时候 人们也会使用tanh激活函数
+
+130
+00:06:20,680 --> 00:06:21,910
+function
+
+131
+00:06:21,910 --> 00:06:23,710
+one this advantage of the Relu is that
+Relu的一个优点是
+
+132
+00:06:23,710 --> 00:06:26,830
+the derivative is equal to zero when Z
+当Z是负值的时候，导数等于0
+
+133
+00:06:26,830 --> 00:06:29,200
+is negative in practice this works just
+在实践中 效果也可以
+
+134
+00:06:29,200 --> 00:06:32,260
+fine but there is another version of the
+这里也有另一个版本的Relu
+
+135
+00:06:32,260 --> 00:06:34,450
+value called the leaky ReLu will give
+被称为Leaky Relu 下一页中会
+
+136
+00:06:34,450 --> 00:06:35,980
+you the formula on the next slide but
+给出公式
+
+137
+00:06:35,980 --> 00:06:39,250
+instead of it being zero when Z is
+当Z是负值时，这个函数的值不是等于0
+
+138
+00:06:39,250 --> 00:06:41,080
+negative it just takes a slight slope
+而是轻微的倾斜
+
+139
+00:06:41,080 --> 00:06:43,500
+like so so this is called the Leaky
+就像这样 这就是Leaky Relu
+
+140
+00:06:43,500 --> 00:06:48,460
+ReLu this usually works better than the
+这个函数通常比ReLu激活函数
+
+141
+00:06:48,460 --> 00:06:51,730
+Relu activation function although it's
+效果要好 尽管在实际中
+
+142
+00:06:51,730 --> 00:06:54,460
+just not used as much in practice either
+Leaky ReLu使用的并不多
+
+143
+00:06:54,460 --> 00:06:55,420
+one should be fine
+两个都可以
+
+144
+00:06:55,420 --> 00:06:57,330
+although if you had to pick one I
+如果你必须要选一个
+
+145
+00:06:57,330 --> 00:06:59,890
+usually just use the ReLu and the
+我通常只使用Relu
+
+146
+00:06:59,890 --> 00:07:02,020
+advantage of both the ReLu and Leaky
+两者的优点是
+
+147
+00:07:02,020 --> 00:07:05,020
+ReLu is that for a lot of the space of
+在Z的区间变动很大的情况下
+
+148
+00:07:05,020 --> 00:07:07,060
+Z the derivative of the activation
+激活函数的导数
+
+149
+00:07:07,060 --> 00:07:08,710
+function the slope of the activation
+或者激活函数的斜率
+
+150
+00:07:08,710 --> 00:07:12,430
+function is very different from zero and
+都会远大于0
+
+151
+00:07:12,430 --> 00:07:14,530
+so in practice using the ReLu
+所以 在实践中 使用
+
+152
+00:07:14,530 --> 00:07:16,480
+activation function your neural network
+ReLu激活函数 你的神经网络
+
+153
+00:07:16,480 --> 00:07:19,150
+will often learn much faster than using
+通常会比使用sigmoid或者tanh激活函数
+
+154
+00:07:19,150 --> 00:07:21,370
+the ten age or the sigmoid activation
+学习的更快
+
+155
+00:07:21,370 --> 00:07:24,400
+function and the main reason is that on
+学习快的主要的原因是
+
+156
+00:07:24,400 --> 00:07:26,980
+this less of this effect of the slope of
+在训练过程中 梯度下降为0从而减慢学习速度
+
+157
+00:07:26,980 --> 00:07:29,260
+the function going to zero which slows
+情况比较少
+
+158
+00:07:29,260 --> 00:07:32,140
+down learning and I know that for half
+我知道Z在ReLu
+
+159
+00:07:32,140 --> 00:07:34,510
+of the range of Z the slope of relu is
+的梯度 一半都是0
+
+160
+00:07:34,510 --> 00:07:37,270
+zero but in practice enough of your
+但是在实际中 你会有足够的
+
+161
+00:07:37,270 --> 00:07:39,610
+hidden units will have Z greater than
+隐藏层 使得你的Z值大于0
+
+162
+00:07:39,610 --> 00:07:41,680
+zero so learning can still be quite fast
+所以对大多数的训练数据来说
+
+163
+00:07:41,680 --> 00:07:44,260
+for most training examples so let's just
+学习过程任然可以很快 所以
+
+164
+00:07:44,260 --> 00:07:46,360
+quickly recap there are pros and cons of
+让我们来快速概括一下 这里有不同激活函数的
+
+165
+00:07:46,360 --> 00:07:48,160
+different activation functions here's
+过程和结论
+
+166
+00:07:48,160 --> 00:07:50,590
+the sigmoid activation function I would
+这是sigmoid激活函数
+
+167
+00:07:50,590 --> 00:07:53,350
+say never use this except for the output
+我基本不会用它 除了输出层
+
+168
+00:07:53,350 --> 00:07:54,970
+layer if you are doing binary
+是一个二分类问题
+
+169
+00:07:54,970 --> 00:07:56,890
+classification or maybe almost never use
+或者 从来不用它
+
+170
+00:07:56,890 --> 00:08:00,100
+this and the reason I almost never use
+我从来不用它的理由是
+
+171
+00:08:00,100 --> 00:08:03,280
+this is because the tanh is pretty much
+因为tanh是非常优秀的
+
+172
+00:08:03,280 --> 00:08:05,620
+strictly superior so the 10-inch
+所以 tanh激活函数
+
+173
+00:08:05,620 --> 00:08:12,640
+activation function is this and then the
+是这样
+
+174
+00:08:12,640 --> 00:08:13,990
+default the most commonly used
+最常见的默认使用
+
+175
+00:08:13,990 --> 00:08:16,050
+activation function is the ReLu
+的激活函数是ReLu
+
+176
+00:08:16,050 --> 00:08:19,660
+which is this so you're not sure what
+是这个样子 如果你不确定用哪个
+
+177
+00:08:19,660 --> 00:08:24,220
+else to use use this one and maybe you
+就使用ReLu
+
+178
+00:08:24,220 --> 00:08:27,160
+know feel free also to try to leeky ReLu
+或者 你也可以试试Leaky ReLu
+
+179
+00:08:27,160 --> 00:08:32,490
+where um might be
+或许是
+
+180
+00:08:32,490 --> 00:08:37,219
+0.01 Z comma Z right so a is the max of
+(0.01Z,Z)这个样子
+
+181
+00:08:37,219 --> 00:08:40,950
+0.01 times Z and Z so that gives you
+a是(0.01Z,Z)的最大值 这会让
+
+182
+00:08:40,950 --> 00:08:44,370
+this some Bend in the function and you
+让函数弯曲
+
+183
+00:08:44,370 --> 00:08:46,760
+might say you know why is that constant
+你或许会问 为什么常数是
+
+184
+00:08:46,760 --> 00:08:52,230
+0.01 well you can also make that another
+0.01 当然
+
+185
+00:08:52,230 --> 00:08:53,940
+parameter of the learning algorithm and
+你也可以为学习算法选择不同的参数
+
+186
+00:08:53,940 --> 00:08:55,230
+some people say that works even better
+有些人说效果会更好
+
+187
+00:08:55,230 --> 00:08:59,040
+but I hardly see people do that so but
+但是我很少见到人们这样做
+
+188
+00:08:59,040 --> 00:09:00,209
+if you feel like trying it in your
+不过你可以在你的应用中试试
+
+189
+00:09:00,209 --> 00:09:01,920
+application you know please feel free to
+请随便试
+
+190
+00:09:01,920 --> 00:09:03,990
+do so and and you can just see how it
+你将会看到
+
+191
+00:09:03,990 --> 00:09:06,360
+works and how well works and stick with
+它是怎么工作的 效果怎么样
+
+192
+00:09:06,360 --> 00:09:08,850
+it if it gives you good result so I hope
+并且坚持这样做，如果这样会给你一个好结果
+
+193
+00:09:08,850 --> 00:09:10,440
+that gives you a sense of some of the
+我希望我讲的东西 让你在选择自己神经网络
+
+194
+00:09:10,440 --> 00:09:12,180
+choices of activation functions you can
+的激活函数时
+
+195
+00:09:12,180 --> 00:09:14,430
+use in your network one of the themes
+有一定的直观感受
+
+196
+00:09:14,430 --> 00:09:16,500
+we'll see in deep learning is that you
+我们在深度学习中的遇到的一个问题是
+
+197
+00:09:16,500 --> 00:09:18,690
+often have a lot of different choices in
+在编写神经网络的时候
+
+198
+00:09:18,690 --> 00:09:20,670
+how you code your neural network ranging
+通常会有很多选择
+
+199
+00:09:20,670 --> 00:09:22,649
+from number of hidden units to the
+从隐藏层单元的个数
+
+200
+00:09:22,649 --> 00:09:24,990
+chosen activation function to how you
+如何选择激活函数
+
+201
+00:09:24,990 --> 00:09:26,399
+initilize the weights which we'll see
+我们将在之后看到的 如何初始化权值
+
+202
+00:09:26,399 --> 00:09:29,040
+later a lot of choices like that and it
+有很多这样的选择
+
+203
+00:09:29,040 --> 00:09:31,440
+turns out that is sometimes difficult to
+这就使得有时候 得到一个对你的问题
+
+204
+00:09:31,440 --> 00:09:33,839
+get good guidelines for exactly what
+比较好的指导原则
+
+205
+00:09:33,839 --> 00:09:36,209
+will work best for your problem so so
+是挺困难的
+
+206
+00:09:36,209 --> 00:09:37,830
+these three causes I'll keep on giving
+鉴于以上三个原因 以及我在工业界的见闻
+
+207
+00:09:37,830 --> 00:09:39,630
+you a sense of what I see in the
+我提供给你们一种直观的感受
+
+208
+00:09:39,630 --> 00:09:41,399
+industry in terms of what's more or less
+哪一种工业界用的多，哪一种用的少
+
+209
+00:09:41,399 --> 00:09:44,010
+popular but for your application with
+但是 对你的应用
+
+210
+00:09:44,010 --> 00:09:46,080
+your applications video synthesis it's
+以及你的应用的特殊性
+
+211
+00:09:46,080 --> 00:09:47,490
+actually very difficult to know in
+所以很难提前知道
+
+212
+00:09:47,490 --> 00:09:50,010
+advance exactly what will work best so
+那些选择的效果更好
+
+213
+00:09:50,010 --> 00:09:51,960
+common advices would be if you're not
+所以通常的建议是 如果你不确定
+
+214
+00:09:51,960 --> 00:09:53,490
+sure which one of these activation
+哪一个激活函数
+
+215
+00:09:53,490 --> 00:09:55,500
+functions work best you know try them
+效果更好 你可以把它们都试试
+
+216
+00:09:55,500 --> 00:09:58,260
+all and then evaluate on like a holdout
+然后在在验证集或者发展集上
+
+217
+00:09:58,260 --> 00:10:00,570
+validation set or like a development set
+进行评价
+
+218
+00:10:00,570 --> 00:10:03,089
+which we'll talk about later and see
+这些以后会讲 然后去看
+
+219
+00:10:03,089 --> 00:10:05,040
+which one works better and then go of
+哪一种表现的更好 就去使用它
+
+220
+00:10:05,040 --> 00:10:08,910
+that and I think that by testing these
+我觉得为你的应用
+
+221
+00:10:08,910 --> 00:10:10,740
+different choices for your application
+测试这些不同的选择
+
+222
+00:10:10,740 --> 00:10:14,070
+you'd be better at future proofing your
+你将会在以后检验
+
+223
+00:10:14,070 --> 00:10:16,800
+neural network architecture against the
+你的神经网络
+
+224
+00:10:16,800 --> 00:10:18,690
+the distinction sees our problem as well
+或者评估算法的时候
+
+225
+00:10:18,690 --> 00:10:21,110
+evolutions of the algorithms rather than
+可以看到不同的效果
+
+226
+00:10:21,110 --> 00:10:24,000
+you know if I were to tell you always
+而不是仅仅遵守 我告诉你的
+
+227
+00:10:24,000 --> 00:10:26,190
+use a 	ReLu activation and don't use
+总是使用ReLu激励函数 而不要用
+
+228
+00:10:26,190 --> 00:10:27,899
+anything else that that just may or may
+其他的激励函数 那就可能
+
+229
+00:10:27,899 --> 00:10:30,000
+not apply for whatever problem you end
+在近期或者往后
+
+230
+00:10:30,000 --> 00:10:31,350
+up working on you know either
+你每次解决问题的时候
+
+231
+00:10:31,350 --> 00:10:32,970
+either in the near future on the distant
+都使用相同的办法
+
+232
+00:10:32,970 --> 00:10:36,780
+future all right so that was a choice of
+好的 这就是
+
+233
+00:10:36,780 --> 00:10:38,430
+activation functions you've seen the
+激活函数的选择 你已经看到了
+
+234
+00:10:38,430 --> 00:10:39,870
+most popular activation functions
+最流行的激活函数
+
+235
+00:10:39,870 --> 00:10:42,019
+there's one other question that
+有一个问题
+
+236
+00:10:42,019 --> 00:10:44,820
+sometimes is ask which is why do you
+时不时被问到 为什么我们
+
+237
+00:10:44,820 --> 00:10:45,720
+even need to you
+需要一个激活函数呢
+
+238
+00:10:45,720 --> 00:10:47,519
+activation function at all why not just
+为什么不
+
+239
+00:10:47,519 --> 00:10:49,800
+do away with that so let's talk about
+直接就那样算呢？
+
+240
+00:10:49,800 --> 00:10:50,339
+that
+让我们在下一个视频中
+
+241
+00:10:50,339 --> 00:10:52,800
+in the next video and when you see why
+讨论这个问题 你将会了解到为什么神经网络
+
+242
+00:10:52,800 --> 00:10:54,990
+neural network do means some sort of
+要需要一系列的
+
+243
+00:10:54,990 --> 00:10:58,819
+nonlinear activation function
+非线性激活函数
+

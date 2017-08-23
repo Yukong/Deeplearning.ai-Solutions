@@ -106,7 +106,7 @@ we had set up logistic regression as
 22
 00:00:48,002 --> 00:00:51,363
 follows your predictions y hat is
-y~定义如下 y~=a=sigma(z)
+y~定义如下 y~=a=sigmoid(z)
 
 23
 00:00:51,363 --> 00:00:56,764

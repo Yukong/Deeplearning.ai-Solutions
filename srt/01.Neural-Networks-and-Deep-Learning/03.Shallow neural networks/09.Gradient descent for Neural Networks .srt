@@ -1,0 +1,955 @@
+1
+00:00:00,000 --> 00:00:01,800
+all right I think that's be an exciting
+我认为这是一个
+
+2
+00:00:01,800 --> 00:00:03,840
+video in this video you see how to
+令人激动的视频 这个视频中
+
+3
+00:00:03,840 --> 00:00:06,240
+implement gradient descent for your
+你将知道如何为含有一个隐含层的
+
+4
+00:00:06,240 --> 00:00:08,730
+neural network with one hidden layer in
+神经网络实现梯度下降
+
+5
+00:00:08,730 --> 00:00:10,530
+this video I'm going to just give you
+这个视频中 我将给出
+
+6
+00:00:10,530 --> 00:00:12,809
+the equations you need to implement in
+一些公式 你需要使用这些公式
+
+7
+00:00:12,809 --> 00:00:14,639
+order to get back propagation on to get the
+实现反向传播 来使梯度下降可以
+
+8
+00:00:14,639 --> 00:00:17,039
+gradient descent working and then in the
+正常工作
+
+9
+00:00:17,039 --> 00:00:19,410
+video after this one I'll give some more
+在下一个视频中
+
+10
+00:00:19,410 --> 00:00:21,510
+intuition about why these particular
+我会解释为什么这些
+
+11
+00:00:21,510 --> 00:00:24,150
+equations are the accurate equations or
+用来计算神经网络的
+
+12
+00:00:24,150 --> 00:00:26,070
+the correct equations for computing the
+梯度的公式是正确的
+
+13
+00:00:26,070 --> 00:00:27,630
+gradients you need for your neural network
+梯度的公式是正确的
+
+14
+00:00:27,630 --> 00:00:28,289
+
+
+15
+00:00:28,289 --> 00:00:30,090
+so your neural network with a single
+你的神经网络现在有一个
+
+16
+00:00:30,090 --> 00:00:32,520
+hidden layer for now we've have
+隐含层 这个网络中
+
+17
+00:00:32,520 --> 00:00:39,930
+parameters w1 b1 w2 and b2 and so as
+有参数w1 b2 w2 和b2
+
+18
+00:00:39,930 --> 00:00:44,760
+a reminder if you have Nx alternative
+提醒一下 让Nx等于
+
+19
+00:00:44,760 --> 00:00:50,399
+the um n0 input features and n1 hidden
+n0个输入特征
+
+20
+00:00:50,399 --> 00:00:56,640
+units and n2 output units in our
+n1个隐含单元 n2个输出单元
+
+21
+00:00:56,640 --> 00:00:59,149
+example so far we've n2 equals 1
+在我们的例子中 n2=1
+
+22
+00:00:59,149 --> 00:01:05,670
+then the matrix W1 will be n1 by n0
+矩阵W1是(n1,n0)维的
+
+23
+00:01:05,670 --> 00:01:08,880
+b1 will be an n1 dimensional vector so
+b1是一个n1维的向量
+
+24
+00:01:08,880 --> 00:01:11,250
+you can write down as a n1 by 1
+你可以写为(n1,1)维的矩阵
+
+25
+00:01:11,250 --> 00:01:13,350
+dimensional matrix really a column
+而实际上是一个列向量
+
+26
+00:01:13,350 --> 00:01:16,500
+vector the dimensions of W2 will be n2
+w2是一个(n2,n1)维的矩阵
+
+27
+00:01:16,500 --> 00:01:20,750
+by n1 and the dimension of b2 will be
+w2是一个(n2,n1)维的矩阵
+
+28
+00:01:20,750 --> 00:01:26,759
+n2 by 1 right where again so far we've
+b2的维度是(n2,1)
+
+29
+00:01:26,759 --> 00:01:28,590
+only seen examples where n2 is equal to
+再说一次 目前我们的例子
+
+30
+00:01:28,590 --> 00:01:30,930
+1 where you have just one a single
+n2等于1 就是说你仅有一个
+
+31
+00:01:30,930 --> 00:01:36,930
+hidden unit so you also have a cost
+隐藏层单元
+
+32
+00:01:36,930 --> 00:01:39,570
+function for a neural network and for
+你还有一个代价函数
+
+33
+00:01:39,570 --> 00:01:41,340
+now I'm just going to assume that you're
+现在 我假设你
+
+34
+00:01:41,340 --> 00:01:44,220
+doing binary classification so in that
+仅做二分类
+
+35
+00:01:44,220 --> 00:01:48,659
+case the cost of your parameters as
+这种情况下
+
+36
+00:01:48,659 --> 00:01:51,740
+follows is going to be 1 over m of the
+参数的代价会是
+
+37
+00:01:51,740 --> 00:01:57,090
+average of that loss function and so L
+损失函数的平均值
+
+38
+00:01:57,090 --> 00:01:59,969
+here is the loss when your neural network
+这里的L是神经网络的损失
+
+39
+00:01:59,969 --> 00:02:03,420
+predicts y hat right this is really a[2]
+神经网络预测的结果y^ 实际上就是a[2]
+
+40
+00:02:03,420 --> 00:02:06,240
+when the ground truth label is equal to y
+真实的标签是y
+
+41
+00:02:06,240 --> 00:02:07,649
+and if you're doing binary
+如果你在做二分类
+
+42
+00:02:07,649 --> 00:02:09,629
+classification the loss function can be
+可以用之前
+
+43
+00:02:09,629 --> 00:02:12,510
+exactly what you use for logistic
+用来做logistic回归时使用的
+
+44
+00:02:12,510 --> 00:02:15,030
+earlier so to train the parameters your
+损失函数 就是说这个算法使用梯度下降
+
+45
+00:02:15,030 --> 00:02:18,420
+algorithms you need to perform gradient
+来训练神经网络的参数
+
+46
+00:02:18,420 --> 00:02:21,450
+descent when training a neural network
+在训练神经网络的时候
+
+47
+00:02:21,450 --> 00:02:23,189
+is important to initialize the
+将参数随机初始化为
+
+48
+00:02:23,189 --> 00:02:25,379
+parameters randomly rounded into all zeros
+0附近的值是非常重要的
+
+49
+00:02:25,379 --> 00:02:26,129
+
+
+50
+00:02:26,129 --> 00:02:28,140
+we'll see later why that's the case but
+我们稍后会看到为什么它很重要
+
+51
+00:02:28,140 --> 00:02:30,030
+after initializing the parameter to
+但是在初始化参数之后
+
+52
+00:02:30,030 --> 00:02:32,069
+something each loop of gradient descent
+每一轮的梯度下降
+
+53
+00:02:32,069 --> 00:02:34,140
+would compute the predictions
+首先计算出预测结果
+
+54
+00:02:34,140 --> 00:02:36,780
+so you basically compute you know y hat(i)
+很简单 计算y^(i)
+
+55
+00:02:36,780 --> 00:02:42,359
+for i equals 1 through m say and then
+i从1到m
+
+56
+00:02:42,359 --> 00:02:44,519
+you need to compute the derivative so
+接下来计算导数
+
+57
+00:02:44,519 --> 00:02:49,440
+you need to compute dw1 and that's we
+你需要计算dw[1]
+
+58
+00:02:49,440 --> 00:02:51,420
+see the derivative of the cost function
+这是代价函数对
+
+59
+00:02:51,420 --> 00:02:54,359
+with respect to the parameter W1 you
+参数w1的导数
+
+60
+00:02:54,359 --> 00:02:56,489
+need to compute another variable which
+你还需要计算出
+
+61
+00:02:56,489 --> 00:02:59,220
+is going to call db1 which is the
+另一个变量db1
+
+62
+00:02:59,220 --> 00:03:00,870
+derivative or the slope of your cost
+db1是你的代价函数对
+
+63
+00:03:00,870 --> 00:03:04,109
+function with respect to the variable b1
+变量b1的导数
+
+64
+00:03:04,109 --> 00:03:07,349
+and so on similarly for the other
+对于参数w2和b2
+
+65
+00:03:07,349 --> 00:03:10,170
+parameters w2 and b2 and then finally
+也类似
+
+66
+00:03:10,170 --> 00:03:12,629
+the gradient descent update would be to
+最后 梯度下降更新参数的公式是
+
+67
+00:03:12,629 --> 00:03:17,879
+update W1 as W1 minus alpha the
+W1 = W1-alpha*dw1
+
+68
+00:03:17,879 --> 00:03:22,709
+learning rate times d w1 b1 gets
+alpha是学习率
+
+69
+00:03:22,709 --> 00:03:26,129
+updated as b1 minus the learning rate
+b1被更新为b1-学习率*db1
+
+70
+00:03:26,129 --> 00:03:31,620
+times db1 as similarly for w2 and b2
+w2和b2类似
+
+71
+00:03:31,620 --> 00:03:34,739
+and sometimes I use colon equals and
+有时我使用：=
+
+72
+00:03:34,739 --> 00:03:36,299
+sometimes equals as either either the
+有时我用=
+
+73
+00:03:36,299 --> 00:03:38,489
+notation works fine and so this would be
+俩符号差不多
+
+74
+00:03:38,489 --> 00:03:40,829
+one iteration of gradient descent and
+这就是梯度下降迭代一次的过程
+
+75
+00:03:40,829 --> 00:03:42,510
+then your repeat this some number of
+你重复这个过程许多次
+
+76
+00:03:42,510 --> 00:03:44,280
+times until your parameters look like
+直到你的参数看起来
+
+77
+00:03:44,280 --> 00:03:46,079
+they're converging so in previous videos
+收敛了 在之前的视频中
+
+78
+00:03:46,079 --> 00:03:48,150
+we talked about how to compute the
+我们谈到了如何计算
+
+79
+00:03:48,150 --> 00:03:50,099
+predictions how to compute the outputs
+预测结果 如何计算输出
+
+80
+00:03:50,099 --> 00:03:51,629
+and we saw how to do that in a
+我们还知道如何用
+
+81
+00:03:51,629 --> 00:03:54,060
+vectorized way as well so the key is to
+向量化的方式实现这些计算
+
+82
+00:03:54,060 --> 00:03:56,269
+know how to compute these partial
+现在的重点是如何计算这些
+
+83
+00:03:56,269 --> 00:04:00,180
+derivative terms the dw1 db1 as well
+偏导数项dw1 db1
+
+84
+00:04:00,180 --> 00:04:04,079
+as the derivatives dw2 and db2 so what
+还有dw2 db2
+
+85
+00:04:04,079 --> 00:04:06,780
+I'd like to do is just give you the
+我现在给出公式
+
+86
+00:04:06,780 --> 00:04:09,419
+equations you need in order to compute
+你需要使用这些公式计算出
+
+87
+00:04:09,419 --> 00:04:12,150
+these derivatives and I'll defer to the
+这些导数
+
+88
+00:04:12,150 --> 00:04:14,699
+next video which is an optional video to
+我会在下一个视频中
+
+89
+00:04:14,699 --> 00:04:17,430
+go great turn to defer about how we came
+介绍这些公式是如何被提出的
+
+90
+00:04:17,430 --> 00:04:19,090
+up with those formulas
+下一个视频是可选视频
+
+91
+00:04:19,090 --> 00:04:21,400
+so then just summarize again the
+我们再总结一下
+
+92
+00:04:21,400 --> 00:04:26,169
+equations for forword propagation so you
+前向传播的公式
+
+93
+00:04:26,169 --> 00:04:33,250
+have z[1] equals w[1]X plus b[1] and then
+z[1]=w[1]x+b[1]
+
+94
+00:04:33,250 --> 00:04:37,900
+a[1] equals the activation function in
+a[1]等于你在这一层使用的激活函数
+
+95
+00:04:37,900 --> 00:04:41,680
+that layer applied elementwise z1
+作用在每一个z[1]的元素上
+
+96
+00:04:41,680 --> 00:04:49,690
+and then z[2] equals w[2] a[1] plus b[2]
+z[2]=w[2]a[1]+b[2]
+
+97
+00:04:49,690 --> 00:04:53,530
+and then finally this is just
+这是对整个训练集
+
+98
+00:04:53,530 --> 00:04:55,180
+vectorize across your training set right
+向量化的操作
+
+99
+00:04:55,180 --> 00:05:01,210
+a2 is equal to G[2] of V[2] looking for
+a2 = g[2](v[2])
+
+100
+00:05:01,210 --> 00:05:02,740
+now if we assume you're doing binary
+现在 我假设你在做二分类
+
+101
+00:05:02,740 --> 00:05:04,870
+classification then this activation
+那么这个激活函数
+
+102
+00:05:04,870 --> 00:05:06,610
+function really should be the sigmoid
+应该是sigmoid函数
+
+103
+00:05:06,610 --> 00:05:08,560
+function so I'm just throw that in here
+我把他写在这里
+
+104
+00:05:08,560 --> 00:05:11,080
+so that's the forward propagation or the
+这就是神经网络的前向传播
+
+105
+00:05:11,080 --> 00:05:13,870
+left-to-right forward computation for
+或者说从左向右的前向计算
+
+106
+00:05:13,870 --> 00:05:15,729
+your neural network next let's compute
+接下来 我们计算
+
+107
+00:05:15,729 --> 00:05:18,430
+the derivatives so this is the back
+导数 这是反向传播的过程
+
+108
+00:05:18,430 --> 00:05:24,750
+propagation step then it computes dz2
+下面计算
+
+109
+00:05:24,750 --> 00:05:30,750
+equals a2 minus the ground truth Y and
+dZ[2]=A[2]-Y
+
+110
+00:05:30,750 --> 00:05:33,610
+just just as a reminder all this is
+提醒一下 这是对所有样本
+
+111
+00:05:33,610 --> 00:05:36,580
+vectorize across example so the matrix Y
+向量化操作 这个矩阵Y
+
+112
+00:05:36,580 --> 00:05:41,289
+is this um 1 by m matrix that lists all
+是一个1*m的矩阵
+
+113
+00:05:41,289 --> 00:05:45,280
+of your m examples horizontally then it
+你所有的m个样本横向的列在这里
+
+114
+00:05:45,280 --> 00:05:51,370
+turns out dw2 is equal to this in fact
+dw[2]等于这个
+
+115
+00:05:51,370 --> 00:05:55,330
+um these first three equations are very
+事实上 这三个等式
+
+116
+00:05:55,330 --> 00:05:58,870
+similar to gradient descent for logistic regression
+和logistic回归的梯度下降非常类似
+
+117
+00:05:58,870 --> 00:06:00,960
+
+
+118
+00:06:00,960 --> 00:06:07,419
+comma axis is equals 1 comma um keepdims equals True
+,axis=1,keepdims=True
+
+119
+00:06:07,419 --> 00:06:12,610
+and just a little detail this NP
+一点细节
+
+120
+00:06:12,610 --> 00:06:15,580
+dot sum is a Python numpy commands for
+这个np.sum是Python numpy的指令
+
+121
+00:06:15,580 --> 00:06:18,070
+summing across one dimension of a
+用来对矩阵的某一个维度求和
+
+122
+00:06:18,070 --> 00:06:21,100
+matrix in this case summing horizontally
+这个例子中 横向求和
+
+123
+00:06:21,100 --> 00:06:24,810
+and what keepdims does is it prevents
+keepdims的作用是
+
+124
+00:06:24,810 --> 00:06:27,600
+python from outputting one of those funny
+阻止python输出那些
+
+125
+00:06:27,600 --> 00:06:31,230
+rank 1 arraies where the dimensions
+秩为1的数组
+
+126
+00:06:31,230 --> 00:06:34,650
+was you n comma so by having keep
+这个数组的维度是(n,)
+
+127
+00:06:34,650 --> 00:06:37,010
+them equals True this ensures that
+如果让这个参数等于True
+
+128
+00:06:37,010 --> 00:06:41,280
+Python outputs for db[2] a vector that is
+可以确保Python输出的db[2]是一个
+
+129
+00:06:41,280 --> 00:06:44,580
+um n by one technically this will be
+(n,1)维的向量
+
+130
+00:06:44,580 --> 00:06:47,820
+I guess n[2] by one in this case is
+严格的说是(n[2],1)维
+
+131
+00:06:47,820 --> 00:06:50,130
+just a one by one number so maybe it
+这个例子中是一个1*1的数字
+
+132
+00:06:50,130 --> 00:06:53,520
+doesn't matter but later on we'll see
+看起来并不重要
+
+133
+00:06:53,520 --> 00:06:56,790
+what it really matters so so far what
+我们稍后会看到他真正重要的原因
+
+134
+00:06:56,790 --> 00:06:58,500
+we've done is very similar to logistic
+我们刚才做的非常像logistic回归
+
+135
+00:06:58,500 --> 00:07:01,320
+regression but now as you compute
+接下来继续
+
+136
+00:07:01,320 --> 00:07:03,919
+continue to run back propagation you
+进行反向传播的计算
+
+137
+00:07:03,919 --> 00:07:14,370
+would compute this dz[2] times g[1] prime
+你需要计算dz[2]*g[1]'(z[1])
+
+138
+00:07:14,370 --> 00:07:19,380
+of Z1 so this quantity g[1] prime is the
+g[1]'表示隐含层
+
+139
+00:07:19,380 --> 00:07:20,880
+derivative of whatever was the
+g[1]'表示隐含层
+
+140
+00:07:20,880 --> 00:07:22,919
+activation function you use for the
+的激活函数的导数
+
+141
+00:07:22,919 --> 00:07:25,770
+hidden layer and for the output layer I
+对于输出层 我假定你
+
+142
+00:07:25,770 --> 00:07:27,030
+assume that you're doing binary
+使用sigmoid函数
+
+143
+00:07:27,030 --> 00:07:29,400
+classification with the sigmoid function
+做二分类
+
+144
+00:07:29,400 --> 00:07:30,780
+so that's already baked into that
+sigmoid函数的导数
+
+145
+00:07:30,780 --> 00:07:34,620
+formula for dz[2] and this times is a
+已经在dz[2]中计算了
+
+146
+00:07:34,620 --> 00:07:39,090
+element-wise product so this
+这里的乘法是矩阵对应元素直接相乘
+
+147
+00:07:39,090 --> 00:07:43,050
+there's going to be an N 1 by M matrix
+这个的计算结果是(n1,m)维的矩阵
+
+148
+00:07:43,050 --> 00:07:46,950
+and this here this element wise
+这里是对所有元素
+
+149
+00:07:46,950 --> 00:07:48,990
+derivative thing is also going to be an
+进行求导 最终的结果也是
+
+150
+00:07:48,990 --> 00:07:52,680
+n[1] by m matrix and so this times there
+(n[1],m)的矩阵 因此 这里的乘法
+
+151
+00:07:52,680 --> 00:07:54,720
+is an element-wise product of two
+是对两个矩阵的每一个对应元素相乘
+
+152
+00:07:54,720 --> 00:07:59,669
+matrices then finally DW 1 is equal to
+dw[1]等于这个
+
+153
+00:07:59,669 --> 00:08:08,490
+that and db1 is equal to this np.sum
+db1=np.sum(dz[1],axis=1,keepdims=True)
+
+154
+00:08:08,490 --> 00:08:18,950
+dz[1] axis equals 1 keepdims
+db1=np.sum(dz[1],axis=1,keepdims=True)
+
+155
+00:08:18,950 --> 00:08:21,900
+equals true so whereas
+db1=np.sum(dz[1],axis=1,keepdims=True)
+
+156
+00:08:21,900 --> 00:08:23,430
+previously the keepdims maybe
+之前keepdims看起来没什么用
+
+157
+00:08:23,430 --> 00:08:27,210
+matter less if n2 is equal to 1 so
+如果n2=1
+
+158
+00:08:27,210 --> 00:08:28,590
+it's just a one by one thing it's just a real
+结果仅是一个数字
+
+159
+00:08:28,590 --> 00:08:35,729
+number here db1 will be a n1 by 1
+这里 db1是一个(n1,1)的向量
+
+160
+00:08:35,729 --> 00:08:38,370
+vector and so you want Python you want
+你希望np.sum输出
+
+161
+00:08:38,370 --> 00:08:40,110
+np.sum output something of this
+一个这样的维度
+
+162
+00:08:40,110 --> 00:08:43,110
+dimension rather than a funny rank one
+而不是一个秩1数组
+
+163
+00:08:43,110 --> 00:08:46,529
+array of that dimension which could end
+那样会使你之后的计算
+
+164
+00:08:46,529 --> 00:08:48,360
+up messing up some of your later
+变得麻烦
+
+165
+00:08:48,360 --> 00:08:50,580
+calculations the other way would be to
+另一种方式就是
+
+166
+00:08:50,580 --> 00:08:53,310
+not have to keep them parameters but to
+不把这个参数设置为True
+
+167
+00:08:53,310 --> 00:08:56,910
+explicitly call you know a reshape to reshape
+而是调用reshape
+
+168
+00:08:56,910 --> 00:09:00,060
+the output of NP dot sum into this
+把np.sum的输出变成
+
+169
+00:09:00,060 --> 00:09:04,400
+dimension which you would like DB to have
+你想要的维度
+
+170
+00:09:04,400 --> 00:09:08,310
+so that was forward propagation em I gives
+我给了4个公式用于
+
+171
+00:09:08,310 --> 00:09:11,339
+four equations and back propagation and I
+前向传播 给出了6个公式用于
+
+172
+00:09:11,339 --> 00:09:14,310
+gives six equations I know I just wrote
+反向传播 我目前仅仅是把这些公式
+
+173
+00:09:14,310 --> 00:09:16,680
+down these equations but in the next
+写了出来 下个视频中
+
+174
+00:09:16,680 --> 00:09:18,870
+optional video let's go over some
+我们来看看这6个用于
+
+175
+00:09:18,870 --> 00:09:22,050
+intuitions for how the six equations for
+反向传播的公式
+
+176
+00:09:22,050 --> 00:09:23,940
+the back propagation algorithm were
+是如何推导出来的
+
+177
+00:09:23,940 --> 00:09:25,830
+derived please feel free to watch that
+你看不看下个视频都是可以的
+
+178
+00:09:25,830 --> 00:09:27,750
+or not but either way if you implement
+但是不管怎样 如果你去实现这些
+
+179
+00:09:27,750 --> 00:09:30,000
+these algorithms you will have a correct
+算法 你已经知道了实现
+
+180
+00:09:30,000 --> 00:09:32,730
+implementation of forward propagate and back propagate
+前向传播和反向传播的正确公式
+
+181
+00:09:32,730 --> 00:09:34,650
+and you'll be able to compute the
+你能够计算
+
+182
+00:09:34,650 --> 00:09:36,750
+derivatives you need in order to apply
+用于梯度下降的导数
+
+183
+00:09:36,750 --> 00:09:39,029
+gradient descent to learn the parameters
+学习出神经网络的参数
+
+184
+00:09:39,029 --> 00:09:41,520
+of your neural network it is possible to
+学习出神经网络的参数
+
+185
+00:09:41,520 --> 00:09:43,680
+implement the algorithm and get it to work
+不深入理解微积分去
+
+186
+00:09:43,680 --> 00:09:45,209
+without deeply understanding the
+实现神经网络是可行的
+
+187
+00:09:45,209 --> 00:09:47,130
+calculus a lot of successful deep learning
+许多成功的深度学习从业者
+
+188
+00:09:47,130 --> 00:09:50,520
+practitioners do so but if you
+都不是很了解微积分
+
+189
+00:09:50,520 --> 00:09:52,320
+want you can also watch the next video
+你也可以看下一个视频
+
+190
+00:09:52,320 --> 00:09:54,180
+just to get a bit more intuition about
+了解这些公式
+
+191
+00:09:54,180 --> 00:09:56,580
+the derivation of these um these equations
+是如何推导的
+
+192
+00:09:56,580 --> 00:09:58,820
+

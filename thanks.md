@@ -54,3 +54,5 @@
 - [@athemeroy](https://github.com/athemeroy) 关于2.2Logistic Regression的疑惑 #7
 - [@grsgth](https://github.com/grsgth) 部分语句修正 #9 #10
 - [@ihollywhy](https://github.com/ihollywhy) add Pieter Abeel interview #11
+- [@ForgotPS](https://github.com/ForgotPS) 第二周09中σ的翻译问题 #12 #13 #14
+
