@@ -8,6 +8,10 @@ Deeplearning.ai 是[Andrew Ng](https://baike.baidu.com/item/%E5%90%B4%E6%81%A9%E
 
 这门课程只提供了英文字幕和英文幻灯片，本项目旨在将这些英文资源翻译为中文，方便广大的`Machine Learning/Deep Learning`学习者。
 
+## 我们在做什么
+
+除了翻译视频字幕之外，我们将要进行Slides和Solutions的翻译与整理，欢迎有兴趣的小伙伴一起参与。
+
 ## 教辅资料
 
 这里收集了一些有用的学习资料，包括(remain to be done)
