@@ -26,6 +26,8 @@ Deeplearning.ai 是[Andrew Ng](https://baike.baidu.com/item/%E5%90%B4%E6%81%A9%E
 ## 任务队列
 参见[该文件](https://github.com/Yukong/Deeplearning.ai-Solutions)
 
+或查看[GTC翻译进度](https://translate-coursera.org/new_gtc/app/#/app/project_detail/b64cc4afb)
+
 ## 加入我们
 
 欢迎你加入我们！可以通过以下方式参与本项目作出贡献：
