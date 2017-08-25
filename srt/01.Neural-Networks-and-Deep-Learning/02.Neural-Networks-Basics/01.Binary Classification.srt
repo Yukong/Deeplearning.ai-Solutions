@@ -63,17 +63,17 @@ the computation of, in your network,
 13
 00:00:47,700 --> 00:00:50,248
 usually you have what's called a
-通常先有一个叫做前向暂停(forward pause)或
+通常先有一个叫做前向传导(forward pass)或
 
 14
 00:00:50,248 --> 00:00:51,519
-forward pause or forward propagation step,
+forward pass or forward propagation step,
 叫做前向传播(foward propagation)的步骤
 
 15
 00:00:51,670 --> 00:00:53,647
-followed by a backward pause or
-接着有一个叫做反向暂停(backward pause)
+followed by a backward pass or
+接着有一个叫做反向传导(backward pass)
 
 16
 00:00:53,647 --> 00:00:56,111
