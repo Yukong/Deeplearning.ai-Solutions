@@ -63,6 +63,7 @@ GTC 在 Smartling 平台进行的中文翻译，是根据 Coursera 提供的英�
 | 03.06   | Activation functions                             | 完成     |
 | 03.09   | Gradient descent for Neural Networks           | 完成     |
 
+后续进度更新统一在最下方链接致谢页面thanks给出。
 
 ## 版权声明
 我们不提供 Coursera 方面的视频源下载，该专项课程可旁听，所有MP4内容都可由用户自行在 Coursera 进行下载。我们不提倡在未经过授权的情况下，将视频进行二次制作并上传至其它网站。
