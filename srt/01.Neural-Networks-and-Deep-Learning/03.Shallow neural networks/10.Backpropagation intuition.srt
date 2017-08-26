@@ -1,0 +1,1075 @@
+1
+00:00:00,000 --> 00:00:01,230
+In the last video,
+再上一个视频中
+
+2
+00:00:01,230 --> 00:00:03,720
+you saw the equations for back propagation.
+你已经看到了反向传播的公式
+
+3
+00:00:03,720 --> 00:00:06,900
+In this video, let's go over some intuition using
+在这个视频中 我将增强你对于公式的理解和直觉
+
+4
+00:00:06,900 --> 00:00:10,515
+the computation graph for how those equations were derived.
+我将用计算图来告诉你这些公式是如何得到的
+
+5
+00:00:10,515 --> 00:00:12,385
+This video is completely optional.
+这个视频完全是可选的
+
+6
+00:00:12,385 --> 00:00:14,106
+So, feel free to watch or not.
+所以看不看由你决定
+
+7
+00:00:14,106 --> 00:00:16,360
+You should be able to do the whole work either way.
+而且你不看也能够完成反向传播的整个过程
+
+8
+00:00:16,360 --> 00:00:19,410
+So, recall that when we talk about logistic regression,
+回忆一下我们讲逻辑回归的时候
+
+9
+00:00:19,410 --> 00:00:23,685
+we had this forward pass where we compute z,
+我们通过前向传播计算z
+
+10
+00:00:23,685 --> 00:00:26,145
+then a and then the loss.
+然后计算a 最后计算loss（损失）
+
+11
+00:00:26,145 --> 00:00:27,445
+And then to take the derivatives,
+然后为了计算导数
+
+12
+00:00:27,445 --> 00:00:32,520
+we had this backward pass where we could first compute da,
+我们使用了反向传播 我们先计算da
+
+13
+00:00:32,520 --> 00:00:35,400
+and then go on to compute dz,
+然后计算dz
+
+14
+00:00:35,400 --> 00:00:40,720
+and then go on to compute dw and db.
+接着计算dw和db
+
+15
+00:00:40,720 --> 00:00:46,970
+So, the definition for the loss was L of a,
+这里的损失函数定义为L(a,y)
+
+16
+00:00:46,970 --> 00:00:52,655
+y equals negative y log a minus one,
+等于 -yloga 减去
+
+17
+00:00:52,655 --> 00:00:57,440
+minus y times log one minus a.
+(1-y) 乘以 log(1-a)
+
+18
+00:00:57,440 --> 00:00:59,750
+So, if you are familiar with
+所以 如果你熟悉
+
+19
+00:00:59,750 --> 00:01:03,600
+calculus and you take the derivative of this with respect to a,
+微积分的话 你会求这个函数关于a的偏导数
+
+20
+00:01:03,600 --> 00:01:06,156
+that would give you the formula for da.
+那么你会得到 da 的式子
+
+21
+00:01:06,156 --> 00:01:09,060
+So, da is equal to that.
+所以da等于这个式子
+
+22
+00:01:09,060 --> 00:01:12,750
+And if you actually figure out da in calculus you could show that this is
+如果你把 da 求出来的话 你可以得出
+
+23
+00:01:12,750 --> 00:01:18,808
+negative y over a plus one minus y over one minus a.
+它等于 -y/a + (1 - y) / (1 - a)
+
+24
+00:01:18,808 --> 00:01:23,040
+You just kind of derive that from calculus by taking derivatives of this.
+所以你只需计算这个式子的导数 就能得到这个结果
+
+25
+00:01:23,040 --> 00:01:26,680
+It turns out when you take another step backwards to compute dz,
+而当你更进一步计算 dz 时
+
+26
+00:01:26,680 --> 00:01:32,430
+we did work out that dz is equal to a minus y. I did explain why previously,
+我们之前计算过 dz 等于 a-y 我之前也解释过原因
+
+27
+00:01:32,430 --> 00:01:37,920
+but it turns out that from the chain rule of calculus dz is equal
+但是通过链式求导 dz等于
+
+28
+00:01:37,920 --> 00:01:45,425
+to da times g prime of z.
+da 乘以 g'(z)
+
+29
+00:01:45,425 --> 00:01:50,535
+Where here g of z equals sigmoid of z
+这里的g(z)等于sigmoid(z)
+
+30
+00:01:50,535 --> 00:01:56,245
+is our activation function for this output unit in logistic regression, right?
+在逻辑回归中 它是这个输出单元的激活函数
+
+31
+00:01:56,245 --> 00:02:00,570
+So, just remember this is still logistic regression where we have x1, x2,
+所以记住这里仍然是逻辑回归 我们有x1, x2
+
+32
+00:02:00,570 --> 00:02:05,757
+x3 and then just one sigmoid unit and that gives us a,
+x3 然后这里只有一个sigmoid输出单元 从它得到a
+
+33
+00:02:05,757 --> 00:02:07,400
+will gives us Y hat
+即得到 y^
+
+34
+00:02:07,400 --> 00:02:11,400
+So, here the activation function was a sigmoid function.
+所以这里的激活函数是一个sigmoid函数
+
+35
+00:02:11,400 --> 00:02:12,960
+And as another side,
+另一方面
+
+36
+00:02:12,960 --> 00:02:17,205
+only for those you familiar with the chain rule of calculus
+你只需掌握微积分中的链式求导法则即可
+
+37
+00:02:17,205 --> 00:02:22,520
+the reason for this is because A is equal to sigmoid of Z.
+这个式子成立的原因是 a等于sigmoid(z)
+
+38
+00:02:22,520 --> 00:02:29,310
+And so, partial of L with respect to z is equal to partial of
+所以 L关于z的偏导数 等于
+
+39
+00:02:29,310 --> 00:02:36,800
+L with respect to a times da, DZ.
+L关于a的偏导数乘以da/dz
+
+40
+00:02:36,800 --> 00:02:39,611
+This is a is equal to sigmoid of z,
+这里的函数是 a=sigmoid(z)
+
+41
+00:02:39,611 --> 00:02:42,970
+this is equal to d/dz,
+这里等于d/dz
+
+
+42
+00:02:42,970 --> 00:02:49,080
+g of z, which is equal to g prime of z.
+乘以g(z) 也就是等于g'(z)
+
+43
+00:02:49,080 --> 00:02:54,060
+So, that's why this expression which is DZ in our code is equal
+所以 这就是为什么在代码中 dz等于
+
+44
+00:02:54,060 --> 00:02:59,484
+to this expression which is da in our code times g prime of z.
+这个式子 即代码中的da 然后乘以g'(z)
+
+45
+00:02:59,484 --> 00:03:05,860
+And so this is just that.
+所以这个式子就等于上面的式子
+
+46
+00:03:05,860 --> 00:03:09,172
+So, that last derivation would made sense only if
+所以 你应该能够理解刚刚的推导
+
+47
+00:03:09,172 --> 00:03:13,510
+you're familiar with calculus and specifically the chain rule from calculus.
+但前提是你熟悉微积分 特别是要了解链式求导法则
+
+48
+00:03:13,510 --> 00:03:15,325
+But if not don't worry about it.
+但是不会的话也不用担心
+
+49
+00:03:15,325 --> 00:03:18,853
+I'll try to explain the intuition wherever it's needed.
+因为在有需要的时候 我一定会尽力向你解释
+
+50
+00:03:18,853 --> 00:03:22,315
+And then finally having computed dz for logistic regression,
+所以最后 我们计算出了逻辑回归中的 dz
+
+
+
+51
+00:03:22,315 --> 00:03:26,335
+we will compute dw which turns out was
+接下来我们要计算dw
+
+52
+00:03:26,335 --> 00:03:31,470
+dz times x and db which is just dz when you have a single training example.
+由此可得 dw = dz * x 而 db = dz 这是只有一个样本时的结果
+
+53
+00:03:31,470 --> 00:03:33,822
+So, that was logistic regression.
+所以 这就是逻辑回归
+
+54
+00:03:33,822 --> 00:03:36,700
+So, what we're going to do when computing back
+我们要做的就是 当我们对
+
+55
+00:03:36,700 --> 00:03:40,090
+propagation for a neural network is a calculation a lot like
+神经网络进行反向传播时 我们会做很多与此相似的计算
+
+56
+00:03:40,090 --> 00:03:46,995
+this but only we'll do it twice because now we have not x going to an output unit,
+但是我们只需计算两次 因为这里的x不是输出单元
+
+57
+00:03:46,995 --> 00:03:50,930
+but x going to a hidden layer and then going to an output unit.
+这里的x是隐含单元 然后才是输出单元
+
+58
+00:03:50,930 --> 00:03:58,405
+And so instead of this computation being sort of one step as we have here,
+所以不同的是 我们在这里只计算了一次
+
+59
+00:03:58,405 --> 00:04:04,483
+we'll have you know two steps here in this kind of a neural network with two layers.
+而对于这个两层的神经网络 我们需要计算两次
+
+60
+00:04:04,483 --> 00:04:08,586
+So, in this two layer neural network that is we have the input layer,
+在这个两层的神经网络中 有输入层
+
+61
+00:04:08,586 --> 00:04:10,138
+a hidden layer and then output layer.
+一个隐藏层 以及一个输出层
+
+62
+00:04:10,138 --> 00:04:12,070
+Remember the steps of a computation.
+记住计算的步骤
+
+63
+00:04:12,070 --> 00:04:17,210
+First you compute z1 using this equation,
+首先你用这个等式计算z1
+
+64
+00:04:17,210 --> 00:04:22,177
+and then compute a1 and then you compute z2.
+然后计算a1 接着计算z2
+
+65
+00:04:22,177 --> 00:04:25,505
+And notice z2 also depends on the parameters w2 and b2.
+注意 z2 也受参数 w2 和 b2 的影响
+
+66
+00:04:25,505 --> 00:04:27,530
+And then base on z2,
+然后在z2的基础上
+
+67
+00:04:27,530 --> 00:04:32,815
+compute a2 and then finally that gives you the loss.
+计算a2 最后你就能得到损失值loss
+
+68
+00:04:32,815 --> 00:04:41,560
+What backpropagation does is it will go backward to compute da2 and then dz2,
+所以反向传播要做的就是 反向计算da2 然后dz2
+
+69
+00:04:41,560 --> 00:04:48,805
+and then you go back to compute dw2 and db2,
+然后再接着反向计算 dw2 和 db2
+
+
+70
+00:04:48,805 --> 00:04:53,232
+go backward to compute da1,
+再反向计算 da1
+
+71
+00:04:53,232 --> 00:04:57,278
+dz1 and so on.
+dz1 等等
+
+72
+00:04:57,278 --> 00:05:00,290
+We don't need to take the derivatives as respect to
+注意我们不需要计算关于
+
+73
+00:05:00,290 --> 00:05:03,745
+the input x since the input x for supervised learning are so fixed.
+输入x的偏导数 因为对于监督学习 输入x是完全确定的
+
+74
+00:05:03,745 --> 00:05:07,845
+so we're not trying to optimize x so we won't bother to take the derivatives
+所以我们不会去最优化x 也就无需求它的导数
+
+75
+00:05:07,845 --> 00:05:09,655
+At least, for supervised learning,
+至少对于监督学习 我们
+
+76
+00:05:09,655 --> 00:05:15,605
+we respect X. I'm going to skip explicitly computing da2
+不需要这样做 下面我要跳过计算da2的过程
+
+77
+00:05:15,605 --> 00:05:18,110
+If you want, you can actually compute
+如果你想亲自算一次 你可以
+
+78
+00:05:18,110 --> 00:05:20,750
+da2 and then use that to compute dz2 but, in practice,
+计算da2 然后用它计算dz2 但在实际中
+
+79
+00:05:20,750 --> 00:05:25,760
+you could collapse both of these steps into one step so you end up
+你可以把这些步骤合到一个步骤中去 所以你会得到
+
+80
+00:05:25,760 --> 00:05:31,715
+at dz2= a2-y, same as before.
+dz2等于a2-y 这和之前相同
+
+81
+00:05:31,715 --> 00:05:33,620
+And, you have also,
+你也会得到
+
+82
+00:05:33,620 --> 00:05:38,615
+I'm going to write dw2 and db2 down here below.
+我将把dw2以及db2写在这儿下面
+
+83
+00:05:38,615 --> 00:05:46,700
+You have that dw2=dz2*a1,
+这里有dw2等于dz2乘以a1
+
+84
+00:05:46,700 --> 00:05:52,040
+transpose, and db2=dz2.
+的转置 然后db2等于dz2
+
+85
+00:05:52,040 --> 00:05:55,990
+This step is quite similar for logistic regression where we had
+这和之前的逻辑回归非常相似 我们有
+
+86
+00:05:55,990 --> 00:06:03,550
+that dw = dz * x except that now,
+dw = dz * x 除了现在
+
+87
+00:06:03,550 --> 00:06:08,770
+a1 plays the role of x and there's an extra transpose there because the
+a1充当了x的角色 然后这里还有一个额外的转置
+
+88
+00:06:08,770 --> 00:06:14,125
+relationship between the capital matrix W and our individual parameters w,
+因为矩阵 W 和我们单个的参数 w 的关系
+
+89
+00:06:14,125 --> 00:06:16,660
+there's a transpose there, right?
+这里应该还有个转置
+
+90
+00:06:16,660 --> 00:06:24,370
+Because w is equal to a row vector in the case of the logistic regression with a single output.
+因为在只有一个输出的逻辑回归中 这里的w是一个行向量
+
+91
+00:06:24,370 --> 00:06:26,980
+dw2 is like that, whereas,
+dw2像这样 然而
+
+92
+00:06:26,980 --> 00:06:32,440
+w here was a column vector so that's why it has an extra transpose for a1,
+这里的w是一个列向量 这就是为什么这里的a1有个额外的转置
+
+93
+00:06:32,440 --> 00:06:36,980
+whereas, we didn't for x here for logistic regression.
+然而在逻辑回归中 我们却没有对x进行转置
+
+94
+00:06:36,980 --> 00:06:40,335
+So this completes half of backpropagation.
+现在我们完成了反向传播的一半
+
+95
+00:06:40,335 --> 00:06:44,045
+Then, again, you can compute da1 if you wish.
+然后我们可以计算da1
+
+96
+00:06:44,045 --> 00:06:49,440
+Although, in practice, the computation for da1 and
+然而在实际中 计算da1和
+
+97
+00:06:49,440 --> 00:06:52,330
+the dz1 are usually collapsed into one step and so
+dz1 通常合并到一步中去计算
+
+98
+00:06:52,330 --> 00:06:57,130
+what you'll actually implement is that DZ1=W2,
+所以实际上你需要做的是 dz1=W2
+
+99
+00:06:57,130 --> 00:07:03,480
+transpose times dz2, and then times an element
+的转置 乘以dz2 然后
+
+100
+00:07:03,480 --> 00:07:10,383
+wide's product of G1 prime of Z1.
+和g1'(z1)进行元素对应相乘
+
+101
+00:07:10,383 --> 00:07:13,960
+And, just to do a check on the dimensions, right?
+记住检查一下各个量的维度
+
+102
+00:07:13,960 --> 00:07:19,510
+If you have a neural network that looks like this,
+如果你有一个像这样的神经网络
+
+103
+00:07:19,510 --> 00:07:23,000
+I'll put Y hat if so.
+将y^作为输出
+
+104
+00:07:23,000 --> 00:07:28,265
+If you have N0, NX=N0 input features,
+如果你有nx=n0个输入特征
+
+105
+00:07:28,265 --> 00:07:30,230
+N1 hidden units,
+n1个隐含单元
+
+106
+00:07:30,230 --> 00:07:34,275
+and N2 so far.
+然后是n2
+
+107
+00:07:34,275 --> 00:07:36,740
+N2, in our case,
+在这个例子中 n2
+
+108
+00:07:36,740 --> 00:07:38,565
+just one output unit,
+只有一个输出单元
+
+109
+00:07:38,565 --> 00:07:48,795
+then the matrix W2 is (N2,N1) dimensional,
+所以矩阵W2的维度为(N2,N1)
+
+110
+00:07:48,795 --> 00:07:57,490
+Z2 and therefore DZ2 are going to be (N2,N1) by one dimensional.
+而z2以及dz2的维度均为(N2,N1)
+
+111
+00:07:57,490 --> 00:07:59,850
+This really is going to be a one by one 
+然后这里是(1,1)
+
+112
+00:07:59,850 --> 00:08:04,750
+when we are doing binary classification, and Z1 and therefore also
+前提是我们在做二分类 然后z1
+
+113
+00:08:04,750 --> 00:08:10,045
+DZ1 are going to be N1 by one dimensional, right?
+以及dz1的维度均为(N1,1)
+
+114
+00:08:10,045 --> 00:08:16,115
+Note that for any variable foo and D foo always have the same dimension.
+所以对于任何的变量foo以及dfoo 它们的维度都是相同的
+
+115
+00:08:16,115 --> 00:08:20,850
+That's why W and DW always have the same dimension and similarly,
+这就是为什么w和dw拥有相同的维度 同样的
+
+116
+00:08:20,850 --> 00:08:23,680
+for B and DB and Z and DZ and so on.
+b和db 以及z和dz 也都是这样的
+
+117
+00:08:23,680 --> 00:08:26,895
+To make sure that the dimensions of this all match up,
+为了确保矩阵的维度都符合计算要求
+
+118
+00:08:26,895 --> 00:08:35,430
+we have that DZ1=W2 transpose times DZ2
+我们有dz1等于W[2]的转置乘以dz2
+
+119
+00:08:35,430 --> 00:08:44,490
+and then this is an element wide's product times G1 prime of Z1.
+然后这里再和g1'(z1)进行对应元素相乘
+
+120
+00:08:44,490 --> 00:08:47,040
+Matching the dimensions from above,
+为了满足上面的维度
+
+121
+00:08:47,040 --> 00:08:52,575
+this is going to be N1 by one is equal to W2 transpose,
+这里为(N1,1)等于W2的转置
+
+122
+00:08:52,575 --> 00:08:57,945
+we transpose of this so there's going to be N1 by N2 dimensional.
+我们将这个进行转置 所以这里的维度是(N1,N2)
+
+123
+00:08:57,945 --> 00:09:05,790
+DZ2 is going to be N2 by one dimensional and then this,
+而dz2的维度将为(N1,1) 然后
+
+124
+00:09:05,790 --> 00:09:07,230
+this is the same dimension as Z1.
+这和z1的维度是一样的
+
+125
+00:09:07,230 --> 00:09:11,820
+This is also N1 by one dimensional so element wide's product.
+因为要进行对应元素相乘 所以这里的维度也是(N1,1)
+
+126
+00:09:11,820 --> 00:09:14,350
+The dimensions do make sense, right?
+现在这些维度都正确了 对吧
+
+127
+00:09:14,350 --> 00:09:18,330
+N1 by one dimensional vector can be obtained by
+一个维度为(n1,1)的向量可以由
+
+128
+00:09:18,330 --> 00:09:23,520
+N1 by N2 dimensional matrix times N2 by one because the product of
+维度为(n1,n2)的矩阵和维度为(n2,1)的矩阵相乘得到 因为
+
+129
+00:09:23,520 --> 00:09:28,890
+these two things gives you an N1 by one dimensional matrix and so this becomes
+这两者的乘积将得出一个维度为(n1,1)的矩阵 所以这就成了
+
+130
+00:09:28,890 --> 00:09:34,618
+the element wide's product of two N1 by one dimensional vectors,
+两个维度为(n1,1)的向量对应元素的乘积
+
+131
+00:09:34,618 --> 00:09:36,060
+and so the dimensions do match.
+所以这里的维度是符合要求得
+
+132
+00:09:36,060 --> 00:09:40,620
+One tip when implementing a back prop.
+有个关于反向传播的小提示
+
+133
+00:09:40,620 --> 00:09:44,790
+If you just make sure that the dimensions of your matrices match up,
+如果你想确定你的矩阵的维度在计算时是正确的
+
+134
+00:09:44,790 --> 00:09:47,190
+so you think through what are the dimensions of
+你需要考虑各个矩阵
+
+135
+00:09:47,190 --> 00:09:50,430
+the various matrices including W1, W2, Z1,
+的维度 包括W1 W2 z1
+
+136
+00:09:50,430 --> 00:09:54,180
+Z2, A1, A2 and so on and just make sure
+z2 a1 a2 等等 一定要确保
+
+137
+00:09:54,180 --> 00:09:58,642
+that the dimensions of these matrix operations match up,
+各个矩阵的维度是正确的
+
+138
+00:09:58,642 --> 00:10:03,390
+sometimes that will already eliminate quite a lot of bugs in back prop.
+而有时候在反向传播中的bug已经很少了
+
+139
+00:10:03,390 --> 00:10:06,960
+All right. This gives us the DZ1 and then finally,
+好了 我们由此得到dz1
+
+140
+00:10:06,960 --> 00:10:12,160
+just to wrap up DW1 and DB1,
+最后将dw1和db1合起来
+
+141
+00:10:12,160 --> 00:10:13,965
+we should write them here I guess,
+我们写在这里
+
+142
+00:10:13,965 --> 00:10:17,200
+but since I'm running of the space right on the right of the slide,
+幻灯片上的空间已经快被我用完了
+
+143
+00:10:17,200 --> 00:10:21,965
+DW1 and DB1 are given by the following formulas.
+dw1和db1由下面的公式给出
+
+144
+00:10:21,965 --> 00:10:25,950
+This is going to be equal to the DZ1 times X transpose
+这个将等于dz1乘以x的转置
+
+145
+00:10:25,950 --> 00:10:28,905
+and this is going to be equal to DZ1.
+而这个等于dz1
+
+146
+00:10:28,905 --> 00:10:34,045
+You might notice a similarity between these equations and these equations,
+你可能已经注意到了 这些等式和这些等式是相似的
+
+147
+00:10:34,045 --> 00:10:37,095
+which is really no coincidence because X
+这并不是巧合 因为在这里x
+
+148
+00:10:37,095 --> 00:10:41,660
+plays the role of A0 so X transpose is A0 transpose.
+充当了a1的角色 所以x的转置就是a0的转置
+
+149
+00:10:41,660 --> 00:10:45,484
+Those equations are actually very similar.
+这些等式其实是相似的
+
+150
+00:10:45,484 --> 00:10:50,260
+That gives a sense for how backpropagation is derived.
+所以 以上就是反向传播的推导
+
+151
+00:10:50,260 --> 00:10:54,530
+We have six key equations here for DZ2, DW2,
+这里有六个重要的公式 用于计算dz2 dw2
+
+152
+00:10:54,530 --> 00:11:00,190
+DB2, DZ1,DW1 and D1.
+db2 dz1 dw1 以及 db1
+
+153
+00:11:00,190 --> 00:11:05,767
+Let me just take these six equations and copy them over to the next slide. Here they are.
+现在我把这些公式复制一份 放到下一张幻灯片里面
+
+154
+00:11:05,767 --> 00:11:08,950
+So far, we've derived backpropagation,
+目前 我们已经推导了反向传播
+
+155
+00:11:08,950 --> 00:11:13,959
+for if you are training on a single training example at a time,
+但是这个推导只是关于一个样本的
+
+156
+00:11:13,959 --> 00:11:21,530
+but it should come as no surprise that rather than working on a single example at a time,
+但是无需惊讶 我们通常不只处理一个样本
+
+157
+00:11:21,530 --> 00:11:27,810
+we would like to vectorize across different training examples.
+我们将把不同的训练样本向量化
+
+158
+00:11:27,810 --> 00:11:30,971
+We remember that for forward propagation,
+还得在前向传播的时候
+
+
+159
+00:11:30,971 --> 00:11:33,545
+when we're operating on one example at a time,
+我们一次只处理一个样本
+
+160
+00:11:33,545 --> 00:11:41,665
+we had equations like this as was say A1=G1 of Z1.
+我们有这样的公式 a1=g1(z1)
+
+161
+00:11:41,665 --> 00:11:43,655
+In order to vectorize,
+为了能向量化
+
+162
+00:11:43,655 --> 00:11:51,260
+we took say the Zs and stacked them up in
+我们把这些z堆在一起
+
+163
+00:11:51,260 --> 00:12:00,775
+columns like this onto Z1M and call this capital Z.
+像这样放到列中 直到z[1][m] 记为大写的Z
+
+164
+00:12:00,775 --> 00:12:04,960
+Then we found that by stacking things up in columns
+我们发现将这些放入列当中
+
+165
+00:12:04,960 --> 00:12:10,240
+and defining the capital uppercase version of this,
+然后定义一个大写的矩阵版本
+
+166
+00:12:10,240 --> 00:12:17,093
+we then just had Z1=W1 X + B1
+我们就得到Z[1] = W[1]X + B[1]
+
+167
+00:12:17,093 --> 00:12:24,700
+and A1=G1 of Z1, right?
+然后A[1]=g1(Z1)
+
+168
+00:12:24,700 --> 00:12:28,645
+We define the notation very carefully in this course to make sure that
+在这门课中 我们细心地定义了这些符号 为的是
+
+169
+00:12:28,645 --> 00:12:35,550
+stacking examples into different columns of a matrix makes all this work out.
+能够把所有的样本都放入矩阵的列中 然后方便计算出来
+
+170
+00:12:35,550 --> 00:12:40,105
+It turns out that if you go through the math carefully,
+值得一提的是 如果你认真地推导数学公式
+
+171
+00:12:40,105 --> 00:12:46,645
+the same trick also works for backpropagation so the vectorize equations are as follows.
+这个技巧也同样适用于反向传播 所以向量化的公式如下所示
+
+172
+00:12:46,645 --> 00:12:52,250
+First, if you take these DZs for different training examples and stack
+首先 如果你将这些不同样本的z放到
+
+173
+00:12:52,250 --> 00:12:58,339
+them as the different columns of a matrix and the same for this and the same for this,
+矩阵的不同列当中 对这两个也做同样的处理
+
+174
+00:12:58,339 --> 00:13:03,070
+then this is the vectorize implementation and then here's the definition for,
+然后这就是向量化后的版本 然后这里是
+
+175
+00:13:03,070 --> 00:13:05,569
+or here's how you can compute DW2.
+用于计算dW[2]的式子
+
+176
+00:13:05,569 --> 00:13:11,130
+There is this extra 1/M because the cost function J is
+这里有个1/m是因为 误差函数J定义为
+
+177
+00:13:11,130 --> 00:13:18,410
+this 1/M of sum for Y = one through M of the losses.
+1/m 乘以 y从1到m的损失函数的和
+
+178
+00:13:18,410 --> 00:13:20,615
+When computing the derivatives,
+当计算导数的时候
+
+179
+00:13:20,615 --> 00:13:23,885
+we have that extra 1/M term just as we did when we were
+这里的1/m就和我们在计算
+
+180
+00:13:23,885 --> 00:13:27,982
+computing the weighted losses for the logistic regression.
+逻辑回归中损失值的权重之和是相同的
+
+181
+00:13:27,982 --> 00:13:31,790
+That's the update you get for DB2.
+这是计算db2的新公式
+
+182
+00:13:31,790 --> 00:13:40,640
+Again, some of the DZs and then with a 1/M and then DZ1 is computed as follows.
+同样地 将dz放在一起 然后加上1/m 然后dz1按如下方式计算
+
+183
+00:13:40,640 --> 00:13:49,109
+Once again, this is an element wide's product only whereas previously,
+再次注意 这里和之前一样是元素对应相乘
+
+184
+00:13:49,109 --> 00:13:56,595
+we saw on the previous slide that this was an N1 by one dimensional vector.
+在上个幻灯片中 这个是一个 n1 x 1 维的向量
+
+185
+00:13:56,595 --> 00:14:03,185
+Now, this is a N1 by M dimensional matrix.
+现在这是一个 n1 x m 维的矩阵
+
+186
+00:14:03,185 --> 00:14:09,045
+Both of these are also N1 by M dimensional.
+这两个都是 n1 x m 维的矩阵
+
+187
+00:14:09,045 --> 00:14:19,310
+That's why that asterisk is element wide's product and then finally,
+这就是为什么这个星号代表对应的元素相乘
+
+188
+00:14:19,310 --> 00:14:21,454
+the remaining two updates.
+最后还有两个新公式
+
+189
+00:14:21,454 --> 00:14:25,836
+Perhaps it shouldn't look too surprising.
+可能这看起来没什么好惊讶的
+
+190
+00:14:25,836 --> 00:14:29,510
+I hope that gives you some intuition for how the backpropagation algorithm is derived.
+我希望这能够让你对反向传播能够有个更深入的了解
+
+191
+00:14:29,510 --> 00:14:32,205
+In all of machine learning,
+在所有的机器学习算法中
+
+192
+00:14:32,205 --> 00:14:34,820
+I think the derivation of the backpropagation algorithm
+我认为反向传播算法的推导
+
+193
+00:14:34,820 --> 00:14:38,465
+is actually one of the most complicated pieces of math I've seen,
+是我见过的最复杂的推导
+
+194
+00:14:38,465 --> 00:14:42,470
+and it requires knowing both linear algebra as well as
+推导反向传播需要掌握线性代数以及
+
+195
+00:14:42,470 --> 00:14:46,830
+the derivative and matrices to re-derive it from scratch from first principles.
+导数和矩阵的知识 并需要从最初始的概念开始做起
+
+196
+00:14:46,830 --> 00:14:50,165
+If you are an expert in matrix calculus,
+如果你精通矩阵微积分
+
+197
+00:14:50,165 --> 00:14:54,255
+using this process, you might prove the derivative algorithm yourself,
+通过这个过程 你应该能够自己推导这个反向传播算法
+
+198
+00:14:54,255 --> 00:14:57,500
+but I think there are actually plenty of deep learning practitioners
+但是实际上 我认为有很多深度学习从业者
+
+199
+00:14:57,500 --> 00:15:01,060
+that have seen the derivation at about the level you've
+他们在反向传播算法推导的层次也和你
+
+200
+00:15:01,060 --> 00:15:04,100
+seen in this video and are already able to have
+在视频中看到的差不多 而且能够
+
+201
+00:15:04,100 --> 00:15:08,580
+all the very intuitions and be able to implement this algorithm very effectively.
+通过直觉非常高效地实现这个反向传播算法
+
+202
+00:15:08,580 --> 00:15:10,070
+If you are an expert in calculus,
+如果你精通微积分
+
+203
+00:15:10,070 --> 00:15:13,395
+do see if you can derive the whole thing from scratch.
+你可以试试看 自己能否从最开始推导整个过程
+
+204
+00:15:13,395 --> 00:15:15,665
+It is one of the very hardest pieces of math.
+这个是数学中最难的部分
+
+205
+00:15:15,665 --> 00:15:20,010
+One of the very hardest derivations that I've seen in all of machine learning.
+而且是我见过的最难推导的机器学习算法
+
+206
+00:15:20,010 --> 00:15:22,861
+Either way, if you implement this,
+不管怎样 如果你能够推导这个
+
+207
+00:15:22,861 --> 00:15:27,260
+this will work and I think you have enough intuitions to tune and get it to work.
+复杂的算法 那么你将会拥有很好的直觉来调试算法 使其能够正常工作
+
+208
+00:15:27,260 --> 00:15:30,830
+There's just one last detail I want to
+另外 我想和你
+
+209
+00:15:30,830 --> 00:15:34,190
+share with you before you implement your neural network,
+分享的最后一个细节是
+
+210
+00:15:34,190 --> 00:15:37,720
+which is how to initialize the weights of your neural network.
+怎样正确的初始化神经网络的权重参数
+
+211
+00:15:37,720 --> 00:15:40,600
+It turns out that initializing your parameters,
+也就是说 将你的参数
+
+212
+00:15:40,600 --> 00:15:42,560
+not to zero but randomly,
+进行随机初始化 而不是初始化为0
+
+213
+00:15:42,560 --> 00:15:45,515
+turns out to be very important for training your neural network.
+这对于训练你的神经网络非常重要
+
+214
+00:15:45,515 --> 00:15:48,000
+In the next video, you'll see why.
+在下个视频中 我会告诉你原因
+

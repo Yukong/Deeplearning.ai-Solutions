@@ -1,0 +1,830 @@
+﻿1
+00:00:00,060 --> 00:00:02,340
+in the last video you saw how to compute
+在上一个视频中，你了解到如何在神经网络上计算
+
+2
+00:00:02,340 --> 00:00:04,620
+the prediction on a neural network given
+出预测值，它是针对于
+
+3
+00:00:04,620 --> 00:00:07,200
+a single training example in this video
+单一的训练样本而言，在这个视频中
+
+4
+00:00:07,200 --> 00:00:09,900
+you see how to vectorize across multiple
+你将了解到如何向量化多个
+
+5
+00:00:09,900 --> 00:00:12,450
+training examples and the outcome will
+训练样本，并且得出的结果将会
+
+6
+00:00:12,450 --> 00:00:13,950
+be quite similar to what you saw for
+与你在逻辑回归当中所见到的很类似
+
+7
+00:00:13,950 --> 00:00:16,500
+logistic regression where by stacking up
+在逻辑回归中，我们通过将
+
+8
+00:00:16,500 --> 00:00:18,150
+different training examples in different
+不同的训练样本组合成
+
+9
+00:00:18,150 --> 00:00:20,730
+columns of the matrix you'll be able to
+矩阵的不同列，你将会能够
+
+10
+00:00:20,730 --> 00:00:22,380
+take the equations you have from the
+使用这些等式，而这些等式是从
+
+11
+00:00:22,380 --> 00:00:24,150
+previous video and with very little
+上一节的视频中推导得到的，并且通过
+
+12
+00:00:24,150 --> 00:00:26,460
+modification change them to  make the
+对它们做出很少的修改，就可以让
+
+13
+00:00:26,460 --> 00:00:28,529
+neural network compute the outputs on
+神经网络计算出输出值
+
+14
+00:00:28,529 --> 00:00:31,050
+all the examples on pretty much all at
+而这种计算是基于所有的训练样本的，是同时
+
+15
+00:00:31,050 --> 00:00:33,660
+the same time so let's see the details
+进行的，所以让我们看一下具体的细节，
+
+16
+00:00:33,660 --> 00:00:34,680
+of how to do that
+如何去实现它
+
+17
+00:00:34,680 --> 00:00:37,200
+these were the four equations we have
+这些是这四个等式，这四个等式是我们
+
+18
+00:00:37,200 --> 00:00:38,760
+from the previous video of how you
+从上一节视频中得到的，它们给出你
+
+19
+00:00:38,760 --> 00:00:42,329
+compute Z 1 a 1 Z 2 and a 2 and they
+怎么计算出Z 1 a 1 Z 2 and a 2，并且它们
+
+20
+00:00:42,329 --> 00:00:45,480
+tell you how giving an input feature
+让你明白对于给定的一个给定的输入特征
+
+21
+00:00:45,480 --> 00:00:49,379
+vector X you can use them to generate  a
+向量X，你如何做才能使用它来产生
+
+22
+00:00:49,379 --> 00:00:53,190
+2 equals y hat for a single training
+a2 等于 y hat,这是现在针对于单一的训练样本
+
+23
+00:00:53,190 --> 00:00:56,550
+example now if you have M training
+假如说你有m个训练样本
+
+24
+00:00:56,550 --> 00:00:58,890
+examples you need to repeat this process
+那么你就需要重复这个过程
+
+25
+00:00:58,890 --> 00:01:01,590
+for say the first training example X
+对于这第一个训练样本
+
+26
+00:01:01,590 --> 00:01:06,210
+superscript round records one to compute
+x_1来计算
+
+27
+00:01:06,210 --> 00:01:09,390
+Y hat one that's the prediction on your
+y_hat_1，这就是预测值，这预测值是
+
+28
+00:01:09,390 --> 00:01:13,409
+first training example then X2 to use
+在你第一个训练样本上得出的结果
+
+29
+00:01:13,409 --> 00:01:16,080
+that to generate prediction y hat two
+然后使用x_2来生成预测值y_hat_2，
+
+30
+00:01:16,080 --> 00:01:20,189
+and so on down to XM to generate a
+等等一直到用x_m生成
+
+31
+00:01:20,189 --> 00:01:24,600
+prediction Y hat M and so in order to
+y_hat_m，并且为了
+
+32
+00:01:24,600 --> 00:01:25,860
+write this with the activation function
+也用激活函数表示法来写这个
+
+33
+00:01:25,860 --> 00:01:27,509
+notation as well I'm going to write this
+我要把它写成
+
+34
+00:01:27,509 --> 00:01:30,990
+as a two square bracket round bracket
+a[2](1)
+
+35
+00:01:30,990 --> 00:01:40,229
+one and this is a two two and A to M so
+这是a[2](2)和a[2](m)。
+
+36
+00:01:40,229 --> 00:01:45,240
+this notation a square bracket two round
+所以这个符号，a[2](i)
+
+37
+00:01:45,240 --> 00:01:48,500
+bracket I the round bracket I refers to
+(i)是指
+
+38
+00:01:48,500 --> 00:01:53,280
+training example I and the square
+第i个训练样本
+
+39
+00:01:53,280 --> 00:01:58,799
+bracket 2 refers to layer 2 ok so that's
+而[2]是指第二层。所以这就是()
+
+40
+00:01:58,799 --> 00:02:00,630
+how the square bracket in the round
+和[]
+
+41
+00:02:00,630 --> 00:02:05,130
+bracket indices work and so the suggest
+所代表的含义,并且这也表明了
+
+42
+00:02:05,130 --> 00:02:06,509
+that if you have an unvectorized
+如果你有一个非向量化形式的
+
+43
+00:02:06,509 --> 00:02:08,520
+implementation and want to compute the
+实现并且想要计算出
+
+44
+00:02:08,520 --> 00:02:10,229
+predictions for all your training
+这预测值，对于你所有训练样本而言
+
+45
+00:02:10,229 --> 00:02:13,370
+examples you need to do for I equals 1
+你需要做的就是让i从1
+
+46
+00:02:13,370 --> 00:02:16,970
+to m then  basically implement these
+到m，然后实现这
+
+47
+00:02:16,970 --> 00:02:23,049
+four equations ready meet I guess z1 i
+准备好的四个等式
+
+48
+00:02:23,049 --> 00:02:34,190
+equals w1 x I plus b1 and a1 I equals
+z[1](i)等于w[1]x(1)加上b[1]，a[1][i]
+
+49
+00:02:34,190 --> 00:02:46,030
+sigmoid z 1 i and z 2 i equals W 2 a 1 i
+等于sigmoid(z[1](i)) z[2](i)等于
+
+50
+00:02:46,030 --> 00:02:55,160
+plus b 2 and a 2 i equals sigmoid of z 2 i
+w[2]a[1](i) 加上 b[2]. 而a[2][i]等于sigmoid(z[2](i))
+
+51
+00:02:55,160 --> 00:03:00,109
+right so it's basically you know these four equations on top
+对于上面的这四个方程
+
+52
+00:03:00,109 --> 00:03:05,989
+and adding the superscript round bracket i to all the
+添加上圆括号i 即(i)
+
+53
+00:03:05,989 --> 00:03:08,390
+variables that depend on the training
+对于所有依赖于训练样本的变量，
+
+54
+00:03:08,390 --> 00:03:10,220
+example so adding the superstream round
+将上标圆
+
+55
+00:03:10,220 --> 00:03:14,239
+bracket I to X and Z and a if you want
+括号i添加到x，z和a，如果你想
+
+56
+00:03:14,239 --> 00:03:16,430
+to compute all the outputs on your M
+计算在你的m个训练样本上的所有输出
+
+57
+00:03:16,430 --> 00:03:19,400
+training examples what we like to do is
+我们喜欢做的
+
+58
+00:03:19,400 --> 00:03:21,980
+vectorize this whole computation so as
+就是向量化整个计算，以
+
+59
+00:03:21,980 --> 00:03:24,410
+to get rid of this volume and by the way
+简化这列，并且顺便说一下，
+
+60
+00:03:24,410 --> 00:03:26,299
+in case it seems like I'm guessing a lot
+在某种情况下看起来我正在得到很多
+
+61
+00:03:26,299 --> 00:03:29,450
+of nitty gritty linear algebra it turns
+的线性代数，
+
+62
+00:03:29,450 --> 00:03:31,010
+out that being able to implement this
+事实证明，能够正确地实现这一点
+
+63
+00:03:31,010 --> 00:03:33,139
+correctly is important in the deep
+是重要的，尤其是在深度学习
+
+64
+00:03:33,139 --> 00:03:35,900
+learning error and we actually chose the
+的错误中，我们实际上认真地选择了符号
+
+65
+00:03:35,900 --> 00:03:37,849
+notation very carefully for this cost
+这些符号是针对于这个课程的
+
+66
+00:03:37,849 --> 00:03:39,889
+that make these accusations as as easy
+并且使这些向量化尽可能的容易
+
+67
+00:03:39,889 --> 00:03:42,530
+as possible so I hope that great through
+所以我希望通过这个细节
+
+68
+00:03:42,530 --> 00:03:44,329
+this nitty-gritty will actually help you
+实际上可以帮助你
+
+69
+00:03:44,329 --> 00:03:47,780
+to more quickly get correct
+更快地得以
+
+70
+00:03:47,780 --> 00:03:50,049
+implementations of these advents working
+正确地实现这些算法
+
+71
+00:03:50,049 --> 00:03:54,199
+all right so let me just copy this whole
+让我只是复制
+
+72
+00:03:54,199 --> 00:03:56,359
+block of code to the next slide and then
+这整个代码块到下一个幻灯片，然后
+
+73
+00:03:56,359 --> 00:03:58,150
+we'll see how to vectorize this
+我们将看到如何向量化这些。
+
+74
+00:03:58,150 --> 00:04:00,680
+so here's we had from the previous line
+所以这是我们从前一张幻灯片中
+
+75
+00:04:00,680 --> 00:04:02,810
+with a for loop going over all M
+获得的一个for循循环，
+
+76
+00:04:02,810 --> 00:04:07,280
+training examples so recall that we
+它用来遍历所有m个训练样本 还记得
+
+77
+00:04:07,280 --> 00:04:11,000
+define the matrix X to be equal to our
+我们定义矩阵X等于
+
+78
+00:04:11,000 --> 00:04:14,750
+training examples stacked up on in these
+这些训练样本，将它们在矩阵的列中
+
+79
+00:04:14,750 --> 00:04:17,988
+columns like so so take the training
+进行组合，所以拿训练的样本
+
+80
+00:04:17,988 --> 00:04:20,570
+examples spat them in columns so this
+将它们组合在列中，所以
+
+81
+00:04:20,570 --> 00:04:26,300
+becomes a n or maybe NX by M
+这成为n维或n_x乘以m
+
+82
+00:04:26,300 --> 00:04:29,490
+dimensional matrix I'm just going to
+维矩阵 我只是告诉你
+
+83
+00:04:29,490 --> 00:04:31,170
+give away the punchline and tell you
+这个最后的结果 然后告诉你
+
+84
+00:04:31,170 --> 00:04:33,120
+what you need to implement in order to a
+你需要实现什么，
+
+85
+00:04:33,120 --> 00:04:35,520
+vectorized implementation of this for
+以便对此for循环进行向量化实现
+
+86
+00:04:35,520 --> 00:04:37,800
+loop turns out what you need to do is
+事实上你需要做的是
+
+87
+00:04:37,800 --> 00:04:45,060
+compute capital Z 1 equals W 1 X plus B
+计算Z[1]等于w[1]x + b[1]，
+
+88
+00:04:45,060 --> 00:04:52,920
+1 capital A 1 equals sigmoid of Z 1 then
+A[1]等于sigmoid(Z[1])
+
+89
+00:04:52,920 --> 00:05:01,140
+tap code v2 equals W 2 times a 1 plus B
+那么Z[2]等于w[2]*A[1] + b[2]，
+
+90
+00:05:01,140 --> 00:05:10,140
+2 and then a2 equals sigmoid of V 2 so
+然后a[2]等于sigmoid(z[2])。
+
+91
+00:05:10,140 --> 00:05:12,810
+if you want the analogy is that we went
+所以以此类推，我们想要，
+
+92
+00:05:12,810 --> 00:05:17,280
+from lowercase vector X s to this
+从小写的向量x
+
+93
+00:05:17,280 --> 00:05:20,790
+capital case X matrix by stacking up the
+到这个大写字母X矩阵，通过组合这些
+
+94
+00:05:20,790 --> 00:05:23,400
+lower case X's in different columns if
+小写x向量在不同的列中，
+
+95
+00:05:23,400 --> 00:05:25,410
+you do the same thing for the Z's so for
+如果你为z做同样的事情，
+
+96
+00:05:25,410 --> 00:05:33,720
+example if you take Z 1 1 z 1 2 and so
+所以，如果你采取z[1](1)，z[1](2)等等，
+
+97
+00:05:33,720 --> 00:05:36,780
+on these are all column vectors up to Z
+这些都是直到z[1](m)的列向量
+
+98
+00:05:36,780 --> 00:05:42,690
+1 M right so that's this first quantity
+所以这是第一个数量，
+
+99
+00:05:42,690 --> 00:05:44,790
+but all M of them and stack them in
+但是他们中的所有m都将它们
+
+100
+00:05:44,790 --> 00:05:49,530
+columns then this gives you the matrix Z
+组合在列中，那么这就是矩阵Z[1]。
+
+101
+00:05:49,530 --> 00:05:52,320
+1 and similarly if you look at say this
+同样地，如果你看这个
+
+102
+00:05:52,320 --> 00:05:59,220
+quantity you can take a 1 1 a 1 2 and so
+数量并且采取a[1](1)，a[1](2)等等
+
+103
+00:05:59,220 --> 00:06:06,210
+on an a 1 M and stack them up in columns
+a[1](m)并将其组合在列中，
+
+104
+00:06:06,210 --> 00:06:08,760
+then this just as we went from lower
+那就这样，就像我们从小写的x那样
+
+105
+00:06:08,760 --> 00:06:12,150
+case X to capital case X and low kcee -
+一直到矩阵X以及从小写字母
+
+106
+00:06:12,150 --> 00:06:14,729
+Catholic 8 Z this goes from the lower
+z到矩阵Z，这是小写的a，
+
+107
+00:06:14,729 --> 00:06:18,050
+case a which are vectors to do some
+它们是向量，
+
+108
+00:06:18,050 --> 00:06:22,800
+capital a 1s over there and similarly
+同样
+
+109
+00:06:22,800 --> 00:06:28,050
+for Z 2 and a 2 alright they're also
+对于Z[2]和A[2]，他们也是这样得的
+
+110
+00:06:28,050 --> 00:06:29,970
+attained by taking these vectors and
+通过将这些向量
+
+111
+00:06:29,970 --> 00:06:32,850
+stacking them horizontally and taking
+水平组合在一起，然后通过
+
+112
+00:06:32,850 --> 00:06:34,050
+these vectors and stacking them
+这些向量的
+
+113
+00:06:34,050 --> 00:06:37,919
+horizontally in order to get Z Capital Z
+水平组合，以获得矩阵Z[2]
+
+114
+00:06:37,919 --> 00:06:40,410
+2 and chapter 2
+和矩阵A[2]
+
+115
+00:06:40,410 --> 00:06:42,940
+one of the property of this notation
+这种符号可能让你想到
+
+116
+00:06:42,940 --> 00:06:44,770
+that might help you to think about it is
+它的其中一个作用就是
+
+117
+00:06:44,770 --> 00:06:48,150
+that these matrices say Z and a
+正是这些矩阵，Z和A
+
+118
+00:06:48,150 --> 00:06:50,830
+horizontally we're going to index across
+我们将通过训练样本来进行索引，
+
+119
+00:06:50,830 --> 00:06:53,160
+training examples so that's why the
+所以这就是为什么
+
+120
+00:06:53,160 --> 00:06:55,630
+horizontal index you know corresponds to
+水平索引对应于
+
+121
+00:06:55,630 --> 00:06:57,190
+different training examples is sweep
+不同的训练样本，这些训练样本
+
+122
+00:06:57,190 --> 00:06:58,390
+from left to right you're scanning
+是你从左一直到右边
+
+123
+00:06:58,390 --> 00:07:01,110
+through the training set and vertically
+扫描训练集而得到的  而在垂直方向
+
+124
+00:07:01,110 --> 00:07:04,030
+this vertical index corresponds to
+这个垂直索引对应于
+
+125
+00:07:04,030 --> 00:07:06,220
+different nodes in the neural network so
+神经网络中的不同节点
+
+126
+00:07:06,220 --> 00:07:11,890
+for example this node this value at the
+所以例如，这个节点，该值
+
+127
+00:07:11,890 --> 00:07:14,950
+topmost top left corner the matrix
+位于矩阵的最左上角
+
+128
+00:07:14,950 --> 00:07:17,620
+corresponds to the activation of the
+对应于激活单元，
+
+129
+00:07:17,620 --> 00:07:19,570
+first hidden unit on the first training
+它是位于第一个训练样本上的第一个隐藏单元
+
+130
+00:07:19,570 --> 00:07:23,260
+example on one value down corresponds to
+它的下一个值对应于
+
+131
+00:07:23,260 --> 00:07:25,720
+the activation in the second hidden unit
+第二个隐藏单元的激活值
+
+132
+00:07:25,720 --> 00:07:28,510
+on the first training example then the
+它是位于第一个训练样本上的，
+
+133
+00:07:28,510 --> 00:07:30,190
+third hidden unit on the first training
+以及第一个训练示例中第三个隐藏单元
+
+134
+00:07:30,190 --> 00:07:32,560
+example and so on so as you scan down
+等等 所以当你扫描下来，
+
+135
+00:07:32,560 --> 00:07:36,460
+this is new indexing into the hidden
+这是你索引到隐藏单位的数字，
+
+136
+00:07:36,460 --> 00:07:40,300
+units number whereas you move
+而如果你水平移动，
+
+137
+00:07:40,300 --> 00:07:42,280
+horizontally then you're going from the
+那么你将从
+
+138
+00:07:42,280 --> 00:07:43,630
+first hidden unit the first training
+第一个训练示例中从第一个隐藏的单元
+
+139
+00:07:43,630 --> 00:07:46,540
+example to now the first hidden unit the second
+一直到现在第二个训练样本
+
+140
+00:07:46,540 --> 00:07:47,830
+training example the third training
+第三个训练样本
+
+141
+00:07:47,830 --> 00:07:50,950
+example and so on until this node here
+等等 直到这里的节点
+
+142
+00:07:50,950 --> 00:07:53,980
+corresponds to the activation of the
+对应于 第一个隐藏单元的激活值
+
+143
+00:07:53,980 --> 00:07:56,050
+first hidden unit in the final training
+而这隐藏单元是位于 这m个训练样本中的最终训练样本
+
+144
+00:07:56,050 --> 00:08:01,060
+example in the M training example ok so
+所以
+
+145
+00:08:01,060 --> 00:08:05,950
+the horizontal the the matrix A goes
+从水平上看，矩阵A
+
+146
+00:08:05,950 --> 00:08:10,169
+over at different training examples and
+代表了我们不同的训练样本
+
+147
+00:08:10,169 --> 00:08:12,820
+vertically the different indices in the
+而在竖直方向，矩阵A的不同的索引
+
+148
+00:08:12,820 --> 00:08:16,390
+matrix n corresponds to different hidden
+对应于不同的隐藏单元
+
+149
+00:08:16,390 --> 00:08:24,340
+units and a similar intuition holds true
+并且类似的情况
+
+150
+00:08:24,340 --> 00:08:28,600
+for the matrix Z as well as well for X
+对于矩阵Z，X也是如此
+
+151
+00:08:28,600 --> 00:08:30,790
+where horizontally corresponds to
+水平方向上对应于
+
+152
+00:08:30,790 --> 00:08:31,990
+different training examples and
+不同的训练样本
+
+153
+00:08:31,990 --> 00:08:34,750
+vertically it corresponds to different
+竖直方向上，它对应不同的
+
+154
+00:08:34,750 --> 00:08:37,510
+features different input features which
+输入特征，
+
+155
+00:08:37,510 --> 00:08:41,880
+are really different note if a layer of the neural network
+而这是神经网络输入层中不同的节点
+
+156
+00:08:41,880 --> 00:08:44,800
+so with these equations you now know how
+所以，使用这些等式，你明白了
+
+157
+00:08:44,800 --> 00:08:46,660
+to implement in your network with
+如何在你的神经网络上
+
+158
+00:08:46,660 --> 00:08:48,670
+vectorization that is vectorization
+通过向量化来实现
+
+159
+00:08:48,670 --> 00:08:51,279
+across multiple examples
+在多样本情况下的向量化
+
+160
+00:08:51,279 --> 00:08:52,839
+in the next video I want to show you a
+在下一个是视频当中，我将向你展示
+
+161
+00:08:52,839 --> 00:08:55,389
+bit more justification about why this is
+一些验证，这些验证主要是针对于为什么
+
+162
+00:08:55,389 --> 00:08:57,730
+a correct implementation of this type of
+这是一种正确向量化的实现
+
+163
+00:08:57,730 --> 00:08:59,709
+vectorization it turns out the
+结果证明
+
+164
+00:08:59,709 --> 00:09:01,629
+justification will be similar to whether
+这种验证将会与你
+
+165
+00:09:01,629 --> 00:09:03,180
+you have seen for logistic regression
+在逻辑回归当中所见到的很相似
+
+166
+00:09:03,999 --> 00:09:05,000
+let's go on to the next video
+让我们进入下一个视频中吧
+
