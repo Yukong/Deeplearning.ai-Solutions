@@ -36,7 +36,7 @@ on the case of neural networks with
 8
 00:00:14,400 --> 00:00:16,470
 what's called a single hidden layer
-只包含一个隐藏层
+只包含一个隐含层
 
 9
 00:00:16,470 --> 00:00:18,990
@@ -66,7 +66,7 @@ called the input layer of the neural
 14
 00:00:30,390 --> 00:00:33,030
 network so maybe not surprisingly this
-所以你可能不会惊讶于
+所以没什么好奇怪的
 
 15
 00:00:33,030 --> 00:00:34,649
@@ -96,17 +96,17 @@ back in a second to say what the word
 20
 00:00:44,340 --> 00:00:46,739
 hidden means but the final layer here is
-的意义 而这里最后一层
+的意义 但是这里最后一层
 
 21
 00:00:46,739 --> 00:00:49,260
 formed by in this case just one node and
-在本例中 只由一个节点构成
+在本例中 只由一个结点构成
 
 22
 00:00:49,260 --> 00:00:52,379
 this single note layer is called the
-这个只有一个节点的层
+而这个只有一个结点的层
 
 23
 00:00:52,379 --> 00:00:54,090
@@ -146,12 +146,12 @@ hidden layer refers to the fact that in
 30
 00:01:08,549 --> 00:01:10,950
 a training set the true values for these
-在训练集中 这些中间节点的
+在训练集中 这些中间结点的
 
 31
 00:01:10,950 --> 00:01:12,780
 nodes in the middle are not observed
-"真实"值我们是看不到的
+准确值我们是看不到的
 
 32
 00:01:12,780 --> 00:01:14,610
@@ -161,7 +161,7 @@ that is you don't see what they should be
 33
 00:01:14,610 --> 00:01:16,049
 in the training set you see what the
-在训练集中"应该具有"的值 你能看见
+在训练集中应具有的值 你能看见
 
 34
 00:01:16,049 --> 00:01:17,369
@@ -276,7 +276,7 @@ a上标[1] 所以
 56
 00:02:10,319 --> 00:02:13,220
 in particular this first unit or this first node
-具体地 这里的第一个单元或节点
+具体地 这里的第一个单元或结点
 
 57
 00:02:13,220 --> 00:02:15,800
@@ -286,7 +286,7 @@ we generate the value a superscript
 58
 00:02:15,800 --> 00:02:18,980
 square bracket 1 subscript 1 this second
-a上标[1]下标1 第二个节点
+a上标[1]下标1 第二个结点
 
 59
 00:02:18,980 --> 00:02:21,530
@@ -331,7 +331,7 @@ dimensional because in this case we have
 67
 00:02:37,850 --> 00:02:41,540
 four nodes or four units or four hidden
-四个节点 或者单元 或者称为四个
+四个结点 或者单元 或者称为四个
 
 68
 00:02:41,540 --> 00:02:44,120
@@ -556,7 +556,7 @@ this example where the first coordinate
 112
 00:04:22,820 --> 00:04:24,490
 nodes or four hidden units
-节点或隐藏层单元
+结点或隐藏层单元
 
 113
 00:04:24,490 --> 00:04:26,590
