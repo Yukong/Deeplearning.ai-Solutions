@@ -111,17 +111,17 @@ you can form a neural network by
 23
 00:00:54,930 --> 00:00:57,239
 stacking together a lot of little
-许多sigmoid单元堆叠起来
+许多sigmoid节点进行堆叠
 
 24
 00:00:57,239 --> 00:01:00,420
 sigmoid units whereas previously this
-形成一个神经网络
+来形成一个神经网络
 
 25
 00:01:00,420 --> 00:01:02,969
 node corresponds to two steps of
-这个节点包含了之前讲的计算的两个步骤
+在之前 一个节点对应着两个计算步骤
 
 26
 00:01:02,969 --> 00:01:04,920
@@ -136,12 +136,12 @@ z value second is it computes this a
 28
 00:01:07,680 --> 00:01:11,640
 value in this neural network this stack of
-这个神经网络中
+而在这个神经网络中
 
 29
 00:01:11,640 --> 00:01:14,549
 notes will correspond to a Z like
-这些节点首先
+这些堆叠起来的节点都会首先
 
 30
 00:01:14,549 --> 00:01:17,880
@@ -156,12 +156,12 @@ like calculation like that and then that
 32
 00:01:21,720 --> 00:01:24,090
 node will correspond to another Z and
-这个节点同样
+而这单个节点也同样
 
 33
 00:01:24,090 --> 00:01:26,790
 another a like calculation so the
-计算了z和a
+会计算z和a
 
 34
 00:01:26,790 --> 00:01:29,040
@@ -206,7 +206,7 @@ to refer to quantities associated with
 42
 00:01:48,689 --> 00:01:50,759
 this stack of nodes called a layer and
-这些节点被称为一层
+这些堆叠起来的节点被统称为一层
 
 43
 00:01:50,759 --> 00:01:53,579
@@ -220,13 +220,13 @@ bracket 2 to refer to quantities
 
 45
 00:01:56,280 --> 00:01:58,920
-associated with that really that's
-和这个节点相关的数
+associated with that node really that's
+和这单个节点相关的数
 
 46
 00:01:58,920 --> 00:02:01,200
 called another layer of the network and
-这是网络的另一个层
+因为事实上这单个节点正是网络的另一层
 
 47
 00:02:01,200 --> 00:02:04,140
@@ -326,37 +326,37 @@ know there was a lot of details but the
 66
 00:03:01,390 --> 00:03:03,730
 key intuition to take away is that
-有一点非常难以理解
+但你需要理解的关键是
 
 67
 00:03:03,730 --> 00:03:06,460
 whereas for logistic regression we had
-logistic回归中
+在logistic回归中
 
 68
 00:03:06,460 --> 00:03:09,220
 this z followed by a calculation and
-z后面直接计算a
+会先计算z再计算a 然后直接得结果
 
 69
 00:03:09,220 --> 00:03:11,590
 this neural network here we just do it
-而这个神经网络中
+而在神经网络中
 
 70
 00:03:11,590 --> 00:03:13,780
 multiple times as a z followed by a
-我们只是反复的计算z
+则会将这个先z后a的过程重复多次
 
 71
 00:03:13,780 --> 00:03:16,390
 calculation and a z followed by a
-然后计算a 然后又计算z 然后又计算a
+像这样先z后a 然后又先z后a
 
 72
 00:03:16,390 --> 00:03:19,959
 calculation and then you finally compute
-最后你得到了最终的输出
+然后最后计算出损失
 
 73
 00:03:19,959 --> 00:03:22,600
@@ -366,7 +366,7 @@ the loss at the end and you remember
 74
 00:03:22,600 --> 00:03:24,670
 that for the logistic regression we had in
-在logistic中
+在logistic回归中
 
 75
 00:03:24,670 --> 00:03:27,959
@@ -441,7 +441,7 @@ there was a lot of new notation lot of
 89
 00:04:14,630 --> 00:04:16,880
 new details don't worry about to get and
-新的细节 不用担心如果你没有理解
+新的细节 如果你没有理解 不用担心
 
 90
 00:04:16,880 --> 00:04:18,980
@@ -451,7 +451,7 @@ follow everything we'll go into the
 91
 00:04:18,980 --> 00:04:20,900
 details most slowly in the next few
-我们会仔细的讨论具体细节
+我们会仔细地讨论具体细节
 
 92
 00:04:20,900 --> 00:04:22,820
