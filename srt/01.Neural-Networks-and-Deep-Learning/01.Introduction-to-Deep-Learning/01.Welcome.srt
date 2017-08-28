@@ -428,7 +428,7 @@ the strategy for building a machine learning system
 
 84
 00:03:14,516 --> 00:03:16,778
-has change the error of deep learning
+has change the area of deep learning
 改变了深度学习的误差
 
 85
@@ -443,7 +443,7 @@ the way you split the data
 
 87
 00:03:19,818 --> 00:03:24,884
-into train, development or diff on
+into train, development, DEV or diff on
 most called validation set
 分割成训练集 比较集 或改变的验证集
 
@@ -454,17 +454,17 @@ and test sets
 
 89
 00:03:26,241 --> 00:03:28,711
-has change the error of deep learning
+has change the area of deep learning
 改变了深度学习的误差
 
 90
 00:03:28,711 --> 00:03:32,118
-So what is the new best practice for doing that?
+So what are the new best practices for doing that?
 所以最好的实践方式是什么呢？
 
 91
 00:03:32,118 --> 00:03:34,875
-And what of your train set and your test set
+And what if your train set and your test set
 以及你的训练集和测试集
 
 92
@@ -474,8 +474,8 @@ come from different distributions
 
 93
 00:03:36,445 --> 00:03:38,585
-that's happening a lot more on the nueral deep learning
-在深度学习中的影响很大
+that's happening a lot more in the area of deep learning
+这深度学习中更常见
 
 94
 00:03:38,585 --> 00:03:40,587
@@ -516,18 +516,18 @@ I'm going to share with you
 
 101
 00:03:56,033 --> 00:03:58,430
-all of the hot-one lessons we have learnt
-我们了解到的所有的热门领域的
+lots of the hot-one lessons we have learnt
+学到的热门的课程
 
 102
 00:03:58,430 --> 00:04:01,933
-build and shaping quite of deeping learning problems
-建立并且改良许多的深度学习问题
+building and shiping, quite a lot of deeping learning products
+生产并运输 相当多的的深度学习的产品
 
 103
 00:04:01,933 --> 00:04:03,304
-because I know
-因为我知道
+As far as I know
+据我所知
 
 104
 00:04:03,304 --> 00:04:05,012
