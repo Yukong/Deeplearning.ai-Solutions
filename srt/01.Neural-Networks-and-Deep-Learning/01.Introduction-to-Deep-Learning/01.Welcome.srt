@@ -6,12 +6,12 @@ Hello and welcome
 2
 00:00:02,825 --> 00:00:03,924
 As you probably know
-你们也许知道了
+你们也许知道
 
 3
 00:00:04,060 --> 00:00:07,379
 Deep Learning has already transformed the traditional internet businesses
-深度学习改变了传统互联网业务
+深度学习已经改变了传统互联网业务
 
 4
 00:00:07,379 --> 00:00:09,256
@@ -25,33 +25,33 @@ But deep learning is also
 
 6
 00:00:10,849 --> 00:00:13,157
-enabling many new products and businesses
-使得许多新产品和企业
+enabling brandly new products and businesses
+再次创造了全新的产品和商业
 
 7
 00:00:13,157 --> 00:00:15,031
-in ways of helping people to
-以很多方式帮助人们
+and ways of helping people to
+和各种帮助人类的方法
 
 8
 00:00:15,072 --> 00:00:17,481
 recreate everying ranging from better healthcare
-从获得更好的健康关注
+从获得更好的医疗保健
 
 9
 00:00:17,481 --> 00:00:19,208
 where deep learning is getting really good
-深度学习做的非常好的一个方面就是
+这是深度学习做的非常好的一个方面
 
 10
 00:00:19,208 --> 00:00:20,491
 at reading X-ray images
-读取X光图像
+即读取X光图像
 
 11
 00:00:20,491 --> 00:00:22,853
-to the living personalized education
-到生活中的个性化教育
+to the delivering personalized education
+到传递个性化教育
 
 12
 00:00:22,853 --> 00:00:25,036
@@ -75,7 +75,7 @@ if you want to learn the tools of deep learning
 
 16
 00:00:30,763 --> 00:00:33,770
-and apply them to build these amazing things
+and be able to apply them to build these amazing things
 并应用它们来做这些令人赞叹的事情
 
 
@@ -92,7 +92,7 @@ When you finish this sequence of courses on cousera called the specialization
 
 19
 00:00:40,253 --> 00:00:44,370
-you'll be able to put deep learning on your resume with confidence
+you'll be able to put deep learning onto your resume with confidence
 你就可以自信地将深度学习加到你的简历上
 
 20
@@ -157,8 +157,8 @@ everthing ranging from transportation
 
 32
 00:01:11,964 --> 00:01:15,256
-manufacturing, healthcare,
-communications, and many more
+manufacturing, to healthcare,
+to communications, and many more
 到制造业 医疗保健 通讯等方面
 
 33
@@ -240,13 +240,13 @@ In the first course
 
 48
 00:01:48,967 --> 00:01:52,195
-you'll learn the Foundations of Neural Networks
+you'll learn about the foundations of neural networks
 你将学习神经网络的基础
 
 49
 00:01:52,195 --> 00:01:54,566
-you'll learn the Neural
-Network and Deep Learning
+you'll learn about the neural
+network and deep learning
 你将学习神经网络和深度学习
 
 50
@@ -263,12 +263,12 @@ which lasts four weeks in total
 52
 00:02:00,014 --> 00:02:05,750
 And each of the five courses in the
-specialization will be about 2 to 4 weeks
-专项课程中的每门课将持续2至4周
+specialization will be about two to four weeks
+专项课程中的每门课将持续二至四周
 
 53
 00:02:05,750 --> 00:02:08,649
-most of them actually will
+with most of them actually
 short than four weeks
 大部分将少于四周
 
@@ -279,17 +279,17 @@ But in this first course
 
 55
 00:02:09,877 --> 00:02:12,084
-you'll learn how to build a Neural Network
-您将学习如何建立神经网络
+you'll learn how to build a neural network
+你将学习如何建立神经网络
 
 56
 00:02:12,084 --> 00:02:13,974
 including a deep neural network
-包含一个深度神经网络
+包括深度神经网络
 
 57
 00:02:13,974 --> 00:02:15,589
-and how to train them on data
+and how to train it on data
 以及如何在数据上面训练他们
 
 58
@@ -299,10 +299,10 @@ And at the end of this course
 
 59
 00:02:17,147 --> 00:02:21,676
-you'll build a deep neural network
-to recognize and guess what
-你将用一个深度神经网络进行辨认
-猜猜是什么？
+you'll be able to build a deep neural network
+to recognize, guess what
+你将用一个深度神经网络进行识别
+猜猜识别什么？
 
 60
 00:02:21,676 --> 00:02:22,831
@@ -317,7 +317,7 @@ For some reason
 62
 00:02:23,971 --> 00:02:27,204
 there is a cat meme running around in deep learning
-深度学习中会运行有一个猫的谜因
+深度学习有一个猫的谜因
 
 63
 00:02:27,204 --> 00:02:29,121
@@ -342,13 +342,13 @@ Then, in the second course
 67
 00:02:35,646 --> 00:02:38,775
 you'll learn about the
-practical aspects of Deep Learning
+practical aspects of deep learning
 你将进行深度学习方面的实践
 
 68
 00:02:38,775 --> 00:02:41,033
 so you'll learn narrowly bulid neural network
-您将学习严密地构建神经网络
+你将学习严密地构建神经网络
 
 69
 00:02:41,033 --> 00:02:42,972
@@ -382,39 +382,39 @@ and advanced optimization algorithms
 
 75
 00:02:50,558 --> 00:02:54,643
-like Momentum and Adam algorithm
-比如Momentum和Adam算法
+like momentum armrest prop and adam optimization algorithm
+比如momentum armrest prop和adam optimization算法
 
 76
 00:02:54,643 --> 00:02:56,963
-Sometimes it seems like this allow the tuning
-有时候看起来这样的调整是允许的
+Sometimes it seems like there's a lot of tuning
+有时候看起来好像有很多需要调整
 
 77
 00:02:56,963 --> 00:02:59,951
 even some black magic and
-how you build in your network
-有如黑魔法一样根据你建立网络的方式
+how you build in neural network
+有一些像是黑魔法 还有怎么去建立你的网络
 
 78
 00:02:59,951 --> 00:03:03,030
 So the second course which is just three weeks
-所以第二门课只有三周
+所以第二门课 只有三周
 
 79
 00:03:03,030 --> 00:03:05,472
-will demystify so that black magic
-来揭开这一黑魔法的神秘面纱
+will demystify some that black magic
+会揭开这一黑魔法的神秘面纱
 
 80
 00:03:05,472 --> 00:03:07,955
-In the third course, we'll just use two weeks
+In the third course, which is just two weeks
 在第三门课中，我们将使用两周时间
 
 81
 00:03:07,955 --> 00:03:11,112
-to learn how to struct your machine learning project
-来学习如何结构化你的机器学习工程
+you'll learn how to struct your machine learning project
+来学习如何构建你的机器学习工程
 
 82
 00:03:11,112 --> 00:03:11,972
@@ -429,7 +429,7 @@ the strategy for building a machine learning system
 84
 00:03:14,516 --> 00:03:16,778
 has change the area of deep learning
-改变了深度学习的误差
+改变了深度学习
 
 85
 00:03:16,778 --> 00:03:18,356
@@ -438,39 +438,38 @@ So, for example
 
 86
 00:03:18,356 --> 00:03:19,818
-the way you split the data
-你分割数据的方式
+the way you switch the data
+你把数据转换成
 
 87
 00:03:19,818 --> 00:03:24,884
-into train, development, DEV or diff on
-most called validation set
-分割成训练集 比较集 或改变的验证集
+into train, development, or DEV or also called hold-out cross-validation set
+训练 开发 也叫做hold-out交叉检验
 
 88
 00:03:24,884 --> 00:03:26,241
 and test sets
-以及测试集合
+以及测试集
 
 89
 00:03:26,241 --> 00:03:28,711
 has change the area of deep learning
-改变了深度学习的误差
+改变了深度学习
 
 90
 00:03:28,711 --> 00:03:32,118
 So what are the new best practices for doing that?
-所以最好的实践方式是什么呢？
+所以目前最好的实践方式是什么呢？
 
 91
 00:03:32,118 --> 00:03:34,875
 And what if your train set and your test set
-以及你的训练集和测试集
+如果你的训练集和测试集
 
 92
 00:03:34,875 --> 00:03:36,445
 come from different distributions
-来自不同的分布
+来自不同的分布怎么办？
 
 93
 00:03:36,445 --> 00:03:38,585
@@ -479,7 +478,7 @@ that's happening a lot more in the area of deep learning
 
 94
 00:03:38,585 --> 00:03:40,587
-So how do you deal that?
+So how do you deal with that?
 那么你应该怎么处理呢？
 
 95
@@ -507,7 +506,7 @@ The material in this third course
 99
 00:03:53,530 --> 00:03:55,180
 is relatively unique
-是相对比较独特的
+是比较特别的
 
 100
 00:03:55,180 --> 00:03:56,033
@@ -517,7 +516,7 @@ I'm going to share with you
 101
 00:03:56,033 --> 00:03:58,430
 lots of the hot-one lessons we have learnt
-学到的热门的课程
+我学到的热门的课程
 
 102
 00:03:58,430 --> 00:04:01,933
@@ -531,7 +530,7 @@ As far as I know
 
 104
 00:04:03,304 --> 00:04:05,012
-This is rush material that
+This is a lush material that
 这是当今热门的材料
 
 105
@@ -542,17 +541,17 @@ is not taught in most common universities
 106
 00:04:08,798 --> 00:04:10,544
 that have deep learning courses
-在他们的深度学习课堂上面
+即使那些大学也有深度学习的课程
 
 107
 00:04:10,544 --> 00:04:12,213
-But I think it really help you
-但我认为它会提供你帮助
+But I think I really hope you
+但我真的希望我能够帮你
 
 108
 00:04:12,213 --> 00:04:15,123
 to get the deep learning system to work well
-让深度学习系统工作的更好
+把深度学习做的更好
 
 109
 00:04:15,540 --> 00:04:17,018
@@ -571,7 +570,7 @@ Convolutional Neural Networks
 
 112
 00:04:19,899 --> 00:04:22,711
-often abbreviat to CNN(s)
+often abbreviated as CNN(s)
 经常缩写为 CNN（s）
 
 113
@@ -587,12 +586,12 @@ are often apply to images
 
 115
 00:04:28,693 --> 00:04:31,915
-So you'll learn how to build this model in course 4
+So you'll learn how to build this model in course four
 所以你将会在第4门课程中学到如何搭建这样的模型
 
 116
 00:04:31,915 --> 00:04:33,802
-Finally in course 5
+Finally in course five
 最后在第5门课中
 
 117
@@ -617,7 +616,7 @@ So sequence model include models like
 
 121
 00:04:42,871 --> 00:04:45,695
-Recurrent Neural Network abbreviat to RNN
+Recurrent Neural Network abbreviated RNN
 循环神经网络 简写为RNN
 
 122
@@ -627,23 +626,23 @@ and LSTM models
 
 123
 00:04:47,476 --> 00:04:49,726
-stands for Long Short-Term Memory models
+sense for Long Short-Term Memory models
 全称是长短期记忆网络
 
 124
 00:04:49,726 --> 00:04:51,820
 you'll learn what this term means in course 5
-你将在课程5中了解其中的时期是什么含义
+你将在第五门课中了解这些词是什么含义
 
 125
 00:04:51,820 --> 00:04:56,395
-and be able to aplly them to NLP problems
-并且有能力应用到NLP（自然语言处理）问题
+and be able to apply them to NLP problems
+并且能够用它们处理自然语言问题
 
 126
 00:04:57,234 --> 00:04:59,230
 So you'll learn these models in course 5
-总之你将在课程5中学习这些模型
+总之你将在第五门课中学习这些模型
 
 127
 00:04:59,230 --> 00:05:02,558
@@ -662,7 +661,7 @@ just a sequence of words
 
 130
 00:05:05,722 --> 00:05:09,174
-and you'll understand how this
+and you'll also understand how these
 models can be apply to
 你也将能够理解这些模型如何应用到
 
@@ -729,7 +728,7 @@ please go to the next video
 143
 00:05:28,597 --> 00:05:31,544
 we'll talk about deep learning
-aplly to supervised learning
+apllied to supervised learning
 我们将谈到深度学习在监督学习的使用
 
 
