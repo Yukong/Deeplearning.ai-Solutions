@@ -1,0 +1,850 @@
+
+1
+00:00:00.060 --> 00:00:02.540
+When you train your neural network is
+当你开始训练你的神经网络时，
+
+2
+00:00:01.319 --> 00:00:05.549
+important to initialize the weights
+将权重参数初始化是非常
+
+3
+00:00:02.540 --> 00:00:07.500
+randomly. For logistic regression, it was
+重要的。在逻辑回归的问题中，
+
+4
+00:00:05.549 --> 00:00:09.780
+okay to initialize the weights to zero,
+把权重参数初始化成零是可行的，
+
+5
+00:00:07.500 --> 00:00:12.059
+but for a neural network of initialize
+但把神经网络的权重参数
+
+6
+00:00:09.780 --> 00:00:14.460
+the weights the parameters to all zero in
+全部初始化为零，并使用梯度下降，
+
+7
+00:00:12.059 --> 00:00:19.890
+an apply gradient descent, it won't work.
+却无法获得预期的效果。
+
+8
+00:00:14.460 --> 00:00:23.460
+Let's see why. So you have here two input
+让我们一起来深入探讨这个问题。这里有
+
+9
+00:00:19.890 --> 00:00:26.369
+features, so n0 is equal to two and two
+两个输入样本参数，因此n0等于2，还有两个
+
+10
+00:00:23.460 --> 00:00:30.660
+hidden units, so n1 is equal to two. And
+隐藏神经元，因此n1也等于2，
+
+11
+00:00:26.369 --> 00:00:35.700
+so the matrix associated with a hidden
+所以与隐藏层关联的权重w1，
+
+12
+00:00:30.660 --> 00:00:38.510
+layer or w1 it is going to be 2x2. Let's
+是一个2x2的矩阵。
+
+13
+00:00:35.700 --> 00:00:42.809
+say that you initialize it to all zeros
+现在我们将这个矩阵的
+
+14
+00:00:38.510 --> 00:00:46.469
+0 0 0 0 2 by 2 matrix and let's say b1
+初始值都设为0，同样我们将矩阵b1的值
+
+15
+00:00:42.809 --> 00:00:49.710
+is also equal to 0 0. Turns out
+也都初始化为零。偏离度矩阵b1
+
+16
+00:00:46.469 --> 00:00:52.440
+initializing the bias terms B to 0 is
+的初始值都是0，这并不会影响最终
+
+17
+00:00:49.710 --> 00:00:55.530
+actually okay, but the initializing W to
+结果，但是将权重参数矩阵w1初始值都
+
+18
+00:00:52.440 --> 00:00:57.420
+all zeros is a problem. So the problem
+设置为零，会引起某些问题。
+
+19
+00:00:55.530 --> 00:01:00.870
+with this formal initialization is that
+这样的初始权重参数，会导致
+
+20
+00:00:57.420 --> 00:01:09.270
+for any example you give it, you have
+无论使用什么样的样本进行训练，
+
+21
+00:01:00.870 --> 00:01:11.250
+that a 1 1 and a 1 2 will be equal. All
+隐藏层中第一个神经元与第二个神经元始终是相同的。
+
+22
+00:01:09.270 --> 00:01:13.439
+right, so this activation and this
+没错，这第一个神经元和这第二个神经元
+
+23
+00:01:11.250 --> 00:01:15.000
+activation would be same because both of
+将是完全一致的，因为
+
+24
+00:01:13.439 --> 00:01:18.240
+these hidden units are computing exactly
+这些隐藏神经元在进行完全相同
+
+25
+00:01:15.000 --> 00:01:20.610
+the same function, and then when you
+的计算工作。当你进行
+
+26
+00:01:18.240 --> 00:01:28.799
+compute back propagation, it turns out
+反向传播的计算时，由于对称问题，这些
+
+27
+00:01:20.610 --> 00:01:30.810
+that d z1 1 and d z1 2 will also be the
+隐藏神经将会在同样的条件下被初始化，
+
+28
+00:01:28.799 --> 00:01:32.280
+same. Kind of by symmetry, right. Both of
+最终会导致z[1]1的导数
+
+29
+00:01:30.810 --> 00:01:36.060
+these hidden units will initialize the
+与z[1]2的导数也
+
+30
+00:01:32.280 --> 00:01:38.040
+same way. Technically for what I'm saying
+相同。同样的，
+
+31
+00:01:36.060 --> 00:01:42.750
+I'm assuming that the outgoing weights
+我可以假设输出的权重
+
+32
+00:01:38.040 --> 00:01:48.119
+are also identical. So that W 2 is equal
+也是相同的，所以输出权重参数矩阵w2
+
+33
+00:01:42.750 --> 00:01:51.479
+to 0 0 but if you initialize the neural
+也等于[0,0]，但如果你使用这种
+
+34
+00:01:48.119 --> 00:01:53.369
+network this way, then this hidden unit
+方法来初始化神经网络，那么这个隐藏神经元(a[1]1)
+
+35
+00:01:51.479 --> 00:01:54.780
+and this hidden unit are completely
+和这个隐藏神经元(a[1]2)也是
+
+36
+00:01:53.369 --> 00:01:56.579
+identical. So they're completely
+完全相同的，它们实现的
+
+37
+00:01:54.780 --> 00:01:57.930
+sometimes you say they're completely
+是完全相同的功能，有时候
+
+38
+00:01:56.579 --> 00:02:00.450
+symmetric which just means that the
+我们也称这是
+
+39
+00:01:57.930 --> 00:02:04.619
+computing exactly the same function. And
+“对称”的（重复的）。
+
+40
+00:02:00.450 --> 00:02:07.110
+by kind of a proof by induction it turns
+我们来归纳一下这个结果，
+
+41
+00:02:04.619 --> 00:02:09.060
+out that after every single iteration of
+经过每一次训练
+
+42
+00:02:07.110 --> 00:02:10.739
+training you've two hidden units are
+迭代，你将会得到两个
+
+43
+00:02:09.060 --> 00:02:11.680
+still confusing exactly the same
+实现完全相同功能
+
+44
+00:02:10.739 --> 00:02:15.220
+function.
+的隐藏神经元。
+
+45
+00:02:11.680 --> 00:02:18.159
+Since part of the show that dW will be a
+之前的部分视频中，W的导数将会是一个
+
+46
+00:02:15.220 --> 00:02:21.310
+matrix that looks like this, where every
+矩阵，大概看上去是这样，每一行
+
+47
+00:02:18.159 --> 00:02:23.560
+row takes on the same value. So we
+都是相同的，然后我们
+
+48
+00:02:21.310 --> 00:02:26.440
+perform a weight update, so you perform
+进行一个权重更新，
+
+49
+00:02:23.560 --> 00:02:30.430
+when you perform a weight update, w1 gets
+当你在实际操作时，
+
+50
+00:02:26.440 --> 00:02:33.640
+updated as w1 minus alpha times DW. You
+w1将被更新成w1-α*dw，
+
+51
+00:02:30.430 --> 00:02:36.970
+find that w1 after every iteration will
+而你将会发现，经过每一次迭代后，
+
+52
+00:02:33.640 --> 00:02:39.099
+have you know the first row equal to the
+w1的第一行与第二行
+
+53
+00:02:36.970 --> 00:02:41.170
+second row. So it's possible to construct
+是相同的。所以根据上述信息来归纳，
+
+54
+00:02:39.099 --> 00:02:43.569
+a proof by induction, that if you
+我们可以得到一个证明结果，
+
+55
+00:02:41.170 --> 00:02:47.500
+initialize all the ways, all the values
+如果你在神经网络中将所有权重参数矩阵w
+
+56
+00:02:43.569 --> 00:02:49.450
+of W to 0, then because both hidden units
+的值初始化为零，由于两个隐藏神经元
+
+57
+00:02:47.500 --> 00:02:51.549
+start off computing the same function,
+实现了相同的计算功能，
+
+58
+00:02:49.450 --> 00:02:55.030
+and both hidden units have the same
+并且也将同样的影响
+
+59
+00:02:51.549 --> 00:02:57.609
+influence on the output unit, then after
+作用在输出神经元上，经过
+
+60
+00:02:55.030 --> 00:02:59.379
+one iteration that same statement is
+一次迭代后，依然会得到相同的结果。
+
+61
+00:02:57.609 --> 00:03:01.180
+still true, the two fields in units are
+这两个神经元依然是“对称”
+
+62
+00:02:59.379 --> 00:03:03.010
+still symmetric and therefore by
+的，同样推导下去，
+
+63
+00:03:01.180 --> 00:03:05.109
+induction after two iterations, three
+经过两次迭代、三次迭代
+
+64
+00:03:03.010 --> 00:03:07.150
+iterations, and so on, no matter how long
+以及更多次迭代，无论
+
+65
+00:03:05.109 --> 00:03:09.519
+you train in your network, both hidden
+你将这个神经网络训练多久，
+
+66
+00:03:07.150 --> 00:03:11.769
+units are still computing exactly the
+这两个隐藏神经元仍然在使用同样的功能
+
+67
+00:03:09.519 --> 00:03:14.109
+same function. And so in this case,
+进行运算。在这个例子中，
+
+68
+00:03:11.769 --> 00:03:15.669
+there's really no point to having more
+由于隐藏神经元实现的
+
+69
+00:03:14.109 --> 00:03:17.889
+than one hidden unit because they're all
+都是相同的功能，
+
+70
+00:03:15.669 --> 00:03:20.470
+computing the same thing. And of course
+所以我们使用一个就够了。
+
+71
+00:03:17.889 --> 00:03:22.660
+for larger neural networks, less you have
+在更大的神经网络中，假设我们有
+
+72
+00:03:20.470 --> 00:03:24.819
+three features, and maybe a very large
+三个输入特征值，以及非常多的
+
+73
+00:03:22.660 --> 00:03:28.419
+number of hidden units, a similar
+隐藏神经元，一个类似的结论
+
+74
+00:03:24.819 --> 00:03:31.450
+argument works to show that what the new
+也同样成立，就像
+
+75
+00:03:28.419 --> 00:03:33.849
+network like this because I won't drawn
+我现在画的这样，我不会
+
+76
+00:03:31.450 --> 00:03:35.919
+all the edges. If you initialize the way
+画出所有的连接线，如果你依然将权重参数矩阵
+
+77
+00:03:33.849 --> 00:03:38.769
+to zero then all of your hidden units
+初始化为零，那么无论你运行
+
+78
+00:03:35.919 --> 00:03:40.030
+are symmetric and no matter how long you
+梯度下降多长时间，
+
+79
+00:03:38.769 --> 00:03:42.519
+run gradient descent. They'll all
+所有的隐藏神经元都将是“对称”的。它们
+
+80
+00:03:40.030 --> 00:03:45.519
+continue to compute exactly the same
+依然将运行在完全相同
+
+81
+00:03:42.519 --> 00:03:47.680
+function. So that's not helpful because
+的功能下，而这并不能给我们
+
+82
+00:03:45.519 --> 00:03:50.260
+you want two different hidden units to
+任何帮助，因为我们希望两个不同的
+
+83
+00:03:47.680 --> 00:03:52.480
+compute different functions. The solution
+隐藏神经元能实现不同的功能。因此
+
+84
+00:03:50.260 --> 00:03:56.379
+to this is to initialize your parameters
+只有进行随机初始化能够解决这样
+
+85
+00:03:52.480 --> 00:04:02.590
+randomly. So here's what you do. You can
+的问题。让我们看看如何在Python中操作。我们
+
+86
+00:03:56.379 --> 00:04:04.870
+set W 1 equals NP dot random dot R and n
+通常使用w[1]=np.random.randn((2,2))*0.01
+
+87
+00:04:02.590 --> 00:04:09.010
+of this generates our Gaussian random
+（randn会进行高斯随机分布）这样的写法
+
+88
+00:04:04.870 --> 00:04:10.720
+variable 2 2 and then usually you
+来对这个2*2的矩阵进行随机初始化，
+
+89
+00:04:09.010 --> 00:04:13.540
+multiply this by a very small number
+并乘上一个非常小的数，
+
+90
+00:04:10.720 --> 00:04:17.190
+such as 0.01. So you initialize it to
+比如0.01。这样操作后，你已经将
+
+91
+00:04:13.540 --> 00:04:20.650
+very small random values and then b, emmmm
+权重参数矩阵赋予了非常小的随机初始值，然后
+
+92
+00:04:17.190 --> 00:04:22.630
+it turns out that b does not have this
+对于b来说，b并不会由于初始值为零而产生
+
+93
+00:04:20.650 --> 00:04:24.650
+symmetry problem what's called a
+对称问题，
+
+94
+00:04:22.630 --> 00:04:29.570
+symmetry breaking problem.
+或称之为对称失效问题，
+
+95
+00:04:24.650 --> 00:04:31.699
+So is okay to initialize b to just zeros.
+所以使用b[i]=np.zeros((2,1))将b矩阵初始值设为零(这里应该是zeros，视频后面会补上)。
+
+96
+00:04:29.570 --> 00:04:33.620
+Because so long as W is initialized
+好了，现在权重参数矩阵w已经使用了
+
+97
+00:04:31.699 --> 00:04:35.449
+randomly. You start off with the
+随机初始化，不同的
+
+98
+00:04:33.620 --> 00:04:37.130
+different hidden units computing
+隐藏神经元会承担不同的
+
+99
+00:04:35.449 --> 00:04:39.560
+different things and so you no longer
+计算工作，我们也不会再遇到
+
+100
+00:04:37.130 --> 00:04:42.650
+have this emmm symmetry breaking problem.
+类似前面说的对称失效问题了。
+
+101
+00:04:39.560 --> 00:04:47.600
+And then similarly for w2 you can
+然后我们可以用同样的方法来
+
+102
+00:04:42.650 --> 00:04:51.289
+initialize that randomly and b2 you can
+将w[2]进行随机初始化，b[2]也
+
+103
+00:04:47.600 --> 00:04:52.639
+initialize that to zero. So you might be
+依然可以初始化为零。好了，现在
+
+104
+00:04:51.289 --> 00:04:55.130
+wondering you know where did this
+你想知道的可能是
+
+105
+00:04:52.639 --> 00:04:59.389
+constant come from, and why is it 0.01?
+为什么使用这个常量，并且为什么是0.01？
+
+106
+00:04:55.130 --> 00:05:01.820
+why not put the number 100 or 1000? Turns
+为什么我们不把它设置为100或1000？主要
+
+107
+00:04:59.389 --> 00:05:03.620
+out that we usually prefer to initialize
+原因是，我们通常比较喜欢使用
+
+108
+00:05:01.820 --> 00:05:07.660
+the ways to very very small random
+非常非常小的随机
+
+109
+00:05:03.620 --> 00:05:10.400
+values, because emmm if you're using a
+初始值，而当你使用一个
+
+110
+00:05:07.660 --> 00:05:12.710
+say tanh or sigmoid activation function
+tanh或者sigmoid的激活函数时，
+
+111
+00:05:10.400 --> 00:05:15.289
+or if you have a sigmoid even just at
+或者在输出层使用了
+
+112
+00:05:12.710 --> 00:05:18.289
+the output layer, if the waves are too
+sigmoid函数，如果步长过大，
+
+113
+00:05:15.289 --> 00:05:22.580
+large then when you compute the
+那么当你要计算
+
+114
+00:05:18.289 --> 00:05:30.710
+activation values remember that z1 is
+激活值的时候，你应该还记得
+
+115
+00:05:22.580 --> 00:05:35.599
+equal to w1 X plus B and then on a 1 is
+z[1]=w[1]*x+b[1]，
+
+116
+00:05:30.710 --> 00:05:39.050
+the activation function applied to z1. So
+而a[1]=g[1](z[1])。所以，
+
+117
+00:05:35.599 --> 00:05:41.360
+if W is very big Z will be very big or
+当w非常大的时候，z（的绝对值）也相应的会非常大，
+
+118
+00:05:39.050 --> 00:05:45.260
+these some values of Z will be either
+或者说z可能是一个非常大的数，
+
+119
+00:05:41.360 --> 00:05:46.970
+very large or very small. And so in that
+或者是一个非常小的数。在这样的
+
+120
+00:05:45.260 --> 00:05:50.840
+case you're more likely to end up at
+情况下，你可能最终会
+
+121
+00:05:46.970 --> 00:05:53.659
+these flat parts of the tenh function or
+发现图上tanh和sigmoid函数中
+
+122
+00:05:50.840 --> 00:05:55.610
+the sigmoid function where the slope of
+这些相对平坦的部分，梯度的斜率（变化率）
+
+123
+00:05:53.659 --> 00:05:57.740
+the gradient is very small.
+非常小。
+
+124
+00:05:55.610 --> 00:05:59.479
+Meaning that gradient descent would be
+这意味着梯度下降
+
+125
+00:05:57.740 --> 00:06:00.080
+very slow and so learning would be very
+会非常缓慢，所以整个学习过程也会变得
+
+126
+00:05:59.479 --> 00:06:04.039
+slow.
+尤为缓慢。
+
+127
+00:06:00.080 --> 00:06:05.900
+So just a recap if W is too large you're
+概括一下，如果w过大，你
+
+128
+00:06:04.039 --> 00:06:07.789
+more likely to end up even at the very
+很容易在开始时就
+
+129
+00:06:05.900 --> 00:06:10.880
+start of training with very large values
+得出一个非常大的
+
+130
+00:06:07.789 --> 00:06:13.060
+of Z, which causes your tanh and sigmoid
+z，而这会导致你的tanh和sigmoid
+
+131
+00:06:10.880 --> 00:06:16.430
+activation function to be saturated on
+激活函数学习进度缓慢，
+
+132
+00:06:13.060 --> 00:06:18.199
+the slowing down learning. If you don't
+无法实现预期功能。如果在
+
+133
+00:06:16.430 --> 00:06:19.789
+have any sigmoid or tanh activation
+你的神经网络中未使用
+
+134
+00:06:18.199 --> 00:06:22.400
+functions throughout your neural network,
+任何sigmoid或者tanh激活函数，
+
+135
+00:06:19.789 --> 00:06:24.169
+this is less of an issue, but if you're
+这种情况可能不明显，但是如果你
+
+136
+00:06:22.400 --> 00:06:26.720
+doing binary classification and your
+使用二分类，并且你的输出神经元
+
+137
+00:06:24.169 --> 00:06:28.400
+output unit is a sigmoid function, then
+使用了sigmoid函数，那么
+
+138
+00:06:26.720 --> 00:06:31.250
+you know you just don't want the initial
+你不会希望初始
+
+139
+00:06:28.400 --> 00:06:34.219
+parameters to be too large. So that's why
+参数过大。所以这就是
+
+140
+00:06:31.250 --> 00:06:36.560
+multiplying by 0.01 would be something
+为什么我们说在上述公式中需要
+
+141
+00:06:34.219 --> 00:06:38.810
+reasonable to try or any other small
+乘以0.01或者其他
+
+142
+00:06:36.560 --> 00:06:44.000
+number and same for w2
+比较小的数值。同样，对权重参数矩阵w2
+
+143
+00:06:38.810 --> 00:06:47.419
+this can be a random randn I guess this
+来说，我们可以表示成
+
+144
+00:06:44.000 --> 00:06:54.530
+would be 1 by 2 in this example times
+w[2]=np.random.randn((1,2))*0.01
+
+145
+00:06:47.419 --> 00:06:56.930
+0.01. Zeros there. So finally it turns
+噢上面应该是zeros。这里还有另外一个结论
+
+146
+00:06:54.530 --> 00:07:01.460
+out that sometimes they can be better
+分享给大家，有时候会有比0.01更为合适的
+
+147
+00:06:56.930 --> 00:07:04.490
+constants than 0.01. When you're training
+一些数值。当你在训练一个
+
+148
+00:07:01.460 --> 00:07:06.919
+a neural network with just one hidden
+仅含一个隐藏层的神经网络时，
+
+149
+00:07:04.490 --> 00:07:09.100
+layer, this is a relatively shallow your
+显而易见，0.01这个数值
+
+150
+00:07:06.919 --> 00:07:12.200
+network without too many hidden layers
+在类似于这样不含过多隐藏层的
+
+151
+00:07:09.100 --> 00:07:14.240
+setting to 0.01 will probably work ok,
+神经网络中是非常合适的，
+
+152
+00:07:12.200 --> 00:07:16.729
+but when you're training a very very
+但当你要训练一个非常非常复杂
+
+153
+00:07:14.240 --> 00:07:19.010
+deep neural network, then you might want
+的神经网络时，我们会使用
+
+154
+00:07:16.729 --> 00:07:21.950
+to pick a different constant in 0.001.
+一个不同的数值，0.001.
+
+155
+00:07:19.010 --> 00:07:24.350
+And in next week's material we'll talk a
+在下周的课程中我们会
+
+156
+00:07:21.950 --> 00:07:26.240
+little bit about how and when you might
+简单说一下我们如何根据不同的情况，
+
+157
+00:07:24.350 --> 00:07:29.720
+want to choose a different constant than
+来挑一个与0.01不同
+
+158
+00:07:26.240 --> 00:07:32.000
+0.01. But either way it will usually end
+的数值。不论如何，通常情况
+
+159
+00:07:29.720 --> 00:07:34.850
+up being a relatively small number. So
+我们的计算结果都会是一个相对小的数值。
+
+160
+00:07:32.000 --> 00:07:38.000
+that's it. So this week videos you now
+所以这周我们就先讲到这里，从这期的教学视频中，
+
+161
+00:07:34.850 --> 00:07:40.040
+know how to set up a neural network of a
+你应该学到了如何设计一个含有单独隐藏层
+
+162
+00:07:38.000 --> 00:07:42.139
+hidden layer initialize the parameters
+的神经网络、参数初始化、
+
+163
+00:07:40.040 --> 00:07:44.150
+make predictions using forward prop as
+使用正向传播进行预测
+
+164
+00:07:42.139 --> 00:07:46.700
+well as compute derivatives and it's in
+以及在梯度下降时使用反向传播中涉及
+
+165
+00:07:44.150 --> 00:07:49.220
+gradient descent using back prop. So that
+的导数计算。所以
+
+166
+00:07:46.700 --> 00:07:51.919
+you should be able to do the quizzes as
+现在你应该能完成课后测试和
+
+167
+00:07:49.220 --> 00:07:53.600
+well as this week's program exercises. Best
+本周的编程联系。祝
+
+168
+00:07:51.919 --> 00:07:55.610
+of luck with that. I hope you have fun
+你好运。我希望各位能喜欢我的课程，
+
+169
+00:07:53.600 --> 00:07:59.410
+with my exercise and look forward to
+在其中学到知识，也希望
+
+170
+00:07:55.610 --> 00:07:59.410
+seeing you in two weeks cool materials.
+在后几期课程中能继续见到各位。
