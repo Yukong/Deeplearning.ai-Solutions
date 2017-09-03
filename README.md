@@ -73,6 +73,8 @@ GTC 在 Smartling 平台进行的中文翻译，是根据 Coursera 提供的英�
 
 欢迎查看[GTC翻译与项目信息](https://github.com/Yukong/Deeplearning.ai-Solutions/blob/master/GTC_Yukon.md)。
 
+如果没有条件观看Coursera视频的同学可以去看[网易](https://mooc.study.163.com/smartSpec/detail/1001319001.htm)翻译的版本。
+
 （此页面维护人员 @AcceptedDoge）
 
 
