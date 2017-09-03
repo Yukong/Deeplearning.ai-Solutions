@@ -51,17 +51,17 @@ at reading X-ray images
 11
 00:00:20,491 --> 00:00:22,853
 to the delivering personalized education
-到传递个性化教育
+到提供个性化教育
 
 12
 00:00:22,853 --> 00:00:25,036
 to precision agriculture
-到精准化农业
+再到精准化农业
 
 13
 00:00:25,036 --> 00:00:26,954
 to even self-driving cars
-甚至到无人驾驶的汽车
+甚至到无人驾驶汽车
 
 14
 00:00:26,954 --> 00:00:28,111
@@ -82,7 +82,7 @@ and be able to apply them to build these amazing things
 17
 00:00:33,770 --> 00:00:35,569
 I want to help you get there
-我将帮助你做到这一点
+我想帮助你做到这一点
 
 18
 00:00:35,569 --> 00:00:40,253
@@ -195,12 +195,12 @@ with these developments is deep learning
 00:01:29,307 --> 00:01:33,438
 So today, deep learning is one of
 the most highly sought-after skills
-因此现在 深度学习是广受欢迎的一种技巧
+因此现在 深度学习是科技世界中
 
 40
 00:01:33,438 --> 00:01:34,884
 in the technology world
-在科技世界中
+广受欢迎的一种技能
 
 41
 00:01:34,884 --> 00:01:36,466
@@ -225,13 +225,13 @@ and master those skills
 45
 00:01:41,132 --> 00:01:42,869
 So here's what you'll learn
-下面是你将学习到的内容
+下面是你在这一系列将学习到的内容
 
 46
 00:01:42,869 --> 00:01:47,553
 in this sequence of courses
 aslo called specialization on coursera
-在coursera的这一系列也叫做专项课程中
+在coursera也叫做专项课程
 
 47
 00:01:47,553 --> 00:01:48,967
@@ -290,7 +290,7 @@ including a deep neural network
 57
 00:02:13,974 --> 00:02:15,589
 and how to train it on data
-以及如何在数据上面训练他们
+以及如何用数据训练它
 
 58
 00:02:15,589 --> 00:02:17,147
@@ -302,12 +302,12 @@ And at the end of this course
 you'll be able to build a deep neural network
 to recognize, guess what
 你将用一个深度神经网络进行识别
-猜猜识别什么？
+猜猜识别什么?
 
 60
 00:02:21,676 --> 00:02:22,831
 Cats
-猫！
+答案是猫
 
 61
 00:02:22,831 --> 00:02:23,971
@@ -317,7 +317,7 @@ For some reason
 62
 00:02:23,971 --> 00:02:27,204
 there is a cat meme running around in deep learning
-深度学习有一个猫的谜因
+深度学习和猫之间有种不解之缘
 
 63
 00:02:27,204 --> 00:02:29,121
@@ -327,12 +327,12 @@ And so following tradition
 64
 00:02:29,121 --> 00:02:31,567
 in this first course we'll build a cat
-第一门课我们会做一个猫的
+第一门课我们会做一个
 
 65
 00:02:31,567 --> 00:02:33,643
 recognizer
-识别器
+猫的识别器
 
 66
 00:02:33,812 --> 00:02:35,646
@@ -373,7 +373,7 @@ regularization
 73
 00:02:46,498 --> 00:02:48,512
 how to diagnose bias and variance
-诊断偏差和方差
+如何诊断偏差和方差
 
 74
 00:02:48,512 --> 00:02:50,558
@@ -383,18 +383,18 @@ and advanced optimization algorithms
 75
 00:02:50,558 --> 00:02:54,643
 like momentum armrest prop and adam optimization algorithm
-比如momentum armrest prop和adam optimization算法
+比如 momentum RMSProp 和 adam 优化算法
 
 76
 00:02:54,643 --> 00:02:56,963
 Sometimes it seems like there's a lot of tuning
-有时候看起来好像有很多需要调整
+有时好像会有很多需要调整的东西
 
 77
 00:02:56,963 --> 00:02:59,951
-even some black magic and
+even some black magic on
 how you build in neural network
-有一些像是黑魔法 还有怎么去建立你的网络
+甚至还有些关于 如何建立网络的黑魔法
 
 78
 00:02:59,951 --> 00:03:03,030
@@ -409,7 +409,7 @@ will demystify some that black magic
 80
 00:03:05,472 --> 00:03:07,955
 In the third course, which is just two weeks
-在第三门课中，我们将使用两周时间
+在第三门课中 我们将使用两周时间
 
 81
 00:03:07,955 --> 00:03:11,112
@@ -459,7 +459,7 @@ has change the area of deep learning
 90
 00:03:28,711 --> 00:03:32,118
 So what are the new best practices for doing that?
-所以目前最好的实践方式是什么呢？
+所以目前最好的实践方式是什么呢?
 
 91
 00:03:32,118 --> 00:03:34,875
@@ -469,7 +469,7 @@ And what if your train set and your test set
 92
 00:03:34,875 --> 00:03:36,445
 come from different distributions
-来自不同的分布怎么办？
+来自不同的分布怎么办?
 
 93
 00:03:36,445 --> 00:03:38,585
@@ -479,7 +479,7 @@ that's happening a lot more in the area of deep learning
 94
 00:03:38,585 --> 00:03:40,587
 So how do you deal with that?
-那么你应该怎么处理呢？
+那么你应该怎么处理呢?
 
 95
 00:03:40,587 --> 00:03:43,779
@@ -521,7 +521,7 @@ lots of the hot-one lessons we have learnt
 102
 00:03:58,430 --> 00:04:01,933
 building and shiping, quite a lot of deeping learning products
-生产并运输 相当多的的深度学习的产品
+生产并部署 相当多的的深度学习的产品
 
 103
 00:04:01,933 --> 00:04:03,304
@@ -531,12 +531,12 @@ As far as I know
 104
 00:04:03,304 --> 00:04:05,012
 This is a lush material that
-这是当今热门的材料
+这些当今热门的材料
 
 105
 00:04:05,012 --> 00:04:08,639
 is not taught in most common universities
-在绝大部分大学里面不会教授的
+在绝大部分大学里面都是不会教授的
 
 106
 00:04:08,798 --> 00:04:10,544
@@ -546,7 +546,7 @@ that have deep learning courses
 107
 00:04:10,544 --> 00:04:12,213
 But I think I really hope you
-但我真的希望我能够帮你
+但我认为它们能够
 
 108
 00:04:12,213 --> 00:04:15,123
@@ -571,7 +571,7 @@ Convolutional Neural Networks
 112
 00:04:19,899 --> 00:04:22,711
 often abbreviated as CNN(s)
-经常缩写为 CNN（s）
+经常缩写为CNN
 
 113
 00:04:22,711 --> 00:04:26,870
@@ -718,7 +718,7 @@ So that
 141
 00:05:25,943 --> 00:05:27,018
 let's get started
-让我们一起开始
+让我们一起开始吧
 
 142
 00:05:27,018 --> 00:05:28,597
