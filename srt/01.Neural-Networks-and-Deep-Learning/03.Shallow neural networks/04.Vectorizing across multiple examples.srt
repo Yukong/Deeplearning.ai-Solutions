@@ -1,37 +1,37 @@
 ﻿1
 00:00:00,060 --> 00:00:02,340
 in the last video you saw how to compute
-在上一个视频中，你了解到如何在神经网络上计算
+在上一个视频中 你了解到了如何计算出
 
 2
 00:00:02,340 --> 00:00:04,620
 the prediction on a neural network given
-出预测值，它是针对于
+神经网络的预测值 它是针对于
 
 3
 00:00:04,620 --> 00:00:07,200
 a single training example in this video
-单一的训练样本而言，在这个视频中
+单一的训练样本而言的 在这个视频中
 
 4
 00:00:07,200 --> 00:00:09,900
 you see how to vectorize across multiple
-你将了解到如何向量化多个
+你将了解到如何向量化计算
 
 5
 00:00:09,900 --> 00:00:12,450
 training examples and the outcome will
-训练样本，并且得出的结果将会
+多个训练样本上的预测值的过程 并且该过程
 
 6
 00:00:12,450 --> 00:00:13,950
 be quite similar to what you saw for
-与你在逻辑回归当中所见到的很类似
+与你在logistic回归当中所见到的很类似
 
 7
 00:00:13,950 --> 00:00:16,500
 logistic regression where by stacking up
-在逻辑回归中，我们通过将
+在logistic回归中 我们通过将
 
 8
 00:00:16,500 --> 00:00:18,150
@@ -41,102 +41,102 @@ different training examples in different
 9
 00:00:18,150 --> 00:00:20,730
 columns of the matrix you'll be able to
-矩阵的不同列，你将会能够
+矩阵的不同列 来得到我们从
 
 10
 00:00:20,730 --> 00:00:22,380
 take the equations you have from the
-使用这些等式，而这些等式是从
+上一节的视频中推导出的
 
 11
 00:00:22,380 --> 00:00:24,150
 previous video and with very little
-上一节的视频中推导得到的，并且通过
+各个等式 而且我们只需对它们做出
 
 12
 00:00:24,150 --> 00:00:26,460
-modification change them to  make the
-对它们做出很少的修改，就可以让
+modification change them to make the
+很少的修改 就可以让
 
 13
 00:00:26,460 --> 00:00:28,529
 neural network compute the outputs on
-神经网络计算出输出值
+这些公式适应于神经网络 并计算出输出值
 
 14
 00:00:28,529 --> 00:00:31,050
 all the examples on pretty much all at
-而这种计算是基于所有的训练样本的，是同时
+这种计算是几乎同时在
 
 15
 00:00:31,050 --> 00:00:33,660
 the same time so let's see the details
-进行的，所以让我们看一下具体的细节，
+所有训练样本上进行的 让我们来看一下
 
 16
 00:00:33,660 --> 00:00:34,680
 of how to do that
-如何去实现它
+如何具体地去实现它
 
 17
 00:00:34,680 --> 00:00:37,200
 these were the four equations we have
-这些是这四个等式，这四个等式是我们
+这些是我们从上一节视频中得到的
 
 18
 00:00:37,200 --> 00:00:38,760
 from the previous video of how you
-从上一节视频中得到的，它们给出你
+四个等式 它们给出了
 
 19
 00:00:38,760 --> 00:00:42,329
 compute Z 1 a 1 Z 2 and a 2 and they
-怎么计算出Z 1 a 1 Z 2 and a 2，并且它们
+计算出Z1 a1 Z2和a2的步骤 并且它们
 
 20
 00:00:42,329 --> 00:00:45,480
 tell you how giving an input feature
-让你明白对于给定的一个给定的输入特征
+让你知道给定单个的输入特征向量X时
 
 21
 00:00:45,480 --> 00:00:49,379
 vector X you can use them to generate  a
-向量X，你如何做才能使用它来产生
+应该如何进行计算
 
 22
 00:00:49,379 --> 00:00:53,190
 2 equals y hat for a single training
-a2 等于 y hat,这是现在针对于单一的训练样本
+才能得出a2 亦即y hat
 
 23
 00:00:53,190 --> 00:00:56,550
 example now if you have M training
-假如说你有m个训练样本
+而如果现在有m个训练样本的话
 
 24
 00:00:56,550 --> 00:00:58,890
 examples you need to repeat this process
-那么你就需要重复这个过程
+你就需要重复这个过程
 
 25
 00:00:58,890 --> 00:01:01,590
 for say the first training example X
-对于这第一个训练样本
+比如对于这第一个训练样本x_1
 
 26
 00:01:01,590 --> 00:01:06,210
 superscript round records one to compute
-x_1来计算
+我们用它来计算
 
 27
 00:01:06,210 --> 00:01:09,390
 Y hat one that's the prediction on your
-y_hat_1，这就是预测值，这预测值是
+y_hat_1 亦即预测值 该预测值是
 
 28
 00:01:09,390 --> 00:01:13,409
 first training example then X2 to use
-在你第一个训练样本上得出的结果
+在第一个训练样本上得出的结果
 
 29
 00:01:13,409 --> 00:01:16,080
@@ -151,12 +151,12 @@ and so on down to XM to generate a
 31
 00:01:20,189 --> 00:01:24,600
 prediction Y hat M and so in order to
-y_hat_m，并且为了
+y_hat_m 并且为了
 
 32
 00:01:24,600 --> 00:01:25,860
 write this with the activation function
-也用激活函数表示法来写这个
+和之前约定的符号规范达成一致
 
 33
 00:01:25,860 --> 00:01:27,509
@@ -171,12 +171,12 @@ a[2](1)
 35
 00:01:30,990 --> 00:01:40,229
 one and this is a two two and A to M so
-这是a[2](2)和a[2](m)。
+这是a[2](2)和a[2](m)
 
 36
 00:01:40,229 --> 00:01:45,240
 this notation a square bracket two round
-所以这个符号，a[2](i)
+所以这个符号a[2](i)中
 
 37
 00:01:45,240 --> 00:01:48,500
@@ -191,17 +191,17 @@ training example I and the square
 39
 00:01:53,280 --> 00:01:58,799
 bracket 2 refers to layer 2 ok so that's
-而[2]是指第二层。所以这就是()
+而[2]是指第二层 所以这就是
 
 40
 00:01:58,799 --> 00:02:00,630
 how the square bracket in the round
-和[]
+[] 和 ()
 
 41
 00:02:00,630 --> 00:02:05,130
 bracket indices work and so the suggest
-所代表的含义,并且这也表明了
+所代表的含义 并且这也表明了
 
 42
 00:02:05,130 --> 00:02:06,509
@@ -216,7 +216,7 @@ implementation and want to compute the
 44
 00:02:08,520 --> 00:02:10,229
 predictions for all your training
-这预测值，对于你所有训练样本而言
+所有样本上的预测值
 
 45
 00:02:10,229 --> 00:02:13,370
@@ -226,7 +226,7 @@ examples you need to do for I equals 1
 46
 00:02:13,370 --> 00:02:16,970
 to m then  basically implement these
-到m，然后实现这
+遍历到m 然后实现这
 
 47
 00:02:16,970 --> 00:02:23,049
@@ -236,92 +236,92 @@ four equations ready meet I guess z1 i
 48
 00:02:23,049 --> 00:02:34,190
 equals w1 x I plus b1 and a1 I equals
-z[1](i)等于w[1]x(1)加上b[1]，a[1][i]
+亦即z[1](i)=w[1]x(1)+b[1]
 
 49
 00:02:34,190 --> 00:02:46,030
 sigmoid z 1 i and z 2 i equals W 2 a 1 i
-等于sigmoid(z[1](i)) z[2](i)等于
+a[1][i]=sigmoid(z[1](i))
 
 50
 00:02:46,030 --> 00:02:55,160
 plus b 2 and a 2 i equals sigmoid of z 2 i
-w[2]a[1](i) 加上 b[2]. 而a[2][i]等于sigmoid(z[2](i))
+z[2](i)=w[2]a[1](i)+b[2] 而a[2][i]=sigmoid(z[2](i))
 
 51
 00:02:55,160 --> 00:03:00,109
 right so it's basically you know these four equations on top
-对于上面的这四个方程
+总而言之 我们需要对上面的这四个方程中
 
 52
 00:03:00,109 --> 00:03:05,989
 and adding the superscript round bracket i to all the
-添加上圆括号i 即(i)
+所有依赖于训练样本的变量
 
 53
 00:03:05,989 --> 00:03:08,390
 variables that depend on the training
-对于所有依赖于训练样本的变量，
+添加一个上标(i)
 
 54
 00:03:08,390 --> 00:03:10,220
 example so adding the superstream round
-将上标圆
+具体而言 我们需要将(i)
 
 55
 00:03:10,220 --> 00:03:14,239
 bracket I to X and Z and a if you want
-括号i添加到x，z和a，如果你想
+添加到x z和a上 如果你想
 
 56
 00:03:14,239 --> 00:03:16,430
 to compute all the outputs on your M
-计算在你的m个训练样本上的所有输出
+一次性计算m个训练样本上的所有输出的话
 
 57
 00:03:16,430 --> 00:03:19,400
 training examples what we like to do is
-我们喜欢做的
+一般而言就会需要
 
 58
 00:03:19,400 --> 00:03:21,980
 vectorize this whole computation so as
-就是向量化整个计算，以
+向量化整个计算过程
 
 59
 00:03:21,980 --> 00:03:24,410
-to get rid of this volume and by the way
-简化这列，并且顺便说一下，
+to get rid of this for loop and by the way
+从而能够避免使用这个for循环 顺带一提
 
 60
 00:03:24,410 --> 00:03:26,299
 in case it seems like I'm guessing a lot
-在某种情况下看起来我正在得到很多
+虽然看起来我正在使用很多
 
 61
 00:03:26,299 --> 00:03:29,450
 of nitty gritty linear algebra it turns
-的线性代数，
+很乱很糟心的线性代数
 
 62
 00:03:29,450 --> 00:03:31,010
 out that being able to implement this
-事实证明，能够正确地实现这一点
+但是在当今这个深度学习的时代中
 
 63
 00:03:31,010 --> 00:03:33,139
 correctly is important in the deep
-是重要的，尤其是在深度学习
+能够正确地实现这些东西是重要的
 
 64
 00:03:33,139 --> 00:03:35,900
-learning error and we actually chose the
-的错误中，我们实际上认真地选择了符号
+learning era and we actually chose the
+事实上我们也针对这个课程
 
 65
 00:03:35,900 --> 00:03:37,849
 notation very carefully for this cost
-这些符号是针对于这个课程的
+来认真地选择了符号规范
 
 66
 00:03:37,849 --> 00:03:39,889
@@ -331,17 +331,17 @@ that make these accusations as as easy
 67
 00:03:39,889 --> 00:03:42,530
 as possible so I hope that great through
-所以我希望通过这个细节
+所以我希望你能够通过理解这些
 
 68
 00:03:42,530 --> 00:03:44,329
 this nitty-gritty will actually help you
-实际上可以帮助你
+又乱又糟心的公式
 
 69
 00:03:44,329 --> 00:03:47,780
 to more quickly get correct
-更快地得以
+来更快地得以
 
 70
 00:03:47,780 --> 00:03:50,049
@@ -351,27 +351,27 @@ implementations of these advents working
 71
 00:03:50,049 --> 00:03:54,199
 all right so let me just copy this whole
-让我只是复制
+接下来让我复制
 
 72
 00:03:54,199 --> 00:03:56,359
 block of code to the next slide and then
-这整个代码块到下一个幻灯片，然后
+这整个代码块到下一个幻灯片 然后
 
 73
 00:03:56,359 --> 00:03:58,150
 we'll see how to vectorize this
-我们将看到如何向量化这些。
+我们将看到如何向量化它们
 
 74
 00:03:58,150 --> 00:04:00,680
 so here's we had from the previous line
-所以这是我们从前一张幻灯片中
+那么这是我们从前一张幻灯片中
 
 75
 00:04:00,680 --> 00:04:02,810
 with a for loop going over all M
-获得的一个for循循环，
+得出的for循环
 
 76
 00:04:02,810 --> 00:04:07,280

@@ -2,17 +2,17 @@
 1
 00:00:00.000 --> 00:00:03.600
 I've noticed that almost all the really good machine learning
-我注意到，几乎所有真正优秀的机器学习者
+我注意到 几乎所有真正优秀的机器学习者
 
 2
 00:00:03.600 --> 00:00:07.890
 practitioners tend to be very sophisticated in understanding of Bias and Variance.
-对偏差（偏离度）和方差（集中度）的处理都是非常有经验的
+对偏差(偏离度)和方差(集中度)的处理都是非常有经验的
 
 3
 00:00:07.890 --> 00:00:12.330
 Bias and Variance is one of those concepts that's easily learned but difficult to master.
-偏差和方差的处理往往非常容易入门，但是非常难以精通
+偏差和方差的处理往往非常容易入门 但是非常难以精通
 
 4
 00:00:12.330 --> 00:00:16.155
@@ -37,17 +37,17 @@ another trend is that there's been
 8
 00:00:22.650 --> 00:00:26.035
 less discussion of what's called the bias-variance tradeoff.
-偏差-方差困境（也有叫做偏差-方差权衡）的讨论很少
+偏差-方差权衡(也有叫做偏差-方差困境)的讨论很少
 
 9
 00:00:26.035 --> 00:00:28.657
 You might have heard this thing called the bias-variance tradeoff.
-你可能之前已经听说过这个被称为“偏差-方差困境”的东西
+你可能之前已经听说过这个被称为“偏差-方差权衡”的东西
 
 10
 00:00:28.657 --> 00:00:31.330
 But in Deep Learning Area there's less of a tradeoff,
-但是在深度学习领域，这不仅仅是两者间的权衡问题
+但是在深度学习领域 这不仅仅是两者间的权衡问题
 
 11
 00:00:31.330 --> 00:00:32.520
@@ -62,7 +62,7 @@ we still talk of the variance,
 13
 00:00:33.865 --> 00:00:37.295
 but we just talk less about the bias-variance tradeoff.
-但是我们对偏差-方差困境要讲的不多
+但是我们对偏差-方差权衡要讲的不多
 
 14
 00:00:37.295 --> 00:00:39.795
@@ -97,7 +97,7 @@ And so this is class of a high bias,
 20
 00:00:52.380 --> 00:00:56.400
 what we say that this is underfitting the data.
-或者换一种说法，这是欠拟合
+或者换一种说法 这是欠拟合
 
 21
 00:00:56.400 --> 00:00:57.850
@@ -132,12 +132,12 @@ but that doesn't look like a great fit either.
 27
 00:01:12.220 --> 00:01:17.535
 So there's a classifier of high variance and this is overfitting the data.
-这个高方差的分类器，我们也称之为过拟合
+这个高方差的分类器 我们也称之为过拟合
 
 28
 00:01:17.535 --> 00:01:19.650
 And there might be some classifier in between,
-在这两种分类器之间，
+在这两种分类器之间
 
 29
 00:01:19.650 --> 00:01:22.070
@@ -147,7 +147,7 @@ with a medium level of complexity,
 30
 00:01:22.070 --> 00:01:24.585
 that maybe fits it correctly like that.
-但是能正确分类的算法，像图上这样
+但是能正确分类的算法 像图上这样
 
 31
 00:01:24.585 --> 00:01:27.300
@@ -157,7 +157,7 @@ That looks like a much more reasonable fit to the data,
 32
 00:01:27.300 --> 00:01:31.705
 so we call that just right. It's somewhere in between.
-我们认为这才是完美匹配的算法，结果居于欠拟合与过拟合之间
+我们认为这才是完美匹配的算法 结果居于欠拟合与过拟合之间
 
 33
 00:01:31.705 --> 00:01:34.260
@@ -172,7 +172,7 @@ with just two features,
 35
 00:01:35.610 --> 00:01:39.700
 X-1 and X-2, you can plot the data and visualize bias and variance.
-我们把横轴标为x1，纵轴标为x2，你可以绘制数据，把偏差和方差可视化
+我们把横轴标为x1 纵轴标为x2 你可以绘制数据 把偏差和方差可视化
 
 36
 00:01:39.700 --> 00:01:41.250
@@ -182,17 +182,17 @@ In high dimensional problems,
 37
 00:01:41.250 --> 00:01:44.735
 you can't plot the data and visualize division boundary.
-你无法将数据绘制在图上，并在图上进行区分
+你无法将数据绘制在图上 并在图上进行区分
 
 38
 00:01:44.735 --> 00:01:46.830
 Instead, there are couple of different metrics,
-然而，对应这样的情况也会有几个不同的方法
+然而 对应这样的情况也会有几个不同的方法
 
 39
 00:01:46.830 --> 00:01:49.750
 that we'll look at, to try to understand bias and variance.
-让我们来探讨一下，试着去理解偏差和方差的含义
+让我们来探讨一下 试着去理解偏差和方差的含义
 
 40
 00:01:49.750 --> 00:01:51.960
@@ -227,12 +227,12 @@ let's say that you're recognizing cats in pictures,
 46
 00:02:10.290 --> 00:02:13.860
 is something that people can do nearly perfectly, right?
-这几乎每个人都能完美做到的，对不？
+这几乎每个人都能完美做到的 对吧
 
 47
 00:02:13.860 --> 00:02:22.155
 So let's say, your training set error is 1% and your dev set error is,
-所以我们可以理解为，你的训练集误差是1%，而对于开发集误差
+所以我们可以理解为 你的训练集误差是1% 而对于开发集误差
 
 48
 00:02:22.155 --> 00:02:23.580
@@ -257,7 +257,7 @@ you're doing very well on the training set,
 52
 00:02:29.495 --> 00:02:34.355
 but you're doing relatively poorly on the development set.
-但是相对来说，开发集处理得就有些不尽如人意
+但是相对来说 开发集处理得就有些不尽如人意
 
 53
 00:02:34.355 --> 00:02:38.215
@@ -272,7 +272,7 @@ that somehow you're not generalizing well,
 55
 00:02:40.620 --> 00:02:43.815
 to this whole cross-validation set in the development set.
-数据时，并未处理得十分妥当
+数据时 并未处理得十分妥当
 
 56
 00:02:43.815 --> 00:02:46.440
@@ -297,7 +297,7 @@ you would be able to render a diagnosis of your algorithm having high variance.
 60
 00:02:59.730 --> 00:03:04.435
 Now, let's say, that you measure your training set and your dev set error,
-现在，让我们再来看第二个例子，假设你得到了训练集和开发集的误差
+现在让我们再来看第二个例子 假设你得到了训练集和开发集的误差
 
 61
 00:03:04.435 --> 00:03:06.095
@@ -322,17 +322,17 @@ and your dev set error is 16%.
 65
 00:03:15.880 --> 00:03:22.870
 In this case, assuming that humans achieve roughly 0% error,
-在这种情况下，我们假设人工识别误差是0%
+在这种情况下 我们假设人工识别误差是0%
 
 66
 00:03:22.870 --> 00:03:27.451
 that humans can look at these pictures and just tell if it's cat or not,
-因为人可以直接看到这些图片，并判断出这是否是一只猫
+因为人可以直接看到这些图片 并判断出这是否是一只猫
 
 67
 00:03:27.451 --> 00:03:31.600
 then it looks like the algorithm is not even doing very well on the training set.
-所以看上去，这个算法在训练集上的表现并不尽如人意
+所以看上去 这个算法在训练集上的表现并不尽如人意
 
 68
 00:03:31.600 --> 00:03:35.380
@@ -352,12 +352,12 @@ And so this algorithm has high bias.
 71
 00:03:40.895 --> 00:03:45.390
 But in contrast, this actually generalizing at a reasonable level to the dev set,
-但相比之下，这个算法应用在开发集时还处于一个可接受的水准
+但相比之下 这个算法应用在开发集时还处于一个可接受的水准
 
 72
 00:03:45.390 --> 00:03:49.365
 whereas performance in the dev set is only 1% worse than performance in the training set.
-和应用在训练集时的表现相比，误差只多了1%
+和应用在训练集时的表现相比 误差只多了1%
 
 73
 00:03:49.365 --> 00:03:52.355
@@ -377,7 +377,7 @@ Well, this is similar to the leftmost plots we had on the previous slide.
 76
 00:04:01.030 --> 00:04:03.329
 Now, here's another example.
-好了，我们来讲下一个例子
+接下来让我们来讲另一个例子
 
 77
 00:04:03.329 --> 00:04:06.430
@@ -392,7 +392,7 @@ so that's pretty high bias,
 79
 00:04:08.127 --> 00:04:11.446
 but when you evaluate to the dev set it does even worse,
-但当你将该算法应用在开发集时，情况变得更糟
+但当你将该算法应用在开发集时 情况变得更糟
 
 80
 00:04:11.446 --> 00:04:13.450
@@ -402,17 +402,17 @@ maybe it does 30%.
 81
 00:04:13.450 --> 00:04:18.175
 In this case, I would diagnose this algorithm as having high bias,
-在这种情况下，我可以判断出这个算法是高偏差的
+在这种情况下 我可以判断出这个算法是高偏差的
 
 82
 00:04:18.175 --> 00:04:23.780
 because it's not doing that well on the training set, and high variance.
-它并没有将训练集处理好，并且还是高方差的
+它并没有将训练集处理好 并且还是高方差的
 
 83
 00:04:23.780 --> 00:04:27.950
 So this has really the worst of both worlds.
-这是一种非常、十分、极其糟糕的算法
+这是一种非常 十分 极其糟糕的算法
 
 84
 00:04:27.950 --> 00:04:29.325
@@ -447,7 +447,7 @@ then just we have low bias and low variance.
 90
 00:04:44.340 --> 00:04:47.610
 One subtlety, that I'll just briefly mention that
-有一点要注意，我简单地提一下
+有一点要注意 我简单地提一下
 
 91
 00:04:47.610 --> 00:04:50.955
@@ -467,7 +467,7 @@ that human level performance gets nearly 0% error or,
 94
 00:04:59.115 --> 00:05:01.749
 more generally, that the optimal error,
-一般来说，我们称之为理想误差
+一般来说 我们称之为理想误差
 
 95
 00:05:01.749 --> 00:05:04.225
@@ -487,12 +487,12 @@ I don't want to go into detail on this in this particular video,
 98
 00:05:13.565 --> 00:05:18.070
 but it turns out that if the optimal error or the base error were much higher, say,
-但是如果理想误差或基本误差比较高，假设
+但是如果理想误差或基本误差比较高 假设
 
 99
 00:05:18.070 --> 00:05:22.360
 it were 15%, then if you look at this classifier,
-是15%，那么如果我们继续来看这个分类算法
+是15% 那么如果我们继续来看这个分类算法
 
 100
 00:05:22.360 --> 00:05:25.460
@@ -502,7 +502,7 @@ it were 15%, then if you look at this classifier,
 101
 00:05:25.460 --> 00:05:30.120
 wouldn't see it as high bias and also a pretty low variance.
-你不应该认为它是高偏差的、低方差的算法
+你不应该认为它是高偏差的 低方差的算法
 
 102
 00:05:30.120 --> 00:05:33.440
@@ -512,7 +512,7 @@ So the case of how to analyze bias and variance,
 103
 00:05:33.440 --> 00:05:37.460
 when no classifier can do very well, for example,
-如果没有分类算法能做好，假设
+如果没有分类算法能做好 假设
 
 104
 00:05:37.460 --> 00:05:40.833
@@ -542,12 +542,12 @@ But leaving aside this subtlety for now,
 109
 00:05:54.725 --> 00:05:57.430
 the takeaway is that by looking at
-而我们可以发现，通过观察
+而我们可以发现 通过观察
 
 110
 00:05:57.430 --> 00:06:02.676
 your training set error you can get a sense of how well you are fitting,
-训练集的误差，可以知道你的算法是否至少可以将
+训练集的误差 可以知道你的算法是否至少可以将
 
 111
 00:06:02.676 --> 00:06:04.331
@@ -592,7 +592,7 @@ All this is under the assumption that the base error is quite
 119
 00:06:26.210 --> 00:06:30.235
 small and that your training and your dev sets are drawn from the same distribution.
-你的训练集和开发集都具有同样画风的假设
+你的训练集和开发集都来自同一个分布的假设
 
 120
 00:06:30.235 --> 00:06:32.210
@@ -612,7 +612,7 @@ which we'll talk about in the later video.
 123
 00:06:36.510 --> 00:06:38.780
 Now, on the previous slide,
-好了，在上一张PPT中
+好了 在上一张PPT中
 
 124
 00:06:38.780 --> 00:06:40.849
@@ -632,7 +632,7 @@ and I guess you have the sense of what it a good class can look like.
 127
 00:06:44.920 --> 00:06:48.110
 What does high bias and high variance looks like?
-高偏差和高方差的算法看上去如何呢？
+高偏差和高方差的算法看上去如何呢
 
 128
 00:06:48.110 --> 00:06:50.535
@@ -642,7 +642,7 @@ This is kind of the worst of both worlds.
 129
 00:06:50.535 --> 00:06:53.415
 So you remember, we said that a classifier like this,
-你应该还记得，我们说过一个像这样的分类算法
+你应该还记得 我们说过一个像这样的分类器
 
 130
 00:06:53.415 --> 00:06:55.755
@@ -657,7 +657,7 @@ because it underfits the data.
 132
 00:06:58.185 --> 00:07:04.030
 So this would be a classifier that is mostly linear and therefore underfits the data,
-所以可以说，由于这几乎是个线性分类算法（直线）因此欠拟合了
+所以可以说 由于这几乎是个线性分类器(直线) 所以它欠拟合了
 
 133
 00:07:04.030 --> 00:07:05.570
@@ -667,7 +667,7 @@ we're drawing this is purple.
 134
 00:07:05.570 --> 00:07:09.546
 But if somehow your classifier does some weird things,
-但是如果在某些情况下你的分类算法做了些诡异的事情（像我现在画的这样）
+但是如果在某些情况下你的分类器做了些诡异的事情(像我现在画的这样)
 
 135
 00:07:09.546 --> 00:07:14.460
@@ -677,7 +677,7 @@ then it is actually overfitting parts of the data as well.
 136
 00:07:14.460 --> 00:07:16.500
 So the classifier that I drew in purple,
-所以我在紫色部分标示的分类算法
+所以我在紫色部分标示的分类器
 
 137
 00:07:16.500 --> 00:07:19.455
@@ -687,12 +687,12 @@ has both high bias and high variance.
 138
 00:07:19.455 --> 00:07:21.300
 Where it has high bias, because,
-从图上看，这里有高偏差问题
+从图上看 这里有高偏差问题
 
 139
 00:07:21.300 --> 00:07:23.325
 by being a mostly linear classifier,
-几乎是一个线性分类算法
+几乎是一个线性分类器
 
 140
 00:07:23.325 --> 00:07:24.875
@@ -702,27 +702,27 @@ is just not fitting.
 141
 00:07:24.875 --> 00:07:28.466
 You know, this quadratic line shape that well,
-你看，就像图上这个曲线形状的类别
+你看 就像图上这个曲线形状的类别
 
 142
 00:07:28.466 --> 00:07:31.200
 but by having too much flexibility in the middle,
-但是这个分类算法中间，又变得十分扭曲
+但是这个分类器中间 又变得十分扭曲
 
 143
 00:07:31.200 --> 00:07:32.995
 it somehow gets this example,
-虽然正确地区分了这个叉样本
+它虽然诡异地正确区分了这个叉样本
 
 144
 00:07:32.995 --> 00:07:36.720
 and this example. Overfits those two examples as well.
-和这个圈样本。过拟合了这两个孤立的样本
+和这个圈样本 但这显然就属于过拟合了
 
 145
 00:07:36.720 --> 00:07:40.515
 So this classifier kind of has high bias because it was mostly linear,
-我们称这个分类算法是高偏差的，因为它几乎是直线
+综上所述 我们称这个分类器是高偏差的 因为它几乎是直线
 
 146
 00:07:40.515 --> 00:07:43.620
@@ -737,7 +737,7 @@ And it has high variance,
 148
 00:07:45.115 --> 00:07:49.595
 because it had too much flexibility to fit those two mislabel,
-因为它在中间用极为扭曲的算法，对两个孤立的
+因为它在中间用极为扭曲的算法 对两个孤立的
 
 149
 00:07:49.595 --> 00:07:52.475
@@ -767,7 +767,7 @@ You actually do get things with
 154
 00:08:01.795 --> 00:08:04.800
 high bias in some regions and high variance in some regions,
-在一些地方遇到了高偏差的问题，一些地方遇到了高方差的问题
+在一些地方遇到了高偏差的问题 一些地方遇到了高方差的问题
 
 155
 00:08:04.800 --> 00:08:07.410
@@ -782,7 +782,7 @@ in high dimensional inputs that seem less contrived.
 157
 00:08:11.415 --> 00:08:15.690
 So to summarize, you've seen how by looking at your algorithm's error on
-让我们总结一下，这节课我们学习了如何通过观察算法
+让我们总结一下 这节课我们学习了如何通过观察算法
 
 158
 00:08:15.690 --> 00:08:20.550
@@ -797,7 +797,7 @@ whether it has problems of high bias or high variance,
 160
 00:08:23.413 --> 00:08:25.420
 or maybe both, or maybe neither.
-或许两者都有，或许都没有
+或许两者都有 或许都没有
 
 161
 00:08:25.420 --> 00:08:28.995
@@ -812,7 +812,7 @@ it turns out that there are different things you could try.
 163
 00:08:31.765 --> 00:08:33.840
 So in the next video, I want to present to you,
-所以在下一个视频教程中，我希望能给你介绍一种方法
+所以在下一个视频教程中 我希望能给你介绍一种方法
 
 164
 00:08:33.840 --> 00:08:37.390
