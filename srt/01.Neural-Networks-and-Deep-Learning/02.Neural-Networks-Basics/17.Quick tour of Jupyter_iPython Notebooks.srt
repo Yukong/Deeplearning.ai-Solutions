@@ -1,7 +1,7 @@
 ﻿1
 00:00:00,000 --> 00:00:01,553
 With everything you've learned,
-凭你到目前为止所学的
+以你到目前为止所学的
 
 2
 00:00:01,553 --> 00:00:02,727
@@ -26,7 +26,7 @@ let me just give you a quick tour
 6
 00:00:07,070 --> 00:00:10,396
 of ipython notebooks in Coursera.
-Coursera上的iPython notebook工具
+Coursera上的iPython notebook
 
 7
 00:00:10,396 --> 00:00:13,275
@@ -41,12 +41,12 @@ that you can get to in Coursera.
 9
 00:00:14,847 --> 00:00:17,416
 Let me just quickly show you a few features of this.
-让我简短给展示一下它的一些功能
+我先简短给你展示一下它的一些功能
 
 10
 00:00:17,416 --> 00:00:21,222
 The instructions are written right here in the text in the
-这个notebook的用法就写在这里
+这个notebook自带了说明
 
 11
 00:00:21,222 --> 00:00:23,891
@@ -110,13 +110,13 @@ So that printed "Hello World".
 
 23
 00:00:54,796 --> 00:00:58,117
-To run a cell --- run one of these code blocks or a "cell", you can also
-如果想运行一个Cell -- Cell是代码框的别称
+To run one of these code blocks as a cell, you can also
+如果某个单元格是代码块类型的单元格的话
 
 24
 00:00:58,117 --> 00:01:03,314
 click "Cell", and then "Run Cell" so it executes this.
-你也可以点击 Cell 然后点 Run Cell 就会执行这个代码框
+你也可以点击 Cell 然后点 Run Cell 就会执行其中的代码
 
 25
 00:01:03,314 --> 00:01:05,290
