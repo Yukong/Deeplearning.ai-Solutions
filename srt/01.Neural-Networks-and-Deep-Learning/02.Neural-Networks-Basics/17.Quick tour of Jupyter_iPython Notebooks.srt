@@ -1,33 +1,32 @@
-1
+﻿1
 00:00:00,000 --> 00:00:01,553
 With everything you've learned,
-学到现在
-
+以你到目前为止所学的
 
 2
 00:00:01,553 --> 00:00:02,727
 you're just about ready to
-你正准备
+你应当到了
 
 3
 00:00:02,727 --> 00:00:04,810
 tackle your first programming assignment.
-提交你的第一个编程作业
+可以开始攻克第一个编程作业的时候了
 
 4
 00:00:04,810 --> 00:00:05,914
 Before you do that,
-在这做之前
+在动手之前
 
 5
 00:00:05,914 --> 00:00:07,070
 let me just give you a quick tour
-让我快速给你介绍
+让我为你快速介绍一下
 
 6
 00:00:07,070 --> 00:00:10,396
 of ipython notebooks in Coursera.
-Coursera需要的ipython notebooks工具
+Coursera上的iPython notebook
 
 7
 00:00:10,396 --> 00:00:13,275
@@ -37,451 +36,365 @@ Here you see,Jupiter iphython notebooks
 8
 00:00:13,275 --> 00:00:14,847
 that you can get to in Coursera.
-这里你可以连接到Coursera
+你可以从Coursera中打开它
 
 9
 00:00:14,847 --> 00:00:17,416
 Let me just quickly show you a few features of this.
-让我快速告诉你这里面的一些新特性
+我先简短给你展示一下它的一些功能
 
 10
 00:00:17,416 --> 00:00:21,222
-The instructions are written into this notebook
-这些说明写在了notebook
+The instructions are written right here in the text in the
+这个notebook自带了说明
 
 11
-00:00:21,222 --> 00:00:24,491
-and there'll be a few code blocks right here
-这里也有空白区域的代码块
+00:00:21,222 --> 00:00:23,891
+iPython notebook and these little
+写在了文字区域内 而这下面的
 
 12
-00:00:24,491 --> 00:00:26,562
-that you can write code into.
-你可以在这里写代码
+00:00:23,891 --> 00:00:26,562
+light grey blocks are blocks of code.
+这些浅灰色的框 则是代码框
 
 13
 00:00:26,562 --> 00:00:29,351
-So occasionally, you see in functions
-有时， 有些函数块
+So occasionally, you see in these blocks, sometimes they'll say
+有时你能看到在这些浅灰色的块中写着
 
 14
 00:00:29,351 --> 00:00:31,064
-blocks that looks like this.
-比如像这样
+this is the "START CODE HERE" and "END CODE HERE".
+"代码开始处" 与 "代码终止处"
 
 15
 00:00:31,064 --> 00:00:34,333
-The instructions are right here in the text,
-这些说明就在文本中
+To do the programming exercise, please make sure to write your code
+当做编程作业时 请确保你把代码
 
 16
-00:00:34,333 --> 00:00:36,032
-in the ipython notebook.
-在ipython notebook里
+00:00:34,333 --> 00:00:37,542
+between the "START CODE HERE" and "END CODE HERE".
+都写在这两行字之间
 
 17
-00:00:36,032 --> 00:00:37,542
-And these long, you know,
-这些较长
+00:00:37,542 --> 00:00:41,895
+so for example print "Hello World"
+比如我写代码印出 "Hello World"
 
 18
-00:00:37,542 --> 00:00:39,489
-like gray blocks are blocks of code.
-灰色的区域代码
+00:00:41,895 --> 00:00:43,363
+Then to execute a code block
+如果要执行一个代码框中的代码
 
 19
-00:00:39,489 --> 00:00:41,895
-So occasionally, you see in these blocks
-有时， 你看到这些代码
+00:00:43,363 --> 00:00:46,805
+You can hit Shift+Enter,
+你可以按 Shift+Enter
 
 20
-00:00:41,895 --> 00:00:43,363
-sometimes they'll say this is
-有时会这样
+00:00:46,805 --> 00:00:48,506
+And then to execute this code block
+所以我们执行一下这行
 
 21
-00:00:43,363 --> 00:00:45,290
-their style code here and end code here.
-他的代码格式和结束代码
+00:00:48,506 --> 00:00:50,976
+which I guess we just wrote print "Hello World",
+就是刚才写的 print "Hello World"
 
 22
-00:00:45,290 --> 00:00:46,805
-To do their programing exercise,
-去完成编程练习
+00:00:50,976 --> 00:00:54,796
+So that printed "Hello World".
+于是它就印出了"Hello World"
 
 23
-00:00:46,805 --> 00:00:48,506
-please make sure to write your code
-请确保你的代码
+00:00:54,796 --> 00:00:58,117
+To run one of these code blocks as a cell, you can also
+如果某个单元格是代码块类型的单元格的话
 
 24
-00:00:48,506 --> 00:00:50,976
-between the start code here and end code here.
-写在这开始和结束代码之间
+00:00:58,117 --> 00:01:03,314
+click "Cell", and then "Run Cell" so it executes this.
+你也可以点击 Cell 然后点 Run Cell 就会执行其中的代码
 
 25
-00:00:50,976 --> 00:00:54,796
-So for example, print Hello World.
-比如， 打印输出Hello World
+00:01:03,314 --> 00:01:05,290
+It's possible that on your computer the
+也许在你的电脑上
 
 26
-00:00:54,796 --> 00:00:58,117
-Right. And, then to execute a code block,
-好， 下面执行这块代码
+00:01:05,290 --> 00:01:07,210
+keyboard shortcut for Cell/Run Cell
+Cell 里的 Run Cell 的快捷键
 
 27
-00:00:58,117 --> 00:01:02,034
-you can hit shift enter and then
-你可以按shift + enter 执行
+00:01:07,210 --> 00:01:09,923
+might be different than Shift+Enter,
+可能不是 Shift+Enter
 
 28
-00:01:02,034 --> 00:01:03,314
-they execute this code block,
-他会运行这块代码
+00:01:09,923 --> 00:01:14,259
+but on both my Mac as well as on my PC
+但是在我的苹果电脑和我的普通电脑上
 
 29
-00:01:03,314 --> 00:01:05,290
-which I guess we just wrote print Hello World.
-他就会输出我们想要的hello world
+00:01:14,259 --> 00:01:18,437
+it's Shift+Enter so it might be the same for you as well.
+快捷键都是 Shift+Enter 所以可能你也是一样吧
 
 30
-00:01:05,290 --> 00:01:07,210
-So that printed Hello World.
-所以输出hello world
+00:01:18,437 --> 00:01:20,793
+Now when you read the instructions, if you accidentally
+如果你在阅读说明时一不小心双击了代码框
 
 31
-00:01:07,210 --> 00:01:09,923
-To run a cell, you can also,
-去运行这区域，你也可以
+00:01:20,793 --> 00:01:23,841
+double-click on it you may end up with this Markdown language.
+它可能会变成 Markdown 语言
 
 32
-00:01:09,923 --> 00:01:11,889
-to run one of these code blocks in cell,
-运行其中的一块代码区域
+00:01:24,058 --> 00:01:27,943
+If you end up with this funny-looking text, to convert it
+如果你的代码突然变成了这种奇怪的文字
 
 33
-00:01:11,889 --> 00:01:14,259
-you can also click cell and then run cell.
-你也可以点击cell菜单的run cell
+00:01:27,943 --> 00:01:30,485
+to the nice-looking text, just run the cell, so
+只要运行一下这个框就能变回来
 
 34
-00:01:14,259 --> 00:01:18,437
-So to execute this
-执行这部分代码
+00:01:30,485 --> 00:01:33,650
+you'd click the Cell, Run Cell, or I'm gonna hit Shift+Enter,
+所以你可以点 Cell 再点 Run Cell 或按 Shift+Enter
 
 35
-00:01:18,437 --> 00:01:20,793
-Is possible that on your computer the keyboard shortcut
-有可能电脑的快捷键
+00:01:33,650 --> 00:01:38,124
+and that basically executes the Markdown and turns it back
+这实际上把Markdown当作了代码执行
 
 36
-00:01:20,793 --> 00:01:23,841
-for cell runs cell might be different than shift enter but
-去运行cell代码块会不同
+00:01:38,124 --> 00:01:40,697
+to this nice looking code.
+也就变成了正常的文字
 
 37
-00:01:24,058 --> 00:01:27,943
-on both my Mac as well as on my PC,
-在Mac或者PC电脑上
+00:01:40,697 --> 00:01:44,501
+Just a couple more tips, when you execute code like this,
+再提示几点 这些你所执行的代码
 
 38
-00:01:27,943 --> 00:01:30,271
-a shift enter so might be the same for you as well.
-不过shift + enter功能应该是一样的
+00:01:44,501 --> 00:01:48,141
+it actually runs on a kernel,
+实际上是运行在一个内核(kernel)中的
 
 39
-00:01:30,485 --> 00:01:33,650
-Now, when you're reading the instructions if you know,
-当你正在阅读指南时候
+00:01:48,141 --> 00:01:51,104
+or a piece of code that runs on a server,
+也就是在某台服务器上运行的一段代码
 
 40
-00:01:33,650 --> 00:01:35,298
-accidentally double click on it,
-不小心双击了它
+00:01:51,104 --> 00:01:53,076
+If it's running an excessively large job,
+如果这个内核的运算量非常大的话
 
 41
-00:01:35,298 --> 00:01:38,124
-you might end up with this markdown language.
-语言框会进行收缩
+00:01:55,477 --> 00:01:57,868
+or if you leave the computer for a very long time,
+或者你离开电脑很长时间
 
 42
-00:01:38,124 --> 00:01:40,697
-If you end up with this funny looking text,
-如果你收缩了这文本框
+00:01:57,768 --> 00:02:00,975
+or something goes wrong, your internet connection or something,
+或者出了什么意外 譬如你断网了之类的
 
 43
-00:01:40,697 --> 00:01:44,501
-to convert it back to the nice looking text just run the cell.
-去执行收缩了的文本框单元
+00:02:00,975 --> 00:02:03,175
+there is a small chance that the kernel in the back end may die,
+会有小机率导致这些在后端运行的内核意外终止
 
 44
-00:01:44,501 --> 00:01:48,141
-So click on the cell runs cell or I'm going to hit shift enter
-点击cell菜单的runs cell或者使用shift + enter
+00:02:03,175 --> 00:02:04,875
+in which case just click Kernel,
+这种情况下 只要点击 Kernel
 
 45
-00:01:48,141 --> 00:01:51,104
-and that basically executes the markdown
-会执行收缩的文本框
+00:02:04,875 --> 00:02:09,475
+and then Restart Kernel and hopefully, that will reboot the kernel
+然后再点 Restart Kernel 这样应该就能重启内核
 
 46
-00:01:51,104 --> 00:01:53,076
-and turns it back into this nice looking code.
-他会变回原来易读的代码
+00:02:09,475 --> 00:02:11,952
+and make it work again. That shouldn't happen
+并将它恢复了 这种情形不应该发生在
 
 47
-00:01:53,174 --> 00:01:55,477
-Just a couple of more tips,
-更多小技巧
+00:02:11,952 --> 00:02:14,735
+if you're just running relatively small jobs and
+你运行的运算任务都很小的情况下
 
 48
-00:01:55,477 --> 00:01:57,768
-when you execute code like this,
-当你像这样执行代码
+00:02:14,735 --> 00:02:17,599
+just starting up your iPython notebook,
+或是你的 notebook 才刚刚开启的情况下
 
 49
-00:01:57,768 --> 00:02:03,175
-it actually runs on a kernel
-它实际会运行在内核
+00:02:17,599 --> 00:02:19,178
+if you see an error message that
+不过如果你看到了错误消息
 
 50
-00:02:03,175 --> 00:02:04,875
-on a piece of code that runs on the server.
-在服务器上运行一段代码
+00:02:19,178 --> 00:02:21,571
+the kernel has died or something, you can try
+说内核终止或之类的情况
 
 51
-00:02:04,875 --> 00:02:09,475
-If you're running an excessively large job or if you're,
-如果你正在运行超负荷的进程或者
+00:02:21,571 --> 00:02:24,667
+Kernel, Restart. Finally, in an iPython
+你可以试着重启内核 最后的一点提示是
 
 52
-00:02:09,475 --> 00:02:11,952
-you leave a computer for a very long
-电脑运行了很长一段时间
+00:02:24,667 --> 00:02:27,486
+notebook like this, there may be multiple
+在像这样的 iPython notebook 中 可能会
 
 53
-00:02:11,952 --> 00:02:13,318
-time or something goes wrong,
-运行中出了错
+00:02:27,486 --> 00:02:30,665
+blocks of code, so even if an earlier block of code
+有很多的代码框 而有的靠前的代码框中
 
 54
-00:02:13,318 --> 00:02:14,199
-your internet connection is off,
-你的网络连接失败
+00:02:30,665 --> 00:02:32,788
+doesn't have any graded code,
+可能没有任何会需要打分的代码
 
 55
-00:02:14,199 --> 00:02:16,049
-there is a small chance of the kernel
-这里仍有机会
+00:02:32,788 --> 00:02:34,263
+be sure to execute this block of code
+但也务必执行它们
 
 56
-00:02:16,049 --> 00:02:17,599
-on the back end might die,
-让kernel恢复到出错状态
+00:02:34,263 --> 00:02:36,519
+because in this example,
+因为在这个例子中
 
 57
-00:02:17,599 --> 00:02:19,178
-which is just click kernel.
-点击kernel
+00:02:36,680 --> 00:02:39,769
+it imports numpy as np and so on,
+这个代码把 numpy 程序库导入为了 np
 
 58
-00:02:19,178 --> 00:02:21,571
-And then restart kernel and hopefully
-选择restart
+00:02:39,769 --> 00:02:41,951
+and sets some variables you'll need
+还设定了一些你之后需要的变量
 
 59
-00:02:21,571 --> 00:02:24,667
-that will reboot the kernel and make it work again.
-他会重新运行kernel使程序继续工作
+00:02:41,951 --> 00:02:45,062
+in order to execute the lower-down blocks of code.
+有了这些变量你才能执行接下来的代码
 
 60
-00:02:24,667 --> 00:02:27,486
-So that shouldn't happen if you're just running
-这种情况不会发生 如果你运行
+00:02:45,062 --> 00:02:47,155
+So be sure to execute the ones on top,
+所以请务必执行前面的代码
 
 61
-00:02:27,486 --> 00:02:29,033
-relatively small jobs and you're
-相对较小的任务
+00:02:47,155 --> 00:02:50,472
+even if you aren't asked to write any code in them.
+哪怕你没有被要求在其中写任何代码也要如此
 
 62
-00:02:29,033 --> 00:02:30,665
-just starting up your ipad or notebook.
-当正在启动你的ipad或者notebook的时候
+00:02:50,472 --> 00:02:53,589
+And finally when you're done implementing your solutions
+当你最终把解法实现完成时
 
 63
-00:02:30,665 --> 00:02:32,788
-But if you see an error message
-如果你看见错误信息
+00:02:53,589 --> 00:02:55,370
+there's this blue submit assignment button
+这里有一个蓝色的提交作业按钮
 
 64
-00:02:32,788 --> 00:02:34,263
-that the kernel has died or something,
-比如kernel已经中断或者其他信息
+00:02:55,370 --> 00:02:58,396
+here on the right, and we click that, and
+位于界面右侧 只需点一下它
 
 65
-00:02:34,263 --> 00:02:36,519
-you can try kernel restart.
-你可以试着重启kernel
+00:02:58,396 --> 00:03:01,151
+we'll submit your solutions for grading.
+你的解答就会被提交并评分
 
 66
-00:02:36,680 --> 00:02:39,769
-Finally, and I apply to ipython notebook like this
-最后，当我使用ipython notebook
+00:03:01,151 --> 00:03:04,462
+I found that the interactive
+我发现由于iPython notebook
 
 67
-00:02:39,769 --> 00:02:41,951
-there may be multiple blocks of code.
-都会有多个代码区域块
+00:03:04,462 --> 00:03:07,258
+command shell nature of iPython notebooks
+本质上是一个交互式命令外壳(shell)
 
 68
-00:02:41,951 --> 00:02:45,062
-So, even if an earlier block of code
-尽管前面的代码块
+00:03:07,258 --> 00:03:10,097
+is very useful for letting you quickly implement
+因此它对于快速实现代码非常有用
 
 69
-00:02:45,062 --> 00:02:47,155
-doesn't have any grading code,
-没有任何级别或层次的代码
+00:03:10,097 --> 00:03:12,588
+a few lines of code, see an outcome,
+你可以写几行代码 就立即观察到结果
 
 70
-00:02:47,155 --> 00:02:49,068
-be sure to execute this block of code
-请确保先执行这块代码
+00:03:12,588 --> 00:03:14,745
+learn to iterate very quickly, and so I hope that
+也可以学习快速迭代 所以我希望
 
 71
-00:02:49,068 --> 00:02:50,472
-because in this example,
-因为在这个例子
+00:03:14,745 --> 00:03:19,549
+the programming exercises in the Coursera Jupyter iPython notebooks
+Coursera上的Jupyter iPython notebook编程作业
 
 72
-00:02:50,472 --> 00:02:53,589
-it imposed numpy as np and so on.
-它导入了numpy包并别名为np等
+00:03:19,549 --> 00:03:22,369
+will help you to quickly learn, experiment and see
+能够帮助你快速学习 尝试 并且理解
 
 73
-00:02:53,589 --> 00:02:55,370
-And said so some of the variables that you might
-并声明了一些你需要的变量
+00:03:22,369 --> 00:03:24,632
+how to implement these learning algorithms.
+如何实现这些深度学习算法
 
 74
-00:02:55,370 --> 00:02:58,396
-need in order to execute the lowdown
-去执行下面的部分
+00:03:24,632 --> 00:03:27,489
+There's one more video after this that's an optional video,
+在这个可选视频之后还有一个视频
 
 75
-00:02:58,396 --> 00:03:01,151
-on blocks of code so be sure to execute the ones on top
-所以确保先执行上面代码
+00:03:27,489 --> 00:03:30,627
+that talks about the cost function of Logistic regression,
+它讨论的内容是逻辑回归中的代价函数
 
 76
-00:03:01,151 --> 00:03:04,462
-even if you aren't asked to write any code in them.
-即使不要求你去写其他的代码
+00:03:30,782 --> 00:03:34,505
+you can watch that or not, either way is perfectly fine,
+你看或不看都可以 都完全没有关系
 
 77
-00:03:04,462 --> 00:03:07,258
-And finally, when you're done implementing
-最后，当你完成作业
+00:03:34,505 --> 00:03:36,119
+but either way, best of luck with the
+但无论如何 都祝你好运
 
 78
-00:03:07,258 --> 00:03:10,097
-your solutions as this blue submit assignment button
-这里有蓝色的submit assignment按钮
+00:03:36,119 --> 00:03:38,284
+week 2 programming assignments
+祝你顺利完成第二周的编程作业
 
 79
-00:03:10,097 --> 00:03:12,588
-here on the right and we click that
-在右上方，点击它
+00:03:38,284 --> 00:03:40,335
+and I also look forward to seeing you
+我也很期待能够
 
 80
-00:03:12,588 --> 00:03:14,745
-it will submit your solutions for grading.
-便会提交你的作业
-
-81
-00:03:14,745 --> 00:03:19,549
-I found out the interactive command shell nature
-我发现这种交互式的shell命令
-
-82
-00:03:19,549 --> 00:03:22,369
-of ipython notebooks to be very useful
-在ipython notebook是非常有用的
-
-83
-00:03:22,369 --> 00:03:24,632
-for letting you quickly implement a few lines of code,
-能使你快速用代码实现
-
-84
-00:03:24,632 --> 00:03:27,489
-see an outcome, learn it very quickly.
-并且查看输出结果，便于学习
-
-85
-00:03:27,489 --> 00:03:30,627
-And so I hope that the approach exercises and
-所以我希望通过练习
-
-86
-00:03:30,782 --> 00:03:34,505
-Coursera in Jupyter ipython notebooks will help you quickly
-在Jupyter ipython notebooks会帮助你
-
-87
-00:03:34,505 --> 00:03:36,119
-learn and experiment and see
-学习和实验
-
-88
-00:03:36,119 --> 00:03:38,284
-how to implement these learning algorithms.
-去执行神经网络算法
-
-89
-00:03:38,284 --> 00:03:40,335
-There's one more video after this.
-在后面一个视频
-
-90
 00:03:40,335 --> 00:03:42,203
-This is an optional video that
-是一个选学视频
-
-91
-00:03:42,203 --> 00:03:45,164
-talks about the cost function for logistic regression.
-讲解逻辑回归中的代价函数
-
-92
-00:03:45,164 --> 00:03:46,562
-You can watch that or not,
-你可以选择的看
-
-
-93
-00:03:46,562 --> 00:03:47,664
-either way is perfectly fine.
-无论什么方式都可以
-
-94
-00:03:47,664 --> 00:03:48,724
-But either way,
-不管哪种情况
-
-95
-00:03:48,724 --> 00:03:52,310
-best of luck with the week two programing assignments.
-祝愿你们通过两次的编程作业
-
-96
-00:03:52,310 --> 00:03:54,664
-And I also look forward to seeing you
-我会在新一周的课程里
-
-97
-00:03:54,664 --> 00:03:56,886
-at the start of the week. The materials.
-等待着你
+at the start of the week 3 materials.
+在第三周的课程开始时再次见到你
 
